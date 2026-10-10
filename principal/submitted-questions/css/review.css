@@ -626,6 +626,10 @@
 
     align-items: flex-start;
   }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 600px) {

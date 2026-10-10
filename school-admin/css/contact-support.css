@@ -65,6 +65,9 @@ BACK NAVIGATION
 }
 
 .back-link {
+  /* 24px-tall tap target; vertical padding on an inline link does not shift layout */
+  padding: 2.5px 0;
+
   font-size: 15px;
 
   font-weight: 600;

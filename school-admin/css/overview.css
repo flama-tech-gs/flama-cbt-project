@@ -894,7 +894,11 @@ PORTAL URL CARD
 
   text-decoration: none;
 
-  margin-left: 10px;
+  /* 24x24 tap target around the 15px icon; negative margins keep the
+     original footprint (15px icon, 10px left gap) */
+  padding: 4.5px;
+
+  margin: -4.5px -4.5px -4.5px 5.5px;
 }
 
 .portal-link__url svg {

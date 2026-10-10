@@ -92,150 +92,190 @@
 
           <!-- REPORT GRID -->
           <div class="report-grid">
-            <!-- SUBJECT AREA -->
-            <div class="subjects-column">
-              <div class="subjects-header">Subjects:</div>
-
-              <div class="subject-row">• Computer Studies / ICT</div>
-              <div class="subject-row">• Further Mathematics</div>
-              <div class="subject-row">• Basic Science and Technology</div>
-              <div class="subject-row">• Physical and Health Education</div>
-              <div class="subject-row">• Entrepreneurship Education</div>
-              <div class="subject-row">• English Language</div>
-              <div class="subject-row">• Mathematics</div>
-              <div class="subject-row">• Biology</div>
-              <div class="subject-row">• Social Studies</div>
-              <div class="subject-row">• Home Economics</div>
-              <div class="subject-row">• Business Studies</div>
-              <div class="subject-row">• Religious Studies</div>
-              <div class="subject-row">• Basic Technology</div>
-              <div class="subject-row">• Security Education</div>
-              <div class="subject-row">• Civic Education</div>
-              <div class="subject-row">• Fine Art</div>
-              <div class="subject-row">• Yoruba</div>
-              <div class="subject-row">• Music</div>
-              <div class="subject-row">• Literature</div>
-
-              <div class="subject-row total-label">TOTAL</div>
-            </div>
-
-            <!-- SCORES -->
-            <div class="scores-section">
-              <!-- HEADERS -->
-              <div class="score-top-header">
-                <div class="header-group">
-                  <h4>Test</h4>
-
-                  <div class="mini-headings">
-                    <span>OBJ</span>
-                    <span>Theory</span>
-                  </div>
-                </div>
-
-                <div class="header-group">
-                  <h4>Exam</h4>
-
-                  <div class="mini-headings">
-                    <span>OBJ</span>
-                    <span>Theory</span>
-                  </div>
-                </div>
-
-                <div class="header-total">Total</div>
-              </div>
-
-              <!-- SCORE ROWS -->
-              <div class="score-rows">
-                <!-- Repeat -->
-                <div class="score-row">
-                  <span>25</span>
-                  <span class="cream">15</span>
-                  <span>40</span>
-                  <span class="cream">20</span>
-                  <span class="green-score">100</span>
-                </div>
-
-                <div class="score-row">
-                  <span>25</span>
-                  <span class="cream">15</span>
-                  <span>40</span>
-                  <span class="cream">20</span>
-                  <span class="green-score">100</span>
-                </div>
-
-                <div class="score-row">
-                  <span>25</span>
-                  <span class="cream">15</span>
-                  <span>40</span>
-                  <span class="cream">20</span>
-                  <span class="green-score">100</span>
-                </div>
-
-                <div class="score-row">
-                  <span>25</span>
-                  <span class="cream">15</span>
-                  <span>40</span>
-                  <span class="cream">20</span>
-                  <span class="green-score">100</span>
-                </div>
-
-                <div class="score-row">
-                  <span>25</span>
-                  <span class="cream">15</span>
-                  <span>40</span>
-                  <span class="cream">20</span>
-                  <span class="green-score">100</span>
-                </div>
-
-                <div class="score-row">
-                  <span>25</span>
-                  <span class="cream">15</span>
-                  <span>40</span>
-                  <span class="cream">20</span>
-                  <span class="green-score">100</span>
-                </div>
-
-                <div class="score-row">
-                  <span>25</span>
-                  <span class="cream">15</span>
-                  <span>40</span>
-                  <span class="cream">20</span>
-                  <span class="green-score">100</span>
-                </div>
-
-                <div class="score-row">
-                  <span>25</span>
-                  <span class="cream">15</span>
-                  <span>40</span>
-                  <span class="cream">20</span>
-                  <span class="green-score">100</span>
-                </div>
-
-                <div class="score-row">
-                  <span>25</span>
-                  <span class="cream">15</span>
-                  <span>40</span>
-                  <span class="cream">20</span>
-                  <span class="green-score">100</span>
-                </div>
-
-                <div class="score-row">
-                  <span>25</span>
-                  <span class="cream">15</span>
-                  <span>40</span>
-                  <span class="cream">20</span>
-                  <span class="green-score">100</span>
-                </div>
-
-                <!-- TOTAL -->
-                <div class="score-row total-row">
-                  <span>500</span>
-                  <span class="cream">300</span>
-                  <span>800</span>
-                  <span class="cream">400</span>
-                  <span class="green-score">2000</span>
-                </div>
-              </div>
+            <!-- SCORES: one row per subject; subject column pinned, scores scroll -->
+            <div class="score-table-wrap" role="region" aria-labelledby="scoreCaption" tabindex="0">
+              <table class="score-table">
+                <caption id="scoreCaption" class="sr-only">Third term scores by subject</caption>
+                <thead>
+                  <tr>
+                    <th scope="col" rowspan="2" class="subject-heading">Subjects:</th>
+                    <th scope="colgroup" colspan="2">Test</th>
+                    <th scope="colgroup" colspan="2">Exam</th>
+                    <th scope="col" rowspan="2" class="total-heading">Total</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">OBJ</th>
+                    <th scope="col">Theory</th>
+                    <th scope="col">OBJ</th>
+                    <th scope="col">Theory</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- No subject-linked scores in the source yet: every cell is "—" -->
+                  <tr>
+                    <th scope="row">Computer Studies / ICT</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Further Mathematics</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Basic Science and Technology</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Physical and Health Education</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Entrepreneurship Education</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">English Language</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Mathematics</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Biology</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Social Studies</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Home Economics</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Business Studies</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Religious Studies</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Basic Technology</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Security Education</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Civic Education</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Fine Art</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Yoruba</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Music</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Literature</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th scope="row">TOTAL</th>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                    <td><span aria-hidden="true">—</span><span class="sr-only">No score recorded</span></td>
+                  </tr>
+                </tfoot>
+              </table>
             </div>
 
             <!-- SIDE PANEL -->

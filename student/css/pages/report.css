@@ -73,6 +73,8 @@ body {
 
 .main-content {
   flex: 1;
+  /* allow shrinking below the score table's width; the table scrolls instead */
+  min-width: 0;
   padding: 20px 40px;
 }
 
@@ -291,106 +293,125 @@ td {
   margin-top: 40px;
 }
 
-.subjects-column {
-  width: 320px;
+/* SCORE TABLE: one row per subject, subject column pinned, scores scroll */
+.score-table-wrap {
+  /* positioned so the hidden (absolute) labels stay inside the scroll area */
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
 }
 
-.subjects-header {
+.score-table-wrap:focus-visible {
+  outline: 2px solid #2e7d32;
+  outline-offset: 2px;
+}
+
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.score-table th,
+.score-table td {
+  padding: 0 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Header rows */
+.score-table thead th {
+  color: #2e7d32;
+  font-weight: 600;
+  height: 40px;
+  vertical-align: bottom;
+}
+
+.score-table thead th[scope="colgroup"] {
+  font-size: 16px;
+  font-weight: bold;
+  height: auto;
+}
+
+.score-table .subject-heading {
   font-size: 36px;
   font-weight: bold;
-  color: #2e7d32;
-  margin-bottom: 20px;
+  text-align: left;
+  padding-left: 0;
+  padding-bottom: 20px;
 }
 
-.subject-row {
+.score-table .total-heading {
+  background: #2e7d32;
+  color: #fff;
+  font-weight: bold;
+  vertical-align: middle;
+  min-width: 70px;
+}
+
+/* Subject rows */
+.score-table tbody th,
+.score-table tbody td,
+.score-table tfoot th,
+.score-table tfoot td {
   height: 48px;
-  display: flex;
-  align-items: center;
+}
+
+.score-table tbody th,
+.score-table tfoot th {
+  width: 320px;
+  min-width: 200px; /* shrinks from 320px when space is tight */
+  padding-left: 0;
+  color: #333;
   font-size: 18px;
+  font-weight: normal;
+  text-align: left;
+  white-space: normal;
 }
 
-.total-label {
+.score-table tbody th::before {
+  /* non-breaking space keeps the bullet on the first word */
+  content: "\2022\00a0" / "";
+}
+
+.score-table tfoot th {
   font-weight: bold;
 }
 
-.scores-section {
-  flex: 1;
+/* Pinned subject column */
+.score-table thead tr:first-child th:first-child,
+.score-table tbody th,
+.score-table tfoot th {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: #fff;
 }
 
-.score-top-header {
-  max-width: 900px;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  gap: 30px;
-  margin-bottom: 8px;
-}
-
-.header-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.header-group h4 {
-  color: #2e7d32;
-  margin-bottom: 10px;
-}
-
-.mini-headings {
-  display: flex;
-  gap: 50px;
-}
-
-.mini-headings span {
-  font-weight: 600;
-  color: #2e7d32;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header-total {
-  width: 70px;
-  height: 40px;
-  background: #2e7d32;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-.score-rows {
-  display: flex;
-  flex-direction: column;
-}
-
-.score-row {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  height: 48px;
-  align-items: center;
-  text-align: center;
-}
-
-.cream {
+/* Column colours: Theory columns cream, Total column green */
+.score-table tbody td:nth-child(3),
+.score-table tbody td:nth-child(5),
+.score-table tfoot td:nth-child(3),
+.score-table tfoot td:nth-child(5) {
   background: #f3eee2;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.green-score {
+.score-table tbody td:nth-child(6),
+.score-table tfoot td:nth-child(6) {
   background: #2e7d32;
   color: #fff;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .side-panel {
@@ -442,9 +463,38 @@ td {
     flex-direction: column;
   }
 
-  .subjects-column,
+  .score-table-wrap,
   .side-panel {
     width: 100%;
+  }
+}
+
+/* Tablets: narrower pinned subject column */
+@media (max-width: 992px) {
+  .score-table tbody th,
+  .score-table tfoot th {
+    width: 200px;
+    min-width: 200px;
+  }
+}
+
+/* Phones: narrower pinned subject column so score columns stay visible */
+@media (max-width: 600px) {
+  .score-table .subject-heading {
+    font-size: 26px;
+  }
+
+  .score-table tbody th,
+  .score-table tfoot th {
+    width: 140px;
+    min-width: 140px;
+    font-size: 16px;
+    line-height: 1.25;
+    padding-right: 8px;
+  }
+
+  .score-table td {
+    padding: 0 10px;
   }
 }
 

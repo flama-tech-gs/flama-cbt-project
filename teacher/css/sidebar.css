@@ -207,11 +207,12 @@
     z-index: 1200;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
   }
 
+  /* Shadow only while open, so it doesn't bleed onto the page edge when hidden */
   .sidebar.show {
     transform: translateX(0);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
   }
 
   .nav-link:hover {

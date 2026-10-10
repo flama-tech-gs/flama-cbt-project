@@ -169,6 +169,7 @@
   backdrop-filter: blur(2px);
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: all 0.3s ease;
   z-index: 1100;
 }
@@ -176,6 +177,7 @@
 .sidebar-overlay.show {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 /* ==========================================
@@ -194,17 +196,25 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .menu-toggle {
     display: flex;
-  }
-
-  .topbar {
-    gap: 20px;
+    flex-shrink: 0;
   }
 
   .topbar-left {
     width: 100%;
+    min-width: 0;
+  }
+
+  .topbar-title {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    gap: 20px;
   }
 
   .topbar-title h1 {

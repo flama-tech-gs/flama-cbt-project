@@ -427,8 +427,11 @@
     overflow-x: auto;
   }
 
+  /* Fit all six columns instead of side-scrolling; label sizes unchanged */
   .bar-chart {
-    min-width: 520px;
+    min-width: 0;
+    column-gap: 10px;
+    padding: 21px 0 0;
   }
 
   .performing-schools-card {
@@ -437,5 +440,13 @@
 
   .performing-table {
     min-width: 760px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Match the Overview phone gutter: .dashboard-content already pads 15px */
+  .reports-page {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

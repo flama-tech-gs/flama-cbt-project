@@ -1213,8 +1213,17 @@ a {
     padding: 0;
   }
 
+  /* Visually hidden, but kept as the icon link's accessible name */
   .platform-nav-link span {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .sidebar-admin {
@@ -1315,6 +1324,40 @@ a {
 
   body.platform-menu-open .platform-sidebar {
     transform: translateX(0);
+  }
+
+  /* Drawer is full width again: undo the 850px icon-rail overrides */
+  .sidebar-brand {
+    justify-content: flex-start;
+    padding: 0 20px;
+  }
+
+  .brand-info {
+    display: block;
+  }
+
+  .platform-nav-link {
+    justify-content: flex-start;
+    padding: 0 13px;
+  }
+
+  .platform-nav-link span {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .sidebar-admin {
+    justify-content: flex-start;
+    padding: 12px 20px;
+  }
+
+  .admin-account {
+    display: flex;
   }
 
   .sidebar-overlay {

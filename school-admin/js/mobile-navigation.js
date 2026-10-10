@@ -38,4 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
   navigation.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeNavigation);
   });
+
+  // Reset the menu when the viewport grows past the mobile breakpoint.
+  window.matchMedia("(max-width: 640px)").addEventListener("change", (event) => {
+    if (!event.matches) closeNavigation();
+  });
 });

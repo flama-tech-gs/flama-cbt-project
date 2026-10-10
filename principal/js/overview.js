@@ -311,3 +311,8 @@ sidebar?.querySelectorAll("nav a").forEach((link) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeSidebar();
 });
+
+// Reset the drawer when the viewport grows back to desktop width.
+window.matchMedia("(max-width: 1024px)").addEventListener("change", (event) => {
+  if (!event.matches) closeSidebar();
+});

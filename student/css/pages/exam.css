@@ -405,3 +405,29 @@ body {
 .user-info {
   margin-left: 15px;
 }
+
+/* Phone topbar: brand + student on the first row, exam title full width below */
+@media (max-width: 600px) {
+  .topbar {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
+  /* Share the first row; long text wraps inside each half */
+  .brand,
+  .user-info {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .user-info {
+    justify-content: flex-end;
+    margin-right: 15px;
+  }
+
+  .exam-title {
+    order: 1;
+    flex-basis: 100%;
+    margin: 8px 15px 0;
+  }
+}

@@ -7,19 +7,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.querySelector(".sidebar");
   const overlay = document.getElementById("sidebarOverlay");
 
-  if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-      sidebar.classList.toggle("show");
-      overlay.classList.toggle("show");
-    });
+  function closeSidebar() {
+    sidebar?.classList.remove("show");
+    overlay?.classList.remove("show");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Open navigation");
   }
 
-  if (overlay) {
-    overlay.addEventListener("click", () => {
-      sidebar.classList.remove("show");
-      overlay.classList.remove("show");
-    });
-  }
+  menuToggle?.setAttribute("aria-expanded", "false");
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = sidebar.classList.toggle("show");
+
+    overlay?.classList.toggle("show", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation" : "Open navigation",
+    );
+  });
+
+  overlay?.addEventListener("click", closeSidebar);
+
+  sidebar?.querySelectorAll("nav a").forEach((link) => {
+    link.addEventListener("click", closeSidebar);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeSidebar();
+  });
+
+  // Reset the drawer when the viewport grows back to desktop width.
+  window.matchMedia("(max-width: 1024px)").addEventListener("change", (event) => {
+    if (!event.matches) closeSidebar();
+  });
 
   // ==========================
   // Dashboard Data

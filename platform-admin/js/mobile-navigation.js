@@ -30,4 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeMenu();
   });
+
+  // Reset the drawer when the viewport grows past the mobile breakpoint.
+  window.matchMedia("(max-width: 480px)").addEventListener("change", (event) => {
+    if (!event.matches) closeMenu();
+  });
 });

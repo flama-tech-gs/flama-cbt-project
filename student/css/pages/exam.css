@@ -9,14 +9,22 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* DOM order is timer, question, grid, submit (the phone reading/focus order).
+   Desktop places them in the original three columns with grid areas. */
 .exam-layout {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 250px;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "grid main timer"
+    "grid main submit";
+  column-gap: 20px;
   padding: 20px;
 }
 
 /* LEFT PANEL */
 .left-panel {
+  grid-area: grid;
   width: 220px;
 }
 
@@ -45,6 +53,7 @@ body {
 
 /* MAIN */
 .exam-main {
+  grid-area: main;
   flex: 1;
   text-align: center;
 }
@@ -121,8 +130,14 @@ body {
   border-radius: 6px;
 }
 
-/* RIGHT */
-.right-panel {
+/* RIGHT COLUMN: timer on top, submit below */
+.timer-panel {
+  grid-area: timer;
+  width: 250px;
+}
+
+.submit-panel {
+  grid-area: submit;
   width: 250px;
 }
 
@@ -154,22 +169,17 @@ body {
 
 /* MOBILE */
 @media (max-width: 900px) {
+  /* Single column in DOM order: timer, question, grid, submit */
   .exam-layout {
+    display: flex;
     flex-direction: column;
+    gap: 20px;
   }
 
   .left-panel,
-  .right-panel {
+  .timer-panel,
+  .submit-panel {
     width: 100%;
-  }
-
-  /* Stacked order: timer + Submit first, then the question, then the grid */
-  .right-panel {
-    order: -1;
-  }
-
-  .left-panel {
-    order: 1;
   }
 }
 

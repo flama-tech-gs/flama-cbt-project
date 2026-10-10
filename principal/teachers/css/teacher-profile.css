@@ -320,4 +320,7 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 40px 32px 40px;
+  /* Auto margins stop flex stretch; without this the 850px table widens the page
+     instead of scrolling inside .table-wrapper */
+  width: 100%;
 }

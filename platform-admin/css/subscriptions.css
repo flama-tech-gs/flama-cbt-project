@@ -959,3 +959,11 @@
     font-size: 12px;
   }
 }
+
+@media (max-width: 480px) {
+  /* Match the Overview phone gutter: .dashboard-content already pads 15px */
+  .billing-page {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

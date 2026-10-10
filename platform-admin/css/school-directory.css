@@ -638,3 +638,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  /* Match the Overview phone gutter: .dashboard-content already pads 15px */
+  .schools-page {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

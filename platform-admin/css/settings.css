@@ -628,3 +628,11 @@
 
   transform: translateY(0);
 }
+
+@media (max-width: 480px) {
+  /* Match the Overview phone gutter: .dashboard-content already pads 15px */
+  .settings-page {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

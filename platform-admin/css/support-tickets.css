@@ -493,3 +493,16 @@
     min-width: 1050px;
   }
 }
+
+@media (max-width: 480px) {
+  /* Match the Overview phone gutter: .dashboard-content already pads 15px */
+  .support-page {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ticket-search {
+    width: 100%;
+    max-width: none;
+  }
+}

@@ -116,6 +116,11 @@
   text-decoration: none;
 }
 
+/* 24px-tall tap target; vertical padding on an inline link does not shift layout */
+#forgotPasswordLink {
+  padding: 3.5px 0;
+}
+
 /* Button */
 .login-btn {
   padding: 14px;

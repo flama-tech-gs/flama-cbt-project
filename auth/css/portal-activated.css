@@ -1,0 +1,229 @@
+/* ==========================================
+   PORTAL ACTIVATED
+========================================== */
+
+.registration-wrapper {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   SUCCESS HEADER
+========================================== */
+
+.portal-success {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.success-icon {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-icon i {
+  font-size: 3.5rem;
+  color: #fff;
+}
+
+.success-title {
+  font-size: 1.75rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.success-description {
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+.success-description strong {
+  color: var(--text-color);
+}
+
+/* ==========================================
+   PORTAL URL CARD
+========================================== */
+
+.portal-url-card {
+  border: 2px solid #9ed49f;
+  margin-bottom: 2rem;
+}
+
+.portal-url-card h3 {
+  text-align: center;
+  color: #5e9b60;
+  margin-bottom: 1.5rem;
+}
+
+.portal-url {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--primary-light);
+  margin-bottom: 1.25rem;
+}
+
+.portal-url span {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.copy-btn {
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  min-width: 140px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.copy-btn:hover {
+  background: var(--primary-hover);
+}
+
+/* ==========================================
+   SHARE BUTTONS
+========================================== */
+
+.portal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  border: none;
+  padding: 0.9rem 1.25rem;
+  border-radius: 10px;
+  background: #eef7ee;
+  color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.action-btn:hover {
+  background: var(--primary-light);
+}
+
+/* ==========================================
+   NEXT STEPS
+========================================== */
+
+.next-steps {
+  margin-bottom: 2rem;
+}
+
+.next-steps h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.step-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: #f8faf8;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-content h4 {
+  margin-bottom: 0.35rem;
+  color: var(--text-color);
+}
+
+.step-content p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.registration-wrapper > .btn {
+  width: 100%;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .portal-url {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .copy-btn {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .step-item {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  .success-title {
+    font-size: 2rem;
+  }
+
+  .success-icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .success-icon i {
+    font-size: 2.8rem;
+  }
+
+  .portal-url span {
+    font-size: 0.95rem;
+  }
+
+  .action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

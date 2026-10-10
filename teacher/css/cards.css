@@ -1,0 +1,240 @@
+/* ==========================================
+   STATISTICS GRID
+========================================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+/* ==========================================
+   STAT CARD
+========================================== */
+
+.stat-card {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  cursor: default;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(46, 125, 50, 0.15);
+}
+
+/* Left Accent Bar */
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--primary);
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(46, 125, 50, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+}
+
+.stat-icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--primary);
+}
+
+/* ==========================================
+   NUMBER
+========================================== */
+
+.stat-card h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+/* ==========================================
+   LABEL
+========================================== */
+
+.stat-card p {
+  color: var(--text-light);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   VARIANTS
+========================================== */
+
+.stat-card.success::before {
+  background: #16a34a;
+}
+
+.stat-card.info::before {
+  background: #2563eb;
+}
+
+.stat-card.warning::before {
+  background: #f59e0b;
+}
+
+.stat-card.danger::before {
+  background: #dc2626;
+}
+
+/* Icon Colors */
+
+.success .stat-icon {
+  background: rgba(22, 163, 74, 0.08);
+}
+
+.success .stat-icon svg {
+  color: #16a34a;
+}
+
+.info .stat-icon {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.info .stat-icon svg {
+  color: #2563eb;
+}
+
+.warning .stat-icon {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.warning .stat-icon svg {
+  color: #f59e0b;
+}
+
+.danger .stat-icon {
+  background: rgba(220, 38, 38, 0.08);
+}
+
+.danger .stat-icon svg {
+  color: #dc2626;
+}
+
+/* ==========================================
+   TREND
+========================================== */
+
+.stat-trend {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stat-trend.up {
+  color: #16a34a;
+}
+
+.stat-trend.down {
+  color: #dc2626;
+}
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.stat-card.loading h2,
+.stat-card.loading p,
+.stat-card.loading .stat-icon {
+  background: #ececec;
+  color: transparent;
+  border-radius: 8px;
+}
+
+.stat-card.loading h2 {
+  width: 80px;
+  height: 34px;
+}
+
+.stat-card.loading p {
+  width: 120px;
+  height: 16px;
+  margin-top: 12px;
+}
+
+.stat-card.loading .stat-icon {
+  width: 56px;
+  height: 56px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .stat-card {
+    padding: 20px;
+  }
+
+  .stat-card h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 18px;
+  }
+
+  .stat-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .stat-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+}

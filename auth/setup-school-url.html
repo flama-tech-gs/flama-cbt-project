@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Create School URL | CBT School</title>
+
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+    <link rel="stylesheet" href="./css/register.css" />
+
+    <link rel="stylesheet" href="./css/setup-school-url.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="auth-layout">
+      <!-- Sidebar -->
+
+      <aside class="auth-sidebar">
+        <div class="sidebar-content">
+          <a href="../index.html" class="auth-logo">
+            <img src="./assets/Ellipse.png" alt="CBT School" />
+          </a>
+
+          <div class="sidebar-text">
+            <h1>Your School<br />Portal URL</h1>
+
+            <p>
+              Create a unique URL for your school. Your principal login page
+              will be available at this address.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Custom subdomain for your school</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Sent to your verified email</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Principal can share with teachers</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Accessible from any device</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Change anytime from dashboard</span>
+            </li>
+          </ul>
+
+          <div class="sidebar-footer">
+            <p>
+              Need help?
+
+              <a href="mailto:support@cbtschool.ng"> support@cbtschool.ng </a>
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main -->
+
+      <main class="auth-main">
+        <section class="registration-wrapper">
+          <header class="url-header">
+            <h2>Create Your School URL</h2>
+
+            <p>
+              Choose a unique web address for your school portal. This is where
+              your principal and staff will log in.
+            </p>
+          </header>
+
+          <div class="registration-card">
+            <form id="portalForm">
+              <div class="form-group">
+                <label>
+                  Choose your school subdomain
+                  <span>*</span>
+                </label>
+
+                <div class="url-input-group">
+                  <span class="url-prefix"> https:// </span>
+
+                  <input
+                    type="text"
+                    id="subdomain"
+                    name="subdomain"
+                    placeholder="mobayo-academic"
+                    autocomplete="off"
+                    required
+                  />
+
+                  <span class="url-suffix"> .cbtschool.ng </span>
+                </div>
+
+                <small class="url-status available" id="urlStatus">
+                  <i class="ri-check-line"></i>
+
+                  Available
+                </small>
+              </div>
+
+              <!-- Preview -->
+
+              <div class="url-preview">
+                <span class="preview-link" id="previewUrl">
+                  https://mobayo-academic.cbtschool.ng
+                </span>
+
+                <button type="button" class="copy-btn" id="copyUrl">
+                  <i class="ri-file-copy-line"></i>
+
+                  Copy
+                </button>
+              </div>
+
+              <!-- Guidelines -->
+
+              <div class="url-guidelines">
+                <h4>URL Guidelines</h4>
+
+                <ul class="guideline-list">
+                  <li>Use only lowercase letters, numbers and hyphens.</li>
+
+                  <li>Between 3 and 30 characters.</li>
+
+                  <li>Must be unique across all schools.</li>
+
+                  <li>Recommended: use your school's short name.</li>
+                </ul>
+              </div>
+
+              <!-- Notice -->
+
+              <div class="url-notice">
+                <i class="ri-information-line"></i>
+
+                <div>
+                  <strong>Your portal URL</strong>
+
+                  <p>
+                    Once confirmed, this becomes your school's official login
+                    address. You can change it later from your dashboard.
+                  </p>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Confirm & Activate School Portal
+
+                <i class="ri-arrow-right-line"></i>
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/setup-school-url.js"></script>
+  </body>
+</html>

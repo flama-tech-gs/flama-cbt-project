@@ -1,0 +1,252 @@
+/* ==========================================
+   SETUP SCHOOL URL
+========================================== */
+
+.registration-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.url-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.url-header h2 {
+  font-size: 1.625rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.url-header p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ==========================================
+   URL INPUT
+========================================== */
+
+.url-input-group {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: var(--primary-light);
+}
+
+.url-prefix,
+.url-suffix {
+  padding: 0 1.5rem;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ddf1dd;
+  color: var(--primary-color);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.url-input {
+  flex: 1;
+  height: 58px;
+  border: none;
+  background: transparent;
+  padding: 0 1rem;
+  color: var(--primary-color);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.url-input:focus {
+  outline: none;
+}
+
+.url-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.url-status.available {
+  color: var(--primary-color);
+}
+
+.url-status.unavailable {
+  color: var(--danger-color);
+}
+
+/* ==========================================
+   URL PREVIEW
+========================================== */
+
+.url-preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.75rem 0;
+  border: 1px solid #a8d5a8;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f3fcf3;
+}
+
+.preview-link {
+  flex: 1;
+  padding: 1.1rem 1.25rem;
+  color: var(--primary-color);
+  font-size: 1.05rem;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.copy-btn {
+  border: none;
+  height: 100%;
+  min-width: 120px;
+  padding: 1rem 1.5rem;
+  background: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.copy-btn:hover {
+  background: var(--primary-hover);
+}
+
+/* ==========================================
+   GUIDELINES
+========================================== */
+
+.url-guidelines {
+  background: #eaf7ea;
+  padding: 1.5rem;
+  border-radius: 14px;
+  margin-bottom: 1.75rem;
+}
+
+.url-guidelines h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.guideline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: var(--text-light);
+}
+
+.guideline-list li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.guideline-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* ==========================================
+   NOTICE
+========================================== */
+
+.url-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #f2cf73;
+  background: #fff8e6;
+  border-radius: 14px;
+  margin-bottom: 2rem;
+}
+
+.url-notice i {
+  font-size: 1.3rem;
+  color: #c48a00;
+}
+
+.url-notice strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #6a4a00;
+}
+
+.url-notice p {
+  color: #856b2b;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.registration-card .btn {
+  width: 100%;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .url-input-group {
+    flex-wrap: wrap;
+  }
+
+  .url-prefix,
+  .url-suffix {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .url-input {
+    width: 100%;
+  }
+
+  .url-preview {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .copy-btn {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .url-header h2 {
+    font-size: 2rem;
+  }
+
+  .url-guidelines,
+  .url-notice {
+    padding: 1.25rem;
+  }
+
+  .preview-link {
+    font-size: 0.95rem;
+  }
+}

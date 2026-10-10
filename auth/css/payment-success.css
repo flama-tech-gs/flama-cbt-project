@@ -1,0 +1,161 @@
+/* ==========================================
+   PAYMENT SUCCESS
+========================================== */
+
+.registration-wrapper {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   SUCCESS HEADER
+========================================== */
+
+.success-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.success-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-icon i {
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+.success-title {
+  font-size: 1.875rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.success-description {
+  color: var(--text-light);
+  line-height: 1.8;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.success-description strong {
+  color: var(--text-color);
+}
+
+/* ==========================================
+   PAYMENT SUMMARY
+========================================== */
+
+.payment-summary {
+  margin-bottom: 2rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-label {
+  color: #8a9ab2;
+}
+
+.summary-value {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.summary-value.amount {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.summary-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.summary-status i {
+  font-size: 1.1rem;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.registration-wrapper > .btn {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+   SKIP LINK
+========================================== */
+
+.skip-link {
+  display: block;
+  text-align: center;
+  color: #73a474;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.skip-link:hover {
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .success-title {
+    font-size: 2.2rem;
+  }
+
+  .summary-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .success-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .success-icon i {
+    font-size: 2.2rem;
+  }
+
+  .success-title {
+    font-size: 1.9rem;
+  }
+
+  .success-description {
+    font-size: 0.95rem;
+  }
+
+  .summary-row {
+    padding: 1rem 0;
+  }
+}

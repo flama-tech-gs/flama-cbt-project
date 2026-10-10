@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Teacher Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/cards.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <!-- <link rel="stylesheet" href="../css/classes.css" /> -->
+
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/sidebar.css" />
+    <link rel="stylesheet" href="../css/table.css" />
+    <link rel="stylesheet" href="../css/topbar.css" />
+
+    <!-- <link rel="stylesheet" href="./css/upload.css" />
+    <link rel="stylesheet" href="./css/uploaded-questions.css" />
+
+    <link rel="stylesheet" href="./css/submitted-questions.css" />
+
+    <link rel="stylesheet" href="./css/question-bank.css" />
+
+    <link rel="stylesheet" href="./css/edit-question.css" /> -->
+
+    <link rel="stylesheet" href="./css/notifications.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="../assets/logo.png" alt="School Logo" />
+
+            <div>
+              <h2>Mobayo Academic</h2>
+
+              <p>...Knowledge, Discipline, Excellence...</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav>
+            <a href="../overview.html" class="nav-link">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Overview</span>
+            </a>
+
+            <a href="../classes.html" class="nav-link">
+              <i data-lucide="users"></i>
+
+              <span>Classes & Students</span>
+            </a>
+
+            <a href="../upload-question/upload.html" class="nav-link">
+              <i data-lucide="upload"></i>
+
+              <span>Upload Questions</span>
+            </a>
+
+            <a
+              href="../upload-question/uploaded-questions.html"
+              class="nav-link"
+            >
+              <i data-lucide="files"></i>
+
+              <span>Uploaded Questions</span>
+            </a>
+
+            <a
+              href="../submitted-question/submitted-questions.html"
+              class="nav-link"
+            >
+              <i data-lucide="clipboard-check"></i>
+
+              <span>Submitted Questions</span>
+            </a>
+
+            <a
+              href="./notifications.html"
+              class="nav-link notification-link active"
+            >
+              <i data-lucide="bell"></i>
+
+              <span>Notifications</span>
+
+              <span class="badge"> 2 </span>
+            </a>
+
+            <a href="../student-scores/student-scores.html" class="nav-link">
+              <i data-lucide="bar-chart-3"></i>
+
+              <span>Student Scores</span>
+            </a>
+
+            <a href="../theory/theory.html" class="nav-link">
+              <i data-lucide="book-open"></i>
+
+              <span>Theory</span>
+            </a>
+
+            <a href="../recorded-theory/recorded-theory.html" class="nav-link">
+              <i data-lucide="file-text"></i>
+
+              <span>Recorded Theory</span>
+            </a>
+
+            <a href="../profile/profile.html" class="nav-link">
+              <i data-lucide="user-circle"></i>
+
+              <span>Profile</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Logout -->
+
+        <button class="logout-btn">
+          <i data-lucide="log-out"></i>
+
+          Logout
+        </button>
+      </aside>
+
+      <!-- overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+
+      <main class="main-content">
+        <!-- ==========================================
+TOPBAR
+========================================== -->
+
+        <header class="topbar">
+          <div class="topbar-left">
+            <div class="topbar-title">
+              <h1>Notifications</h1>
+
+              <p>
+                Updates and feedback from the school administrator on your
+                submissions.
+              </p>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="teacher-profile">
+              <img src="../assets/image.png" alt="Teacher" />
+
+              <div>
+                <h3>Mrs. Adebayo Folake</h3>
+
+                <p>Biology Teacher</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-container">
+          <!-- ==========================================
+NOTIFICATIONS
+========================================== -->
+
+          <section class="notifications-list" id="notificationsList"></section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/notifications.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

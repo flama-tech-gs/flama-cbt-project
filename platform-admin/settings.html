@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Platform Settings</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/settings.css" />
+  </head>
+
+  <body>
+    <div class="platform-layout">
+      <!-- ==========================================
+         SIDEBAR
+    ========================================== -->
+
+      <aside class="platform-sidebar" id="platformSidebar">
+        <div class="sidebar-brand">
+          <div class="brand-logo">C</div>
+
+          <div class="brand-info">
+            <h2>CBT School</h2>
+
+            <p>Super Admin</p>
+          </div>
+        </div>
+
+        <nav class="platform-navigation">
+          <a href="./index.html" class="platform-nav-link">
+            <i data-lucide="house"></i>
+
+            <span>Dashboard</span>
+          </a>
+
+          <a href="school-directory.html" class="platform-nav-link">
+            <i data-lucide="school"></i>
+
+            <span>Schools</span>
+          </a>
+
+          <a href="./subscriptions.html" class="platform-nav-link">
+            <i data-lucide="credit-card"></i>
+
+            <span>Subscriptions &amp; Billing</span>
+          </a>
+
+          <a href="./support-tickets.html" class="platform-nav-link">
+            <i data-lucide="ticket"></i>
+
+            <span>Support Tickets</span>
+          </a>
+
+          <a href="./reports.html" class="platform-nav-link">
+            <i data-lucide="bar-chart-3"></i>
+
+            <span>Reports</span>
+          </a>
+
+          <a href="./settings.html" class="platform-nav-link active">
+            <i data-lucide="settings"></i>
+
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-admin">
+          <div class="admin-avatar">SA</div>
+
+          <div class="admin-account">
+            <strong>Super Admin</strong>
+
+            <button type="button" class="logout-link">Log Out →</button>
+          </div>
+        </div>
+      </aside>
+
+      <button
+        class="sidebar-overlay"
+        type="button"
+        aria-label="Close navigation"
+        tabindex="-1"
+      ></button>
+
+      <!-- ==========================================
+         MAIN AREA
+    ========================================== -->
+
+      <main class="platform-main">
+        <!-- ======================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="platform-topbar">
+          <button
+            type="button"
+            class="mobile-menu-toggle"
+            aria-label="Open navigation"
+            aria-controls="platformSidebar"
+            aria-expanded="false"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+
+          <div class="global-search">
+            <i data-lucide="search"></i>
+
+            <input
+              type="search"
+              placeholder="Search schools, tickets, transactions..."
+              aria-label="Search platform"
+            />
+          </div>
+
+          <div class="topbar-actions">
+            <button
+              type="button"
+              class="notification-button"
+              aria-label="Notifications"
+            >
+              <i data-lucide="bell"></i>
+
+              <span class="notification-dot"></span>
+            </button>
+
+            <div class="topbar-admin">
+              <div class="topbar-avatar">SA</div>
+
+              <div class="topbar-admin-info">
+                <strong>Super Admin</strong>
+
+                <span>Platform Team⌄</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ======================================
+             PAGE CONTENT
+        ====================================== -->
+
+        <div class="dashboard-content">
+          <!-- ==========================================
+             SETTINGS CONTENT
+        =========================================== -->
+
+          <section class="settings-page">
+            <!-- Page heading -->
+
+            <div class="settings-header">
+              <h1>Platform Settings</h1>
+
+              <p>
+                Manage platform configuration, notifications and admin access.
+              </p>
+            </div>
+
+            <!-- ==========================================
+               SETTINGS TOP GRID
+          =========================================== -->
+
+            <div class="settings-top-grid">
+              <!-- ======================================
+                 GENERAL SETTINGS
+            ======================================= -->
+
+              <section class="settings-card general-settings">
+                <div class="settings-card-heading">
+                  <h2>General Settings</h2>
+                </div>
+
+                <form id="generalSettingsForm">
+                  <!-- Platform name -->
+
+                  <div class="form-group full-width">
+                    <label for="platformName"> Platform Name </label>
+
+                    <input type="text" id="platformName" value="CBT School" />
+                  </div>
+
+                  <!-- Support -->
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="supportEmail"> Support Email </label>
+
+                      <input
+                        type="email"
+                        id="supportEmail"
+                        value="support@cbtschool.ng"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="supportPhone"> Support Phone </label>
+
+                      <input
+                        type="text"
+                        id="supportPhone"
+                        value="+234 801 234 5678"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Timezone / currency -->
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="timezone"> Default Timezone </label>
+
+                      <input
+                        type="text"
+                        id="timezone"
+                        value="Africa/Lagos (GMT+1)"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="currency"> Default Currency </label>
+
+                      <input type="text" id="currency" value="NGN (₦)" />
+                    </div>
+                  </div>
+
+                  <button type="submit" class="primary-btn">
+                    Save Changes
+                  </button>
+                </form>
+              </section>
+
+              <!-- ======================================
+                 NOTIFICATION PREFERENCES
+            ======================================= -->
+
+              <section class="settings-card notification-settings">
+                <div class="settings-card-heading">
+                  <h2>Notification Preferences</h2>
+                </div>
+
+                <!-- Notification 1 -->
+
+                <div class="notification-setting">
+                  <div>
+                    <strong>New School Signups</strong>
+
+                    <p>Email when a school completes registration</p>
+                  </div>
+
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      checked
+                      data-setting="school-signups"
+                    />
+
+                    <span class="slider"></span>
+                  </label>
+                </div>
+
+                <!-- Notification 2 -->
+
+                <div class="notification-setting">
+                  <div>
+                    <strong>High Priority Tickets</strong>
+
+                    <p>Instant alert for high priority support tickets</p>
+                  </div>
+
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      checked
+                      data-setting="priority-tickets"
+                    />
+
+                    <span class="slider"></span>
+                  </label>
+                </div>
+
+                <!-- Notification 3 -->
+
+                <div class="notification-setting">
+                  <div>
+                    <strong>Payment Failures</strong>
+
+                    <p>Alert when a school's payment fails</p>
+                  </div>
+
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      checked
+                      data-setting="payment-failures"
+                    />
+
+                    <span class="slider"></span>
+                  </label>
+                </div>
+
+                <!-- Notification 4 -->
+
+                <div class="notification-setting">
+                  <div>
+                    <strong>Weekly Summary Report</strong>
+
+                    <p>Digest email every Monday morning</p>
+                  </div>
+
+                  <label class="switch">
+                    <input type="checkbox" data-setting="weekly-summary" />
+
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </section>
+            </div>
+
+            <!-- ==========================================
+               ADMIN USERS
+          =========================================== -->
+
+            <section class="admin-users-card settings-card">
+              <div class="admin-users-header">
+                <div class="settings-card-heading">
+                  <h2>Admin Users</h2>
+                </div>
+
+                <button
+                  class="primary-btn invite-btn"
+                  type="button"
+                  id="inviteAdminBtn"
+                >
+                  + Invite Admin
+                </button>
+              </div>
+
+              <div class="admin-table-wrapper">
+                <table class="admin-users-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Role</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="user-name">
+                          <span class="user-avatar"> A </span>
+
+                          <strong> Adaeze Nwosu </strong>
+                        </div>
+                      </td>
+
+                      <td>adaeze@cbtschool.ng</td>
+
+                      <td>Super Admin</td>
+
+                      <td>
+                        <span class="status active"> Active </span>
+                      </td>
+
+                      <td>
+                        <div class="user-actions">
+                          <button class="edit-btn">Edit</button>
+
+                          <button class="remove-btn">Remove</button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <div class="user-name">
+                          <span class="user-avatar"> K </span>
+
+                          <strong> Kunle Bakare </strong>
+                        </div>
+                      </td>
+
+                      <td>kunle@cbtschool.ng</td>
+
+                      <td>Billing Admin</td>
+
+                      <td>
+                        <span class="status active"> Active </span>
+                      </td>
+
+                      <td>
+                        <div class="user-actions">
+                          <button class="edit-btn">Edit</button>
+
+                          <button class="remove-btn">Remove</button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <div class="user-name">
+                          <span class="user-avatar"> I </span>
+
+                          <strong> Ifeoma Chukwu </strong>
+                        </div>
+                      </td>
+
+                      <td>ifeoma@cbtschool.ng</td>
+
+                      <td>Support Lead</td>
+
+                      <td>
+                        <span class="status active"> Active </span>
+                      </td>
+
+                      <td>
+                        <div class="user-actions">
+                          <button class="edit-btn">Edit</button>
+
+                          <button class="remove-btn">Remove</button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <div class="user-name">
+                          <span class="user-avatar"> T </span>
+
+                          <strong> Tunde Ajayi </strong>
+                        </div>
+                      </td>
+
+                      <td>tunde@cbtschool.ng</td>
+
+                      <td>Support Agent</td>
+
+                      <td>
+                        <span class="status invited"> Invited </span>
+                      </td>
+
+                      <td>
+                        <div class="user-actions">
+                          <button class="edit-btn">Edit</button>
+
+                          <button class="remove-btn">Remove</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/settings.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

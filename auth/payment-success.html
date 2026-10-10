@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Payment Successful | CBT School</title>
+
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+    <link rel="stylesheet" href="./css/payment-success.css" />
+
+    <link rel="stylesheet" href="./css/register.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="auth-layout">
+      <!-- Sidebar -->
+
+      <aside class="auth-sidebar">
+        <div class="sidebar-content">
+          <a href="../index.html" class="auth-logo">
+            <img src="./assets/Ellipse.png" alt="CBT School" />
+          </a>
+
+          <div class="sidebar-text">
+            <h1>
+              Payment
+              <br />
+              Successful! 🎉
+            </h1>
+
+            <p>
+              Your subscription has been activated. Now set up your school's
+              unique portal URL.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>
+              <i class="ri-check-line"></i>
+              <span>Payment confirmed & receipt emailed</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i>
+              <span>Standard Plan activated</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i>
+              <span>Access begins immediately</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i>
+              <span>Valid until end of term</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i>
+              <span>Renew anytime from dashboard</span>
+            </li>
+          </ul>
+
+          <div class="sidebar-footer">
+            <p>
+              Need help?
+              <a href="mailto:support@cbtschool.ng"> support@cbtschool.ng </a>
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main -->
+
+      <main class="auth-main">
+        <section class="registration-wrapper">
+          <!-- Success -->
+
+          <div class="success-header">
+            <div class="success-icon">
+              <i class="ri-check-line"></i>
+            </div>
+
+            <h2 class="success-title">Payment Confirmed!</h2>
+
+            <p class="success-description">
+              Your payment of
+
+              <strong id="paidAmount"> ₦38,125 </strong>
+
+              was successful. A receipt has been sent to
+
+              <strong id="receiptEmail"> admin@mobayoacademic.edu.ng </strong>
+            </p>
+          </div>
+
+          <!-- Summary -->
+
+          <div class="registration-card payment-summary">
+            <div class="summary-row">
+              <span class="summary-label"> School </span>
+
+              <strong class="summary-value" id="schoolName">
+                Mobayo Academic School
+              </strong>
+            </div>
+
+            <div class="summary-row">
+              <span class="summary-label"> Plan </span>
+
+              <strong class="summary-value" id="planName"> Standard </strong>
+            </div>
+
+            <div class="summary-row">
+              <span class="summary-label"> Amount Paid </span>
+
+              <strong class="summary-value amount" id="amountPaid">
+                ₦38,125
+              </strong>
+            </div>
+
+            <div class="summary-row">
+              <span class="summary-label"> Transaction Ref </span>
+
+              <strong class="summary-value" id="transactionRef">
+                PAY-20260620-84732
+              </strong>
+            </div>
+
+            <div class="summary-row">
+              <span class="summary-label"> Date </span>
+
+              <strong class="summary-value" id="paymentDate">
+                June 20, 2026
+              </strong>
+            </div>
+
+            <div class="summary-row">
+              <span class="summary-label"> Status </span>
+
+              <strong class="summary-status">
+                <i class="ri-check-line"></i>
+
+                Payment Successful
+              </strong>
+            </div>
+          </div>
+
+          <!-- CTA -->
+
+          <a href="setup-school-url.html" class="btn btn-primary">
+            Set Up Your School URL
+
+            <i class="ri-arrow-right-line"></i>
+          </a>
+
+          <a href="../principal/dashboard.html" class="skip-link">
+            Skip for now — I'll set up the URL later from my dashboard
+          </a>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/payment-success.js"></script>
+  </body>
+</html>

@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Principal Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="stylesheet" href="./css/add-student.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="../assets/logo.png" alt="School Logo" />
+
+            <div>
+              <h2>Mobayo Academic</h2>
+
+              <p>...Knowledge, Discipline, Excellence...</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav>
+            <a href="../overview.html" class="nav-link">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Overview</span>
+            </a>
+
+            <a href="../data-analysis.html" class="nav-link">
+              <i data-lucide="database"></i>
+
+              <span>Data Analysis</span>
+            </a>
+
+            <a href="../exam-control/exam-control.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Exam Control</span>
+            </a>
+
+            <a href="../student-scores.html" class="nav-link">
+              <i data-lucide="podium"></i>
+
+              <span>Student Scores</span>
+            </a>
+
+            <a href="../student-reports/student-reports.html" class="nav-link">
+              <i data-lucide="clipboard-check"></i>
+
+              <span>Student Reports</span>
+            </a>
+
+            <a href="../theory.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Theory</span>
+            </a>
+
+            <a href="../broadcasts/broadcasts.html" class="nav-link">
+              <i data-lucide="megaphone"></i>
+
+              <span>Broadcasts</span>
+            </a>
+
+            <a href="./students.html" class="nav-link active">
+              <i data-lucide="person-standing"></i>
+
+              <span>Students</span>
+            </a>
+
+            <a href="../teachers/teachers.html" class="nav-link">
+              <i data-lucide="graduation-cap"></i>
+
+              <span>Teachers</span>
+            </a>
+
+            <a href="../departments/departments.html" class="nav-link">
+              <i data-lucide="building-2"></i>
+
+              <span>Departments</span>
+            </a>
+
+            <a
+              href="../submitted-questions/submitted-questions.html"
+              class="nav-link"
+            >
+              <i data-lucide="file-text"></i>
+
+              <span>Submitted Questions</span>
+            </a>
+
+            <a href="../profile.html" class="nav-link">
+              <i data-lucide="circle-user-round"></i>
+
+              <span>Profile</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Logout -->
+
+        <button class="logout-btn">
+          <i data-lucide="log-out"></i>
+
+          Logout
+        </button>
+      </aside>
+
+      <!-- overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+      <!-- For the main content of the page -->
+
+      <main class="main-content">
+        <!-- ==========================================
+TOPBAR
+========================================== -->
+
+        <header class="topbar">
+          <div class="topbar-left">
+            <div class="topbar-title">
+              <h1>Add New Student</h1>
+
+              <p>Enroll a new student and assign them to a class.</p>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="teacher-profile">
+              <img src="../assets/image.png" alt="Principal" />
+
+              <div>
+                <h3>Dr. Bankole Okonjo</h3>
+
+                <p>School Principal</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-container">
+          <!-- ==========================================
+BACK BUTTON
+========================================== -->
+
+          <div class="back-wrapper">
+            <a href="../students/students.html" class="back-btn">
+              <i data-lucide="arrow-left"></i>
+            </a>
+
+            <span>Back to Students</span>
+          </div>
+
+          <!-- ==========================================
+FORM
+========================================== -->
+
+          <form id="studentForm">
+            <!-- ==========================================
+    STUDENT INFORMATION
+    =========================================== -->
+
+            <section class="form-section">
+              <h3>Student Information</h3>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Surname</label>
+                  <input type="text" placeholder="e.g Adegbola" />
+                </div>
+
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input type="text" placeholder="e.g Abiodun" />
+                </div>
+
+                <div class="form-group">
+                  <label>Other Names</label>
+                  <input type="text" placeholder="e.g Odunyemi" />
+                </div>
+
+                <div class="form-group">
+                  <label>Date of Birth</label>
+                  <input type="date" />
+                </div>
+
+                <div class="form-group">
+                  <label>Gender</label>
+
+                  <select>
+                    <option>Select gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Admission Year</label>
+                  <input type="number" placeholder="e.g 2026" />
+                </div>
+
+                <div class="form-group two">
+                  <label>Parent / Guardian Phone Number</label>
+                  <input type="tel" placeholder="+2348012345678" />
+                </div>
+
+                <div class="form-group">
+                  <label>Department</label>
+
+                  <select>
+                    <option>Select department</option>
+
+                    <option>Science</option>
+
+                    <option>Commercial</option>
+
+                    <option>Arts</option>
+                  </select>
+                </div>
+
+                <div class="form-group full">
+                  <label>Home Address</label>
+
+                  <textarea
+                    placeholder="e.g 7, Olumo Street, Abeokuta, Ogun State"
+                  ></textarea>
+                </div>
+              </div>
+            </section>
+
+            <!-- ==========================================
+    CLASS ASSIGNMENT
+    =========================================== -->
+
+            <section class="form-section">
+              <h3>Class Assignment</h3>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Class</label>
+
+                  <select>
+                    <option>Select class</option>
+
+                    <option>JSS 1A</option>
+                    <option>JSS 1B</option>
+                    <option>JSS 2A</option>
+                    <option>JSS 2B</option>
+                    <option>JSS 3A</option>
+                    <option>JSS 3B</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Term</label>
+
+                  <select>
+                    <option>Select term</option>
+
+                    <option>1st Term</option>
+                    <option>2nd Term</option>
+                    <option>3rd Term</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Session</label>
+
+                  <input type="text" placeholder="e.g 2025/2026" />
+                </div>
+              </div>
+            </section>
+
+            <!-- ==========================================
+    LOGIN DETAILS
+    =========================================== -->
+
+            <section class="form-section">
+              <h3>Login Credentials</h3>
+
+              <div class="login-card">
+                <p>
+                  An access code and password will be generated automatically
+                  once the student account is created. Share these credentials
+                  with the student or parent after registration.
+                </p>
+
+                <div class="credential-grid">
+                  <div class="credential-item">
+                    <small>Access Code (Auto-generated)</small>
+
+                    <h4>JS/58/2026</h4>
+                  </div>
+
+                  <div class="credential-item">
+                    <small>Default Password (Auto-generated)</small>
+
+                    <h4>Adegbola@2026</h4>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ==========================================
+    ACTION BUTTONS
+    =========================================== -->
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">
+                Create Student Account
+              </button>
+
+              <button type="button" class="btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <!-- ==========================================
+STUDENT CREATED SUCCESS MODAL
+========================================== -->
+
+    <div class="modal-overlay" id="successModal">
+      <div class="success-modal">
+        <div class="success-icon">
+          <i data-lucide="check"></i>
+        </div>
+
+        <h2>Student Account Created!</h2>
+
+        <p>
+          The student has been successfully enrolled. Share the login
+          credentials below with the student or parent.
+        </p>
+
+        <div class="credential-box">
+          <div class="credential-row">
+            <span>Student</span>
+
+            <strong>Adegbola Abiodun Odunyemi</strong>
+          </div>
+
+          <div class="credential-row">
+            <span>Class</span>
+
+            <strong>JSS 1A</strong>
+          </div>
+
+          <div class="credential-row">
+            <span>Access Code</span>
+
+            <strong id="generatedCode">JS/58/2026</strong>
+          </div>
+
+          <div class="credential-row">
+            <span>Password</span>
+
+            <strong id="generatedPassword">Adegbola@2026</strong>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn-primary">Copy Credentials</button>
+
+          <button class="btn-secondary">Print Slip</button>
+        </div>
+
+        <button class="btn-success">Back to Students</button>
+      </div>
+    </div>
+
+    <script src="./js/add-student.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

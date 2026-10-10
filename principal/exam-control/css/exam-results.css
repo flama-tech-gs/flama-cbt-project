@@ -1,0 +1,273 @@
+/* ==========================================
+PAGE HEADER
+========================================== */
+
+.page-header h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 0.35rem;
+}
+
+.page-header p {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+BACK BUTTON
+========================================== */
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+
+  margin-bottom: 2rem;
+}
+
+.back-btn i {
+  width: 22px;
+  height: 22px;
+
+  background: var(--primary);
+  color: #fff;
+
+  padding: 0.9rem;
+  border-radius: 12px;
+}
+
+/* ==========================================
+STATS
+========================================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 1.25rem;
+
+  margin-bottom: 1.8rem;
+}
+
+.stat-card {
+  background: #fff;
+
+  border-radius: 18px;
+
+  padding: 1.5rem;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card h2 {
+  font-size: 2.2rem;
+  color: var(--primary);
+
+  margin-bottom: 0.4rem;
+}
+
+.stat-card.orange h2 {
+  color: #f59e0b;
+}
+
+.stat-card.blue h2 {
+  color: #2563eb;
+}
+
+.stat-card.red h2 {
+  color: #dc2626;
+}
+
+.stat-card p {
+  color: #666;
+}
+
+/* ==========================================
+EXAM INFO
+========================================== */
+
+.exam-info {
+  background: #ecf9ea;
+
+  border-radius: 16px;
+
+  padding: 1rem 1.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 1.5rem;
+
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* ==========================================
+DOWNLOAD BUTTON
+========================================== */
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  height: 48px;
+
+  padding: 0 1.5rem;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.download-btn i {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================
+TABLE
+========================================== */
+
+.table-card {
+  background: #fff;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-sm);
+}
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+thead {
+  background: var(--primary);
+}
+
+thead th {
+  color: #fff;
+
+  padding: 1.2rem;
+
+  text-align: left;
+
+  font-size: 0.95rem;
+}
+
+tbody td {
+  padding: 1.2rem;
+
+  border-bottom: 1px solid #ececec;
+
+  color: #444;
+}
+
+tbody tr:nth-child(even) {
+  background: #fbfff9;
+}
+
+/* ==========================================
+STATUS
+========================================== */
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 82px;
+
+  padding: 0.45rem 0.9rem;
+
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+}
+
+.status.pass {
+  background: #ddf4d9;
+
+  color: #2e7d32;
+}
+
+.status.warning {
+  background: #fff4db;
+
+  color: #f59e0b;
+}
+
+.status.fail {
+  background: #fde8e8;
+
+  color: #dc2626;
+}
+
+.status.absent {
+  background: #efefef;
+
+  color: #666;
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .exam-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .download-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .table-card {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 900px;
+  }
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

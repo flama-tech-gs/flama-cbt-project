@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Principal Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="stylesheet" href="./css/profile.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="../assets/logo.png" alt="School Logo" />
+
+            <div>
+              <h2>Mobayo Academic</h2>
+
+              <p>...Knowledge, Discipline, Excellence...</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav>
+            <a href="../overview.html" class="nav-link">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Overview</span>
+            </a>
+
+            <a href="../data-analysis.html" class="nav-link">
+              <i data-lucide="database"></i>
+
+              <span>Data Analysis</span>
+            </a>
+
+            <a href="../exam-control/exam-control.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Exam Control</span>
+            </a>
+
+            <a href="../student-scores.html" class="nav-link">
+              <i data-lucide="podium"></i>
+
+              <span>Student Scores</span>
+            </a>
+
+            <a href="../student-reports/student-reports.html" class="nav-link">
+              <i data-lucide="clipboard-check"></i>
+
+              <span>Student Reports</span>
+            </a>
+
+            <a href="../theory.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Theory</span>
+            </a>
+
+            <a href="../broadcasts/broadcasts.html" class="nav-link">
+              <i data-lucide="megaphone"></i>
+
+              <span>Broadcasts</span>
+            </a>
+
+            <a href="../students/students.html" class="nav-link">
+              <i data-lucide="person-standing"></i>
+
+              <span>Students</span>
+            </a>
+
+            <a href="./teachers.html" class="nav-link active">
+              <i data-lucide="graduation-cap"></i>
+
+              <span>Teachers</span>
+            </a>
+
+            <a href="../departments/departments.html" class="nav-link">
+              <i data-lucide="building-2"></i>
+
+              <span>Departments</span>
+            </a>
+
+            <a
+              href="../submitted-questions/submitted-questions.html"
+              class="nav-link"
+            >
+              <i data-lucide="file-text"></i>
+
+              <span>Submitted Questions</span>
+            </a>
+
+            <a href="../profile.html" class="nav-link">
+              <i data-lucide="circle-user-round"></i>
+
+              <span>Profile</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Logout -->
+
+        <button class="logout-btn">
+          <i data-lucide="log-out"></i>
+
+          Logout
+        </button>
+      </aside>
+
+      <!-- overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+      <!-- For the main content of the page -->
+
+      <main class="main-content">
+        <!-- ==========================================
+    PAGE HEADER
+    ========================================== -->
+
+        <header class="profile-topbar">
+          <div class="profile-heading">
+            <h1>Teacher Profile</h1>
+
+            <p>
+              Full details, classes, and performance overview for this teacher.
+            </p>
+          </div>
+
+          <div class="principal-profile">
+            <div class="principal-avatar">
+              <img src="./assets/images/principal.jpg" alt="Principal" />
+
+              <span class="status-dot"></span>
+            </div>
+
+            <div class="principal-info">
+              <h4>Dr. Bankole Okonjo</h4>
+
+              <p>School Principal</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-container">
+          <!-- ==========================================
+    BACK BUTTON
+    ========================================== -->
+
+          <div class="back-wrapper">
+            <a href="./teachers.html" class="back-btn">
+              <i data-lucide="arrow-left"></i>
+            </a>
+
+            <span>Back to Teachers</span>
+          </div>
+
+          <!-- ==========================================
+    PROFILE CARD
+    ========================================== -->
+
+          <section class="teacher-profile-card">
+            <div class="teacher-image">
+              <img src="../assets/teacher.png" alt="Teacher" />
+            </div>
+
+            <div class="teacher-information">
+              <div class="profile-row first-row">
+                <h4>Full Name:</h4>
+
+                <div class="row-value">
+                  <span>Adebayo Folake Mojisola</span>
+
+                  <span class="active-pill">
+                    <span></span>
+
+                    Active
+                  </span>
+                </div>
+              </div>
+
+              <div class="profile-row">
+                <h4>Staff ID:</h4>
+
+                <p>TCH/2025/014</p>
+              </div>
+
+              <div class="profile-row">
+                <h4>Department:</h4>
+
+                <p>Science Department</p>
+              </div>
+
+              <div class="profile-row">
+                <h4>Subjects Taught:</h4>
+
+                <p>Biology, Basic Science & Technology</p>
+              </div>
+
+              <div class="profile-row">
+                <h4>Phone Number:</h4>
+
+                <p>+2348023456789</p>
+              </div>
+
+              <div class="profile-row">
+                <h4>Qualification:</h4>
+
+                <p>B.Sc Biology Education (Hons), NCE</p>
+              </div>
+
+              <div class="profile-row">
+                <h4>Address:</h4>
+
+                <p>12, Adeola Crescent, Abeokuta, Ogun State.</p>
+              </div>
+
+              <div class="profile-row">
+                <h4>Date Employed:</h4>
+
+                <p>September 2022</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================
+    PERFORMANCE SUMMARY
+    ========================================== -->
+
+          <section class="performance-summary">
+            <h2>Performance Summary</h2>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <h3>191</h3>
+
+                <p>Total Students</p>
+              </div>
+
+              <div class="stat-card">
+                <h3>6</h3>
+
+                <p>Classes Assigned</p>
+              </div>
+
+              <div class="stat-card">
+                <h3>8</h3>
+
+                <p>Exams Submitted</p>
+              </div>
+
+              <div class="stat-card warning">
+                <h3>1</h3>
+
+                <p>Pending Approval</p>
+              </div>
+
+              <div class="stat-card">
+                <h3>76%</h3>
+
+                <p>Avg. Student Score</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================
+    TABLE
+    ========================================== -->
+
+          <section class="teacher-table">
+            <h2>Classes & Subjects Assigned</h2>
+
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Class</th>
+
+                    <th>Subject</th>
+
+                    <th>No. of Students</th>
+
+                    <th>Term</th>
+
+                    <th>Session</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>JSS 1A</td>
+
+                    <td>Biology</td>
+
+                    <td>30</td>
+
+                    <td>2nd Term</td>
+
+                    <td>2025/2026</td>
+                  </tr>
+
+                  <tr>
+                    <td>JSS 1B</td>
+
+                    <td>Biology</td>
+
+                    <td>28</td>
+
+                    <td>2nd Term</td>
+
+                    <td>2025/2026</td>
+                  </tr>
+
+                  <tr>
+                    <td>JSS 2A</td>
+
+                    <td>Biology</td>
+
+                    <td>33</td>
+
+                    <td>2nd Term</td>
+
+                    <td>2025/2026</td>
+                  </tr>
+
+                  <tr>
+                    <td>JSS 2B</td>
+
+                    <td>Biology</td>
+
+                    <td>31</td>
+
+                    <td>2nd Term</td>
+
+                    <td>2025/2026</td>
+                  </tr>
+
+                  <tr>
+                    <td>JSS 3A</td>
+
+                    <td>Biology</td>
+
+                    <td>34</td>
+
+                    <td>2nd Term</td>
+
+                    <td>2025/2026</td>
+                  </tr>
+
+                  <tr>
+                    <td>JSS 3B</td>
+
+                    <td>Biology, Basic Science & Tech</td>
+
+                    <td>35</td>
+
+                    <td>2nd Term</td>
+
+                    <td>2025/2026</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- ==========================================
+    ACCOUNT MANAGEMENT
+    ========================================== -->
+
+          <section class="account-management">
+            <h2>Account Management</h2>
+
+            <div class="account-buttons">
+              <button class="btn btn-outline-green">Reset Access Code</button>
+
+              <button class="btn btn-outline-green">Change Password</button>
+
+              <button class="btn btn-outline-red">Pause Account</button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/profile.c/"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

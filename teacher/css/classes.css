@@ -1,0 +1,126 @@
+/* ==========================================
+CLASS TABS
+========================================== */
+
+.class-tabs {
+  display: flex;
+
+  gap: 12px;
+
+  margin: 30px 0;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+}
+
+.class-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.class-tab {
+  min-width: 120px;
+
+  padding: 14px 24px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #ececec;
+
+  color: #666;
+
+  font-weight: 600;
+
+  transition: 0.25s;
+
+  white-space: nowrap;
+}
+
+.class-tab:hover {
+  background: #ddd;
+}
+
+.class-tab.active {
+  background: var(--primary);
+
+  color: #fff;
+}
+
+/* ==========================================
+CLASS INFO
+========================================== */
+
+.class-info {
+  margin-bottom: 30px;
+}
+
+.class-info h2 {
+  color: var(--primary);
+
+  margin-bottom: 10px;
+
+  font-size: 1.6rem;
+}
+
+.class-info p {
+  color: var(--text-light);
+}
+
+/* ==========================================
+ACCESS BADGE
+========================================== */
+
+.access-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 8px 14px;
+
+  border-radius: 8px;
+
+  background: #dff4df;
+
+  color: var(--primary);
+
+  font-weight: 600;
+
+  font-size: 14px;
+}
+
+/* ==========================================
+PROFILE BUTTON
+========================================== */
+
+.profile-btn {
+  color: var(--primary);
+
+  font-weight: 600;
+
+  transition: 0.25s;
+}
+
+.profile-btn:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .class-tab {
+    min-width: 100px;
+  }
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

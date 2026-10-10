@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Dashboard | Overview</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="./css/overview.css" />
+    <link rel="stylesheet" href="./css/edit-school-details.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__left">
+        <a href="#" class="school-brand">
+          <div class="school-brand__logo"></div>
+
+          <div class="school-brand__content">
+            <h2>Mobayo Academic School</h2>
+            <span>mobayo-academic.cbtschool.ng</span>
+          </div>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-controls="schoolNavigation"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="top-navigation" id="schoolNavigation">
+          <a href="./index.html" class="nav-link active"> Overview </a>
+
+          <a href="./account-settings.html" class="nav-link">
+            Account Settings
+          </a>
+
+          <a href="./subscription.html" class="nav-link"> Subscription </a>
+
+          <a href="./principal-account.html" class="nav-link">
+            Principal Account
+          </a>
+
+          <a href="./support.html" class="nav-link"> Support </a>
+        </nav>
+      </div>
+
+      <div class="topbar__right">
+        <div class="subscription-pill">
+          <i data-lucide="clock-3"></i>
+
+          <span>Expires Aug 20, 2026</span>
+        </div>
+
+        <button class="account-dropdown" type="button" aria-expanded="false">
+          <div class="account-avatar"></div>
+
+          <div class="account-info">
+            <strong>Mobayo Academic</strong>
+
+            <span>School Account</span>
+          </div>
+
+          <i data-lucide="chevron-down"></i>
+        </button>
+
+        <div class="account-menu" role="menu">
+          <button class="account-menu__logout" type="button" role="menuitem">
+            <i data-lucide="log-out"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <!-- ===================================== -->
+      <!-- BACK NAVIGATION -->
+      <!-- ===================================== -->
+
+      <section class="page-back">
+        <a
+          href="overview.html"
+          class="back-button"
+          aria-label="Back to Account Settings"
+        >
+          <i data-lucide="arrow-left"></i>
+        </a>
+
+        <a href="overview.html" class="back-link"> Back to Account Settings </a>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- PAGE HEADER -->
+      <!-- ===================================== -->
+
+      <section class="page-title">
+        <h1>Edit School Details</h1>
+
+        <p>
+          Update your school information. Changes are applied immediately across
+          the platform.
+        </p>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- FORM CARD -->
+      <!-- ===================================== -->
+
+      <section class="dashboard-card settings-card">
+        <!-- SCHOOL IDENTITY -->
+
+        <div class="form-section">
+          <h2 class="section-title">SCHOOL IDENTITY</h2>
+
+          <div class="section-divider"></div>
+
+          <div class="form-grid">
+            <!-- School Name -->
+
+            <div class="form-group">
+              <label for="schoolName"> School Full Name <span>*</span> </label>
+
+              <input
+                type="text"
+                id="schoolName"
+                name="schoolName"
+                value="Mobayo Academic School"
+                required
+              />
+            </div>
+
+            <!-- School Type -->
+
+            <div class="form-group">
+              <label for="schoolType"> School Type <span>*</span> </label>
+
+              <select id="schoolType" name="schoolType" required>
+                <option selected>Secondary School</option>
+
+                <option>Primary School</option>
+
+                <option>Nursery School</option>
+              </select>
+            </div>
+
+            <!-- RC -->
+
+            <div class="form-group">
+              <label for="rcNumber"> RC / Reg. Number <span>*</span> </label>
+
+              <input
+                type="text"
+                id="rcNumber"
+                name="rcNumber"
+                value="RC-1234567"
+              />
+            </div>
+
+            <!-- Year -->
+
+            <div class="form-group">
+              <label for="yearFounded"> Year Founded </label>
+
+              <input
+                type="number"
+                id="yearFounded"
+                name="yearFounded"
+                value="2005"
+              />
+            </div>
+          </div>
+
+          <!-- ADDRESS -->
+
+          <div class="form-group full-width">
+            <label for="schoolAddress"> School Address <span>*</span> </label>
+
+            <input
+              type="text"
+              id="schoolAddress"
+              name="schoolAddress"
+              value="12 Mobayo Street, Abeokuta, Ogun State"
+            />
+          </div>
+
+          <!-- STATE/LGA -->
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="state"> State <span>*</span> </label>
+
+              <select id="state" name="state">
+                <option selected>Ogun State</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="lga"> LGA <span>*</span> </label>
+
+              <select id="lga" name="lga">
+                <option selected>Abeokuta South</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIVIDER -->
+
+        <div class="section-divider large"></div>
+
+        <!-- ===================================== -->
+        <!-- CONTACT INFORMATION -->
+        <!-- ===================================== -->
+
+        <div class="form-section">
+          <h2 class="section-title">CONTACT INFORMATION</h2>
+
+          <div class="section-divider"></div>
+
+          <div class="form-grid">
+            <!-- PHONE -->
+
+            <div class="form-group">
+              <label for="schoolPhone"> School Phone <span>*</span> </label>
+
+              <input
+                type="tel"
+                id="schoolPhone"
+                name="schoolPhone"
+                value="+234 801 234 5678"
+                required
+              />
+            </div>
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+              <label for="officialEmail"> Official Email <span>*</span> </label>
+
+              <input
+                type="email"
+                id="officialEmail"
+                name="officialEmail"
+                value="admin@mobayoacademic.edu.ng"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- WEBSITE -->
+
+          <div class="form-group full-width">
+            <label for="website"> School Website </label>
+
+            <input
+              type="url"
+              id="website"
+              name="website"
+              placeholder="www.mobayoacademic.edu.ng"
+              value="www.mobayoacademic.edu.ng"
+            />
+          </div>
+        </div>
+
+        <!-- ===================================== -->
+        <!-- ACTION BUTTONS -->
+        <!-- ===================================== -->
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="history.back()"
+          >
+            Cancel
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script src="./js/overview.js"></script>
+    <script src="./js/edit-school-details.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,642 @@
+/* ======================================================
+   CREATE DEPARTMENT PAGE
+====================================================== */
+
+.main-content {
+  padding: 32px 36px 50px;
+  background: #fff;
+}
+
+/* ==========================================
+   PAGE HEADER
+========================================== */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.page-title h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 6px;
+}
+
+.page-title p {
+  color: #78a771;
+  font-size: 1rem;
+}
+
+/* ==========================================
+   PRINCIPAL PROFILE
+========================================== */
+
+.principal-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.principal-avatar {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.principal-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.online-dot {
+  position: absolute;
+  right: 2px;
+  bottom: 3px;
+
+  width: 10px;
+  height: 10px;
+
+  background: #2e7d32;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.principal-details h4 {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+
+.principal-details p {
+  font-size: 0.85rem;
+  color: #b7b7b7;
+}
+
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+.back-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.back-btn {
+  width: 54px;
+  height: 54px;
+
+  background: #2e7d32;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.back-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.back-wrapper span {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+.department-form {
+  max-width: 980px;
+}
+
+.section-title {
+  color: #2e7d32;
+  font-size: 1.7rem;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  color: #6ea566;
+  font-size: 1.45rem;
+  margin-bottom: 10px;
+}
+
+.form-group label span {
+  color: #8c8c8c;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  height: 54px;
+
+  background: #eef8ea;
+
+  border: none;
+
+  border-radius: 12px;
+
+  padding: 0 18px;
+
+  font-size: 1rem;
+
+  color: #333;
+
+  outline: none;
+}
+
+.form-group textarea {
+  height: 86px;
+
+  resize: none;
+
+  padding-top: 16px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #bcd2b7;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 55px;
+}
+
+.select-wrapper svg {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #2e7d32;
+}
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+.search-box {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.search-box input {
+  width: 100%;
+  height: 54px;
+
+  border: 1px solid #dcdcdc;
+
+  border-radius: 12px;
+
+  padding-left: 50px;
+
+  background: #fff;
+}
+
+.search-box svg {
+  position: absolute;
+
+  left: 18px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #909090;
+}
+
+/* ==========================================
+   SELECTED TEACHERS
+========================================== */
+
+.selected-wrapper {
+  margin-bottom: 18px;
+}
+
+.selected-wrapper p {
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.selected-list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.teacher-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 14px;
+
+  border-radius: 999px;
+
+  background: #eaf7e4;
+
+  color: #2e7d32;
+
+  font-weight: 500;
+}
+
+.teacher-chip button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  display: flex;
+  cursor: pointer;
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.table-wrapper {
+  border: 1px solid #e8e8e8;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  margin-bottom: 28px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #fafafa;
+}
+
+thead th {
+  padding: 18px;
+
+  text-align: left;
+
+  font-weight: 600;
+
+  color: #5b5b5b;
+
+  font-size: 0.95rem;
+}
+
+tbody td {
+  padding: 20px 18px;
+
+  border-top: 1px solid #efefef;
+
+  color: #444;
+}
+
+tbody tr:nth-child(1),
+tbody tr:nth-child(2) {
+  background: #fcfff9;
+}
+
+tbody input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #2e7d32;
+  cursor: pointer;
+}
+
+.status-success {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.form-actions {
+  display: flex;
+
+  gap: 18px;
+}
+
+.btn {
+  height: 54px;
+
+  padding: 0 28px;
+
+  border-radius: 12px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #2e7d32;
+
+  border: none;
+
+  color: #fff;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.btn-primary:hover {
+  background: #27692a;
+}
+
+.btn-secondary {
+  background: #fff;
+
+  border: 1px solid #d8d8d8;
+
+  color: #444;
+}
+
+.btn-secondary:hover {
+  background: #f7f7f7;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 992px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 24px 18px 40px;
+  }
+
+  .back-wrapper {
+    gap: 12px;
+  }
+
+  .teacher-chip {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* ==========================================
+   SUCCESS MODAL
+========================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: 0.3s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+/* ==========================================
+   MODAL
+========================================== */
+
+.success-modal {
+  width: 100%;
+  max-width: 560px;
+
+  background: #fff;
+
+  border-radius: 24px;
+
+  padding: 46px 40px 36px;
+
+  text-align: center;
+
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+
+  transform: scale(0.95);
+
+  transition: 0.3s ease;
+}
+
+.modal-overlay.show .success-modal {
+  transform: scale(1);
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.success-icon {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 26px;
+}
+
+.success-circle {
+  width: 72px;
+  height: 72px;
+
+  border-radius: 50%;
+
+  background: #eaf7e4;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-circle svg {
+  width: 34px;
+  height: 34px;
+
+  stroke-width: 3;
+
+  color: #2e7d32;
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.success-modal h2 {
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  color: #232323;
+
+  margin-bottom: 18px;
+}
+
+.success-modal p {
+  max-width: 390px;
+
+  margin: 0 auto 34px;
+
+  line-height: 1.6;
+
+  color: #6d6d6d;
+
+  font-size: 1rem;
+}
+
+.success-modal strong {
+  color: #2e7d32;
+
+  font-weight: 600;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.modal-actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 16px;
+}
+
+.modal-actions .btn {
+  width: 200px;
+
+  height: 54px;
+
+  border-radius: 12px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.btn-success {
+  border: none;
+
+  background: #2e7d32;
+
+  color: #fff;
+}
+
+.btn-success:hover {
+  background: #25692b;
+}
+
+.btn-outline {
+  background: #fff;
+
+  border: 1px solid #dddddd;
+
+  color: #444;
+}
+
+.btn-outline:hover {
+  background: #f7f7f7;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 640px) {
+  .success-modal {
+    padding: 34px 24px;
+  }
+
+  .success-modal h2 {
+    font-size: 1.55rem;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .modal-actions .btn {
+    width: 100%;
+  }
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

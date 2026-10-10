@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Principal Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="stylesheet" href="./css/exam-control.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar" id="principalSidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="../assets/logo.png" alt="School Logo" />
+
+            <div>
+              <h2>Mobayo Academic</h2>
+
+              <p>...Knowledge, Discipline, Excellence...</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav>
+            <a href="../overview.html" class="nav-link">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Overview</span>
+            </a>
+
+            <a href="../data-analysis.html" class="nav-link">
+              <i data-lucide="database"></i>
+
+              <span>Data Analysis</span>
+            </a>
+
+            <a href="./exam-control.html" class="nav-link active">
+              <i data-lucide="book-check"></i>
+
+              <span>Exam Control</span>
+            </a>
+
+            <a href="../student-scores.html" class="nav-link">
+              <i data-lucide="podium"></i>
+
+              <span>Student Scores</span>
+            </a>
+
+            <a href="../student-reports/student-reports.html" class="nav-link">
+              <i data-lucide="clipboard-check"></i>
+
+              <span>Student Reports</span>
+            </a>
+
+            <a href="../theory.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Theory</span>
+            </a>
+
+            <a href="../broadcasts/broadcasts.html" class="nav-link">
+              <i data-lucide="megaphone"></i>
+
+              <span>Broadcasts</span>
+            </a>
+
+            <a href="../students/students.html" class="nav-link">
+              <i data-lucide="person-standing"></i>
+
+              <span>Students</span>
+            </a>
+
+            <a href="../teachers/teachers.html" class="nav-link">
+              <i data-lucide="graduation-cap"></i>
+
+              <span>Teachers</span>
+            </a>
+
+            <a href="../departments/departments.html" class="nav-link">
+              <i data-lucide="building-2"></i>
+
+              <span>Departments</span>
+            </a>
+
+            <a
+              href="../submitted-questions/submitted-questions.html"
+              class="nav-link"
+            >
+              <i data-lucide="file-text"></i>
+
+              <span>Submitted Questions</span>
+            </a>
+
+            <a href="../profile.html" class="nav-link">
+              <i data-lucide="circle-user-round"></i>
+
+              <span>Profile</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Logout -->
+
+        <button class="logout-btn">
+          <i data-lucide="log-out"></i>
+
+          Logout
+        </button>
+      </aside>
+
+      <!-- overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+      <!-- For the main content of the page -->
+
+      <main class="main-content">
+        <!-- ==========================================
+TOPBAR
+========================================== -->
+
+        <header class="topbar">
+          <div class="topbar-left">
+            <button
+              class="menu-toggle"
+              id="menuToggle"
+              type="button"
+              aria-label="Open navigation"
+              aria-controls="principalSidebar"
+              aria-expanded="false"
+            >
+              <i data-lucide="menu"></i>
+            </button>
+
+            <div class="topbar-title">
+              <h1>Exam Control</h1>
+
+              <p>
+                Push approved exams live, schedule them for later, or stop exams
+                in progress.
+              </p>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="teacher-profile">
+              <img src="../assets/image.png" alt="Principal" />
+
+              <div>
+                <h3>Dr. Bankole Okonjo</h3>
+
+                <p>School Principal</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-container">
+          <!-- ==========================================
+ACCORDIONS
+========================================== -->
+
+          <section id="examAccordion"></section>
+        </div>
+
+        <!-- ==========================================
+GO LIVE MODAL
+========================================== -->
+
+        <div class="modal-overlay" id="goLiveModal">
+          <div class="modal">
+            <div class="modal-icon warning">
+              <i data-lucide="play"></i>
+            </div>
+
+            <h2>Push this exam live?</h2>
+
+            <p>
+              Students in JSS 1A will immediately be able to access and begin
+              writing the Biology exam. This action cannot be undone once
+              students start submitting answers.
+            </p>
+
+            <div class="modal-summary">
+              <div>
+                <span>Subject</span>
+
+                <strong>Biology</strong>
+              </div>
+
+              <div>
+                <span>Class</span>
+
+                <strong>JSS 1A (30 students)</strong>
+              </div>
+
+              <div>
+                <span>Duration</span>
+
+                <strong>45 Minutes</strong>
+              </div>
+
+              <div>
+                <span>Questions</span>
+
+                <strong>40</strong>
+              </div>
+            </div>
+
+            <button class="modal-primary" id="confirmGoLive">
+              <i data-lucide="play"></i>
+
+              Yes, Go Live Now
+            </button>
+
+            <button class="modal-secondary" id="closeGoLive">Cancel</button>
+          </div>
+        </div>
+
+        <!-- ==========================================
+STOP EXAM MODAL
+========================================== -->
+
+        <div class="modal-overlay" id="stopExamModal">
+          <div class="modal">
+            <div class="modal-icon danger">
+              <i data-lucide="square"></i>
+            </div>
+
+            <h2>Stop this exam now?</h2>
+
+            <p>
+              Students currently writing this exam will be logged out and their
+              answers automatically submitted. Students who haven't started yet
+              will lose access. This cannot be undone.
+            </p>
+
+            <div class="modal-summary">
+              <div>
+                <span>Subject</span>
+
+                <strong>Mathematics</strong>
+              </div>
+
+              <div>
+                <span>Class</span>
+
+                <strong>JSS 2A</strong>
+              </div>
+
+              <div>
+                <span>Time Remaining</span>
+
+                <strong>18 Minutes</strong>
+              </div>
+
+              <div>
+                <span>Students In Progress</span>
+
+                <strong style="color: #dc2626"> 28 of 33 </strong>
+              </div>
+            </div>
+
+            <button class="modal-danger" id="confirmStopExam">
+              <i data-lucide="square"></i>
+
+              Yes, Stop Exam Now
+            </button>
+
+            <button class="modal-secondary" id="closeStopExam">
+              Cancel, Keep Exam Running
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/exam-control.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

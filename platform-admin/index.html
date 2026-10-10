@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Platform Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+  </head>
+
+  <body>
+    <div class="platform-layout">
+      <!-- ==========================================
+         SIDEBAR
+    ========================================== -->
+
+      <aside class="platform-sidebar" id="platformSidebar">
+        <div class="sidebar-brand">
+          <div class="brand-logo">C</div>
+
+          <div class="brand-info">
+            <h2>CBT School</h2>
+
+            <p>Super Admin</p>
+          </div>
+        </div>
+
+        <nav class="platform-navigation">
+          <a href="./index.html" class="platform-nav-link active">
+            <i data-lucide="house"></i>
+
+            <span>Dashboard</span>
+          </a>
+
+          <a href="school-directory.html" class="platform-nav-link">
+            <i data-lucide="school"></i>
+
+            <span>Schools</span>
+          </a>
+
+          <a href="./subscriptions.html" class="platform-nav-link">
+            <i data-lucide="credit-card"></i>
+
+            <span>Subscriptions &amp; Billing</span>
+          </a>
+
+          <a href="./support-tickets.html" class="platform-nav-link">
+            <i data-lucide="ticket"></i>
+
+            <span>Support Tickets</span>
+          </a>
+
+          <a href="./reports.html" class="platform-nav-link">
+            <i data-lucide="bar-chart-3"></i>
+
+            <span>Reports</span>
+          </a>
+
+          <a href="./settings.html" class="platform-nav-link">
+            <i data-lucide="settings"></i>
+
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-admin">
+          <div class="admin-avatar">SA</div>
+
+          <div class="admin-account">
+            <strong>Super Admin</strong>
+
+            <button type="button" class="logout-link">Log Out →</button>
+          </div>
+        </div>
+      </aside>
+
+      <button
+        class="sidebar-overlay"
+        type="button"
+        aria-label="Close navigation"
+        tabindex="-1"
+      ></button>
+
+      <!-- ==========================================
+         MAIN AREA
+    ========================================== -->
+
+      <main class="platform-main">
+        <!-- ======================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="platform-topbar">
+          <button
+            type="button"
+            class="mobile-menu-toggle"
+            aria-label="Open navigation"
+            aria-controls="platformSidebar"
+            aria-expanded="false"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+
+          <div class="global-search">
+            <i data-lucide="search"></i>
+
+            <input
+              type="search"
+              placeholder="Search schools, tickets, transactions..."
+              aria-label="Search platform"
+            />
+          </div>
+
+          <div class="topbar-actions">
+            <button
+              type="button"
+              class="notification-button"
+              aria-label="Notifications"
+            >
+              <i data-lucide="bell"></i>
+
+              <span class="notification-dot"></span>
+            </button>
+
+            <div class="topbar-admin">
+              <div class="topbar-avatar">SA</div>
+
+              <div class="topbar-admin-info">
+                <strong>Super Admin</strong>
+
+                <span>Platform Team⌄</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ======================================
+             PAGE CONTENT
+        ====================================== -->
+
+        <div class="dashboard-content">
+          <!-- ==================================
+                 PAGE INTRO
+            ================================== -->
+
+          <section class="dashboard-intro">
+            <h1>Good morning, Admin 👋</h1>
+
+            <p>Here's what's happening across the CBT School platform today.</p>
+          </section>
+
+          <!-- ==================================
+                 PLATFORM STATISTICS
+            ================================== -->
+
+          <section class="platform-stats" aria-label="Platform statistics">
+            <article class="platform-stat-card">
+              <div class="stat-card-top">
+                <span>Total Schools</span>
+
+                <div class="stat-icon">
+                  <i data-lucide="school"></i>
+                </div>
+              </div>
+
+              <h2>128</h2>
+
+              <p>+12 this term</p>
+            </article>
+
+            <article class="platform-stat-card">
+              <div class="stat-card-top">
+                <span>Active Subscriptions</span>
+
+                <div class="stat-icon">
+                  <i data-lucide="credit-card"></i>
+                </div>
+              </div>
+
+              <h2>112</h2>
+
+              <p>87% active rate</p>
+            </article>
+
+            <article class="platform-stat-card">
+              <div class="stat-card-top">
+                <span>Monthly Revenue</span>
+
+                <div class="stat-icon">
+                  <i data-lucide="banknote"></i>
+                </div>
+              </div>
+
+              <h2>₦4.82M</h2>
+
+              <p>+8.4% vs last month</p>
+            </article>
+
+            <article class="platform-stat-card">
+              <div class="stat-card-top">
+                <span>Open Tickets</span>
+
+                <div class="stat-icon">
+                  <i data-lucide="ticket"></i>
+                </div>
+              </div>
+
+              <h2>9</h2>
+
+              <p>3 high priority</p>
+            </article>
+          </section>
+
+          <!-- ==================================
+                 ANALYTICS ROW
+            ================================== -->
+
+          <section class="analytics-grid">
+            <!-- ==============================
+                     REVENUE OVERVIEW
+                =============================== -->
+
+            <article class="dashboard-panel revenue-panel">
+              <div class="panel-header">
+                <div>
+                  <h2>REVENUE OVERVIEW</h2>
+
+                  <p>Platform-wide collections, last 6 terms</p>
+                </div>
+              </div>
+
+              <div class="revenue-chart" id="revenueChart">
+                <div class="revenue-bar-group">
+                  <div class="revenue-bar">
+                    <span class="revenue-fill" style="height: 58%"></span>
+                  </div>
+
+                  <strong>₦3.1M</strong>
+
+                  <small>1st Tm 24/25</small>
+                </div>
+
+                <div class="revenue-bar-group">
+                  <div class="revenue-bar">
+                    <span class="revenue-fill" style="height: 65%"></span>
+                  </div>
+
+                  <strong>₦3.6M</strong>
+
+                  <small>2nd Tm 24/25</small>
+                </div>
+
+                <div class="revenue-bar-group">
+                  <div class="revenue-bar">
+                    <span class="revenue-fill" style="height: 61%"></span>
+                  </div>
+
+                  <strong>₦3.3M</strong>
+
+                  <small>3rd Tm 24/25</small>
+                </div>
+
+                <div class="revenue-bar-group">
+                  <div class="revenue-bar">
+                    <span class="revenue-fill" style="height: 72%"></span>
+                  </div>
+
+                  <strong>₦4M</strong>
+
+                  <small>1st Tm 25/26</small>
+                </div>
+
+                <div class="revenue-bar-group">
+                  <div class="revenue-bar">
+                    <span class="revenue-fill" style="height: 80%"></span>
+                  </div>
+
+                  <strong>₦4.4M</strong>
+
+                  <small>2nd Tm 25/26</small>
+                </div>
+
+                <div class="revenue-bar-group">
+                  <div class="revenue-bar">
+                    <span class="revenue-fill" style="height: 88%"></span>
+                  </div>
+
+                  <strong>₦4.82M</strong>
+
+                  <small>3rd Tm 25/26</small>
+                </div>
+              </div>
+            </article>
+
+            <!-- ==============================
+                     SCHOOLS BY PLAN
+                =============================== -->
+
+            <article class="dashboard-panel plans-panel">
+              <div class="panel-header">
+                <div>
+                  <h2>SCHOOLS BY PLAN</h2>
+
+                  <p>Distribution across 128 schools</p>
+                </div>
+              </div>
+
+              <div class="plan-list">
+                <div class="plan-item">
+                  <div class="plan-heading">
+                    <span class="plan-name">
+                      <i class="plan-dot starter"></i>
+
+                      Starter
+                    </span>
+
+                    <strong>38 schools</strong>
+                  </div>
+
+                  <div class="plan-progress">
+                    <span style="width: 30%"></span>
+                  </div>
+                </div>
+
+                <div class="plan-item">
+                  <div class="plan-heading">
+                    <span class="plan-name">
+                      <i class="plan-dot standard"></i>
+
+                      Standard
+                    </span>
+
+                    <strong>61 schools</strong>
+                  </div>
+
+                  <div class="plan-progress">
+                    <span style="width: 48%"></span>
+                  </div>
+                </div>
+
+                <div class="plan-item">
+                  <div class="plan-heading">
+                    <span class="plan-name">
+                      <i class="plan-dot premium"></i>
+
+                      Premium
+                    </span>
+
+                    <strong>29 schools</strong>
+                  </div>
+
+                  <div class="plan-progress">
+                    <span style="width: 23%"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="total-active-schools">
+                <span>Total Active Schools</span>
+
+                <strong>128</strong>
+              </div>
+            </article>
+          </section>
+
+          <!-- ==================================
+                 RECENT SCHOOLS
+            ================================== -->
+
+          <section class="dashboard-panel table-panel">
+            <div class="panel-header">
+              <div>
+                <h2>RECENT SCHOOLS</h2>
+              </div>
+
+              <a href="./schools.html" class="view-all"> View All → </a>
+            </div>
+
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>School</th>
+
+                    <th>Plan</th>
+
+                    <th>Students</th>
+
+                    <th>Status</th>
+
+                    <th>Joined</th>
+
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="recentSchoolsTable">
+                  <tr>
+                    <td>
+                      <div class="school-cell">
+                        <div class="school-avatar">M</div>
+
+                        <div>
+                          <strong> Mobayo Academic School </strong>
+
+                          <span> mobayo-academic.cbtschool.ng </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>Standard</td>
+
+                    <td>540</td>
+
+                    <td>
+                      <span class="status-badge active"> Active </span>
+                    </td>
+
+                    <td>Jun 12, 2026</td>
+
+                    <td>
+                      <div class="table-actions">
+                        <a href="./school-details.html" class="action-view">
+                          View
+                        </a>
+
+                        <button type="button" class="action-suspend">
+                          Suspend
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="school-cell">
+                        <div class="school-avatar">T</div>
+
+                        <div>
+                          <strong> Trinity High School </strong>
+
+                          <span> trinity-high.cbtschool.ng </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>Premium</td>
+
+                    <td>890</td>
+
+                    <td>
+                      <span class="status-badge active"> Active </span>
+                    </td>
+
+                    <td>May 30, 2026</td>
+
+                    <td>
+                      <div class="table-actions">
+                        <a href="./school-details.html" class="action-view">
+                          View
+                        </a>
+
+                        <button type="button" class="action-suspend">
+                          Suspend
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="school-cell">
+                        <div class="school-avatar">G</div>
+
+                        <div>
+                          <strong> Green Valley College </strong>
+
+                          <span> green-valley.cbtschool.ng </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>Starter</td>
+
+                    <td>210</td>
+
+                    <td>
+                      <span class="status-badge trial"> Trial </span>
+                    </td>
+
+                    <td>Jun 28, 2026</td>
+
+                    <td>
+                      <div class="table-actions">
+                        <a href="./school-details.html" class="action-view">
+                          View
+                        </a>
+
+                        <button type="button" class="action-suspend">
+                          Suspend
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="school-cell">
+                        <div class="school-avatar">S</div>
+
+                        <div>
+                          <strong> St. Augustine's Grammar </strong>
+
+                          <span> st-augustines.cbtschool.ng </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>Standard</td>
+
+                    <td>470</td>
+
+                    <td>
+                      <span class="status-badge active"> Active </span>
+                    </td>
+
+                    <td>Apr 15, 2026</td>
+
+                    <td>
+                      <div class="table-actions">
+                        <a href="./school-details.html" class="action-view">
+                          View
+                        </a>
+
+                        <button type="button" class="action-suspend">
+                          Suspend
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="school-cell">
+                        <div class="school-avatar">H</div>
+
+                        <div>
+                          <strong> Horizon Comprehensive </strong>
+
+                          <span> horizon-comp.cbtschool.ng </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>Standard</td>
+
+                    <td>615</td>
+
+                    <td>
+                      <span class="status-badge suspended"> Suspended </span>
+                    </td>
+
+                    <td>Mar 02, 2026</td>
+
+                    <td>
+                      <div class="table-actions">
+                        <a href="./school-details.html" class="action-view">
+                          View
+                        </a>
+
+                        <button type="button" class="action-activate">
+                          Activate
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="school-cell">
+                        <div class="school-avatar">N</div>
+
+                        <div>
+                          <strong> Newgate International </strong>
+
+                          <span> newgate-intl.cbtschool.ng </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>Premium</td>
+
+                    <td>1020</td>
+
+                    <td>
+                      <span class="status-badge active"> Active </span>
+                    </td>
+
+                    <td>Feb 20, 2026</td>
+
+                    <td>
+                      <div class="table-actions">
+                        <a href="./school-details.html" class="action-view">
+                          View
+                        </a>
+
+                        <button type="button" class="action-suspend">
+                          Suspend
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- ==================================
+                 RECENT SUPPORT TICKETS
+            ================================== -->
+
+          <section class="dashboard-panel table-panel tickets-panel">
+            <div class="panel-header">
+              <div>
+                <h2>RECENT SUPPORT TICKETS</h2>
+              </div>
+
+              <a href="./support-tickets.html" class="view-all"> View All → </a>
+            </div>
+
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ticket</th>
+
+                    <th>School</th>
+
+                    <th>Subject</th>
+
+                    <th>Priority</th>
+
+                    <th>Status</th>
+
+                    <th>Updated</th>
+
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody id="supportTicketsTable">
+                  <tr>
+                    <td>
+                      <strong>#4821</strong>
+                    </td>
+
+                    <td>Green Valley College</td>
+
+                    <td>Cannot upload logo, error on save</td>
+
+                    <td>
+                      <span class="priority-badge high"> High </span>
+                    </td>
+
+                    <td>
+                      <span class="ticket-status open"> Open </span>
+                    </td>
+
+                    <td>2h ago</td>
+
+                    <td>
+                      <a href="./ticket-details.html" class="ticket-action">
+                        Open →
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <strong>#4818</strong>
+                    </td>
+
+                    <td>Horizon Comprehensive</td>
+
+                    <td>Account suspended after payment</td>
+
+                    <td>
+                      <span class="priority-badge high"> High </span>
+                    </td>
+
+                    <td>
+                      <span class="ticket-status open"> Open </span>
+                    </td>
+
+                    <td>5h ago</td>
+
+                    <td>
+                      <a href="./ticket-details.html" class="ticket-action">
+                        Open →
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <strong>#4809</strong>
+                    </td>
+
+                    <td>Newgate International</td>
+
+                    <td>Question bank import failing</td>
+
+                    <td>
+                      <span class="priority-badge medium"> Medium </span>
+                    </td>
+
+                    <td>
+                      <span class="ticket-status progress"> In Progress </span>
+                    </td>
+
+                    <td>1d ago</td>
+
+                    <td>
+                      <a href="./ticket-details.html" class="ticket-action">
+                        Open →
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <strong>#4795</strong>
+                    </td>
+
+                    <td>Mobayo Academic School</td>
+
+                    <td>Requesting invoice for last term</td>
+
+                    <td>
+                      <span class="priority-badge low"> Low </span>
+                    </td>
+
+                    <td>
+                      <span class="ticket-status progress"> In Progress </span>
+                    </td>
+
+                    <td>2d ago</td>
+
+                    <td>
+                      <a href="./ticket-details.html" class="ticket-action">
+                        Open →
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <strong>#4780</strong>
+                    </td>
+
+                    <td>Trinity High School</td>
+
+                    <td>Portal subdomain change request</td>
+
+                    <td>
+                      <span class="priority-badge low"> Low </span>
+                    </td>
+
+                    <td>
+                      <span class="ticket-status resolved"> Resolved </span>
+                    </td>
+
+                    <td>4d ago</td>
+
+                    <td>
+                      <a href="./ticket-details.html" class="ticket-action">
+                        Open →
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/dashboard.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

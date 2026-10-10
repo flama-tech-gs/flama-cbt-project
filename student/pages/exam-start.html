@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Details</title>
+
+    <link rel="stylesheet" href="../css/pages/exam-start.css" />
+  </head>
+
+  <body>
+    <!-- TOP RIGHT USER -->
+    <div class="top-right">
+      <img src="../assets/icons/avatar.png" />
+      <div>
+        <h4 id="topStudentName">loading....</h4>
+        <p id="topStudentClass" >loading....</p>
+      </div>
+    </div>
+
+    <!-- BACK BUTTON -->
+    <button class="back-btn">←</button>
+
+    <!-- EXAM CARD -->
+    <div class="exam-container">
+      <div class="exam-card">
+        <h3 class="warning">⚠ Examination Details</h3>
+
+        <div class="exam-info">
+          <p><span>Student Name:</span> <span id="studentName"></span></p>
+          <p><span>Class:</span> <span id="studentClass"></span></p>
+          <p><span>Subject:</span> <span id="subject"></span></p>
+          <p><span>Duration:</span> <span id="duration"></span></p>
+          <p><span>Total Questions:</span> <span id="totalQuestions"></span></p>
+          <p><span>Instructions:</span> <span id="instructions"></span></p>
+          <p><span>Term:</span> <span id="term"></span></p>
+          <p><span>Session:</span> <span id="session"></span></p>
+        </div>
+
+        <button class="start-btn">START EXAM</button>
+      </div>
+
+      <p class="note change-color">
+        ⚠ Your countdown timer will start immediately after you click Start. You
+        cannot pause or restart the exam once started.
+      </p>
+    </div>
+
+    <script src="../js/pages/exam-start.js"></script>
+  </body>
+</html>

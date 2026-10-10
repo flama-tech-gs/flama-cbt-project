@@ -1,0 +1,253 @@
+/* ==========================================
+   TOPBAR
+========================================== */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* ==========================================
+   LEFT SECTION
+========================================== */
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-title h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.topbar-title p {
+  color: #6da470;
+  font-size: 1rem;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   MENU TOGGLE
+========================================== */
+
+.menu-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.menu-toggle:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.menu-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ==========================================
+   RIGHT SECTION
+========================================== */
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ==========================================
+   PROFILE
+========================================== */
+
+.teacher-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.teacher-profile:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.teacher-profile img {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-light);
+}
+
+.teacher-profile h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: var(--text-dark);
+}
+
+.teacher-profile p {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+/* ==========================================
+   FUTURE ACTION BUTTONS
+========================================== */
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.icon-btn:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Notification Dot */
+
+.icon-btn .dot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--danger);
+}
+
+/* ==========================================
+   MOBILE OVERLAY
+========================================== */
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1100;
+}
+
+.sidebar-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 992px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .topbar {
+    gap: 20px;
+  }
+
+  .topbar-left {
+    width: 100%;
+  }
+
+  .topbar-title h1 {
+    font-size: 1.7rem;
+  }
+
+  .topbar-title p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .teacher-profile {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .teacher-profile img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .teacher-profile h3 {
+    font-size: 14px;
+  }
+
+  .teacher-profile p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .topbar-title h1 {
+    font-size: 1.45rem;
+  }
+
+  .topbar-title p {
+    font-size: 13px;
+  }
+
+  .icon-btn,
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
+}

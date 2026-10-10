@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Dashboard | Overview</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/utilities.css" />
+
+    <link rel="stylesheet" href="./css/overview.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__left">
+        <a href="#" class="school-brand">
+          <div class="school-brand__logo"></div>
+
+          <div class="school-brand__content">
+            <h2>Mobayo Academic School</h2>
+            <span>mobayo-academic.cbtschool.ng</span>
+          </div>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-controls="schoolNavigation"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="top-navigation" id="schoolNavigation">
+          <a href="./index.html" class="nav-link active"> Overview </a>
+
+          <a href="./account-settings.html" class="nav-link">
+            Account Settings
+          </a>
+
+          <a href="./subscription.html" class="nav-link"> Subscription </a>
+
+          <a href="./principal-account.html" class="nav-link">
+            Principal Account
+          </a>
+
+          <a href="./support.html" class="nav-link"> Support </a>
+        </nav>
+      </div>
+
+      <div class="topbar__right">
+        <div class="subscription-pill">
+          <i data-lucide="clock-3"></i>
+
+          <span>Expires Aug 20, 2026</span>
+        </div>
+
+        <button class="account-dropdown" type="button" aria-expanded="false">
+          <div class="account-avatar"></div>
+
+          <div class="account-info">
+            <strong>Mobayo Academic</strong>
+
+            <span>School Account</span>
+          </div>
+
+          <i data-lucide="chevron-down"></i>
+        </button>
+
+        <div class="account-menu" role="menu">
+          <button class="account-menu__logout" type="button" role="menuitem">
+            <i data-lucide="log-out"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <!-- ===================== -->
+      <!-- PAGE HEADER -->
+      <!-- ===================== -->
+
+      <section class="page-header">
+        <div class="page-header__content">
+          <h1>
+            Welcome back,
+            <span>Mobayo Academic School</span>
+            👋
+          </h1>
+
+          <p>
+            Here is an overview of your school account, subscription and portal
+            status.
+          </p>
+        </div>
+
+        <a href="../principal/index.html" class="btn btn-primary">
+          <i data-lucide="arrow-up-right"></i>
+
+          Open School Portal
+        </a>
+      </section>
+
+      <!-- ===================== -->
+      <!-- KPI CARDS -->
+      <!-- ===================== -->
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-card__icon">
+            <i data-lucide="school"></i>
+          </div>
+
+          <span class="stat-card__label"> School Status </span>
+
+          <h3 class="success">Active</h3>
+
+          <p>Portal is live</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-card__icon">
+            <i data-lucide="layers-3"></i>
+          </div>
+
+          <span class="stat-card__label"> Current Plan </span>
+
+          <h3 class="primary">Standard</h3>
+
+          <p>2nd Term 2025/2026</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-card__icon">
+            <i data-lucide="clock-3"></i>
+          </div>
+
+          <span class="stat-card__label"> Expires </span>
+
+          <h3 class="warning">Aug 20, 2026</h3>
+
+          <p>51 days remaining</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-card__icon">
+            <i data-lucide="user"></i>
+          </div>
+
+          <span class="stat-card__label"> Principal </span>
+
+          <h3 class="success">Active</h3>
+
+          <p>Dr. Bankole Okonjo</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-card__icon">
+            <i data-lucide="link"></i>
+          </div>
+
+          <span class="stat-card__label"> School URL </span>
+
+          <h3 class="success">Live</h3>
+
+          <p>mobayo-academic.cbt...</p>
+        </article>
+      </section>
+
+      <!-- ===================== -->
+      <!-- MAIN GRID -->
+      <!-- ===================== -->
+
+      <section class="overview-grid">
+        <!-- LEFT COLUMN -->
+
+        <section class="dashboard-card school-details">
+          <div class="card-header">
+            <div>
+              <h2>School Details</h2>
+
+              <p>Your registered school information</p>
+            </div>
+
+            <button id="aboutBtn" class="btn btn-primary">
+              <i data-lucide="pencil"></i>
+
+              Edit Details
+            </button>
+          </div>
+
+          <div class="card-divider"></div>
+
+          <div class="details-grid">
+            <div class="detail-item">
+              <span>School Name</span>
+
+              <strong> Mobayo Academic School </strong>
+            </div>
+
+            <div class="detail-item">
+              <span>Type</span>
+
+              <strong> Secondary School </strong>
+            </div>
+
+            <div class="detail-item">
+              <span>RC Number</span>
+
+              <strong> RC-1234567 </strong>
+            </div>
+
+            <div class="detail-item">
+              <span>Year Founded</span>
+
+              <strong> 2005 </strong>
+            </div>
+
+            <div class="detail-item">
+              <span>Address</span>
+
+              <strong> 12 Mobayo Street, Abeokuta, Ogun State </strong>
+            </div>
+
+            <div class="detail-item">
+              <span>Phone</span>
+
+              <strong> +234 801 234 5678 </strong>
+            </div>
+
+            <div class="detail-item">
+              <span>Email</span>
+
+              <strong> admin@mobayoacademic.edu.ng </strong>
+            </div>
+
+            <div class="detail-item">
+              <span>Website</span>
+
+              <strong> www.mobayoacademic.edu.ng </strong>
+            </div>
+          </div>
+
+          <div class="logo-panel">
+            <div class="logo-panel__left">
+              <div class="logo-preview"></div>
+
+              <div>
+                <h4>School Logo</h4>
+
+                <p>PNG • 44KB • Uploaded Jun 2026</p>
+              </div>
+            </div>
+
+            <button class="btn btn-light">
+              <i data-lucide="image-up"></i>
+
+              Update Logo
+            </button>
+          </div>
+
+          <section class="quick-actions">
+            <h2>Quick Actions</h2>
+
+            <div class="quick-actions__grid">
+              <article class="quick-card">
+                <div class="quick-card__icon">
+                  <i data-lucide="key-round"></i>
+                </div>
+
+                <h3>Change Password</h3>
+
+                <p>Update login password</p>
+              </article>
+
+              <article class="quick-card">
+                <div class="quick-card__icon">
+                  <i data-lucide="link"></i>
+                </div>
+
+                <h3>Change School URL</h3>
+
+                <p>Edit portal web address</p>
+              </article>
+
+              <article class="quick-card">
+                <div class="quick-card__icon">
+                  <i data-lucide="image-up"></i>
+                </div>
+
+                <h3>Update School Logo</h3>
+
+                <p>Replace your logo</p>
+              </article>
+
+              <article class="quick-card">
+                <div class="quick-card__icon">
+                  <i data-lucide="user-round"></i>
+                </div>
+
+                <h3>Principal Account</h3>
+
+                <p>Manage credentials</p>
+              </article>
+
+              <article class="quick-card">
+                <div class="quick-card__icon">
+                  <i data-lucide="credit-card"></i>
+                </div>
+
+                <h3>Change Subscription</h3>
+
+                <p>Upgrade or switch plan</p>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <!-- RIGHT COLUMN -->
+
+        <aside class="sidebar">
+          <!-- ===================== -->
+          <!-- SCHOOL PORTAL URL -->
+          <!-- ===================== -->
+
+          <section class="dashboard-card">
+            <div class="card-header">
+              <div>
+                <h2>School Portal URL</h2>
+
+                <p>Your unique login address</p>
+              </div>
+
+              <button class="btn btn-primary btn-sm">
+                <i data-lucide="pencil"></i>
+
+                Edit
+              </button>
+            </div>
+
+            <div class="portal-links">
+              <div class="portal-link">
+                <div class="portal-link__url">
+                  <span>
+                    https://mobayo-academic.cbtschool.ng/student-portal
+                  </span>
+
+                  <a href="#" aria-label="Open Student Portal">
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                </div>
+
+                <button class="btn btn-primary btn-sm">
+                  <i data-lucide="copy"></i>
+
+                  Copy
+                </button>
+              </div>
+
+              <div class="portal-link">
+                <div class="portal-link__url">
+                  <span>
+                    https://mobayo-academic.cbtschool.ng/staff-portal
+                  </span>
+
+                  <a href="#" aria-label="Open Staff Portal">
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                </div>
+
+                <button class="btn btn-primary btn-sm">
+                  <i data-lucide="copy"></i>
+
+                  Copy
+                </button>
+              </div>
+
+              <div class="portal-link">
+                <div class="portal-link__url">
+                  <span> https://mobayo-academic.cbtschool.ng/principal </span>
+
+                  <a href="#" aria-label="Open Principal Portal">
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                </div>
+
+                <button class="btn btn-primary btn-sm">
+                  <i data-lucide="copy"></i>
+
+                  Copy
+                </button>
+              </div>
+            </div>
+
+            <div class="share-actions">
+              <button class="btn btn-light btn-sm">
+                <i data-lucide="copy"></i>
+
+                Copy
+              </button>
+
+              <button class="btn btn-warning-light btn-sm">
+                <i data-lucide="mail"></i>
+
+                Email
+              </button>
+
+              <button class="btn btn-success-light btn-sm">
+                <i data-lucide="message-circle"></i>
+
+                WhatsApp
+              </button>
+            </div>
+          </section>
+
+          <!-- ===================== -->
+          <!-- SUBSCRIPTION -->
+          <!-- ===================== -->
+
+          <section class="dashboard-card subscription-card">
+            <div class="card-header">
+              <div>
+                <h2>Subscription</h2>
+
+                <p>Current plan & expiry</p>
+              </div>
+
+              <button class="btn btn-outline btn-sm">
+                <i data-lucide="arrow-up"></i>
+
+                Upgrade
+              </button>
+            </div>
+
+            <div class="plan-box">
+              <div>
+                <h3>Standard Plan</h3>
+
+                <p>Up to 600 students • 30 teachers</p>
+              </div>
+
+              <strong>₦35,000/term</strong>
+            </div>
+
+            <div class="subscription-info">
+              <div class="info-row">
+                <span>Term</span>
+
+                <strong>2nd Term 2025/2026</strong>
+              </div>
+
+              <div class="info-row">
+                <span>Expires</span>
+
+                <strong class="warning"> August 20, 2026 </strong>
+              </div>
+
+              <div class="info-row">
+                <span>Status</span>
+
+                <strong class="success"> Active </strong>
+              </div>
+            </div>
+
+            <div class="subscription-alert">
+              <i data-lucide="triangle-alert"></i>
+
+              <span>
+                Expires in 51 days — Renew now to avoid interruption
+              </span>
+            </div>
+
+            <button class="btn btn-warning btn-block">
+              Renew Subscription
+
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </section>
+        </aside>
+      </section>
+
+      <!-- ===================== -->
+      <!-- QUICK ACTIONS -->
+      <!-- ===================== -->
+
+      <!-- <section class="quick-actions">
+        <h2>Quick Actions</h2>
+
+        <div class="quick-actions__grid">
+          <article class="quick-card">
+            <div class="quick-card__icon">
+              <i data-lucide="key-round"></i>
+            </div>
+
+            <h3>Change Password</h3>
+
+            <p>Update login password</p>
+          </article>
+
+          <article class="quick-card">
+            <div class="quick-card__icon">
+              <i data-lucide="link"></i>
+            </div>
+
+            <h3>Change School URL</h3>
+
+            <p>Edit portal web address</p>
+          </article>
+
+          <article class="quick-card">
+            <div class="quick-card__icon">
+              <i data-lucide="image-up"></i>
+            </div>
+
+            <h3>Update School Logo</h3>
+
+            <p>Replace your logo</p>
+          </article>
+
+          <article class="quick-card">
+            <div class="quick-card__icon">
+              <i data-lucide="user-round"></i>
+            </div>
+
+            <h3>Principal Account</h3>
+
+            <p>Manage credentials</p>
+          </article>
+
+          <article class="quick-card">
+            <div class="quick-card__icon">
+              <i data-lucide="credit-card"></i>
+            </div>
+
+            <h3>Change Subscription</h3>
+
+            <p>Upgrade or switch plan</p>
+          </article>
+        </div>
+      </section> -->
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script src="./js/overview.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+  </body>
+</html>

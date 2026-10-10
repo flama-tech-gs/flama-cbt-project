@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complete Payment | CBT School</title>
+
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+    <link rel="stylesheet" href="./css/register-step1.css" />
+    <link rel="stylesheet" href="./css/register-step2.css" />
+    <link rel="stylesheet" href="./css/register-step3.css" />
+    <link rel="stylesheet" href="./css/register-step4.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="auth-layout">
+      <!-- Sidebar -->
+
+      <aside class="auth-sidebar">
+        <div class="sidebar-content">
+          <a href="../index.html" class="auth-logo">
+            <img src="./assets/Ellipse.png" alt="CBT School" />
+          </a>
+
+          <div class="sidebar-text">
+            <h1>Secure Payment</h1>
+
+            <p>
+              Your payment is protected by 256-bit SSL encryption. We never
+              store card details.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>
+              <i class="ri-lock-line"></i><span>SSL 256-bit encrypted</span>
+            </li>
+            <li><i class="ri-check-line"></i><span>Paystack powered</span></li>
+            <li>
+              <i class="ri-check-line"></i><span>Bank transfer accepted</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Instant access on payment</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i><span>Refund within 7 days</span>
+            </li>
+          </ul>
+
+          <div class="sidebar-footer">
+            <p>
+              Questions?
+              <a href="mailto:support@cbtschool.ng"> support@cbtschool.ng </a>
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main -->
+
+      <main class="auth-main">
+        <section class="registration-wrapper">
+          <!-- Header -->
+
+          <header class="payment-header">
+            <h2>Complete Your Payment</h2>
+
+            <p>
+              Review your order and choose a payment method to activate your
+              school account.
+            </p>
+          </header>
+
+          <!-- Order Summary -->
+
+          <section class="registration-card order-summary">
+            <h3>Order Summary</h3>
+
+            <div class="selected-plan">
+              <div>
+                <h4 id="selectedPlan">Standard Plan</h4>
+
+                <p id="schoolName">Mobayo Academy</p>
+              </div>
+
+              <h2 id="planPrice">₦35,000</h2>
+            </div>
+
+            <div class="summary-item">
+              <span>Subtotal</span>
+              <strong>₦35,000</strong>
+            </div>
+
+            <div class="summary-item">
+              <span>VAT (7.5%)</span>
+              <strong>₦2,625</strong>
+            </div>
+
+            <div class="summary-item">
+              <span>Processing Fee</span>
+              <strong>₦500</strong>
+            </div>
+
+            <div class="summary-total">
+              <span>Total Due</span>
+              <strong id="totalAmount">₦38,125</strong>
+            </div>
+          </section>
+
+          <!-- Payment -->
+
+          <section class="registration-card">
+            <h3>Payment Method</h3>
+
+            <div class="payment-methods">
+              <button
+                type="button"
+                class="payment-method active"
+                data-method="card"
+              >
+                <i class="ri-bank-card-line"></i>
+
+                Card Payment
+              </button>
+
+              <button type="button" class="payment-method" data-method="bank">
+                <i class="ri-bank-line"></i>
+
+                Bank Transfer
+              </button>
+
+              <button type="button" class="payment-method" data-method="ussd">
+                <i class="ri-smartphone-line"></i>
+
+                USSD
+              </button>
+            </div>
+
+            <!-- Card Form -->
+
+            <form id="paymentForm">
+              <div id="cardPayment">
+                <div class="form-group">
+                  <label>Card Number *</label>
+
+                  <input
+                    type="text"
+                    id="cardNumber"
+                    maxlength="19"
+                    placeholder="0000 0000 0000 0000"
+                    required
+                  />
+                </div>
+
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label>Cardholder Name *</label>
+
+                    <input
+                      type="text"
+                      id="cardName"
+                      placeholder="As printed on card"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Expiry Date *</label>
+
+                    <input
+                      type="text"
+                      id="expiry"
+                      maxlength="5"
+                      placeholder="MM/YY"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>CVV *</label>
+
+                    <input
+                      type="password"
+                      id="cvv"
+                      maxlength="4"
+                      placeholder="•••"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="payment-notice">
+                  <i class="ri-lock-line"></i>
+
+                  <span>
+                    Your card details are encrypted and secured by Paystack. We
+                    never store payment information.
+                  </span>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <!-- Pay -->
+
+          <button
+            type="submit"
+            form="paymentForm"
+            class="btn btn-primary btn-payment"
+          >
+            <i class="ri-lock-line"></i>
+
+            Pay
+            <span id="payAmount"> ₦38,125 </span>
+
+            Securely
+          </button>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/register-step4.js"></script>
+  </body>
+</html>

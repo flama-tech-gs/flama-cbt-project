@@ -1,0 +1,188 @@
+/* ==========================================
+   LARGE DESKTOP
+========================================== */
+
+@media (max-width: 1400px) {
+  .auth-layout {
+    grid-template-columns: 360px 1fr;
+  }
+
+  .sidebar-text h1,
+  .auth-header h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (max-width: 1200px) {
+  .auth-layout {
+    grid-template-columns: 320px 1fr;
+  }
+
+  .auth-sidebar,
+  .auth-main {
+    padding: 2.5rem;
+  }
+
+  .sidebar-text h1,
+  .auth-header h2 {
+    font-size: 2.2rem;
+  }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-sidebar {
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  .sidebar-content {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .auth-logo {
+    margin-bottom: 2rem;
+  }
+
+  .sidebar-text {
+    margin-bottom: 2rem;
+  }
+
+  .sidebar-footer {
+    margin-top: 2rem;
+  }
+
+  .auth-main {
+    padding: 3rem 2rem;
+  }
+
+  .auth-card {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+  .auth-sidebar,
+  .auth-main {
+    padding: 1.5rem;
+  }
+
+  .sidebar-text h1,
+  .auth-header h2 {
+    font-size: 2rem;
+  }
+
+  .sidebar-text p,
+  .auth-header p {
+    font-size: 0.95rem;
+  }
+
+  .feature-list {
+    gap: 1.2rem;
+  }
+
+  .feature-list span {
+    font-size: 0.9rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .otp-group {
+    gap: 0.75rem;
+  }
+
+  .otp-input {
+    width: 52px;
+    height: 52px;
+    font-size: 1.25rem;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 576px) {
+  .auth-sidebar {
+    padding: 1.25rem;
+  }
+
+  .auth-main {
+    padding: 2rem 1.25rem;
+  }
+
+  .sidebar-text h1,
+  .auth-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .auth-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .btn-primary,
+  .form-group input,
+  .form-group select,
+  .password-field input {
+    height: 52px;
+  }
+
+  .otp-group {
+    gap: 0.5rem;
+  }
+
+  .otp-input {
+    width: 46px;
+    height: 46px;
+    font-size: 1.1rem;
+  }
+}
+
+/* ==========================================
+   EXTRA SMALL DEVICES
+========================================== */
+
+@media (max-width: 400px) {
+  .sidebar-text h1,
+  .auth-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .feature-list li {
+    align-items: flex-start;
+  }
+
+  .otp-group {
+    justify-content: space-between;
+  }
+
+  .otp-input {
+    width: 42px;
+    height: 42px;
+  }
+}

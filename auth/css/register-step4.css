@@ -1,0 +1,188 @@
+/* ==========================================
+   REGISTER STEP 4
+========================================== */
+
+.registration-wrapper {
+  width: 100%;
+  max-width: 920px;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.payment-header {
+  margin-bottom: 2rem;
+}
+
+.payment-header h2 {
+  font-size: 1.625rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.payment-header p {
+  color: var(--text-light);
+  max-width: 650px;
+}
+
+/* ==========================================
+   ORDER SUMMARY
+========================================== */
+
+.order-summary {
+  margin-bottom: 2rem;
+}
+
+.order-summary h3 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.selected-plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  border-radius: 14px;
+  background: var(--primary-light);
+  margin-bottom: 1.5rem;
+}
+
+.selected-plan h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.3rem;
+}
+
+.selected-plan p {
+  color: var(--text-light);
+}
+
+.selected-plan h2 {
+  color: var(--primary-color);
+  font-size: 1.375rem;
+}
+
+.summary-item,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.summary-item {
+  border-top: 1px solid var(--border-color);
+  color: var(--text-light);
+}
+
+.summary-total {
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.summary-total strong {
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   PAYMENT METHODS
+========================================== */
+
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.payment-method {
+  height: 56px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.payment-method.active {
+  border: 2px solid var(--primary-color);
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   PAYMENT NOTICE
+========================================== */
+
+.payment-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  background: var(--primary-light);
+  color: #6c9a6f;
+}
+
+.payment-notice i {
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   PAYMENT BUTTON
+========================================== */
+
+.btn-payment {
+  width: 100%;
+  margin-top: 1.5rem;
+  height: 60px;
+  font-size: 1.1rem;
+}
+
+.btn-payment span {
+  margin: 0 0.35rem;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .payment-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .selected-plan {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .summary-item,
+  .summary-total {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .payment-header h2 {
+    font-size: 2rem;
+  }
+
+  .selected-plan h2 {
+    font-size: 1.75rem;
+  }
+
+  .btn-payment {
+    font-size: 1rem;
+  }
+}

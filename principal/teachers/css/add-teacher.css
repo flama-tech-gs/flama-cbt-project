@@ -1,0 +1,496 @@
+/* ==========================================
+   ADD TEACHER PAGE
+========================================== */
+
+/* Page spacing */
+
+.back-navigation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 22px 0 28px;
+}
+
+.back-navigation span {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+/* Green square button */
+
+.back-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+
+  transition: var(--transition);
+}
+
+.back-button:hover {
+  background: var(--primary-dark);
+}
+
+.back-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================
+   FORM CARD
+========================================== */
+
+.form-card {
+  padding: 32px;
+}
+
+.form-title {
+  color: var(--primary);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 26px;
+}
+
+/* Reuse existing .form-grid */
+
+.form-grid {
+  margin-bottom: 22px;
+}
+
+.three-columns {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.two-columns {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* Department width */
+
+.department-select {
+  max-width: 360px;
+}
+
+/* ==========================================
+   SUBJECTS
+========================================== */
+
+.section-note {
+  margin-top: -10px;
+
+  margin-bottom: 22px;
+
+  color: var(--text-light);
+
+  font-size: 14px;
+}
+
+.assignment-row {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    50px;
+
+  gap: 18px;
+
+  align-items: end;
+
+  margin-bottom: 20px;
+}
+
+.remove-row {
+  width: 50px;
+
+  height: 50px;
+
+  border-radius: 12px;
+
+  background: #fdecec;
+
+  color: #dc2626;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition: 0.25s;
+}
+
+.remove-row:hover {
+  background: #f9d8d8;
+}
+
+.remove-row svg {
+  width: 18px;
+
+  height: 18px;
+}
+
+/* Add button */
+
+.add-subject-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 18px;
+
+  border: 1px solid var(--primary);
+
+  border-radius: 10px;
+
+  color: var(--primary);
+
+  background: #fff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition: 0.25s;
+}
+
+.add-subject-btn:hover {
+  background: var(--primary-light);
+}
+
+.add-subject-btn svg {
+  width: 18px;
+
+  height: 18px;
+}
+
+/* ==========================================
+   LOGIN CARD
+========================================== */
+
+.credentials-card {
+  background: #f8fff8;
+
+  border: 1px solid #e4f2e4;
+
+  border-radius: var(--radius);
+
+  padding: 30px;
+}
+
+.credentials-card h2 {
+  color: var(--primary);
+
+  font-size: 1.3rem;
+
+  margin-bottom: 12px;
+}
+
+.credentials-card p {
+  color: var(--text-light);
+
+  margin-bottom: 28px;
+
+  font-size: 14px;
+}
+
+.credentials-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+.credentials-grid small {
+  display: block;
+
+  color: var(--text-light);
+
+  margin-bottom: 8px;
+
+  font-size: 13px;
+}
+
+.credentials-grid strong {
+  color: var(--primary);
+
+  font-size: 20px;
+
+  font-weight: 700;
+}
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.form-actions {
+  display: flex;
+
+  gap: 18px;
+
+  margin-top: 30px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 992px) {
+  .three-columns,
+  .two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .assignment-row {
+    grid-template-columns: 1fr;
+  }
+
+  .remove-row {
+    width: 100%;
+  }
+
+  .credentials-grid {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+  }
+
+  .department-select {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-card {
+    padding: 24px;
+  }
+
+  .credentials-card {
+    padding: 24px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================
+   FORM CARD
+========================================== */
+
+.form-card {
+  padding: 32px;
+}
+
+/* ==========================================
+   FORM TITLE
+========================================== */
+
+.form-title {
+  color: var(--primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* ==========================================
+   FORM GRID
+========================================== */
+
+.form-grid {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.form-grid.two-columns {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-grid.three-columns {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ==========================================
+   FORM GROUP
+========================================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  padding: 15px 16px;
+
+  border: none;
+
+  outline: none;
+
+  border-radius: 12px;
+
+  background: var(--primary-light);
+
+  color: var(--text-dark);
+
+  font-size: 15px;
+
+  transition: var(--transition);
+}
+
+.form-group textarea {
+  resize: vertical;
+
+  min-height: 90px;
+}
+
+/* ==========================================
+   PLACEHOLDER
+========================================== */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9cb49d;
+}
+
+/* ==========================================
+   FOCUS
+========================================== */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  background: #fff;
+
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.15);
+}
+
+/* ==========================================
+   SELECT
+========================================== */
+
+.form-group select {
+  cursor: pointer;
+}
+
+/* ==========================================
+   REQUIRED
+========================================== */
+
+.required {
+  color: #dc2626;
+}
+
+/* ==========================================
+   HELP TEXT
+========================================== */
+
+.form-help {
+  margin-top: 8px;
+
+  color: var(--text-light);
+
+  font-size: 13px;
+}
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.form-error {
+  color: #dc2626;
+
+  font-size: 13px;
+
+  margin-top: 8px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 992px) {
+  .form-grid.two-columns,
+  .form-grid.three-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 24px;
+
+  border-radius: 12px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: #fff;
+
+  border: 1px solid var(--border);
+
+  color: var(--text-dark);
+}
+
+.btn-outline {
+  background: #fff;
+
+  border: 1px solid var(--primary);
+
+  color: var(--primary);
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

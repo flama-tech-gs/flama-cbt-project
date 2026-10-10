@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Principal Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="stylesheet" href="./css/review.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="../assets/logo.png" alt="School Logo" />
+
+            <div>
+              <h2>Mobayo Academic</h2>
+
+              <p>...Knowledge, Discipline, Excellence...</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav>
+            <a href="../overview.html" class="nav-link">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Overview</span>
+            </a>
+
+            <a href="../data-analysis.html" class="nav-link">
+              <i data-lucide="database"></i>
+
+              <span>Data Analysis</span>
+            </a>
+
+            <a href="../exam-control/exam-control.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Exam Control</span>
+            </a>
+
+            <a href="../student-scores.html" class="nav-link">
+              <i data-lucide="podium"></i>
+
+              <span>Student Scores</span>
+            </a>
+
+            <a href="../student-reports/student-reports.html" class="nav-link">
+              <i data-lucide="clipboard-check"></i>
+
+              <span>Student Reports</span>
+            </a>
+
+            <a href="../theory.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Theory</span>
+            </a>
+
+            <a href="../broadcasts/broadcasts.html" class="nav-link">
+              <i data-lucide="megaphone"></i>
+
+              <span>Broadcasts</span>
+            </a>
+
+            <a href="../students/students.html" class="nav-link">
+              <i data-lucide="person-standing"></i>
+
+              <span>Students</span>
+            </a>
+
+            <a href="../teachers/teachers.html" class="nav-link">
+              <i data-lucide="graduation-cap"></i>
+
+              <span>Teachers</span>
+            </a>
+
+            <a href="../departments/departments.html" class="nav-link">
+              <i data-lucide="building-2"></i>
+
+              <span>Departments</span>
+            </a>
+
+            <a href="./submitted-questions.html" class="nav-link active">
+              <i data-lucide="file-text"></i>
+
+              <span>Submitted Questions</span>
+            </a>
+
+            <a href="../profile.html" class="nav-link">
+              <i data-lucide="circle-user-round"></i>
+
+              <span>Profile</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Logout -->
+
+        <button class="logout-btn">
+          <i data-lucide="log-out"></i>
+
+          Logout
+        </button>
+      </aside>
+
+      <!-- overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+      <!-- For the main content of the page -->
+
+      <main class="main-content container">
+        <!-- ==========================================
+    PAGE HEADER
+    ========================================== -->
+
+        <header class="page-header">
+          <div class="page-title">
+            <h1>Biology – Question Bank</h1>
+
+            <p>
+              Review each question, leave comments if needed, then approve or
+              request corrections.
+            </p>
+          </div>
+
+          <div class="principal-profile">
+            <div class="principal-avatar">
+              <img src="../assets/image.png" alt="Principal" />
+
+              <span class="online-dot"></span>
+            </div>
+
+            <div class="principal-details">
+              <h4>Dr. Bankole Okonjo</h4>
+
+              <p>School Principal</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-container">
+          <!-- ==========================================
+    BACK BUTTON
+    ========================================== -->
+
+          <div class="back-wrapper">
+            <a href="./submitted-questions.html" class="back-btn">
+              <i data-lucide="arrow-left"></i>
+            </a>
+
+            <span>Back to Submitted Questions</span>
+          </div>
+
+          <!-- ==========================================
+    EXAM SUMMARY
+    ========================================== -->
+
+          <section class="exam-summary">
+            <div class="summary-item">
+              <span>Subject</span>
+
+              <strong>Biology</strong>
+            </div>
+
+            <div class="summary-item">
+              <span>Class</span>
+
+              <strong>JSS 3B</strong>
+            </div>
+
+            <div class="summary-item">
+              <span>Teacher</span>
+
+              <strong>Mrs. Adebayo Folake</strong>
+            </div>
+
+            <div class="summary-item">
+              <span>Term</span>
+
+              <strong>2nd Term</strong>
+            </div>
+
+            <div class="summary-item">
+              <span>Total Questions</span>
+
+              <strong>50</strong>
+            </div>
+
+            <div class="summary-item">
+              <span>Status</span>
+
+              <span class="status pending"> Pending Approval </span>
+            </div>
+          </section>
+
+          <!-- ==========================================
+    QUESTIONS
+    ========================================== -->
+
+          <h2 class="section-title">All Questions (50)</h2>
+
+          <!-- ===============================
+    QUESTION 1
+    ================================ -->
+
+          <article class="question-card">
+            <div class="question-header">
+              <div class="question-number">1</div>
+
+              <h3>Which part of the cell controls its activities?</h3>
+
+              <button class="comment-btn">
+                <i data-lucide="message-circle"></i>
+
+                Comment
+              </button>
+            </div>
+
+            <div class="options-grid">
+              <div class="option">
+                <span>A</span>
+
+                Cytoplasm
+              </div>
+
+              <div class="option correct">
+                <span>B</span>
+
+                Nucleus
+              </div>
+
+              <div class="option">
+                <span>C</span>
+
+                Mitochondria
+              </div>
+
+              <div class="option">
+                <span>D</span>
+
+                Cell wall
+              </div>
+
+              <div class="option">
+                <span>E</span>
+
+                Ribosome
+              </div>
+            </div>
+
+            <div class="question-actions">
+              <button class="approve-btn">
+                <i data-lucide="check"></i>
+
+                Approve
+              </button>
+
+              <button class="correction-btn">Make Correction</button>
+            </div>
+          </article>
+
+          <!-- ===============================
+    QUESTION 2
+    ================================ -->
+
+          <article class="question-card">
+            <div class="question-header">
+              <div class="question-number">2</div>
+
+              <h3>
+                The process by which plants lose water vapour through their
+                leaves is called?
+              </h3>
+
+              <button class="comment-btn">
+                <i data-lucide="message-circle"></i>
+
+                Comment
+              </button>
+            </div>
+
+            <div class="options-grid">
+              <div class="option">
+                <span>A</span>
+
+                Respiration
+              </div>
+
+              <div class="option">
+                <span>B</span>
+
+                Photosynthesis
+              </div>
+
+              <div class="option correct">
+                <span>C</span>
+
+                Transpiration
+              </div>
+
+              <div class="option">
+                <span>D</span>
+
+                Germination
+              </div>
+
+              <div class="option">
+                <span>E</span>
+
+                Osmosis
+              </div>
+            </div>
+
+            <div class="question-actions">
+              <button class="approve-btn">
+                <i data-lucide="check"></i>
+
+                Approve
+              </button>
+
+              <button class="correction-btn">Make Correction</button>
+            </div>
+          </article>
+
+          <!-- ===============================
+    QUESTION WITH COMMENT
+    ================================ -->
+
+          <article class="question-card correction-card">
+            <div class="question-header">
+              <div class="question-number">3</div>
+
+              <h3>
+                Which of these is NOT a function of the skeleton in the human
+                body?
+              </h3>
+
+              <button class="comment-btn">
+                <i data-lucide="message-circle"></i>
+
+                Comment
+              </button>
+            </div>
+
+            <div class="options-grid">
+              <div class="option">
+                <span>A</span>
+
+                Support
+              </div>
+
+              <div class="option">
+                <span>B</span>
+
+                Protection
+              </div>
+
+              <div class="option">
+                <span>C</span>
+
+                Movement
+              </div>
+
+              <div class="option correct">
+                <span>D</span>
+
+                Digestion
+              </div>
+
+              <div class="option">
+                <span>E</span>
+
+                Blood cell production
+              </div>
+            </div>
+
+            <div class="review-comment">
+              <i data-lucide="message-circle-warning"></i>
+
+              <span>
+                Both "Digestion" and "Blood cell production" could be argued as
+                correct depending on phrasing — please clarify.
+              </span>
+            </div>
+
+            <div class="question-actions">
+              <button class="approve-btn">
+                <i data-lucide="check"></i>
+
+                Approve
+              </button>
+
+              <button class="correction-btn">Make Correction</button>
+            </div>
+          </article>
+
+          <!-- ==========================================
+    PAGINATION
+    ========================================== -->
+
+          <div class="pagination-wrapper">
+            <span> Showing 1–3 of 50 questions </span>
+
+            <div class="pagination">
+              <button class="active">1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>4</button>
+              <button>5</button>
+
+              <span>...</span>
+
+              <button>17</button>
+
+              <button class="next-page">
+                Next
+
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- ==========================================
+    FOOTER BAR
+    ========================================== -->
+
+          <section class="approval-bar">
+            <div>
+              <h4>Finished reviewing all 50 questions?</h4>
+
+              <p>
+                Approve the full exam, or send it back to the teacher for
+                correction.
+              </p>
+            </div>
+
+            <div class="approval-actions">
+              <button class="approve-exam-btn">Approve Entire Exam</button>
+
+              <button class="send-back-btn">Send Back for Correction</button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- ==========================================
+APPROVE EXAM MODAL
+========================================== -->
+
+    <div class="modal-overlay" id="approveExamModal">
+      <div class="modal-card">
+        <div class="modal-icon">
+          <div class="icon-circle">
+            <i data-lucide="check"></i>
+          </div>
+        </div>
+
+        <h2>Approve this exam?</h2>
+
+        <p class="modal-text">
+          Once approved, these Biology questions for JSS 3B will be available
+          for the teacher to schedule and push to students. You can still review
+          individual questions later if needed.
+        </p>
+
+        <div class="exam-info">
+          <div class="info-row">
+            <span>Subject</span>
+            <strong>Biology</strong>
+          </div>
+
+          <div class="info-row">
+            <span>Class</span>
+            <strong>JSS 3B</strong>
+          </div>
+
+          <div class="info-row">
+            <span>Teacher</span>
+            <strong>Mrs. Adebayo Folake</strong>
+          </div>
+
+          <div class="info-row">
+            <span>Questions Reviewed</span>
+            <strong>50 of 50</strong>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn btn-success" id="confirmApproveExam">
+            <i data-lucide="check"></i>
+
+            Yes, Approve Exam
+          </button>
+
+          <button class="btn btn-outline" id="cancelApproveExam">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- reject modal -->
+
+    <!-- ==========================================
+SEND BACK FOR CORRECTION MODAL
+========================================== -->
+
+    <div class="modal-overlay" id="sendBackModal">
+      <div class="modal-card">
+        <div class="modal-icon danger">
+          <div class="icon-circle danger">
+            <i data-lucide="alert-triangle"></i>
+          </div>
+        </div>
+
+        <h2>Send back for correction?</h2>
+
+        <p class="modal-text">
+          The teacher will be notified and asked to correct the flagged
+          questions before resubmitting. Please summarize what needs fixing.
+        </p>
+
+        <div class="comment-section">
+          <label> Summary Comment for Teacher </label>
+
+          <textarea
+            id="teacherSummary"
+            placeholder="e.g Question 12 has two correct options — please review and resubmit."
+          ></textarea>
+        </div>
+
+        <div class="exam-info">
+          <div class="info-row">
+            <span>Subject</span>
+
+            <strong>Biology</strong>
+          </div>
+
+          <div class="info-row">
+            <span>Class</span>
+
+            <strong>JSS 3B</strong>
+          </div>
+
+          <div class="info-row">
+            <span>Flagged Questions</span>
+
+            <strong>1 of 50</strong>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn btn-danger" id="confirmSendBack">
+            Send Back for Correction
+          </button>
+
+          <button class="btn btn-outline" id="cancelSendBack">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/review.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

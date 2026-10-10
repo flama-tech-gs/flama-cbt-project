@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Schools Directory</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/school-directory.css" />
+  </head>
+
+  <body>
+    <div class="platform-layout">
+      <!-- ========================================
+         SIDEBAR
+    ========================================== -->
+
+      <aside class="platform-sidebar" id="platformSidebar">
+        <div class="sidebar-brand">
+          <div class="brand-logo">C</div>
+
+          <div class="brand-info">
+            <h2>CBT School</h2>
+
+            <p>Super Admin</p>
+          </div>
+        </div>
+
+        <nav class="platform-navigation">
+          <a href="./index.html" class="platform-nav-link">
+            <i data-lucide="house"></i>
+
+            <span>Dashboard</span>
+          </a>
+
+          <a href="school-directory.html" class="platform-nav-link active">
+            <i data-lucide="school"></i>
+
+            <span>Schools</span>
+          </a>
+
+          <a href="./subscriptions.html" class="platform-nav-link">
+            <i data-lucide="credit-card"></i>
+
+            <span>Subscriptions &amp; Billing</span>
+          </a>
+
+          <a href="./support-tickets.html" class="platform-nav-link">
+            <i data-lucide="ticket"></i>
+
+            <span>Support Tickets</span>
+          </a>
+
+          <a href="./reports.html" class="platform-nav-link">
+            <i data-lucide="bar-chart-3"></i>
+
+            <span>Reports</span>
+          </a>
+
+          <a href="./settings.html" class="platform-nav-link">
+            <i data-lucide="settings"></i>
+
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-admin">
+          <div class="admin-avatar">SA</div>
+
+          <div class="admin-account">
+            <strong>Super Admin</strong>
+
+            <button type="button" class="logout-link">Log Out →</button>
+          </div>
+        </div>
+      </aside>
+
+      <button
+        class="sidebar-overlay"
+        type="button"
+        aria-label="Close navigation"
+        tabindex="-1"
+      ></button>
+
+      <!-- ==========================================
+         MAIN AREA
+    ========================================== -->
+
+      <main class="platform-main">
+        <!-- ======================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="platform-topbar">
+          <button
+            type="button"
+            class="mobile-menu-toggle"
+            aria-label="Open navigation"
+            aria-controls="platformSidebar"
+            aria-expanded="false"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+
+          <div class="global-search">
+            <i data-lucide="search"></i>
+
+            <input
+              type="search"
+              placeholder="Search schools, tickets, transactions..."
+              aria-label="Search platform"
+            />
+          </div>
+
+          <div class="topbar-actions">
+            <button
+              type="button"
+              class="notification-button"
+              aria-label="Notifications"
+            >
+              <i data-lucide="bell"></i>
+
+              <span class="notification-dot"></span>
+            </button>
+
+            <div class="topbar-admin">
+              <div class="topbar-avatar">SA</div>
+
+              <div class="topbar-admin-info">
+                <strong>Super Admin</strong>
+
+                <span>Platform Team⌄</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ======================================
+             PAGE CONTENT
+        ====================================== -->
+
+        <div class="dashboard-content">
+          <!-- ==========================================
+     SCHOOLS DIRECTORY
+========================================== -->
+
+          <section class="schools-page">
+            <!-- Page Header -->
+            <div class="schools-page-header">
+              <div>
+                <h1>All Schools</h1>
+                <p>128 registered schools across the CBT School platform.</p>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-primary schools-add-btn"
+                id="addSchoolBtn"
+              >
+                <span>+</span>
+                Add New School
+              </button>
+            </div>
+
+            <!-- Search / Filters -->
+            <div class="schools-toolbar">
+              <div class="schools-search">
+                <i data-lucide="search"></i>
+
+                <input
+                  type="search"
+                  id="schoolSearch"
+                  placeholder="Search by school name or subdomain..."
+                  autocomplete="off"
+                />
+              </div>
+
+              <div
+                class="school-filters"
+                role="tablist"
+                aria-label="School status filters"
+              >
+                <button
+                  type="button"
+                  class="school-filter active"
+                  data-filter="all"
+                  role="tab"
+                  aria-selected="true"
+                >
+                  All (128)
+                </button>
+
+                <button
+                  type="button"
+                  class="school-filter"
+                  data-filter="active"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  Active (112)
+                </button>
+
+                <button
+                  type="button"
+                  class="school-filter"
+                  data-filter="trial"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  Trial (11)
+                </button>
+
+                <button
+                  type="button"
+                  class="school-filter"
+                  data-filter="suspended"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  Suspended (5)
+                </button>
+              </div>
+
+              <button
+                type="button"
+                class="schools-export-btn"
+                id="exportSchoolsBtn"
+              >
+                <span>⬇</span>
+                Export CSV
+              </button>
+            </div>
+
+            <!-- Schools Table Card -->
+            <section class="schools-table-card">
+              <div class="schools-table-wrapper">
+                <table class="schools-table">
+                  <thead>
+                    <tr>
+                      <th>School</th>
+                      <th>Plan</th>
+                      <th>Students</th>
+                      <th>Teachers</th>
+                      <th>Status</th>
+                      <th>Joined</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="schoolsTableBody">
+                    <tr
+                      data-status="active"
+                      data-school="mobayo academic school"
+                    >
+                      <td>
+                        <div class="school-name-cell">
+                          <span class="school-avatar"> M </span>
+
+                          <div>
+                            <strong>Mobayo Academic School</strong>
+                            <span>mobayo-academic.cbtschool.ng</span>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>Standard</td>
+
+                      <td>540</td>
+
+                      <td>32</td>
+
+                      <td>
+                        <span class="school-status active"> Active </span>
+                      </td>
+
+                      <td>Jun 12, 2026</td>
+
+                      <td>
+                        <div class="school-actions">
+                          <a
+                            href="./school-details.html"
+                            class="school-view-btn"
+                          >
+                            View
+                          </a>
+
+                          <button
+                            type="button"
+                            class="school-action suspend"
+                            data-action="suspend"
+                          >
+                            Suspend
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr data-status="active" data-school="trinity high school">
+                      <td>
+                        <div class="school-name-cell">
+                          <span class="school-avatar"> T </span>
+
+                          <div>
+                            <strong>Trinity High School</strong>
+                            <span>trinity-high.cbtschool.ng</span>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>Premium</td>
+                      <td>890</td>
+                      <td>54</td>
+
+                      <td>
+                        <span class="school-status active"> Active </span>
+                      </td>
+
+                      <td>May 30, 2026</td>
+
+                      <td>
+                        <div class="school-actions">
+                          <a
+                            href="./school-details.html"
+                            class="school-view-btn"
+                          >
+                            View
+                          </a>
+
+                          <button
+                            type="button"
+                            class="school-action suspend"
+                            data-action="suspend"
+                          >
+                            Suspend
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr data-status="trial" data-school="green valley college">
+                      <td>
+                        <div class="school-name-cell">
+                          <span class="school-avatar"> G </span>
+
+                          <div>
+                            <strong>Green Valley College</strong>
+                            <span>green-valley.cbtschool.ng</span>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>Starter</td>
+                      <td>210</td>
+                      <td>14</td>
+
+                      <td>
+                        <span class="school-status trial"> Trial </span>
+                      </td>
+
+                      <td>Jun 28, 2026</td>
+
+                      <td>
+                        <div class="school-actions">
+                          <a
+                            href="./school-details.html"
+                            class="school-view-btn"
+                          >
+                            View
+                          </a>
+
+                          <button
+                            type="button"
+                            class="school-action suspend"
+                            data-action="suspend"
+                          >
+                            Suspend
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr
+                      data-status="active"
+                      data-school="st augustines grammar"
+                    >
+                      <td>
+                        <div class="school-name-cell">
+                          <span class="school-avatar"> S </span>
+
+                          <div>
+                            <strong>St. Augustine's Grammar</strong>
+                            <span>st-augustines.cbtschool.ng</span>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>Standard</td>
+                      <td>470</td>
+                      <td>28</td>
+
+                      <td>
+                        <span class="school-status active"> Active </span>
+                      </td>
+
+                      <td>Apr 15, 2026</td>
+
+                      <td>
+                        <div class="school-actions">
+                          <a
+                            href="./school-details.html"
+                            class="school-view-btn"
+                          >
+                            View
+                          </a>
+
+                          <button
+                            type="button"
+                            class="school-action suspend"
+                            data-action="suspend"
+                          >
+                            Suspend
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr
+                      data-status="suspended"
+                      data-school="horizon comprehensive"
+                    >
+                      <td>
+                        <div class="school-name-cell">
+                          <span class="school-avatar"> H </span>
+
+                          <div>
+                            <strong>Horizon Comprehensive</strong>
+                            <span>horizon-comp.cbtschool.ng</span>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>Standard</td>
+                      <td>615</td>
+                      <td>36</td>
+
+                      <td>
+                        <span class="school-status suspended"> Suspended </span>
+                      </td>
+
+                      <td>Mar 02, 2026</td>
+
+                      <td>
+                        <div class="school-actions">
+                          <a
+                            href="./school-details.html"
+                            class="school-view-btn"
+                          >
+                            View
+                          </a>
+
+                          <button
+                            type="button"
+                            class="school-action activate"
+                            data-action="activate"
+                          >
+                            Activate
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr
+                      data-status="active"
+                      data-school="newgate international"
+                    >
+                      <td>
+                        <div class="school-name-cell">
+                          <span class="school-avatar"> N </span>
+
+                          <div>
+                            <strong>Newgate International</strong>
+                            <span>newgate-intl.cbtschool.ng</span>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>Premium</td>
+                      <td>1020</td>
+                      <td>61</td>
+
+                      <td>
+                        <span class="school-status active"> Active </span>
+                      </td>
+
+                      <td>Feb 20, 2026</td>
+
+                      <td>
+                        <div class="school-actions">
+                          <a
+                            href="./school-details.html"
+                            class="school-view-btn"
+                          >
+                            View
+                          </a>
+
+                          <button
+                            type="button"
+                            class="school-action suspend"
+                            data-action="suspend"
+                          >
+                            Suspend
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr
+                      data-status="active"
+                      data-school="fountainhead secondary"
+                    >
+                      <td>
+                        <div class="school-name-cell">
+                          <span class="school-avatar"> F </span>
+
+                          <div>
+                            <strong>Fountainhead Secondary</strong>
+                            <span>fountainhead.cbtschool.ng</span>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>Starter</td>
+                      <td>180</td>
+                      <td>11</td>
+
+                      <td>
+                        <span class="school-status active"> Active </span>
+                      </td>
+
+                      <td>Jan 18, 2026</td>
+
+                      <td>
+                        <div class="school-actions">
+                          <a
+                            href="./school-details.html"
+                            class="school-view-btn"
+                          >
+                            View
+                          </a>
+
+                          <button
+                            type="button"
+                            class="school-action suspend"
+                            data-action="suspend"
+                          >
+                            Suspend
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr data-status="trial" data-school="lighthouse academy">
+                      <td>
+                        <div class="school-name-cell">
+                          <span class="school-avatar"> L </span>
+
+                          <div>
+                            <strong>Lighthouse Academy</strong>
+                            <span>lighthouse-ac.cbtschool.ng</span>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>Standard</td>
+                      <td>390</td>
+                      <td>24</td>
+
+                      <td>
+                        <span class="school-status trial"> Trial </span>
+                      </td>
+
+                      <td>Jan 05, 2026</td>
+
+                      <td>
+                        <div class="school-actions">
+                          <a
+                            href="./school-details.html"
+                            class="school-view-btn"
+                          >
+                            View
+                          </a>
+
+                          <button
+                            type="button"
+                            class="school-action suspend"
+                            data-action="suspend"
+                          >
+                            Suspend
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Table Footer -->
+              <div class="schools-table-footer">
+                <p id="schoolsResultCount">Showing 1–8 of 128 schools</p>
+
+                <div class="schools-pagination">
+                  <button
+                    type="button"
+                    class="pagination-btn"
+                    id="previousPage"
+                    disabled
+                  >
+                    ← Prev
+                  </button>
+
+                  <button
+                    type="button"
+                    class="pagination-btn pagination-next"
+                    id="nextPage"
+                  >
+                    Next →
+                  </button>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/school-directory.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

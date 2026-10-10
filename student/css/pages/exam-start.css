@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  background-color: white;
+}
+
+body {
+  background: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Top right user */
+.top-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-right img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+/* Back button */
+.back-btn {
+  position: absolute;
+  top: 80px;
+  left: 400px;
+  padding: 10px 14px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Container */
+.exam-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
+
+  background-color: white;
+}
+
+/* Card */
+.exam-card {
+  background: #f4f4f4;
+  padding: 30px;
+  border-radius: 16px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Title */
+.warning {
+  color: orange;
+  margin-bottom: 20px;
+}
+
+/* Info */
+.exam-info {
+  text-align: left;
+}
+
+.exam-info p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.exam-info span {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+/* Button */
+.start-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Note */
+.note {
+  margin-top: 20px;
+  color: #555;
+  text-align: center;
+  max-width: 400px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .exam-card {
+    padding: 20px;
+  }
+
+  .exam-info p {
+    font-size: 14px;
+  }
+}
+
+.warning,
+.exam-info,
+.exam-info p,
+.exam-info span {
+  background-color: #f4f4f4;
+}
+
+.start-btn:hover {
+  background: #4caf50;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.change-color {
+  /* width: 100%;
+  height: 5px; */
+  animation: changeColor 2s infinite alternate;
+}
+@keyframes changeColor {
+  0% {
+    color: #646464;
+  }
+
+  50% {
+    color: red;
+  }
+
+  100% {
+    color: #f97316;
+  }
+}
+
+.back-btn:hover {
+  background: #1b5e20;
+}

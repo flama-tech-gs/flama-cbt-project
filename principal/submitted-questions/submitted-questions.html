@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="stylesheet" href="./css/submitted-questions.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar" id="principalSidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="../assets/logo.png" alt="School Logo" />
+
+            <div>
+              <h2>Mobayo Academic</h2>
+
+              <p>...Knowledge, Discipline, Excellence...</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav>
+            <a href="../overview.html" class="nav-link">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Overview</span>
+            </a>
+
+            <a href="../data-analysis.html" class="nav-link">
+              <i data-lucide="database"></i>
+
+              <span>Data Analysis</span>
+            </a>
+
+            <a href="../exam-control/exam-control.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Exam Control</span>
+            </a>
+
+            <a href="../student-scores.html" class="nav-link">
+              <i data-lucide="podium"></i>
+
+              <span>Student Scores</span>
+            </a>
+
+            <a href="../student-reports/student-reports.html" class="nav-link">
+              <i data-lucide="clipboard-check"></i>
+
+              <span>Student Reports</span>
+            </a>
+
+            <a href="../theory.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Theory</span>
+            </a>
+
+            <a href="../broadcasts/broadcasts.html" class="nav-link">
+              <i data-lucide="megaphone"></i>
+
+              <span>Broadcasts</span>
+            </a>
+
+            <a href="../students/students.html" class="nav-link">
+              <i data-lucide="person-standing"></i>
+
+              <span>Students</span>
+            </a>
+
+            <a href="../teachers/teachers.html" class="nav-link">
+              <i data-lucide="graduation-cap"></i>
+
+              <span>Teachers</span>
+            </a>
+
+            <a href="../departments/departments.html" class="nav-link">
+              <i data-lucide="building-2"></i>
+
+              <span>Departments</span>
+            </a>
+
+            <a href="./submitted-questions.html" class="nav-link active">
+              <i data-lucide="file-text"></i>
+
+              <span>Submitted Questions</span>
+            </a>
+
+            <a href="../profile.html" class="nav-link">
+              <i data-lucide="circle-user-round"></i>
+
+              <span>Profile</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Logout -->
+
+        <button class="logout-btn">
+          <i data-lucide="log-out"></i>
+
+          Logout
+        </button>
+      </aside>
+
+      <!-- overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+      <!-- For the main content of the page -->
+
+      <main class="main-content">
+        <!-- ==========================================
+    PAGE HEADER
+    ========================================== -->
+
+        <header class="page-header">
+          <div class="page-title">
+            <button
+              class="menu-toggle"
+              id="menuToggle"
+              type="button"
+              aria-label="Open navigation"
+              aria-controls="principalSidebar"
+              aria-expanded="false"
+            >
+              <i data-lucide="menu"></i>
+            </button>
+
+            <h1>Submitted Questions</h1>
+
+            <p>
+              Review all exam questions submitted by teachers, grouped by year
+              and class.
+            </p>
+          </div>
+
+          <div class="principal-profile">
+            <div class="principal-avatar">
+              <img src="../assets/image.png" alt="Principal" />
+
+              <span class="online-dot"></span>
+            </div>
+
+            <div class="principal-details">
+              <h4>Dr. Bankole Okonjo</h4>
+
+              <p>School Principal</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-container">
+          <!-- ==========================================
+    SEARCH
+    ========================================== -->
+
+          <section class="search-section">
+            <div class="search-box">
+              <i data-lucide="search"></i>
+
+              <input
+                type="text"
+                placeholder="Search by subject or teacher name..."
+              />
+            </div>
+          </section>
+
+          <!-- ==========================================
+    FILTERS
+    ========================================== -->
+
+          <section class="filter-card">
+            <h3>Filter Results</h3>
+
+            <select>
+              <option>All Years</option>
+
+              <option>2026</option>
+
+              <option>2025</option>
+            </select>
+
+            <select class="class-filter" aria-label="Filter by class">
+              <option>All Classes</option>
+
+              <option>JSS 1A</option>
+
+              <option>JSS 2A</option>
+
+              <option>JSS 3B</option>
+            </select>
+
+            <select>
+              <option>All Subjects</option>
+
+              <option>Biology</option>
+
+              <option>Mathematics</option>
+
+              <option>Chemistry</option>
+            </select>
+
+            <button class="apply-filter-btn">Apply Filters</button>
+          </section>
+
+          <!-- ==========================================
+    YEAR ACCORDION
+    ========================================== -->
+
+          <section class="year-group open">
+            <button class="year-header accordion-toggle">
+              <div>
+                <span class="year-title"> 2026 </span>
+
+                <span class="submission-count"> 8 submissions </span>
+              </div>
+
+              <i data-lucide="chevron-up"></i>
+            </button>
+
+            <div class="year-content">
+              <!-- =============================
+            CLASS GROUP
+            ============================== -->
+
+              <div class="class-group open">
+                <button class="class-header accordion-toggle">
+                  <div>
+                    <span class="class-title"> JSS 3B </span>
+
+                    <span class="submission-count"> 3 submissions </span>
+                  </div>
+
+                  <i data-lucide="chevron-up"></i>
+                </button>
+
+                <div class="class-content">
+                  <div class="table-wrapper">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Subject</th>
+
+                          <th>Teacher</th>
+
+                          <th>Term</th>
+
+                          <th>Status</th>
+
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td>Biology</td>
+
+                          <td>Mrs. Adebayo Folake</td>
+
+                          <td>2nd Term</td>
+
+                          <td>
+                            <span class="status pending">
+                              Pending Approval
+                            </span>
+                          </td>
+
+                          <td>
+                            <button class="view-btn">View</button>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>Basic Science & Tech</td>
+
+                          <td>Mrs. Adebayo Folake</td>
+
+                          <td>2nd Term</td>
+
+                          <td>
+                            <span class="status approved"> Approved </span>
+                          </td>
+
+                          <td>
+                            <button class="view-btn">View</button>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>Mathematics</td>
+
+                          <td>Mr. Chukwu Emeka</td>
+
+                          <td>1st Term</td>
+
+                          <td>
+                            <span class="status approved"> Approved </span>
+                          </td>
+
+                          <td>
+                            <button class="view-btn">View</button>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>History</td>
+
+                          <td>Ms. Johnson Claire</td>
+
+                          <td>1st Term</td>
+
+                          <td>
+                            <span class="status pending">
+                              Pending Approval
+                            </span>
+                          </td>
+
+                          <td>
+                            <button class="view-btn">View</button>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>Chemistry</td>
+
+                          <td>Mr. Olatunde Samuel</td>
+
+                          <td>2nd Term</td>
+
+                          <td>
+                            <span class="status approved"> Approved </span>
+                          </td>
+
+                          <td>
+                            <button class="view-btn">View</button>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>Geography</td>
+
+                          <td>Ms. Adeyemi Tolu</td>
+
+                          <td>1st Term</td>
+
+                          <td>
+                            <span class="status pending">
+                              Pending Approval
+                            </span>
+                          </td>
+
+                          <td>
+                            <button class="view-btn">View</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- =============================
+            JSS 1A
+            ============================== -->
+
+              <div class="class-group open">
+                <button class="class-header accordion-toggle">
+                  <div>
+                    <span class="class-title"> JSS 1A </span>
+
+                    <span class="submission-count"> 2 submissions </span>
+                  </div>
+
+                  <i data-lucide="chevron-up"></i>
+                </button>
+
+                <div class="class-content">
+                  <div class="table-wrapper">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Subject</th>
+
+                          <th>Teacher</th>
+
+                          <th>Term</th>
+
+                          <th>Status</th>
+
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td>Biology</td>
+
+                          <td>Mrs. Adebayo Folake</td>
+
+                          <td>2nd Term</td>
+
+                          <td><span class="status approved">Approved</span></td>
+
+                          <td><button class="view-btn">View</button></td>
+                        </tr>
+
+                        <tr>
+                          <td>English Language</td>
+
+                          <td>Mr. Adeyemi Kola</td>
+
+                          <td>2nd Term</td>
+
+                          <td>
+                            <span class="status pending">Pending Approval</span>
+                          </td>
+
+                          <td><button class="view-btn">View</button></td>
+                        </tr>
+
+                        <tr>
+                          <td>Mathematics</td>
+
+                          <td>Ms. Johnson Emily</td>
+
+                          <td>2nd Term</td>
+
+                          <td><span class="status approved">Approved</span></td>
+
+                          <td><button class="view-btn">View</button></td>
+                        </tr>
+
+                        <tr>
+                          <td>History</td>
+
+                          <td>Mr. Olatunde Samuel</td>
+
+                          <td>2nd Term</td>
+
+                          <td><span class="status rejected">Rejected</span></td>
+
+                          <td><button class="view-btn">View</button></td>
+                        </tr>
+
+                        <tr>
+                          <td>Chemistry</td>
+
+                          <td>Dr. Ibitoye Grace</td>
+
+                          <td>2nd Term</td>
+
+                          <td><span class="status approved">Approved</span></td>
+
+                          <td><button class="view-btn">View</button></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- =============================
+            COLLAPSED CLASSES
+            ============================== -->
+
+              <div class="class-group">
+                <button class="class-header accordion-toggle">
+                  <div>
+                    <span class="class-title">JSS 2A</span>
+
+                    <span class="submission-count">2 submissions</span>
+                  </div>
+
+                  <i data-lucide="chevron-down"></i>
+                </button>
+              </div>
+
+              <div class="class-group">
+                <button class="class-header accordion-toggle">
+                  <div>
+                    <span class="class-title">JSS 3A</span>
+
+                    <span class="submission-count">1 submission</span>
+                  </div>
+
+                  <i data-lucide="chevron-down"></i>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================
+    COLLAPSED YEAR
+    ========================================== -->
+
+          <section class="year-group">
+            <button class="year-header accordion-toggle">
+              <div>
+                <span class="year-title"> 2025 </span>
+
+                <span class="submission-count"> 5 submissions </span>
+              </div>
+
+              <i data-lucide="chevron-down"></i>
+            </button>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/submitted-questions.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

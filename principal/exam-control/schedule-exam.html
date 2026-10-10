@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Principal Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="stylesheet" href="./css/schedule-exam.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="../assets/logo.png" alt="School Logo" />
+
+            <div>
+              <h2>Mobayo Academic</h2>
+
+              <p>...Knowledge, Discipline, Excellence...</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav>
+            <a href="../overview.html" class="nav-link">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Overview</span>
+            </a>
+
+            <a href="../data-analysis.html" class="nav-link">
+              <i data-lucide="database"></i>
+
+              <span>Data Analysis</span>
+            </a>
+
+            <a href="./exam-control.html" class="nav-link active">
+              <i data-lucide="book-check"></i>
+
+              <span>Exam Control</span>
+            </a>
+
+            <a href="../student-scores.html" class="nav-link">
+              <i data-lucide="podium"></i>
+
+              <span>Student Scores</span>
+            </a>
+
+            <a href="../student-reports/student-reports.html" class="nav-link">
+              <i data-lucide="clipboard-check"></i>
+
+              <span>Student Reports</span>
+            </a>
+
+            <a href="../theory.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Theory</span>
+            </a>
+
+            <a href="../broadcasts/broadcasts.html" class="nav-link">
+              <i data-lucide="megaphone"></i>
+
+              <span>Broadcasts</span>
+            </a>
+
+            <a href="../students/students.html" class="nav-link">
+              <i data-lucide="person-standing"></i>
+
+              <span>Students</span>
+            </a>
+
+            <a href="../teachers/teachers.html" class="nav-link">
+              <i data-lucide="graduation-cap"></i>
+
+              <span>Teachers</span>
+            </a>
+
+            <a href="../departments/departments.html" class="nav-link">
+              <i data-lucide="building-2"></i>
+
+              <span>Departments</span>
+            </a>
+
+            <a
+              href="../submitted-questions/submitted-questions.html"
+              class="nav-link"
+            >
+              <i data-lucide="file-text"></i>
+
+              <span>Submitted Questions</span>
+            </a>
+
+            <a href="../profile.html" class="nav-link">
+              <i data-lucide="circle-user-round"></i>
+
+              <span>Profile</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Logout -->
+
+        <button class="logout-btn">
+          <i data-lucide="log-out"></i>
+
+          Logout
+        </button>
+      </aside>
+
+      <!-- overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+      <!-- For the main content of the page -->
+
+      <main class="main-content">
+        <!-- ==========================================
+TOPBAR
+========================================== -->
+
+        <header class="topbar">
+          <div class="topbar-left">
+            <div class="topbar-title">
+              <h1>Schedule Exam</h1>
+
+              <p>
+                Set a future date and time for this exam to automatically go
+                live.
+              </p>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="teacher-profile">
+              <img src="../assets/image.png" alt="Principal" />
+
+              <div>
+                <h3>Dr. Bankole Okonjo</h3>
+
+                <p>School Principal</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-container">
+          <!-- ==========================================
+BACK BUTTON
+========================================== -->
+
+          <a href="../exam-control/exam-control.html" class="back-btn">
+            <i data-lucide="arrow-left"></i>
+
+            Back to Exam Control
+          </a>
+
+          <!-- ==========================================
+FORM
+========================================== -->
+
+          <section class="schedule-card">
+            <h2>Select Exam to Schedule</h2>
+
+            <p class="subtitle">
+              Only subjects with fully approved questions appear here. Each one
+              is shown once.
+            </p>
+
+            <div class="form-group">
+              <label>Subject</label>
+
+              <select id="subject">
+                <option>Select an approved subject...</option>
+              </select>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Class</label>
+
+                <select id="class">
+                  <option>Select class...</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Duration</label>
+
+                <select id="duration">
+                  <option>Select duration...</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="questions-card">
+              <div>
+                <small>Questions</small>
+
+                <h3 id="questionCount">45</h3>
+              </div>
+
+              <span class="pill"> Auto-filled </span>
+            </div>
+
+            <h2 class="quick-title">Quick Schedule</h2>
+
+            <div class="quick-buttons">
+              <button class="active">In 1 Hour</button>
+
+              <button>In 3 Hours</button>
+
+              <button>In 6 Hours</button>
+
+              <button>Tomorrow, 8:00 AM</button>
+            </div>
+
+            <h2 class="custom-title">Or Choose a Custom Date & Time</h2>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Date</label>
+
+                <input type="date" id="examDate" />
+              </div>
+
+              <div class="form-group">
+                <label>Time</label>
+
+                <input type="time" id="examTime" />
+              </div>
+            </div>
+
+            <div class="info-box">
+              The exam will automatically go live at the selected time and stop
+              itself once the selected duration ends.
+            </div>
+
+            <div class="action-buttons">
+              <button class="primary-btn" id="confirmSchedule">
+                <i data-lucide="clock-3"></i>
+
+                Confirm Schedule
+              </button>
+
+              <button class="secondary-btn">Cancel</button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/schedule-exam.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
+
+window.location.href = "./create.html";

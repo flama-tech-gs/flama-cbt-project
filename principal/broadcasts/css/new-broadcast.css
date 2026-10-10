@@ -1,0 +1,250 @@
+/* ==========================================
+BACK ROW
+========================================== */
+
+.back-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin: 2rem 0;
+}
+
+.back-btn {
+  width: 68px;
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--primary);
+  color: #fff;
+
+  border-radius: 16px;
+
+  text-decoration: none;
+}
+
+.back-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.back-row span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* ==========================================
+SECTIONS
+========================================== */
+
+.audience-section,
+.message-section {
+  margin-bottom: 3rem;
+}
+
+.audience-section h2,
+.message-section h2 {
+  font-size: 1.125rem;
+  color: var(--primary);
+
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+AUDIENCE GRID
+========================================== */
+
+.audience-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1.5rem;
+}
+
+.audience-card {
+  border: 1px solid #ddd;
+
+  border-radius: 18px;
+
+  padding: 2rem;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  background: #fff;
+}
+
+.audience-card.active {
+  background: var(--primary);
+
+  color: #fff;
+
+  border-color: var(--primary);
+}
+
+.audience-card h3 {
+  font-size: 0.938rem;
+  margin-bottom: 0.8rem;
+}
+
+.audience-card p {
+  font-size: 0.813rem;
+  color: #666;
+}
+
+.audience-card.active p {
+  color: #e8ffe7;
+}
+
+/* ==========================================
+FORM
+========================================== */
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+
+  font-size: 1.25rem;
+
+  color: #6ea86b;
+
+  margin-bottom: 0.8rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+
+  border: none;
+
+  background: #eaf8e8;
+
+  border-radius: 14px;
+
+  padding: 1.2rem 1.4rem;
+
+  font-size: 1rem;
+
+  outline: none;
+
+  resize: none;
+}
+
+/* ==========================================
+DELIVERY NOTE
+========================================== */
+
+.delivery-note {
+  background: #f2ffe7;
+
+  color: var(--primary);
+
+  border-radius: 14px;
+
+  padding: 1.5rem;
+
+  margin-bottom: 2rem;
+
+  font-weight: 500;
+
+  font-size: 0.875rem;
+}
+
+/* ==========================================
+BUTTONS
+========================================== */
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+
+  padding: 1.2rem 2rem;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.cancel-btn {
+  padding: 1.2rem 2.2rem;
+
+  background: #fff;
+
+  border: 1px solid #ddd;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media (max-width: 1200px) {
+  .audience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .audience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .send-btn,
+  .cancel-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .back-row {
+    flex-wrap: wrap;
+  }
+
+  .back-row span {
+    font-size: 1.3rem;
+  }
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

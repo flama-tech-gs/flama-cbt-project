@@ -1,0 +1,706 @@
+/*==============================================================
+SUBSCRIPTION & BILLING
+==============================================================*/
+
+/*==============================================================
+PAGE LAYOUT
+==============================================================*/
+
+.dashboard {
+  width: min(1440px, 95%);
+
+  margin: auto;
+
+  padding: 32px 0 56px;
+}
+
+.page-header {
+  margin-bottom: 34px;
+}
+
+.page-header h1 {
+  margin: 0;
+
+  font-size: 1.375rem;
+
+  font-weight: 800;
+
+  color: #2e7d32;
+
+  letter-spacing: -0.4px;
+}
+
+.page-header p {
+  margin-top: 8px;
+
+  font-size: 15px;
+
+  color: #6b7280;
+
+  line-height: 1.6;
+}
+
+/*==============================================================
+CURRENT SUBSCRIPTION
+==============================================================*/
+
+.subscription-summary {
+  margin-bottom: 36px;
+}
+
+.subscription-summary__content {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 32px;
+
+  padding: 28px 30px;
+
+  border: 1px solid #bfe3c1;
+
+  border-radius: 18px;
+
+  background: #f7fcf7;
+
+  box-shadow:
+    0 2px 6px rgba(15, 23, 42, 0.03),
+    0 10px 28px rgba(15, 23, 42, 0.04);
+}
+
+.subscription-summary__left {
+  flex: 1;
+}
+
+.subscription-summary__left h2 {
+  margin: 0;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  color: #2e7d32;
+}
+
+.subscription-meta {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin: 12px 0 18px;
+
+  color: #7b8a7e;
+
+  font-size: 15px;
+}
+
+.subscription-meta span {
+  color: #b5c2b6;
+}
+
+.subscription-summary__right {
+  text-align: right;
+}
+
+.subscription-summary__right h3 {
+  margin: 0;
+
+  font-size: 1.5rem;
+
+  font-weight: 800;
+
+  color: #2e7d32;
+}
+
+.subscription-summary__right p {
+  margin: 8px 0 18px;
+
+  color: #7b8a7e;
+
+  font-size: 14px;
+}
+
+/*==============================================================
+EXPIRY BADGE
+==============================================================*/
+
+.expiry-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  background: #fff4e6;
+
+  color: #f28c1a;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.expiry-badge svg {
+  width: 16px;
+
+  height: 16px;
+}
+
+/*==============================================================
+BUTTON
+==============================================================*/
+
+.btn-renew {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 13px 22px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: #f5a623;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.btn-renew:hover {
+  background: #e99513;
+}
+
+.btn-renew svg {
+  width: 18px;
+
+  height: 18px;
+}
+
+/*==============================================================
+SECTION TITLE
+==============================================================*/
+
+.section-heading {
+  margin-bottom: 26px;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  font-size: 24px;
+
+  font-weight: 700;
+
+  color: #2e7d32;
+}
+
+.section-heading p {
+  margin-top: 8px;
+
+  color: #6b7280;
+
+  font-size: 15px;
+}
+
+/*==============================================================
+PRICING GRID
+==============================================================*/
+
+.pricing-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 34px;
+
+  margin-bottom: 46px;
+}
+
+/*==============================================================
+PRICING CARD
+==============================================================*/
+
+.pricing-card {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 36px;
+
+  border-radius: 22px;
+
+  min-height: 610px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* More styling */
+.pricing-card:hover,
+.pricing-card:hover .plan-price,
+.pricing-card:hover .plan-description,
+.pricing-card:hover .enterprise-price {
+  /* transform: translateY(-10px); */
+  background: #f9a825;
+  border-radius: 24px;
+  color: #261a05;
+}
+
+.pricing-card:hover .btn {
+  background: #261a05;
+  color: #ffffff;
+}
+
+.pricing-card:hover .btn:hover {
+  background: #fde5be;
+  color: #261a05;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+}
+
+.pricing-card h3 {
+  margin: 0 0 28px;
+
+  font-size: 22px;
+
+  font-weight: 700;
+}
+
+.plan-price {
+  margin-bottom: 24px;
+
+  font-size: 2.5rem;
+
+  font-weight: 800;
+
+  line-height: 1;
+}
+
+.plan-price small {
+  font-size: 26px;
+
+  font-weight: 500;
+}
+
+.currency {
+  font-size: 0.9em;
+}
+
+.enterprise-price {
+  margin-bottom: 28px;
+
+  font-size: 2.5rem;
+
+  font-weight: 800;
+}
+
+.plan-description {
+  font-size: 16px;
+
+  line-height: 1.6;
+
+  margin-bottom: 26px;
+}
+
+.plan-divider {
+  width: 100%;
+
+  height: 1px;
+
+  margin-bottom: 28px;
+}
+
+/* PART TWO */
+
+/*==============================================================
+STARTER & ENTERPRISE CARDS
+==============================================================*/
+
+.starter-plan,
+.enterprise-plan {
+  background: #2e7d32;
+
+  color: #ffffff;
+
+  box-shadow: 0 12px 28px rgba(46, 125, 50, 0.2);
+}
+
+.starter-plan .plan-divider,
+.enterprise-plan .plan-divider {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.starter-plan .plan-description,
+.enterprise-plan .plan-description {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.starter-plan .plan-price,
+.enterprise-plan .enterprise-price {
+  color: #ffffff;
+}
+
+/*==============================================================
+FEATURED CARD
+==============================================================*/
+
+.featured-plan {
+  background: #f5a623;
+
+  color: #1f2937;
+
+  transform: scale(1.04);
+
+  box-shadow: 0 24px 50px rgba(245, 166, 35, 0.35);
+}
+
+.featured-plan:hover {
+  transform: scale(1.04) translateY(-8px);
+}
+
+.featured-plan .plan-divider {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.popular-badge {
+  position: absolute;
+
+  top: 24px;
+
+  right: 24px;
+
+  padding: 7px 14px;
+
+  background: #1f2937;
+
+  color: #ffffff;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+.featured-plan .plan-description {
+  color: #4b5563;
+}
+
+/*==============================================================
+FEATURE LIST
+==============================================================*/
+
+.plan-features {
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+  flex: 1;
+}
+
+.plan-features li {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  font-size: 15px;
+
+  line-height: 1.5;
+}
+
+.plan-features svg {
+  width: 18px;
+
+  height: 18px;
+
+  flex-shrink: 0;
+}
+
+.starter-plan svg,
+.enterprise-plan svg {
+  color: #9be29f;
+}
+
+.featured-plan svg {
+  color: #2e7d32;
+}
+
+/*==============================================================
+PLAN BUTTONS
+==============================================================*/
+
+.btn-plan,
+.btn-featured-plan {
+  margin-top: 34px;
+
+  width: 100%;
+
+  height: 50px;
+
+  border-radius: 12px;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.btn-plan {
+  background: #f5a623;
+
+  border: none;
+
+  color: #ffffff;
+}
+
+.btn-plan:hover {
+  background: #ea9818;
+}
+
+.btn-featured-plan {
+  background: #2e7d32;
+
+  border: none;
+
+  color: #ffffff;
+}
+
+.btn-featured-plan:hover {
+  background: #27692a;
+}
+
+/*==============================================================
+BILLING CARD
+==============================================================*/
+
+.billing-card {
+  background: #ffffff;
+
+  border: 1px solid #e7efe7;
+
+  border-radius: 18px;
+
+  padding: 28px;
+
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.billing-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 920px;
+}
+
+.billing-table thead th {
+  text-align: left;
+
+  padding: 16px 18px;
+
+  background: #f4fbf4;
+
+  color: #4f8a56;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+}
+
+.billing-table tbody td {
+  padding: 18px;
+
+  border-bottom: 1px solid #edf2ed;
+
+  font-size: 14px;
+
+  color: #374151;
+}
+
+.billing-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.billing-table tbody tr:hover {
+  background: #fafcfa;
+}
+
+.amount {
+  font-weight: 700;
+
+  color: #2e7d32;
+}
+
+/*==============================================================
+STATUS
+==============================================================*/
+
+.status-pill {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.status-pill svg {
+  width: 15px;
+
+  height: 15px;
+}
+
+.status-pill.paid {
+  background: #eaf8ec;
+
+  color: #2e7d32;
+}
+
+/*==============================================================
+PDF BUTTON
+==============================================================*/
+
+.receipt-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px 14px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #eaf2ff;
+
+  color: #2563eb;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.receipt-btn:hover {
+  background: #dce8ff;
+}
+
+.receipt-btn svg {
+  width: 16px;
+
+  height: 16px;
+}
+
+/*==============================================================
+RESPONSIVE
+==============================================================*/
+
+@media (max-width: 1200px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-plan {
+    transform: none;
+  }
+
+  .featured-plan:hover {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 900px) {
+  .subscription-summary__content {
+    flex-direction: column;
+  }
+
+  .subscription-summary__right {
+    text-align: left;
+
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard {
+    width: 92%;
+  }
+
+  .subscription-summary__content {
+    padding: 22px;
+  }
+
+  .pricing-card {
+    padding: 28px;
+
+    min-height: auto;
+  }
+
+  .plan-price {
+    font-size: 46px;
+  }
+
+  .enterprise-price {
+    font-size: 48px;
+  }
+
+  .billing-card {
+    padding: 18px;
+  }
+}

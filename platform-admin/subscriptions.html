@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Subscriptions & Billing</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/subscriptions.css" />
+    <link rel="stylesheet" href="../css/pricing-cards.css" />
+  </head>
+
+  <body>
+    <div class="platform-layout">
+      <!-- ==========================================
+         SIDEBAR
+    ========================================== -->
+
+      <aside class="platform-sidebar" id="platformSidebar">
+        <div class="sidebar-brand">
+          <div class="brand-logo">C</div>
+
+          <div class="brand-info">
+            <h2>CBT School</h2>
+
+            <p>Super Admin</p>
+          </div>
+        </div>
+
+        <nav class="platform-navigation">
+          <a href="./index.html" class="platform-nav-link">
+            <i data-lucide="house"></i>
+
+            <span>Dashboard</span>
+          </a>
+
+          <a href="school-directory.html" class="platform-nav-link">
+            <i data-lucide="school"></i>
+
+            <span>Schools</span>
+          </a>
+
+          <a href="./subscriptions.html" class="platform-nav-link active">
+            <i data-lucide="credit-card"></i>
+
+            <span>Subscriptions &amp; Billing</span>
+          </a>
+
+          <a href="./support-tickets.html" class="platform-nav-link">
+            <i data-lucide="ticket"></i>
+
+            <span>Support Tickets</span>
+          </a>
+
+          <a href="./reports.html" class="platform-nav-link">
+            <i data-lucide="bar-chart-3"></i>
+
+            <span>Reports</span>
+          </a>
+
+          <a href="./settings.html" class="platform-nav-link">
+            <i data-lucide="settings"></i>
+
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-admin">
+          <div class="admin-avatar">SA</div>
+
+          <div class="admin-account">
+            <strong>Super Admin</strong>
+
+            <button type="button" class="logout-link">Log Out →</button>
+          </div>
+        </div>
+      </aside>
+
+      <button
+        class="sidebar-overlay"
+        type="button"
+        aria-label="Close navigation"
+        tabindex="-1"
+      ></button>
+
+      <!-- ==========================================
+         MAIN AREA
+    ========================================== -->
+
+      <main class="platform-main">
+        <!-- ======================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="platform-topbar">
+          <button
+            type="button"
+            class="mobile-menu-toggle"
+            aria-label="Open navigation"
+            aria-controls="platformSidebar"
+            aria-expanded="false"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+
+          <div class="global-search">
+            <i data-lucide="search"></i>
+
+            <input
+              type="search"
+              placeholder="Search schools, tickets, transactions..."
+              aria-label="Search platform"
+            />
+          </div>
+
+          <div class="topbar-actions">
+            <button
+              type="button"
+              class="notification-button"
+              aria-label="Notifications"
+            >
+              <i data-lucide="bell"></i>
+
+              <span class="notification-dot"></span>
+            </button>
+
+            <div class="topbar-admin">
+              <div class="topbar-avatar">SA</div>
+
+              <div class="topbar-admin-info">
+                <strong>Super Admin</strong>
+
+                <span>Platform Team⌄</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ======================================
+             PAGE CONTENT
+        ====================================== -->
+
+        <div class="dashboard-content">
+          <!-- ==========================================
+     SUBSCRIPTIONS & BILLING
+========================================== -->
+
+          <section class="billing-page">
+            <!-- Page Header -->
+            <div class="billing-page-header">
+              <div>
+                <h1>Subscriptions &amp; Billing</h1>
+                <p>Platform-wide revenue, plans and payment history.</p>
+              </div>
+            </div>
+
+            <!-- ==========================================
+       BILLING SUMMARY
+  =========================================== -->
+
+            <section class="billing-stats-grid">
+              <article class="billing-stat-card">
+                <div class="billing-stat-top">
+                  <span>Monthly Recurring Revenue</span>
+
+                  <span class="billing-stat-icon"> 💰 </span>
+                </div>
+
+                <strong>₦4.82M</strong>
+
+                <p>+8.4% vs last month</p>
+              </article>
+
+              <article class="billing-stat-card">
+                <div class="billing-stat-top">
+                  <span>Collected This Term</span>
+
+                  <span class="billing-stat-icon"> ✅ </span>
+                </div>
+
+                <strong>₦38.6M</strong>
+
+                <p>96% collection rate</p>
+              </article>
+
+              <article class="billing-stat-card">
+                <div class="billing-stat-top">
+                  <span>Outstanding Payments</span>
+
+                  <span class="billing-stat-icon"> ⏳ </span>
+                </div>
+
+                <strong>₦1.62M</strong>
+
+                <p>14 schools pending</p>
+              </article>
+
+              <article class="billing-stat-card">
+                <div class="billing-stat-top">
+                  <span>Churned Schools</span>
+
+                  <span class="billing-stat-icon"> 📉 </span>
+                </div>
+
+                <strong>3</strong>
+
+                <p>Last 90 days</p>
+              </article>
+            </section>
+
+            <!-- ==========================================
+       PLAN PRICING
+  =========================================== -->
+
+            <section class="pricing-section">
+              <h2 class="billing-section-label">Plan Pricing</h2>
+
+              <div class="pricing-grid">
+                <!-- Starter -->
+                <article class="pricing-card">
+                  <h3>Starter</h3>
+
+                  <div class="price">₦17,000 <span>/term</span></div>
+
+                  <p class="pricing-description">Up to 250 students</p>
+
+                  <hr />
+
+                  <ul class="pricing-features">
+                    <li><i data-lucide="check"></i>CBT exams only</li>
+                    <li><i data-lucide="check"></i>Basic analytics</li>
+                    <li><i data-lucide="check"></i>Email support</li>
+                  </ul>
+
+                  <button
+                    type="button"
+                    class="btn btn-primary pricing-edit-btn"
+                    data-plan="Starter"
+                  >
+                    Edit Pricing
+                  </button>
+                </article>
+
+                <!-- Standard -->
+                <article class="pricing-card featured">
+                  <span class="pricing-badge"> MOST POPULAR </span>
+
+                  <h3>Standard</h3>
+
+                  <div class="price">₦38,125 <span>/term</span></div>
+
+                  <p class="pricing-description">Up to 600 students</p>
+
+                  <hr />
+
+                  <ul class="pricing-features">
+                    <li><i data-lucide="check"></i>CBT + Theory exams</li>
+                    <li><i data-lucide="check"></i>Advanced analytics</li>
+                    <li><i data-lucide="check"></i>Broadcast messages</li>
+                    <li><i data-lucide="check"></i>Priority support</li>
+                  </ul>
+
+                  <button
+                    type="button"
+                    class="btn btn-primary pricing-edit-btn"
+                    data-plan="Standard"
+                  >
+                    Edit Pricing
+                  </button>
+                </article>
+
+                <!-- Premium -->
+                <article class="pricing-card">
+                  <h3>Premium</h3>
+
+                  <div class="price">₦65,000 <span>/term</span></div>
+
+                  <p class="pricing-description">Unlimited students</p>
+
+                  <hr />
+
+                  <ul class="pricing-features">
+                    <li><i data-lucide="check"></i>All exam types</li>
+                    <li><i data-lucide="check"></i>Full analytics suite</li>
+                    <li><i data-lucide="check"></i>Custom branding</li>
+                    <li><i data-lucide="check"></i>24/7 dedicated support</li>
+                  </ul>
+
+                  <button
+                    type="button"
+                    class="btn btn-primary pricing-edit-btn"
+                    data-plan="Premium"
+                  >
+                    Edit Pricing
+                  </button>
+                </article>
+              </div>
+            </section>
+
+            <!-- ==========================================
+       RECENT TRANSACTIONS
+  =========================================== -->
+
+            <section class="transactions-card">
+              <div class="transactions-header">
+                <h2 class="billing-section-label">Recent Transactions</h2>
+
+                <a href="./transactions.html" class="transactions-view-all">
+                  View All →
+                </a>
+              </div>
+
+              <div class="transactions-table-wrapper">
+                <table class="transactions-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>School</th>
+                      <th>Plan</th>
+                      <th>Amount</th>
+                      <th>Method</th>
+                      <th>Status</th>
+                      <th>Receipt</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="transactionsTableBody">
+                    <tr>
+                      <td>Jun 20, 2026</td>
+                      <td>Mobayo Academic School</td>
+                      <td>Standard</td>
+
+                      <td class="transaction-amount">₦38,125</td>
+
+                      <td>Card</td>
+
+                      <td>
+                        <span class="payment-status paid"> Paid </span>
+                      </td>
+
+                      <td>
+                        <button
+                          type="button"
+                          class="receipt-btn"
+                          data-receipt="Mobayo Academic School"
+                        >
+                          ↓ PDF
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Jun 19, 2026</td>
+                      <td>Trinity High School</td>
+                      <td>Premium</td>
+
+                      <td class="transaction-amount">₦65,000</td>
+
+                      <td>Bank Transfer</td>
+
+                      <td>
+                        <span class="payment-status paid"> Paid </span>
+                      </td>
+
+                      <td>
+                        <button
+                          type="button"
+                          class="receipt-btn"
+                          data-receipt="Trinity High School"
+                        >
+                          ↓ PDF
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Jun 18, 2026</td>
+                      <td>Green Valley College</td>
+                      <td>Starter</td>
+
+                      <td class="transaction-amount">₦17,000</td>
+
+                      <td>Card</td>
+
+                      <td>
+                        <span class="payment-status pending"> Pending </span>
+                      </td>
+
+                      <td>
+                        <button
+                          type="button"
+                          class="receipt-btn"
+                          data-receipt="Green Valley College"
+                        >
+                          ↓ PDF
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Jun 15, 2026</td>
+                      <td>Horizon Comprehensive</td>
+                      <td>Standard</td>
+
+                      <td class="transaction-amount">₦38,125</td>
+
+                      <td>Card</td>
+
+                      <td>
+                        <span class="payment-status failed"> Failed </span>
+                      </td>
+
+                      <td>
+                        <button
+                          type="button"
+                          class="receipt-btn"
+                          data-receipt="Horizon Comprehensive"
+                        >
+                          ↓ PDF
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Jun 12, 2026</td>
+                      <td>Newgate International</td>
+                      <td>Premium</td>
+
+                      <td class="transaction-amount">₦65,000</td>
+
+                      <td>Bank Transfer</td>
+
+                      <td>
+                        <span class="payment-status paid"> Paid </span>
+                      </td>
+
+                      <td>
+                        <button
+                          type="button"
+                          class="receipt-btn"
+                          data-receipt="Newgate International"
+                        >
+                          ↓ PDF
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/subscriptions.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Portal Activated | CBT School</title>
+
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+    <link rel="stylesheet" href="./css/register.css" />
+    <link rel="stylesheet" href="./css/portal-activated.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="auth-layout">
+      <!-- Sidebar -->
+
+      <aside class="auth-sidebar">
+        <div class="sidebar-content">
+          <a href="../index.html" class="auth-logo">
+            <img src="./assets/Ellipse.png" alt="CBT School" />
+          </a>
+
+          <div class="sidebar-text">
+            <h1>Your Portal<br />Is Live! 🚀</h1>
+
+            <p>
+              Your school is now fully set up on CBT School platform. Log into
+              your principal dashboard to get started.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>
+              <i class="ri-check-line"></i><span>School portal activated</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i><span>URL sent to your email</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i><span>Principal account ready</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Start adding teachers & students</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i><span>Schedule your first exam</span>
+            </li>
+          </ul>
+
+          <div class="sidebar-footer">
+            <p>
+              Need help?
+
+              <a href="mailto:support@cbtschool.ng"> support@cbtschool.ng </a>
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main -->
+
+      <main class="auth-main">
+        <section class="registration-wrapper">
+          <!-- Success -->
+
+          <div class="portal-success">
+            <div class="success-icon">
+              <i class="ri-check-line"></i>
+            </div>
+
+            <h2 class="success-title">Your School Portal Is Active!</h2>
+
+            <p class="success-description">
+              Congratulations!
+
+              <strong id="schoolName"> Mobayo Academic School </strong>
+
+              is now live on CBT School. Your portal link has been sent to
+
+              <strong id="schoolEmail"> admin@mobayoacademic.edu.ng </strong>
+            </p>
+          </div>
+
+          <!-- Portal URL -->
+
+          <div class="registration-card portal-url-card">
+            <h3>Your School Portal URL</h3>
+
+            <div class="portal-url">
+              <span id="portalUrl"> https://mobayo-academic.cbtschool.ng </span>
+
+              <button type="button" id="copyPortalUrl" class="copy-btn">
+                <i class="ri-file-copy-line"></i>
+
+                Copy
+              </button>
+            </div>
+
+            <div class="portal-actions">
+              <button type="button" id="emailLink" class="action-btn">
+                <i class="ri-mail-send-line"></i>
+
+                Send via Email
+              </button>
+
+              <button type="button" id="whatsappLink" class="action-btn">
+                <i class="ri-whatsapp-line"></i>
+
+                Share via WhatsApp
+              </button>
+            </div>
+          </div>
+
+          <!-- Next Steps -->
+
+          <div class="registration-card next-steps">
+            <h3>What's Next?</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+
+              <div class="step-content">
+                <h4>Log in to your principal dashboard</h4>
+
+                <p>
+                  Use your email and password to sign in via your school URL.
+                </p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+
+              <div class="step-content">
+                <h4>Add teachers to the system</h4>
+
+                <p>
+                  Go to Teachers → Add Teacher and assign subjects and classes.
+                </p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+
+              <div class="step-content">
+                <h4>Enroll students</h4>
+
+                <p>Add students and generate their login credentials.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+
+              <div class="step-content">
+                <h4>Schedule your first exam</h4>
+
+                <p>Create an exam, assign students and publish.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+
+          <a href="../principal/dashboard.html" class="btn btn-primary">
+            Go to Principal Dashboard
+
+            <i class="ri-arrow-right-line"></i>
+          </a>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/portal-activated.js"></script>
+  </body>
+</html>

@@ -1,0 +1,246 @@
+/* ==========================================
+CLASS ACCORDION
+========================================== */
+
+.theory-section {
+  margin-bottom: 2rem;
+}
+
+.class-header {
+  height: 64px;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  border-radius: 16px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 0 1.5rem;
+
+  cursor: pointer;
+}
+
+.class-header-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.class-header h2 {
+  font-size: 1.125rem;
+
+  font-weight: 700;
+}
+
+.subject-count {
+  background: rgba(255, 255, 255, 0.15);
+
+  padding: 0.45rem 0.9rem;
+
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+}
+
+.class-header i {
+  transition: 0.3s;
+}
+
+.class-header.active i {
+  transform: rotate(180deg);
+}
+
+/* ==========================================
+SUBJECT CARD
+========================================== */
+
+.subject-card {
+  margin-top: 1rem;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.subject-header {
+  background: #eaf8e8;
+
+  padding: 1rem 1.2rem;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.subject-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+
+  flex-wrap: wrap;
+}
+
+.subject-left h3 {
+  color: var(--primary);
+
+  font-size: 0.938rem;
+
+  font-weight: 700;
+}
+
+.teacher-name {
+  color: #666;
+}
+
+.student-total {
+  color: var(--primary);
+
+  font-weight: 600;
+}
+
+.subject-header i {
+  transition: 0.3s;
+}
+
+.subject-header.active i {
+  transform: rotate(180deg);
+}
+
+/* ==========================================
+TABLE
+========================================== */
+
+.table-wrapper {
+  background: #fff;
+
+  overflow-x: auto;
+}
+
+.subject-body.hidden {
+  display: none;
+}
+
+table {
+  width: 100%;
+
+  min-width: 900px;
+
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f8f8f8;
+}
+
+thead th {
+  padding: 1rem;
+
+  text-align: left;
+
+  color: #555;
+
+  font-weight: 700;
+}
+
+tbody td {
+  padding: 1rem;
+
+  border-bottom: 1px solid #ececec;
+}
+
+tbody tr:hover {
+  background: #fafdf9;
+}
+
+/* ==========================================
+ACCESS CODE
+========================================== */
+
+.access-code {
+  display: inline-block;
+
+  padding: 0.45rem 0.8rem;
+
+  border-radius: 8px;
+
+  background: #ddf2dc;
+
+  color: var(--primary);
+
+  font-weight: 600;
+}
+
+/* ==========================================
+SCORE
+========================================== */
+
+.score {
+  color: var(--primary);
+
+  font-weight: 700;
+}
+
+/* ==========================================
+BUTTON
+========================================== */
+
+.profile-btn {
+  border: none;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  padding: 0.75rem 1.2rem;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.profile-btn:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .subject-header {
+    align-items: flex-start;
+
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .class-header h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

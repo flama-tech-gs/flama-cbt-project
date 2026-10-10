@@ -1,0 +1,255 @@
+/* ==========================================
+   TABLE SECTION
+========================================== */
+
+.table-section {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+  overflow: hidden;
+}
+
+/* ==========================================
+   SECTION HEADER
+========================================== */
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.section-header h2 {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+/* ==========================================
+   TABLE WRAPPER
+========================================== */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 850px;
+}
+
+thead {
+  background: var(--primary-light);
+}
+
+thead th {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 18px 20px;
+  font-size: 14px;
+  color: var(--text-dark);
+  border-bottom: 1px solid #f1f3f5;
+  vertical-align: middle;
+}
+
+tbody tr {
+  transition: background 0.25s ease;
+}
+
+tbody tr:hover {
+  background: rgba(46, 125, 50, 0.04);
+}
+
+/* ==========================================
+   STATUS BADGES
+========================================== */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.success {
+  background: rgba(22, 163, 74, 0.12);
+  color: #16a34a;
+}
+
+.status.warning {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+}
+
+.status.danger {
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+}
+
+/* ==========================================
+   ACTION BUTTON
+========================================== */
+
+.table-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.table-action:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.table-action svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.table-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-light);
+}
+
+.table-empty i,
+.table-empty svg {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 14px;
+  color: #c4c4c4;
+}
+
+.table-empty h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.table-empty p {
+  font-size: 14px;
+}
+
+/* ==========================================
+   LOADING ROWS
+========================================== */
+
+.skeleton-row td {
+  padding: 18px 20px;
+}
+
+.skeleton-line {
+  width: 100%;
+  height: 14px;
+  border-radius: 6px;
+  background: #ececec;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ==========================================
+   PAGINATION
+========================================== */
+
+.table-pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.page-btn {
+  min-width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  transition: all 0.25s ease;
+}
+
+.page-btn:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.page-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .table-section {
+    padding: 18px;
+  }
+
+  thead th,
+  tbody td {
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .table-action {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+}

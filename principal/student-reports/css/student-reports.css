@@ -1,0 +1,220 @@
+/* ==========================================
+SECTION TITLE
+========================================== */
+
+.section-title {
+  margin-bottom: 1.5rem;
+
+  font-size: 1.6rem;
+
+  font-weight: 700;
+
+  color: var(--primary);
+}
+
+/* ==========================================
+ACCORDION
+========================================== */
+
+.report-section {
+  margin-bottom: 1.8rem;
+}
+
+.report-header {
+  height: 64px;
+
+  background: #fff;
+
+  border: 1px solid #e8e8e8;
+
+  border-radius: 16px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 0 1.5rem;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.report-header.active {
+  background: var(--primary);
+
+  color: #fff;
+
+  border: none;
+}
+
+.report-header-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.report-header h2 {
+  font-size: 1.125rem;
+
+  font-weight: 700;
+}
+
+.student-count {
+  background: #dff2dd;
+
+  color: #2e7d32;
+
+  padding: 0.45rem 0.85rem;
+
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+}
+
+.report-header.active .student-count {
+  background: rgba(255, 255, 255, 0.18);
+
+  color: #fff;
+}
+
+.report-header i {
+  transition: 0.3s;
+}
+
+.report-header.active i {
+  transform: rotate(180deg);
+}
+
+/* ==========================================
+BODY
+========================================== */
+
+.report-body {
+  margin-top: 1rem;
+}
+
+.report-body.hidden {
+  display: none;
+}
+
+/* ==========================================
+TABLE
+========================================== */
+
+.table-wrapper {
+  background: #fff;
+
+  border-radius: 16px;
+
+  overflow-x: auto;
+
+  box-shadow: var(--shadow-sm);
+}
+
+table {
+  width: 100%;
+
+  min-width: 900px;
+
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f8f8f8;
+}
+
+thead th {
+  padding: 1rem;
+
+  text-align: left;
+
+  font-weight: 700;
+
+  color: #555;
+}
+
+tbody td {
+  padding: 1rem;
+
+  border-bottom: 1px solid #ececec;
+}
+
+tbody tr:hover {
+  background: #fafdf9;
+}
+
+/* ==========================================
+STATUS
+========================================== */
+
+.status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+}
+
+.status-dot {
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #2e7d32;
+}
+
+/* ==========================================
+BUTTON
+========================================== */
+
+.report-btn {
+  background: var(--primary);
+
+  color: #fff;
+
+  border: none;
+
+  padding: 0.8rem 1.3rem;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.report-btn:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .report-header h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .report-header {
+    padding: 0 1rem;
+  }
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

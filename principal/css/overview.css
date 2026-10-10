@@ -1,0 +1,218 @@
+/* ==========================================
+SESSION BANNER
+========================================== */
+
+.session-banner {
+  display: flex;
+
+  align-items: center;
+
+  gap: 2rem;
+
+  width: fit-content;
+
+  padding: 1rem 1.25rem;
+
+  margin: 2rem 0;
+
+  background: #eaf8e8;
+
+  border-radius: 12px;
+}
+
+.session-banner span {
+  color: #6b6b6b;
+
+  font-size: 0.95rem;
+}
+
+.session-banner strong {
+  color: var(--primary);
+
+  margin-left: 0.3rem;
+}
+
+/* ==========================================
+SECTION TITLE
+========================================== */
+
+.section-title {
+  margin: 2.5rem 0 1.25rem;
+
+  font-size: 1.125rem;
+
+  color: var(--primary);
+
+  font-weight: 700;
+}
+
+/* ==========================================
+STATISTICS
+========================================== */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1.5rem;
+
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background: #fff;
+
+  border-radius: 16px;
+
+  padding: 1.75rem;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card h2 {
+  font-size: 1.75rem;
+
+  color: var(--primary);
+
+  margin-bottom: 0.6rem;
+
+  font-weight: 700;
+}
+
+.stat-card p {
+  color: #5f5f5f;
+
+  font-size: 1rem;
+}
+
+.stat-card.orange h2 {
+  color: #f59e0b;
+}
+
+.stat-card.lime h2 {
+  color: #84cc16;
+}
+
+/* ==========================================
+TABLE
+========================================== */
+
+.table-wrapper {
+  background: #fff;
+
+  border-radius: 16px;
+
+  overflow-x: auto;
+
+  box-shadow: var(--shadow-sm);
+}
+
+table {
+  width: 100%;
+
+  min-width: 980px;
+
+  border-collapse: collapse;
+}
+
+thead {
+  background: var(--primary);
+}
+
+thead th {
+  padding: 1rem;
+
+  color: #fff;
+
+  text-align: left;
+
+  font-weight: 600;
+}
+
+tbody td {
+  padding: 1.2rem 1rem;
+
+  border-bottom: 1px solid #ececec;
+
+  color: #444;
+}
+
+tbody tr:hover {
+  background: #fafdf9;
+}
+
+/* ==========================================
+BUTTON
+========================================== */
+
+.review-btn {
+  border: none;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  padding: 0.7rem 1.2rem;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+}
+
+.review-btn:hover {
+  background: #256729;
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .session-banner {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 0.75rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .stat-card {
+    padding: 1.35rem;
+  }
+
+  .stat-card h2 {
+    font-size: 2rem;
+  }
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

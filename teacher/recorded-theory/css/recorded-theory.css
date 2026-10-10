@@ -1,0 +1,218 @@
+/* ==========================================
+RECORDED THEORY
+========================================== */
+
+.theory-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* ==========================================
+SUMMARY CARDS
+========================================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card h2 {
+  font-size: 2.25rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-card.warning h2 {
+  color: #f5a623;
+}
+
+.stat-card p {
+  color: #666;
+}
+
+/* ==========================================
+SUBJECT ACCORDION
+========================================== */
+
+.subject-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.subject-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary);
+  color: #fff;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+}
+
+.subject-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subject-title h2 {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.subject-count {
+  background: rgba(255, 255, 255, 0.18);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+CLASS ACCORDION
+========================================== */
+
+.class-card {
+  margin: 1rem;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.class-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: #eef8ec;
+  cursor: pointer;
+}
+
+.class-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.class-title h3 {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.class-count {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* ==========================================
+TABLE
+========================================== */
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 950px;
+  border-collapse: collapse;
+}
+
+thead th {
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #666;
+  border-bottom: 1px solid #ececec;
+}
+
+tbody td {
+  padding: 1rem;
+  border-bottom: 1px solid #ececec;
+}
+
+tbody tr:hover {
+  background: #fafdf9;
+}
+
+/* ==========================================
+ACCESS CODE
+========================================== */
+
+.access-code {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 8px;
+  background: #e8f5e8;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ==========================================
+SCORE
+========================================== */
+
+.score {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.05rem;
+}
+
+/* ==========================================
+PROFILE LINK
+========================================== */
+
+.profile-link {
+  color: #666;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.profile-link:hover {
+  color: var(--primary);
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .subject-header,
+  .class-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

@@ -1,0 +1,1001 @@
+/* ==========================================
+   EXAM DETAILS
+========================================== */
+
+.exam-details {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.exam-details h2 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+/* ==========================================
+   FORM GRID
+========================================== */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #d9ead9;
+
+  background: #edf8ed;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+
+  transition: 0.25s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+}
+
+.form-group textarea {
+  resize: vertical;
+
+  min-height: 90px;
+}
+
+/* ==========================================
+   QUESTION BUILDER
+========================================== */
+
+.question-builder {
+  background: var(--white);
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow-md);
+
+  padding: 28px;
+
+  margin-bottom: 28px;
+
+  border: 1px solid rgba(46, 125, 50, 0.08);
+}
+
+.builder-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.question-counter {
+  background: var(--primary);
+
+  color: white;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  font-weight: 600;
+
+  font-size: 15px;
+}
+
+/* ==========================================
+   PROGRESS BAR
+========================================== */
+
+.progress-wrapper {
+  margin-top: 16px;
+}
+
+.progress-track {
+  width: 220px;
+
+  height: 8px;
+
+  background: #e7efe7;
+
+  border-radius: 100px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0%;
+
+  height: 100%;
+
+  background: var(--primary);
+
+  transition: width 0.35s ease;
+}
+
+.progress-text {
+  margin-top: 8px;
+
+  font-size: 13px;
+
+  color: var(--text-light);
+}
+
+/* ==========================================
+   QUESTION FIELD
+========================================== */
+
+.question-field {
+  margin-bottom: 30px;
+}
+
+.question-field label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--primary);
+
+  font-weight: 600;
+}
+
+.question-field textarea {
+  width: 100%;
+
+  min-height: 100px;
+}
+
+/* ==========================================
+   OPTIONS GRID
+========================================== */
+
+.options-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 22px;
+}
+
+.option-card {
+  border: 1px solid #e4ece4;
+
+  border-radius: 14px;
+
+  padding: 18px;
+
+  transition: 0.25s;
+}
+
+.option-card:hover {
+  border-color: var(--primary);
+}
+
+.option-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 14px;
+}
+
+.option-header h3 {
+  color: var(--primary);
+
+  font-size: 1rem;
+}
+
+.option-card input {
+  margin-bottom: 14px;
+}
+
+/* ==========================================
+   CORRECT BUTTON
+========================================== */
+
+.correct-btn {
+  border: 1px solid var(--primary);
+
+  color: var(--primary);
+
+  background: white;
+
+  padding: 7px 14px;
+
+  border-radius: 100px;
+
+  font-size: 13px;
+
+  transition: 0.25s;
+}
+
+.correct-btn:hover {
+  background: var(--primary-light);
+}
+
+.correct-btn.active {
+  background: var(--primary);
+
+  color: white;
+}
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.builder-actions {
+  display: flex;
+
+  gap: 16px;
+
+  margin-bottom: 28px;
+}
+
+.btn-primary {
+  background: var(--primary);
+
+  color: white;
+
+  border: none;
+
+  padding: 14px 24px;
+
+  border-radius: 10px;
+
+  font-weight: 600;
+
+  transition: 0.25s;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: white;
+
+  color: var(--primary);
+
+  border: 1px solid var(--primary);
+
+  padding: 14px 24px;
+
+  border-radius: 10px;
+
+  transition: 0.25s;
+}
+
+.btn-outline:hover {
+  background: var(--primary-light);
+}
+
+/* ==========================================
+   SUBMISSION BAR
+========================================== */
+
+.submission-bar {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: #eef9e7;
+
+  border-radius: 14px;
+
+  padding: 22px;
+
+  margin-bottom: 14px;
+}
+
+.submission-bar strong {
+  display: block;
+
+  color: var(--primary);
+
+  margin-bottom: 6px;
+}
+
+.submission-bar p {
+  color: var(--text-light);
+
+  font-size: 14px;
+}
+
+.footer-note {
+  color: #7b8c7b;
+
+  font-size: 13px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1024px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .builder-actions {
+    flex-direction: column;
+  }
+
+  .submission-bar {
+    flex-direction: column;
+
+    gap: 20px;
+
+    align-items: flex-start;
+  }
+
+  .submission-bar button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .exam-details,
+  .question-builder {
+    padding: 20px;
+  }
+
+  .builder-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 14px;
+  }
+
+  .progress-track {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+QUESTION NAVIGATOR
+========================================== */
+
+.question-navigator {
+  background: #fff;
+
+  border-radius: 16px;
+
+  padding: 24px;
+
+  margin-bottom: 30px;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.navigator-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 22px;
+}
+
+.navigator-legend {
+  display: flex;
+
+  gap: 18px;
+
+  flex-wrap: wrap;
+
+  font-size: 14px;
+}
+
+.navigator-legend span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.legend-dot {
+  width: 12px;
+
+  height: 12px;
+
+  border-radius: 50%;
+}
+
+.legend-dot.empty {
+  background: #d6d6d6;
+}
+
+.legend-dot.editing {
+  background: #f59e0b;
+}
+
+.legend-dot.completed {
+  background: #16a34a;
+}
+
+/* ==========================================
+QUESTION BUTTONS
+========================================== */
+
+.navigator-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+
+  gap: 12px;
+}
+
+.question-number {
+  width: 48px;
+
+  height: 48px;
+
+  border-radius: 12px;
+
+  border: none;
+
+  font-weight: 600;
+
+  transition: 0.25s;
+
+  cursor: pointer;
+}
+
+.question-number:hover {
+  transform: translateY(-2px);
+}
+
+.question-number.empty {
+  background: #ececec;
+
+  color: #666;
+}
+
+.question-number.editing {
+  background: #fef3c7;
+
+  color: #b45309;
+}
+
+.question-number.completed {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+.question-number.active {
+  background: var(--primary);
+
+  color: #fff;
+
+  box-shadow: 0 6px 18px rgba(46, 125, 50, 0.2);
+}
+
+/* This is the final styling for the exams page */
+
+/* ==========================================
+   PAGE SECTIONS
+========================================== */
+
+.exam-details,
+.question-builder {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ==========================================
+   SECTION TITLES
+========================================== */
+
+.exam-details h2,
+.question-builder h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+   FORM GRID
+========================================== */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+
+  border: 1px solid #d8ead8;
+
+  background: #edf8ed;
+
+  border-radius: 0.65rem;
+
+  font-size: 0.95rem;
+
+  transition: 0.25s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+}
+
+.form-group textarea {
+  min-height: 90px;
+
+  resize: vertical;
+}
+
+/* ==========================================
+   BUILDER HEADER
+========================================== */
+
+.builder-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  margin-bottom: 2rem;
+}
+
+.question-counter {
+  display: inline-block;
+
+  background: var(--primary);
+
+  color: white;
+
+  padding: 0.75rem 1rem;
+
+  border-radius: 0.55rem;
+
+  font-weight: 600;
+}
+
+/* ==========================================
+   PROGRESS
+========================================== */
+
+.progress-wrapper {
+  margin-top: 1rem;
+}
+
+.progress-track {
+  width: 250px;
+
+  height: 8px;
+
+  background: #e7efe7;
+
+  border-radius: 999px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0;
+
+  height: 100%;
+
+  background: var(--primary);
+
+  transition: width 0.3s;
+}
+
+.progress-text {
+  margin-top: 0.5rem;
+
+  font-size: 0.85rem;
+
+  color: var(--text-light);
+}
+
+/* ==========================================
+   QUESTION
+========================================== */
+
+.question-field {
+  margin-bottom: 2rem;
+}
+
+.question-field label {
+  display: block;
+
+  margin-bottom: 0.8rem;
+
+  color: var(--primary);
+
+  font-weight: 600;
+}
+
+.question-field textarea {
+  width: 100%;
+
+  min-height: 120px;
+
+  border: 1px solid #d8ead8;
+
+  background: #edf8ed;
+
+  border-radius: 0.7rem;
+
+  padding: 1rem;
+}
+
+/* ==========================================
+   OPTIONS
+========================================== */
+
+.options-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 1.5rem;
+}
+
+.option-card {
+  border: 1px solid #e6ece6;
+
+  border-radius: 14px;
+
+  padding: 1.25rem;
+
+  transition: 0.25s;
+}
+
+.option-card:hover {
+  border-color: var(--primary);
+}
+
+.option-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 1rem;
+}
+
+.option-header h3 {
+  color: var(--primary);
+
+  font-size: 1.1rem;
+}
+
+.option-card input {
+  width: 100%;
+
+  border: 1px solid #d8ead8;
+
+  background: #edf8ed;
+
+  border-radius: 0.65rem;
+
+  padding: 0.9rem;
+}
+
+/* ==========================================
+   CORRECT BUTTON
+========================================== */
+
+.correct-btn {
+  border: 1px solid var(--primary);
+
+  background: white;
+
+  color: var(--primary);
+
+  border-radius: 999px;
+
+  padding: 0.45rem 0.9rem;
+
+  font-size: 0.8rem;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.correct-btn:hover {
+  background: var(--primary-light);
+}
+
+.correct-btn.active {
+  background: var(--primary);
+
+  color: white;
+}
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.builder-actions {
+  display: flex;
+
+  gap: 1rem;
+
+  margin-bottom: 2rem;
+}
+
+.builder-actions button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+}
+
+/* ==========================================
+   SUBMISSION
+========================================== */
+
+.submission-bar {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: #eef9e7;
+
+  padding: 1.5rem;
+
+  border-radius: 0.9rem;
+
+  margin-bottom: 1rem;
+}
+
+.submission-bar strong {
+  display: block;
+
+  color: var(--primary);
+
+  margin-bottom: 0.4rem;
+}
+
+.footer-note {
+  color: #7f8d7f;
+
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 992px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .builder-actions {
+    flex-direction: column;
+  }
+
+  .submission-bar {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 1rem;
+  }
+
+  .submission-bar button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .exam-details,
+  .question-builder {
+    padding: 1.25rem;
+  }
+
+  .progress-track {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+MODAL
+========================================== */
+
+.modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  width: min(520px, 90%);
+
+  background: #fff;
+
+  border-radius: 18px;
+
+  padding: 35px;
+
+  text-align: center;
+}
+
+.modal h2 {
+  color: var(--primary);
+
+  margin-bottom: 18px;
+}
+
+.modal p {
+  color: var(--text-light);
+
+  line-height: 1.7;
+}
+
+.modal-summary {
+  text-align: left;
+
+  background: #f7faf7;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  margin: 25px 0;
+}
+
+.modal-summary p {
+  margin-bottom: 10px;
+}
+
+.modal-actions {
+  display: flex;
+
+  gap: 15px;
+
+  justify-content: center;
+
+  margin-top: 30px;
+}
+
+.success-icon {
+  width: 90px;
+
+  height: 90px;
+
+  border-radius: 50%;
+
+  background: #dff5df;
+
+  color: var(--primary);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 42px;
+
+  margin: 0 auto 25px;
+
+  font-weight: bold;
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

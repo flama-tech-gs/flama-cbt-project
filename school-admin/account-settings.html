@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Dashboard | Overview</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/utilities.css" />
+
+    <link rel="stylesheet" href="./css/overview.css" />
+    <link rel="stylesheet" href="./css/account-settings.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__left">
+        <a href="#" class="school-brand">
+          <div class="school-brand__logo"></div>
+
+          <div class="school-brand__content">
+            <h2>Mobayo Academic School</h2>
+            <span>mobayo-academic.cbtschool.ng</span>
+          </div>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-controls="schoolNavigation"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="top-navigation" id="schoolNavigation">
+          <a href="./index.html" class="nav-link"> Overview </a>
+
+          <a href="./account-settings.html" class="nav-link active">
+            Account Settings
+          </a>
+
+          <a href="./subscription.html" class="nav-link"> Subscription </a>
+
+          <a href="./principal-account.html" class="nav-link">
+            Principal Account
+          </a>
+
+          <a href="./support.html" class="nav-link"> Support </a>
+        </nav>
+      </div>
+
+      <div class="topbar__right">
+        <div class="subscription-pill">
+          <i data-lucide="clock-3"></i>
+
+          <span>Expires Aug 20, 2026</span>
+        </div>
+
+        <button class="account-dropdown" type="button" aria-expanded="false">
+          <div class="account-avatar"></div>
+
+          <div class="account-info">
+            <strong>Mobayo Academic</strong>
+
+            <span>School Account</span>
+          </div>
+
+          <i data-lucide="chevron-down"></i>
+        </button>
+
+        <div class="account-menu" role="menu">
+          <button class="account-menu__logout" type="button" role="menuitem">
+            <i data-lucide="log-out"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <!-- ===================================== -->
+      <!-- PAGE HEADER -->
+      <!-- ===================================== -->
+
+      <section class="page-header">
+        <h1>Account Settings</h1>
+
+        <p>
+          Update your school details, login credentials, logo and contact
+          information.
+        </p>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- SCHOOL DETAILS -->
+      <!-- ===================================== -->
+
+      <section class="settings-card">
+        <div class="card-header">
+          <h2>SCHOOL DETAILS</h2>
+
+          <div class="divider"></div>
+        </div>
+
+        <form id="schoolDetailsForm" class="settings-form">
+          <div class="form-grid">
+            <!-- School Name -->
+
+            <div class="form-group">
+              <label for="schoolName"> School Full Name <span>*</span> </label>
+
+              <input
+                type="text"
+                id="schoolName"
+                name="school_name"
+                value="Mobayo Academic School"
+                required
+              />
+            </div>
+
+            <!-- School Type -->
+
+            <div class="form-group">
+              <label for="schoolType"> School Type <span>*</span> </label>
+
+              <select id="schoolType" name="school_type" required>
+                <option selected>Secondary School</option>
+
+                <option>Primary School</option>
+
+                <option>Nursery School</option>
+              </select>
+            </div>
+
+            <!-- RC -->
+
+            <div class="form-group">
+              <label for="registrationNumber">
+                RC / Reg. Number <span>*</span>
+              </label>
+
+              <input
+                type="text"
+                id="registrationNumber"
+                name="registration_number"
+                value="RC-1234567"
+                required
+              />
+            </div>
+
+            <!-- Founded -->
+
+            <div class="form-group">
+              <label for="yearFounded"> Year Founded </label>
+
+              <input
+                type="number"
+                id="yearFounded"
+                name="year_founded"
+                value="2005"
+              />
+            </div>
+          </div>
+
+          <!-- ADDRESS -->
+
+          <div class="form-group full-width">
+            <label for="schoolAddress"> School Address <span>*</span> </label>
+
+            <input
+              type="text"
+              id="schoolAddress"
+              name="school_address"
+              value="12 Mobayo Street, Abeokuta, Ogun State"
+              required
+            />
+          </div>
+
+          <div class="form-grid">
+            <!-- STATE -->
+
+            <div class="form-group">
+              <label for="state"> State <span>*</span> </label>
+
+              <select id="state" name="state">
+                <option selected>Ogun State</option>
+              </select>
+            </div>
+
+            <!-- LGA -->
+
+            <div class="form-group">
+              <label for="lga"> Local Government Area <span>*</span> </label>
+
+              <select id="lga" name="lga">
+                <option selected>Abeokuta South</option>
+              </select>
+            </div>
+
+            <!-- PHONE -->
+
+            <div class="form-group">
+              <label for="phone"> School Phone <span>*</span> </label>
+
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value="+234 801 234 5678"
+                required
+              />
+            </div>
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+              <label for="email"> Official Email <span>*</span> </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value="admin@mobayoacademic.edu.ng"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- WEBSITE -->
+
+          <div class="form-group website-field">
+            <label for="website"> School Website </label>
+
+            <input
+              type="url"
+              id="website"
+              name="website"
+              placeholder="www.mobayoacademic.edu.ng"
+            />
+          </div>
+
+          <!-- ACTIONS -->
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              Save School Details
+            </button>
+
+            <button type="button" class="btn btn-outline">Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- SCHOOL LOGO -->
+      <!-- ===================================== -->
+
+      <section class="settings-card">
+        <div class="card-header">
+          <h2>SCHOOL LOGO</h2>
+
+          <div class="divider"></div>
+        </div>
+
+        <form
+          id="schoolLogoForm"
+          class="logo-form"
+          enctype="multipart/form-data"
+        >
+          <!-- CURRENT LOGO -->
+
+          <div class="logo-preview">
+            <div class="logo-preview__avatar">
+              <img src="./assets/logo.png" alt="School Logo" id="currentLogo" />
+            </div>
+
+            <div class="logo-preview__details">
+              <h3>Current School Logo</h3>
+
+              <p class="logo-filename">
+                <span id="logoFilename"> school-logo.png </span>
+
+                <span class="dot">•</span>
+
+                PNG
+
+                <span class="dot">•</span>
+
+                44KB
+
+                <span class="dot">•</span>
+
+                Uploaded June 20, 2026
+              </p>
+            </div>
+
+            <!-- correection made to logo -->
+            <!-- <div class="logo-updated">
+              <h3>Current School Logo</h3>
+
+              <div class="logo-updated-span">
+                school-logo.png • PNG • 44KB
+
+                <span class="dot">•</span>
+
+                Uploaded June 20, 2026
+              </div>
+            </div> -->
+          </div>
+
+          <!-- FILE INPUT -->
+
+          <input
+            type="file"
+            id="logoUpload"
+            name="school_logo"
+            accept=".png,.jpg,.jpeg,.svg"
+            hidden
+          />
+
+          <!-- DROPZONE -->
+
+          <label for="logoUpload" class="upload-zone" id="uploadZone">
+            <div class="upload-zone__icon">
+              <i data-lucide="image-up"></i>
+            </div>
+
+            <h3>
+              Click to upload new logo
+
+              <span>or drag &amp; drop here</span>
+            </h3>
+
+            <p>
+              PNG, JPG or SVG
+
+              <span>•</span>
+
+              Max 2MB
+
+              <span>•</span>
+
+              Minimum 200 × 200px
+            </p>
+          </label>
+
+          <!-- ACTION -->
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Update Logo</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- LOGIN CREDENTIALS -->
+      <!-- ===================================== -->
+
+      <section class="settings-card">
+        <div class="card-header">
+          <h2>LOGIN CREDENTIALS</h2>
+
+          <div class="divider"></div>
+        </div>
+
+        <form id="passwordForm" class="password-form">
+          <div class="password-grid">
+            <!-- CURRENT PASSWORD -->
+
+            <div class="form-group">
+              <label for="currentPassword">
+                Current Password <span>*</span>
+              </label>
+
+              <div class="password-field">
+                <input
+                  type="password"
+                  id="currentPassword"
+                  name="current_password"
+                  placeholder="Enter current password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-target="currentPassword"
+                  aria-label="Toggle password visibility"
+                >
+                  <i data-lucide="eye"></i>
+                </button>
+              </div>
+
+              <small class="password-hint">
+                ✓ Min 8 chars &nbsp;&nbsp; ✓ Uppercase & lowercase &nbsp;&nbsp;
+                ✓ Number or symbol
+              </small>
+            </div>
+
+            <!-- NEW PASSWORD -->
+
+            <div class="form-group">
+              <label for="newPassword"> New Password <span>*</span> </label>
+
+              <div class="password-field">
+                <input
+                  type="password"
+                  id="newPassword"
+                  name="new_password"
+                  placeholder="Min 8 characters"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-target="newPassword"
+                  aria-label="Toggle password visibility"
+                >
+                  <i data-lucide="eye"></i>
+                </button>
+              </div>
+
+              <div class="strength-meter">
+                <div class="strength-bar" id="strengthBar"></div>
+              </div>
+
+              <small id="strengthText">
+                Password strength:
+                <strong>Strong</strong>
+              </small>
+            </div>
+
+            <!-- CONFIRM -->
+
+            <div class="form-group">
+              <label for="confirmPassword">
+                Confirm New Password <span>*</span>
+              </label>
+
+              <div class="password-field">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirm_password"
+                  placeholder="Repeat new password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-target="confirmPassword"
+                  aria-label="Toggle password visibility"
+                >
+                  <i data-lucide="eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              Update Password
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- SCHOOL URL -->
+      <!-- ===================================== -->
+
+      <section class="settings-card">
+        <div class="card-header">
+          <h2>SCHOOL URL / USERNAME</h2>
+
+          <div class="divider"></div>
+        </div>
+
+        <form id="schoolUrlForm">
+          <!-- CURRENT URL -->
+
+          <div class="current-url">
+            <span> https://mobayo-academic.cbtschool.ng </span>
+
+            <span class="status-badge"> ● Live </span>
+          </div>
+
+          <!-- URL EDITOR -->
+
+          <label class="url-label"> New School URL </label>
+
+          <div class="url-editor">
+            <span class="url-prefix"> https:// </span>
+
+            <input
+              type="text"
+              id="schoolSlug"
+              name="school_slug"
+              value="mobayo-academic"
+              autocomplete="off"
+            />
+
+            <span class="url-suffix"> .cbtschool.ng </span>
+          </div>
+
+          <div class="url-status">
+            <i data-lucide="check-circle"></i>
+
+            <span> Available </span>
+          </div>
+
+          <!-- WARNING -->
+
+          <div class="warning-banner">
+            <i data-lucide="triangle-alert"></i>
+
+            <p>
+              Changing your school URL will invalidate all previously shared
+              links. Teachers and students must use the new URL.
+            </p>
+          </div>
+
+          <!-- ACTIONS -->
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              Update School URL
+            </button>
+
+            <button type="button" class="btn btn-outline">Cancel</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script src="./js/account-settings.js"></script>
+    <script src="./js/account-dropdown.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+  </body>
+</html>

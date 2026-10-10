@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Dashboard | Overview</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/utilities.css" />
+
+    <link rel="stylesheet" href="./css/overview.css" />
+    <link rel="stylesheet" href="./css/principal-account.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__left">
+        <a href="#" class="school-brand">
+          <div class="school-brand__logo"></div>
+
+          <div class="school-brand__content">
+            <h2>Mobayo Academic School</h2>
+            <span>mobayo-academic.cbtschool.ng</span>
+          </div>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-controls="schoolNavigation"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="top-navigation" id="schoolNavigation">
+          <a href="./index.html" class="nav-link"> Overview </a>
+
+          <a href="./account-settings.html" class="nav-link">
+            Account Settings
+          </a>
+
+          <a href="./subscription.html" class="nav-link"> Subscription </a>
+
+          <a href="./principal-account.html" class="nav-link active">
+            Principal Account
+          </a>
+
+          <a href="./support.html" class="nav-link"> Support </a>
+        </nav>
+      </div>
+
+      <div class="topbar__right">
+        <div class="subscription-pill">
+          <i data-lucide="clock-3"></i>
+
+          <span>Expires Aug 20, 2026</span>
+        </div>
+
+        <button class="account-dropdown" type="button" aria-expanded="false">
+          <div class="account-avatar"></div>
+
+          <div class="account-info">
+            <strong>Mobayo Academic</strong>
+
+            <span>School Account</span>
+          </div>
+
+          <i data-lucide="chevron-down"></i>
+        </button>
+
+        <div class="account-menu" role="menu">
+          <button class="account-menu__logout" type="button" role="menuitem">
+            <i data-lucide="log-out"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <!-- ===================================== -->
+      <!-- PAGE HEADER -->
+      <!-- ===================================== -->
+
+      <section class="page-header">
+        <h1>Principal Account</h1>
+
+        <p>
+          Manage the principal login credentials, personal information and
+          account access.
+        </p>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- PRINCIPAL PROFILE -->
+      <!-- ===================================== -->
+
+      <section class="settings-card principal-profile">
+        <div class="principal-profile__header">
+          <div class="principal-profile__left">
+            <!-- Avatar -->
+
+            <div class="principal-avatar">BO</div>
+
+            <!-- Details -->
+
+            <div class="principal-details">
+              <h2>Dr. Bankole Okonjo</h2>
+
+              <p>
+                School Principal
+
+                <span>•</span>
+
+                Mobayo Academic School
+              </p>
+
+              <span class="status-badge active">
+                <i data-lucide="circle"></i>
+
+                Active
+              </span>
+            </div>
+          </div>
+
+          <!-- Right -->
+
+          <div class="principal-profile__right">
+            <div class="last-login">
+              <span> Last login: </span>
+
+              <strong> June 28, 2026 at 8:42 AM </strong>
+            </div>
+
+            <button
+              class="btn btn-primary btn-edit-profile"
+              id="editProfileBtn"
+            >
+              <i data-lucide="pencil"></i>
+
+              Edit Profile
+            </button>
+          </div>
+        </div>
+
+        <!-- ===================================== -->
+        <!-- PERSONAL DETAILS -->
+        <!-- ===================================== -->
+
+        <div class="card-header">
+          <h3>PERSONAL DETAILS</h3>
+
+          <div class="divider"></div>
+        </div>
+
+        <div class="details-grid">
+          <div class="detail-item">
+            <label> First Name </label>
+
+            <p>Bankole</p>
+          </div>
+
+          <div class="detail-item">
+            <label> Last Name </label>
+
+            <p>Okonjo</p>
+          </div>
+
+          <div class="detail-item">
+            <label> Title / Salutation </label>
+
+            <p>Dr.</p>
+          </div>
+
+          <div class="detail-item">
+            <label> Phone Number </label>
+
+            <p>+234 802 345 6789</p>
+          </div>
+
+          <div class="detail-item">
+            <label> Login Email </label>
+
+            <p>principal@mobayoacademic.edu.ng</p>
+          </div>
+
+          <div class="detail-item">
+            <label> Joined </label>
+
+            <p>June 20, 2026</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- CHANGE PRINCIPAL PASSWORD -->
+      <!-- ===================================== -->
+
+      <section class="settings-card">
+        <div class="card-header">
+          <h3>CHANGE PRINCIPAL PASSWORD</h3>
+
+          <div class="divider"></div>
+        </div>
+
+        <form id="principalPasswordForm" class="password-form">
+          <!-- INFO ALERT -->
+
+          <div class="info-alert">
+            <i data-lucide="info"></i>
+
+            <p>
+              As school admin, you can reset the principal password here. The
+              new password will be sent to their registered email.
+            </p>
+          </div>
+
+          <!-- PASSWORD GRID -->
+
+          <div class="password-grid">
+            <!-- NEW PASSWORD -->
+
+            <div class="form-group">
+              <label for="newPrincipalPassword">
+                New Password for Principal <span>*</span>
+              </label>
+
+              <div class="password-field">
+                <input
+                  type="password"
+                  id="newPrincipalPassword"
+                  name="new_principal_password"
+                  placeholder="Enter new password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-target="newPrincipalPassword"
+                  aria-label="Toggle password visibility"
+                >
+                  <i data-lucide="eye"></i>
+                </button>
+              </div>
+
+              <small class="password-hint">
+                ✓ Min 8 chars &nbsp;&nbsp; ✓ Uppercase & lowercase &nbsp;&nbsp;
+                ✓ Number or symbol
+              </small>
+            </div>
+
+            <!-- CONFIRM PASSWORD -->
+
+            <div class="form-group">
+              <label for="confirmPrincipalPassword">
+                Confirm Password <span>*</span>
+              </label>
+
+              <div class="password-field">
+                <input
+                  type="password"
+                  id="confirmPrincipalPassword"
+                  name="confirm_principal_password"
+                  placeholder="Repeat new password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-target="confirmPrincipalPassword"
+                  aria-label="Toggle password visibility"
+                >
+                  <i data-lucide="eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTIONS -->
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              Reset Principal Password
+            </button>
+
+            <button type="button" class="btn btn-outline">Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- CREATE NEW PRINCIPAL ACCOUNT -->
+      <!-- ===================================== -->
+
+      <section class="settings-card">
+        <div class="card-header">
+          <h3>CREATE NEW PRINCIPAL ACCOUNT</h3>
+
+          <div class="divider"></div>
+        </div>
+
+        <form id="createPrincipalForm" class="create-principal-form">
+          <!-- WARNING -->
+
+          <div class="warning-alert">
+            <i data-lucide="triangle-alert"></i>
+
+            <p>
+              Creating a new principal account will deactivate the current one.
+              The previous principal will immediately lose access.
+            </p>
+          </div>
+
+          <!-- FIRST / LAST NAME -->
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="firstName">
+                New Principal's First Name <span>*</span>
+              </label>
+
+              <input
+                type="text"
+                id="firstName"
+                name="first_name"
+                placeholder="e.g. Adebayo"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">
+                New Principal's Last Name <span>*</span>
+              </label>
+
+              <input
+                type="text"
+                id="lastName"
+                name="last_name"
+                placeholder="e.g. Chukwu"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- TITLE / PHONE -->
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="title"> Title / Salutation <span>*</span> </label>
+
+              <select id="title" name="title" required>
+                <option value="">Select Title</option>
+
+                <option>Mr.</option>
+
+                <option>Mrs.</option>
+
+                <option>Miss</option>
+
+                <option>Dr.</option>
+
+                <option>Prof.</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="phone"> Phone Number <span>*</span> </label>
+
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+234..."
+                required
+              />
+            </div>
+          </div>
+
+          <!-- EMAIL -->
+
+          <div class="form-group full-width">
+            <label for="principalEmail"> Login Email <span>*</span> </label>
+
+            <input
+              type="email"
+              id="principalEmail"
+              name="principal_email"
+              placeholder="new.principal@mobayoacademic.edu.ng"
+              required
+            />
+          </div>
+
+          <!-- PASSWORD -->
+
+          <div class="form-group full-width">
+            <label for="temporaryPassword">
+              Temporary Password <span>*</span>
+            </label>
+
+            <div class="password-field">
+              <input
+                type="password"
+                id="temporaryPassword"
+                name="temporary_password"
+                placeholder="Auto-generated or set manually"
+                required
+              />
+
+              <button
+                type="button"
+                class="password-toggle"
+                data-target="temporaryPassword"
+                aria-label="Toggle password visibility"
+              >
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- CONFIRMATION -->
+
+          <label class="checkbox-wrapper">
+            <input type="checkbox" id="confirmReplacement" required />
+
+            <span class="custom-checkbox"></span>
+
+            <span>
+              I confirm I want to deactivate the current principal and create a
+              new one.
+            </span>
+          </label>
+
+          <!-- ACTIONS -->
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              Create New Principal Account
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- DANGER ZONE -->
+      <!-- ===================================== -->
+
+      <section class="danger-zone">
+        <div class="danger-zone__content">
+          <div>
+            <h3>DANGER ZONE</h3>
+
+            <p>
+              Deactivating the principal account will prevent all login access
+              to the school portal until a new principal account is created.
+            </p>
+          </div>
+
+          <button class="btn btn-danger" id="deactivatePrincipalBtn">
+            Deactivate Principal
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script src="./js/principak-account.js"></script>
+    <script src="./js/account-dropdown.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,240 @@
+/* ==========================================
+   REGISTER STEP 1
+========================================== */
+
+.registration-wrapper {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* ==========================================
+   PROGRESS
+========================================== */
+
+.registration-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.progress-item {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #d7ecd7;
+  color: #8db88f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.progress-item.active {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.progress-line {
+  width: 40px;
+  height: 2px;
+  background: #d7ecd7;
+}
+
+.registration-progress p {
+  margin-left: 1rem;
+  color: #6b8f6b;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.registration-header {
+  margin-bottom: 2rem;
+}
+
+.registration-header h2 {
+  font-size: 1.625rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.registration-header p {
+  color: var(--text-light);
+  max-width: 700px;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.registration-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================
+   FORM SECTION
+========================================== */
+
+.form-section {
+  margin-bottom: 2.5rem;
+}
+
+.form-section:last-child {
+  margin-bottom: 0;
+}
+
+.form-section h4 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: #79a979;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.form-section h4::before,
+.form-section h4::after {
+  content: "";
+  height: 1px;
+  background: #dce8dc;
+}
+
+.form-section h4::before {
+  width: 20px;
+}
+
+.form-section h4::after {
+  flex: 1;
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* ==========================================
+   SELECT
+========================================== */
+
+.form-group select {
+  appearance: none;
+  cursor: pointer;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23777777' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")
+    no-repeat right 1rem center;
+  background-color: var(--primary-light);
+}
+
+/* ==========================================
+   UPLOAD
+========================================== */
+
+.upload-area {
+  border: 2px solid #a8d5a8;
+  background: var(--primary-light);
+  border-radius: 16px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.upload-area:hover {
+  border-color: var(--primary-color);
+}
+
+.upload-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.upload-area h5 {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.upload-area p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.registration-wrapper > .btn {
+  margin-top: 1rem;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .registration-progress {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
+
+  .registration-progress p {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .registration-header h2 {
+    font-size: 2rem;
+  }
+
+  .registration-card {
+    padding: 1.5rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .registration-card {
+    padding: 1.25rem;
+  }
+
+  .upload-area {
+    min-height: 130px;
+    padding: 1rem;
+  }
+
+  .registration-header h2 {
+    font-size: 1.7rem;
+  }
+}

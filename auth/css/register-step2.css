@@ -1,0 +1,163 @@
+/* ==========================================
+   REGISTER STEP 2
+========================================== */
+
+.registration-wrapper {
+  width: 100%;
+  max-width: 920px;
+}
+
+/* ==========================================
+   PASSWORD STRENGTH
+========================================== */
+
+.password-strength {
+  margin-top: 1.5rem;
+}
+
+.password-strength span {
+  display: block;
+  margin-bottom: 0.85rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.strength-bars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.strength-bar {
+  height: 8px;
+  background: #d8e9d8;
+  border-radius: 999px;
+  transition: var(--transition);
+}
+
+.strength-bar.active {
+  background: var(--primary-color);
+}
+
+.password-rules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.password-rules li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #6e9a6f;
+  font-size: 0.9rem;
+}
+
+.password-rules i {
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   REVIEW NOTE
+========================================== */
+
+.review-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #78a078;
+}
+
+.review-note i {
+  color: var(--info-color);
+  margin-top: 2px;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.registration-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.registration-actions .btn {
+  flex: 1;
+}
+
+.btn-outline {
+  height: 56px;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   COMPLETED STEP
+========================================== */
+
+.progress-item.completed {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.progress-item.completed i {
+  font-size: 0.9rem;
+}
+
+.progress-line.active {
+  background: var(--primary-color);
+}
+
+/* ==========================================
+   FILE UPLOADED
+========================================== */
+
+.upload-area.uploaded {
+  border-color: var(--primary-color);
+  background: #edf8f0;
+}
+
+.upload-area.uploaded h5 {
+  color: var(--primary-color);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .password-rules {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .registration-actions {
+    flex-direction: column-reverse;
+  }
+
+  .registration-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .strength-bars {
+    gap: 0.35rem;
+  }
+
+  .review-note {
+    font-size: 0.85rem;
+  }
+}

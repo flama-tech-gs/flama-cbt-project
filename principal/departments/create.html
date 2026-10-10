@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Principal Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <link rel="stylesheet" href="./css/create.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="../assets/logo.png" alt="School Logo" />
+
+            <div>
+              <h2>Mobayo Academic</h2>
+
+              <p>...Knowledge, Discipline, Excellence...</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav>
+            <a href="../overview.html" class="nav-link">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Overview</span>
+            </a>
+
+            <a href="../data-analysis.html" class="nav-link">
+              <i data-lucide="database"></i>
+
+              <span>Data Analysis</span>
+            </a>
+
+            <a href="../exam-control/exam-control.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Exam Control</span>
+            </a>
+
+            <a href="../student-scores.html" class="nav-link">
+              <i data-lucide="podium"></i>
+
+              <span>Student Scores</span>
+            </a>
+
+            <a href="../student-reports/student-reports.html" class="nav-link">
+              <i data-lucide="clipboard-check"></i>
+
+              <span>Student Reports</span>
+            </a>
+
+            <a href="../theory.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Theory</span>
+            </a>
+
+            <a href="../broadcasts/broadcasts.html" class="nav-link">
+              <i data-lucide="megaphone"></i>
+
+              <span>Broadcasts</span>
+            </a>
+
+            <a href="../students/students.html" class="nav-link">
+              <i data-lucide="person-standing"></i>
+
+              <span>Students</span>
+            </a>
+
+            <a href="../teachers/teachers.html" class="nav-link">
+              <i data-lucide="graduation-cap"></i>
+
+              <span>Teachers</span>
+            </a>
+
+            <a href="./departments.html" class="nav-link active">
+              <i data-lucide="building-2"></i>
+
+              <span>Departments</span>
+            </a>
+
+            <a
+              href="../submitted-questions/submitted-questions.html"
+              class="nav-link"
+            >
+              <i data-lucide="file-text"></i>
+
+              <span>Submitted Questions</span>
+            </a>
+
+            <a href="../profile.html" class="nav-link">
+              <i data-lucide="circle-user-round"></i>
+
+              <span>Profile</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Logout -->
+
+        <button class="logout-btn">
+          <i data-lucide="log-out"></i>
+
+          Logout
+        </button>
+      </aside>
+
+      <!-- overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+      <!-- For the main content of the page -->
+
+      <main class="main-content">
+        <!-- ==========================================
+    PAGE HEADER
+    ========================================== -->
+
+        <header class="page-header">
+          <div class="page-title">
+            <h1>Create Department</h1>
+
+            <p>Set up a new department and assign teachers to it.</p>
+          </div>
+
+          <div class="principal-profile">
+            <div class="principal-avatar">
+              <img src="../assets/image.png" alt="Principal" />
+
+              <span class="online-dot"></span>
+            </div>
+
+            <div class="principal-details">
+              <h4>Dr. Bankole Okonjo</h4>
+
+              <p>School Principal</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-container">
+          <!-- ==========================================
+    BACK BUTTON
+    ========================================== -->
+
+          <div class="back-wrapper">
+            <a href="./departments.html" class="back-btn">
+              <i data-lucide="arrow-left"></i>
+            </a>
+
+            <span>Back to Departments</span>
+          </div>
+
+          <!-- ==========================================
+    FORM
+    ========================================== -->
+
+          <form class="department-form">
+            <h2 class="section-title">Department Details</h2>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label> Department Name </label>
+
+                <input type="text" placeholder="e.g Vocational & Technical" />
+              </div>
+
+              <div class="form-group">
+                <label> Head of Department </label>
+
+                <div class="select-wrapper">
+                  <select>
+                    <option selected disabled>Select a teacher</option>
+
+                    <option>Mr. Bamidele Ayo</option>
+
+                    <option>Mrs. Nwankwo Chika</option>
+
+                    <option>Dr. Chukwu Emeka</option>
+                  </select>
+
+                  <i data-lucide="chevron-down"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>
+                Description
+                <span>(Optional)</span>
+              </label>
+
+              <textarea
+                rows="3"
+                placeholder="e.g Covers technical drawing, woodwork, and computer studies."
+              ></textarea>
+            </div>
+
+            <!-- ==========================================
+        TEACHERS
+        ========================================== -->
+
+            <h2 class="section-title">Add Teachers to Department</h2>
+
+            <div class="search-box">
+              <i data-lucide="search"></i>
+
+              <input
+                type="text"
+                placeholder="Search teachers by name or subject..."
+              />
+            </div>
+
+            <div class="selected-wrapper">
+              <p>Selected (2)</p>
+
+              <div class="selected-list">
+                <span class="teacher-chip">
+                  Mr. Bamidele Ayo
+
+                  <button type="button">
+                    <i data-lucide="x"></i>
+                  </button>
+                </span>
+
+                <span class="teacher-chip">
+                  Mrs. Nwankwo Chika
+
+                  <button type="button">
+                    <i data-lucide="x"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+
+            <!-- ==========================================
+        TABLE
+        ========================================== -->
+
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+
+                    <th>Teacher Name</th>
+
+                    <th>Current Department</th>
+
+                    <th>Subjects</th>
+
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>
+                      <input checked type="checkbox" />
+                    </td>
+
+                    <td>Mr. Bamidele Ayo</td>
+
+                    <td>Unassigned</td>
+
+                    <td>Computer Studies</td>
+
+                    <td class="status-success">Will be added</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <input checked type="checkbox" />
+                    </td>
+
+                    <td>Mrs. Nwankwo Chika</td>
+
+                    <td>Unassigned</td>
+
+                    <td>Civic Education</td>
+
+                    <td class="status-success">Will be added</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+
+                    <td>Mr. Okoro Victor</td>
+
+                    <td>Physical Education Dept.</td>
+
+                    <td>Physical Education</td>
+
+                    <td>-</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+
+                    <td>Mrs. Eze Chinyere</td>
+
+                    <td>Unassigned</td>
+
+                    <td>Home Economics</td>
+
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- ==========================================
+        ACTION BUTTONS
+        ========================================== -->
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <i data-lucide="check"></i>
+
+                Save Department
+              </button>
+
+              <button type="button" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <!-- modal -->
+
+    <!-- ==========================================
+DEPARTMENT SUCCESS MODAL
+========================================== -->
+
+    <div class="modal-overlay" id="departmentSuccessModal">
+      <div class="success-modal">
+        <div class="success-icon">
+          <div class="success-circle">
+            <i data-lucide="check"></i>
+          </div>
+        </div>
+
+        <h2>Department Created Successfully!</h2>
+
+        <p>
+          "<strong>Sciences Department</strong>" has been created with
+          <strong>2 teachers</strong>
+          assigned. You can edit it anytime from Departments.
+        </p>
+
+        <div class="modal-actions">
+          <button class="btn btn-success" id="viewDepartmentsBtn">
+            View Departments
+          </button>
+
+          <button class="btn btn-outline" id="createAnotherBtn">
+            Create Another
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/create.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

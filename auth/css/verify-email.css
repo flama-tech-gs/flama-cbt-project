@@ -1,0 +1,246 @@
+/* ==========================================
+   VERIFY EMAIL PAGE
+========================================== */
+
+.verification-wrapper {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.verification-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.verification-icon {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verification-icon i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.verification-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.verification-header p {
+  max-width: 420px;
+  margin: auto;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.verification-header strong {
+  color: var(--text-color);
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.verification-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.verification-card h3 {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+
+/* ==========================================
+   OTP
+========================================== */
+
+.otp-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.otp-input {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #cfe6cf;
+  border-radius: 50%;
+  background: #fff;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.otp-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.12);
+}
+
+.otp-input.filled {
+  border-color: var(--primary-color);
+}
+
+/* ==========================================
+   ALERT
+========================================== */
+
+.otp-alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  background: #fff7dd;
+  color: #af6a00;
+  font-size: 0.95rem;
+}
+
+.otp-alert strong {
+  font-weight: 700;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.verification-card .btn {
+  margin-top: 2rem;
+}
+
+/* ==========================================
+   RESEND
+========================================== */
+
+.resend-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.resend-text {
+  color: var(--text-light);
+}
+
+.resend-link {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.resend-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   CHANGE EMAIL
+========================================== */
+
+.change-email {
+  text-align: center;
+  color: #72a673;
+  margin-bottom: 2rem;
+}
+
+.change-email a {
+  color: #72a673;
+  font-weight: 500;
+}
+
+.change-email a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   INFO
+========================================== */
+
+.info-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  background: #eaf6ea;
+  color: #536253;
+}
+
+.info-banner i {
+  font-size: 1.2rem;
+  color: var(--info-color);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .auth-main {
+    min-width: 0;
+  }
+
+  .verification-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .verification-header h2 {
+    font-size: 2rem;
+  }
+
+  .otp-group {
+    gap: 0.6rem;
+  }
+
+  .otp-input {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .verification-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .otp-group {
+    justify-content: space-between;
+  }
+
+  .otp-input {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .otp-group {
+    gap: 0.25rem;
+  }
+
+  .otp-input {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}

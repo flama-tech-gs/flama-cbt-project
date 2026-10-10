@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify Email | CBT School</title>
+
+    <link rel="stylesheet" href="./css/auth.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/verify-email.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="auth-layout">
+      <!-- Sidebar -->
+      <aside class="auth-sidebar">
+        <div class="sidebar-content">
+          <a href="../index.html" class="auth-logo">
+            <img src="./assets/Ellipse.png" alt="CBT School Logo" />
+          </a>
+
+          <div class="sidebar-text">
+            <h1>Verify Your <br />Email Address</h1>
+
+            <p>
+              We sent a 6-digit code to your school email. Enter it below to
+              confirm your account before proceeding.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Instant principal dashboard</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Teacher & student management</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i><span>Automated exam delivery</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Real-time results & analytics</span>
+            </li>
+
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Dedicated school URL portal</span>
+            </li>
+          </ul>
+
+          <div class="sidebar-footer">
+            <a href="login.html" class="register-link">
+              Already registered? Sign in
+              <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="auth-main">
+        <section class="verification-wrapper">
+          <div class="verification-header">
+            <div class="verification-icon">
+              <i class="ri-mail-line"></i>
+            </div>
+
+            <h2>Check Your Email</h2>
+
+            <p>
+              We sent a 6-digit verification code to
+              <strong>admin@mobayoacademic.edu.ng</strong>
+            </p>
+          </div>
+
+          <div class="verification-card">
+            <h3>Enter 6-digit verification code</h3>
+
+            <form id="verifyForm">
+              <div class="otp-group">
+                <input
+                  class="otp-input"
+                  type="text"
+                  maxlength="1"
+                  inputmode="numeric"
+                />
+
+                <input
+                  class="otp-input"
+                  type="text"
+                  maxlength="1"
+                  inputmode="numeric"
+                />
+
+                <input
+                  class="otp-input"
+                  type="text"
+                  maxlength="1"
+                  inputmode="numeric"
+                />
+
+                <input
+                  class="otp-input"
+                  type="text"
+                  maxlength="1"
+                  inputmode="numeric"
+                />
+
+                <input
+                  class="otp-input"
+                  type="text"
+                  maxlength="1"
+                  inputmode="numeric"
+                />
+
+                <input
+                  class="otp-input"
+                  type="text"
+                  maxlength="1"
+                  inputmode="numeric"
+                />
+              </div>
+
+              <div class="otp-alert">
+                <i class="ri-timer-line"></i>
+
+                <span>
+                  Code expires in
+                  <strong id="countdown">09:47</strong>
+                  — Request a new code after it expires
+                </span>
+              </div>
+
+              <div class="auth-divider"></div>
+
+              <button class="btn btn-primary" type="submit">
+                <span class="btn-text"> Verify & Continue </span>
+
+                <i class="ri-arrow-right-line"></i>
+
+                <span class="btn-loader hidden"></span>
+              </button>
+            </form>
+
+            <div class="resend-wrapper">
+              <p class="resend-text">
+                Didn't receive the code?
+
+                <a href="#" class="resend-link"> Resend code </a>
+              </p>
+            </div>
+          </div>
+
+          <p class="change-email">
+            Wrong email address?
+
+            <a href="register.html"> Go back to Step 1 </a>
+          </p>
+
+          <div class="info-banner">
+            <i class="ri-information-line"></i>
+
+            <p>
+              Can't find the email? Check your spam/junk folder. It may take up
+              to 2 minutes to arrive.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/verify-email.js"></script>
+  </body>
+</html>

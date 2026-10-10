@@ -1,0 +1,419 @@
+/* ======================================================
+   DEPARTMENTS PAGE
+====================================================== */
+
+.main-content {
+  padding: 32px 36px 50px;
+  background: #fff;
+}
+
+/* ======================================================
+   PAGE HEADER
+====================================================== */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.page-title h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 0.35rem;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.page-title p {
+  font-size: 1rem;
+  color: #6fa26a;
+}
+
+.page-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ======================================================
+   CREATE BUTTON
+====================================================== */
+
+.create-department-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  height: 52px;
+  padding: 0 1.5rem;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #2e7d32;
+  color: #fff;
+
+  font-size: 0.938rem;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.create-department-btn:hover {
+  background: #27692a;
+}
+
+.create-department-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ======================================================
+   PRINCIPAL PROFILE
+====================================================== */
+
+.principal-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.principal-avatar {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.principal-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.online-dot {
+  position: absolute;
+  right: 1px;
+  bottom: 2px;
+
+  width: 10px;
+  height: 10px;
+
+  background: #34c759;
+
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.principal-details h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 3px;
+}
+
+.principal-details p {
+  font-size: 0.85rem;
+  color: #b5b5b5;
+}
+
+/* ======================================================
+   GRID
+====================================================== */
+
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+/* ======================================================
+   CARD
+====================================================== */
+
+.department-card {
+  background: #fff;
+
+  border: 1px solid #f1f1f1;
+
+  border-radius: 18px;
+
+  padding: 1.3rem 1.4rem;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+  transition: 0.25s;
+}
+
+.department-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.department-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 1rem;
+}
+
+.department-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.75rem;
+}
+
+.department-heading h3 {
+  font-size: 0.938rem;
+
+  color: #2a2a2a;
+
+  font-weight: 700;
+}
+
+/* ======================================================
+   DOTS
+====================================================== */
+
+.department-dot {
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+.green {
+  background: #2e7d32;
+}
+
+.orange {
+  background: #f59e0b;
+}
+
+.red {
+  background: #d32f2f;
+}
+
+.blue {
+  background: #1976d2;
+}
+
+.purple {
+  background: #7b1fa2;
+}
+
+/* ======================================================
+   EDIT BUTTON
+====================================================== */
+
+.edit-btn {
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 0.55rem 1rem;
+
+  font-size: 0.813rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.edit-btn.green {
+  background: #eaf7e6;
+
+  color: #2e7d32;
+}
+
+.edit-btn.yellow {
+  background: #fff4dd;
+
+  color: #f59e0b;
+}
+
+.edit-btn.pink {
+  background: #fce5ea;
+
+  color: #d32f2f;
+}
+
+.edit-btn.blue {
+  background: #e6f1ff;
+
+  color: #1976d2;
+}
+
+.edit-btn.purple {
+  background: #f2e7fa;
+
+  color: #7b1fa2;
+}
+
+/* ======================================================
+   DETAILS
+====================================================== */
+
+.hod {
+  color: #5c5c5c;
+
+  margin-bottom: 0.9rem;
+
+  font-size: 0.813rem;
+}
+
+.hod span {
+  color: #404040;
+
+  font-weight: 500;
+}
+
+.teacher-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #edf7ec;
+
+  color: #2e7d32;
+
+  border-radius: 999px;
+
+  padding: 0.35rem 0.8rem;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  margin-bottom: 0.9rem;
+}
+
+.subjects {
+  color: #a0a0a0;
+
+  font-size: 0.75rem;
+
+  line-height: 1.7;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 1100px) {
+  .page-header {
+    flex-direction: column;
+
+    gap: 1.5rem;
+  }
+
+  .page-actions {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 850px) {
+  .departments-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .main-content {
+    padding: 24px 20px 40px;
+  }
+
+  .page-actions {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 1rem;
+  }
+
+  .create-department-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .department-top {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 0.9rem;
+  }
+
+  .edit-btn {
+    align-self: flex-start;
+  }
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}
+
+@media (max-width: 650px) {
+  .main-content {
+    flex: 0 0 100vw;
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 0;
+  }
+
+  .page-header,
+  .page-title,
+  .page-actions,
+  .main-container,
+  .departments-grid,
+  .department-card,
+  .department-top,
+  .department-heading {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .page-title p,
+  .department-heading h3,
+  .subjects {
+    overflow-wrap: anywhere;
+  }
+
+  .main-container {
+    width: 100%;
+    padding: 0 0 32px;
+  }
+
+  .page-actions {
+    align-items: stretch;
+  }
+
+  .create-department-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

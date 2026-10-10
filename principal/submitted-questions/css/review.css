@@ -1,0 +1,904 @@
+/* ======================================================
+   REVIEW QUESTION BANK
+====================================================== */
+
+.main-content {
+  padding: 32px 36px 60px;
+  background: #fff;
+}
+
+/* .container {
+  max-width: 80%;
+  margin: 0 20px 0 50px;
+} */
+
+/* ==========================================
+   PAGE HEADER
+========================================== */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.page-title h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 6px;
+}
+
+.page-title p {
+  font-size: 1rem;
+  color: #71a66d;
+}
+
+/* ==========================================
+   PRINCIPAL PROFILE
+========================================== */
+
+.principal-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.principal-avatar {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.principal-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.online-dot {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 10px;
+  height: 10px;
+  background: #34c759;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.principal-details h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 2px;
+}
+
+.principal-details p {
+  font-size: 0.85rem;
+  color: #b3b3b3;
+}
+
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+.back-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.back-btn {
+  width: 52px;
+  height: 52px;
+  background: #2e7d32;
+  color: #fff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.back-wrapper span {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* ==========================================
+   SUMMARY CARD
+========================================== */
+
+.exam-summary {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  background: #fff;
+
+  border: 1px solid #ececec;
+
+  border-radius: 18px;
+
+  padding: 24px 26px;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+
+  margin-bottom: 36px;
+}
+
+.summary-item span:first-child {
+  display: block;
+
+  color: #8a8a8a;
+
+  font-size: 0.875rem;
+
+  margin-bottom: 8px;
+}
+
+.summary-item strong {
+  font-size: 1.063rem;
+
+  color: #2e7d32;
+
+  font-weight: 700;
+}
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 14px;
+
+  border-radius: 999px;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.status.pending {
+  background: #fff3de;
+
+  color: #c97700;
+}
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
+.section-title {
+  font-size: 1.125rem;
+
+  color: #2e7d32;
+
+  margin-bottom: 24px;
+
+  font-weight: 700;
+}
+
+/* ==========================================
+   QUESTION CARD
+========================================== */
+
+.question-card {
+  background: #fff;
+
+  border: 1px solid #ececec;
+
+  border-radius: 18px;
+
+  padding: 20px;
+
+  margin-bottom: 22px;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.correction-card {
+  border: 2px solid #ef4444;
+}
+
+/* ==========================================
+   QUESTION HEADER
+========================================== */
+
+.question-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.question-number {
+  width: 34px;
+  height: 34px;
+
+  background: #eaf7e4;
+
+  color: #2e7d32;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+
+  font-weight: 700;
+}
+
+.question-header h3 {
+  flex: 1;
+
+  font-size: 1.063rem;
+
+  font-weight: 600;
+
+  color: #222;
+
+  line-height: 1.5;
+}
+
+/* ==========================================
+   COMMENT BUTTON
+========================================== */
+
+.comment-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  height: 42px;
+
+  padding: 0 18px;
+
+  border: 1px solid #2e7d32;
+
+  background: #fff;
+
+  color: #2e7d32;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.comment-btn:hover {
+  background: #f6fff5;
+}
+
+/* ==========================================
+   OPTIONS
+========================================== */
+
+.options-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  min-height: 54px;
+
+  background: #f8f8f8;
+
+  border: 1px solid transparent;
+
+  border-radius: 10px;
+
+  padding: 0 16px;
+
+  color: #444;
+}
+
+.option span {
+  width: 28px;
+  height: 28px;
+
+  background: #ececec;
+
+  border-radius: 6px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.option.correct {
+  background: #edfbe9;
+
+  border: 2px solid #2e7d32;
+
+  color: #2e7d32;
+
+  font-weight: 600;
+}
+
+.option.correct span {
+  background: #2e7d32;
+
+  color: #fff;
+}
+
+/* last option full width */
+
+.options-grid .option:last-child {
+  grid-column: 1/-1;
+}
+
+/* ==========================================
+   COMMENT BOX
+========================================== */
+
+.review-comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  background: #fff4f4;
+
+  color: #d32f2f;
+
+  border-radius: 10px;
+
+  padding: 14px 16px;
+
+  margin-bottom: 18px;
+
+  line-height: 1.6;
+}
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.question-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.approve-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+
+  background: #2e7d32;
+
+  color: #fff;
+
+  height: 44px;
+
+  padding: 0 20px;
+
+  border-radius: 10px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.approve-btn:hover {
+  background: #27692a;
+}
+
+.correction-btn {
+  border: none;
+
+  background: #e53935;
+
+  color: #fff;
+
+  height: 44px;
+
+  padding: 0 20px;
+
+  border-radius: 10px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.correction-btn:hover {
+  background: #c62828;
+}
+
+/* ==========================================
+   PAGINATION
+========================================== */
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 30px 0;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination button {
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid #e3e3e3;
+
+  background: #fff;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #2e7d32;
+
+  color: #fff;
+
+  border-color: #2e7d32;
+}
+
+.next-page {
+  width: auto !important;
+
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================
+   FOOTER BAR
+========================================== */
+
+.approval-bar {
+  background: #eef8ea;
+
+  border-radius: 18px;
+
+  padding: 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.approval-bar h4 {
+  color: #2e7d32;
+
+  font-size: 1.25rem;
+
+  margin-bottom: 6px;
+}
+
+.approval-bar p {
+  color: #5f845a;
+}
+
+.approval-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.approve-exam-btn {
+  height: 52px;
+
+  padding: 0 24px;
+
+  border: none;
+
+  background: #2e7d32;
+
+  color: #fff;
+
+  border-radius: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.send-back-btn {
+  height: 52px;
+
+  padding: 0 24px;
+
+  border: none;
+
+  background: #e53935;
+
+  color: #fff;
+
+  border-radius: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.review-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 220px;
+  max-width: calc(100vw - 32px);
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: #2e7d32;
+  color: #fff;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  opacity: 0;
+  transform: translate(-50%, calc(-50% + 12px));
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.review-toast.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.review-toast svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1200px) {
+  .exam-summary {
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-header {
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .approval-bar {
+    flex-direction: column;
+
+    gap: 20px;
+
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .options-grid .option:last-child {
+    grid-column: auto;
+  }
+
+  .pagination-wrapper {
+    flex-direction: column;
+
+    gap: 18px;
+
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 24px 18px 40px;
+  }
+
+  .exam-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .question-header {
+    flex-wrap: wrap;
+  }
+
+  .comment-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .question-actions {
+    flex-direction: column;
+  }
+
+  .approve-btn,
+  .correction-btn,
+  .approve-exam-btn,
+  .send-back-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .approval-actions {
+    width: 100%;
+
+    flex-direction: column;
+  }
+}
+
+/* approve modal */
+
+/* ==========================================
+APPROVE EXAM MODAL
+========================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.38);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.25s;
+
+  z-index: 9999;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  width: 480px;
+
+  background: #fff;
+
+  border-radius: 22px;
+
+  padding: 28px;
+
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+
+  animation: modalPop 0.28s ease;
+}
+
+@keyframes modalPop {
+  from {
+    transform: translateY(18px) scale(0.96);
+
+    opacity: 0;
+  }
+
+  to {
+    transform: none;
+
+    opacity: 1;
+  }
+}
+
+.modal-icon {
+  margin-bottom: 20px;
+}
+
+.icon-circle {
+  width: 62px;
+  height: 62px;
+
+  border-radius: 50%;
+
+  background: #eaf7e4;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-circle svg {
+  width: 32px;
+  height: 32px;
+
+  color: #2e7d32;
+
+  stroke-width: 2.5;
+}
+
+.modal-card h2 {
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  margin-bottom: 16px;
+
+  color: #222;
+}
+
+.modal-text {
+  color: #666;
+
+  line-height: 1.8;
+
+  margin-bottom: 24px;
+}
+
+.exam-info {
+  background: #fafafa;
+
+  border-radius: 14px;
+
+  padding: 18px 18px;
+
+  margin-bottom: 24px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 8px 0;
+}
+
+.info-row span {
+  color: #777;
+}
+
+.info-row strong {
+  color: #222;
+
+  font-weight: 600;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.modal-actions .btn {
+  height: 52px;
+
+  border-radius: 12px;
+
+  font-size: 1rem;
+}
+
+.modal-actions .btn-success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-actions .btn-outline {
+  background: #fff;
+
+  border: 1px solid #dadada;
+
+  color: #444;
+}
+
+/* reject modal */
+
+/* ==========================================
+DANGER MODAL
+========================================== */
+
+.icon-circle.danger {
+  background: #fdecec;
+}
+
+.icon-circle.danger svg {
+  color: #dc2626;
+}
+
+.comment-section {
+  margin-bottom: 22px;
+}
+
+.comment-section label {
+  display: block;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  color: #6fa869;
+
+  margin-bottom: 10px;
+}
+
+.comment-section textarea {
+  width: 100%;
+
+  min-height: 74px;
+
+  resize: none;
+
+  border: none;
+
+  outline: none;
+
+  border-radius: 12px;
+
+  background: #eef8ea;
+
+  padding: 16px;
+
+  font-size: 0.95rem;
+
+  line-height: 1.6;
+
+  color: #444;
+}
+
+.comment-section textarea::placeholder {
+  color: #b4c6b0;
+}
+
+.btn-danger {
+  background: #dc2626;
+
+  color: #fff;
+
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #c81e1e;
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

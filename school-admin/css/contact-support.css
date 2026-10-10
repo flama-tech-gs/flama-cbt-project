@@ -1,0 +1,594 @@
+/*==============================================================
+CONTACT SUPPORT
+==============================================================*/
+
+/*==============================================================
+PAGE LAYOUT
+==============================================================*/
+
+.dashboard {
+  width: min(1440px, 95%);
+
+  margin: auto;
+
+  padding: 32px 0 56px;
+}
+
+/*==============================================================
+BACK NAVIGATION
+==============================================================*/
+
+.back-navigation {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-bottom: 30px;
+}
+
+.back-button {
+  width: 52px;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #2e7d32;
+
+  color: #ffffff;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.back-button:hover {
+  background: #27692a;
+
+  transform: translateY(-2px);
+}
+
+.back-button svg {
+  width: 20px;
+
+  height: 20px;
+}
+
+.back-link {
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #374151;
+
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+.back-link:hover {
+  color: #2e7d32;
+}
+
+/*==============================================================
+PAGE HEADER
+==============================================================*/
+
+.page-header {
+  margin-bottom: 34px;
+}
+
+.page-header h1 {
+  margin: 0;
+
+  font-size: 36px;
+
+  font-weight: 800;
+
+  color: #2e7d32;
+
+  letter-spacing: -0.4px;
+}
+
+.page-header p {
+  margin-top: 8px;
+
+  font-size: 16px;
+
+  color: #6b7280;
+
+  line-height: 1.6;
+}
+
+/*==============================================================
+MAIN GRID
+==============================================================*/
+
+.contact-support-layout {
+  display: grid;
+
+  grid-template-columns: 1.55fr 1fr;
+
+  gap: 28px;
+
+  align-items: start;
+}
+
+/*==============================================================
+CARD FOUNDATION
+==============================================================*/
+
+.settings-card {
+  background: #ffffff;
+
+  border: 1px solid #eef3ee;
+
+  border-radius: 18px;
+
+  padding: 28px;
+
+  box-shadow:
+    0 2px 8px rgba(15, 23, 42, 0.03),
+    0 10px 28px rgba(15, 23, 42, 0.04);
+}
+
+/*==============================================================
+SECTION HEADER
+==============================================================*/
+
+.card-header {
+  margin-bottom: 24px;
+}
+
+.card-header h3 {
+  margin: 0;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+
+  color: #6a9d6e;
+}
+
+.divider {
+  margin-top: 14px;
+
+  width: 100%;
+
+  height: 1px;
+
+  background: #edf2ed;
+}
+
+/*==============================================================
+FORM
+==============================================================*/
+
+.support-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #5f9665;
+}
+
+.form-group label span {
+  color: #2e7d32;
+}
+
+/* PART TWO */
+
+/*==============================================================
+FORM CONTROLS
+==============================================================*/
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  border: 1.5px solid #2e7d32;
+
+  border-radius: 10px;
+
+  background: #f8fcf8;
+
+  color: #1f2937;
+
+  font-size: 15px;
+
+  font-family: inherit;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.form-group input,
+.form-group select {
+  height: 50px;
+
+  padding: 0 16px;
+}
+
+.form-group textarea {
+  min-height: 180px;
+
+  padding: 16px;
+
+  resize: vertical;
+
+  line-height: 1.7;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9ca3af;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+
+  background: #ffffff;
+
+  border-color: #2e7d32;
+
+  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.08);
+}
+
+.form-group select {
+  appearance: none;
+
+  cursor: pointer;
+
+  padding-right: 50px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' stroke='%23717C84' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+
+  background-position: right 16px center;
+}
+
+/*==============================================================
+PRIORITY SELECTOR
+==============================================================*/
+
+.priority-selector {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 6px;
+}
+
+.priority-pill {
+  padding: 10px 18px;
+
+  border: 1.5px solid #d8e5d9;
+
+  border-radius: 999px;
+
+  background: #ffffff;
+
+  color: #64748b;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.priority-pill:hover {
+  border-color: #2e7d32;
+
+  color: #2e7d32;
+
+  transform: translateY(-2px);
+}
+
+.priority-pill.active {
+  background: #eaf7ec;
+
+  border-color: #2e7d32;
+
+  color: #2e7d32;
+}
+
+/*==============================================================
+FORM BUTTONS
+==============================================================*/
+
+.form-actions {
+  display: flex;
+
+  gap: 14px;
+
+  margin-top: 12px;
+}
+
+.btn {
+  height: 46px;
+
+  padding: 0 24px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: #2e7d32;
+
+  border: none;
+
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #27692a;
+}
+
+.btn-outline {
+  background: #ffffff;
+
+  border: 1.5px solid #d7dfd8;
+
+  color: #4b5563;
+}
+
+.btn-outline:hover {
+  background: #f7f8f9;
+}
+
+/*==============================================================
+CONTACT INFO
+==============================================================*/
+
+.contact-item {
+  display: flex;
+
+  gap: 18px;
+
+  align-items: flex-start;
+
+  padding: 22px 0;
+
+  border-bottom: 1px solid #edf2ed;
+}
+
+.contact-item:last-of-type {
+  margin-bottom: 28px;
+}
+
+.contact-icon {
+  width: 52px;
+
+  height: 52px;
+
+  border-radius: 50%;
+
+  background: #eaf7ec;
+
+  color: #2e7d32;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 22px;
+
+  height: 22px;
+}
+
+.contact-details {
+  flex: 1;
+}
+
+.contact-details span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #6b7280;
+}
+
+.contact-details strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 16px;
+
+  color: #1f2937;
+}
+
+.contact-details p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+/*==============================================================
+RESPONSE CARD
+==============================================================*/
+
+.response-card {
+  padding: 22px;
+
+  background: #f2fbf3;
+
+  border: 1px solid #dceedd;
+
+  border-radius: 14px;
+}
+
+.response-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+.response-header svg {
+  width: 20px;
+
+  height: 20px;
+
+  color: #2e7d32;
+}
+
+.response-header h4 {
+  margin: 0;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  color: #1f2937;
+}
+
+.response-list {
+  margin: 0;
+
+  padding-left: 18px;
+}
+
+.response-list li {
+  margin-bottom: 12px;
+
+  color: #4b5563;
+
+  line-height: 1.7;
+}
+
+.response-list li:last-child {
+  margin-bottom: 0;
+}
+
+/*==============================================================
+RESPONSIVE
+==============================================================*/
+
+@media (max-width: 1100px) {
+  .contact-support-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 24px 0 40px;
+  }
+
+  .settings-card {
+    padding: 22px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .priority-selector {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .back-navigation {
+    gap: 14px;
+  }
+
+  .back-button {
+    width: 46px;
+
+    height: 46px;
+  }
+
+  .page-header h1 {
+    font-size: 30px;
+  }
+
+  .page-header p {
+    font-size: 14px;
+  }
+
+  .priority-pill {
+    flex: 1 1 calc(50% - 10px);
+
+    text-align: center;
+  }
+
+  .contact-item {
+    gap: 14px;
+  }
+
+  .contact-icon {
+    width: 46px;
+
+    height: 46px;
+  }
+}

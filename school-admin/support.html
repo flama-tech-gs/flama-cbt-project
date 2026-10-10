@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Dashboard | Overview</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/utilities.css" />
+
+    <link rel="stylesheet" href="./css/overview.css" />
+    <link rel="stylesheet" href="./css/support.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__left">
+        <a href="#" class="school-brand">
+          <div class="school-brand__logo"></div>
+
+          <div class="school-brand__content">
+            <h2>Mobayo Academic School</h2>
+            <span>mobayo-academic.cbtschool.ng</span>
+          </div>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-controls="schoolNavigation"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="top-navigation" id="schoolNavigation">
+          <a href="./index.html" class="nav-link"> Overview </a>
+
+          <a href="./account-settings.html" class="nav-link">
+            Account Settings
+          </a>
+
+          <a href="./subscription.html" class="nav-link"> Subscription </a>
+
+          <a href="./principal-account.html" class="nav-link">
+            Principal Account
+          </a>
+
+          <a href="./support.html" class="nav-link active"> Support </a>
+        </nav>
+      </div>
+
+      <div class="topbar__right">
+        <div class="subscription-pill">
+          <i data-lucide="clock-3"></i>
+
+          <span>Expires Aug 20, 2026</span>
+        </div>
+
+        <button class="account-dropdown" type="button" aria-expanded="false">
+          <div class="account-avatar"></div>
+
+          <div class="account-info">
+            <strong>Mobayo Academic</strong>
+
+            <span>School Account</span>
+          </div>
+
+          <i data-lucide="chevron-down"></i>
+        </button>
+
+        <div class="account-menu" role="menu">
+          <button class="account-menu__logout" type="button" role="menuitem">
+            <i data-lucide="log-out"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <!-- ===================================== -->
+      <!-- PAGE HEADER -->
+      <!-- ===================================== -->
+
+      <section class="page-header">
+        <h1>Help & Support</h1>
+
+        <p>
+          Get help with your school account, report an issue or contact the CBT
+          School support team.
+        </p>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- SUPPORT CHANNELS -->
+      <!-- ===================================== -->
+
+      <section class="support-grid">
+        <!-- Documentation -->
+
+        <article class="support-card">
+          <div class="support-icon">📚</div>
+
+          <h3>Documentation</h3>
+
+          <p>Read guides, FAQs and how-to articles.</p>
+
+          <button class="btn btn-outline" id="documentationBtn">
+            Browse Docs
+          </button>
+        </article>
+
+        <!-- Live Chat -->
+
+        <article class="support-card">
+          <div class="support-icon">💬</div>
+
+          <h3>Live Chat</h3>
+
+          <p>Chat with our support team in real time.</p>
+
+          <button class="btn btn-primary" id="liveChatBtn">Start Chat</button>
+        </article>
+
+        <!-- Email -->
+
+        <article class="support-card">
+          <div class="support-icon">📧</div>
+
+          <h3>Email Support</h3>
+
+          <p>Send us a message.</p>
+
+          <button class="btn btn-outline" id="emailSupportBtn">
+            Send Email
+          </button>
+        </article>
+
+        <!-- Phone -->
+
+        <article class="support-card">
+          <div class="support-icon">📞</div>
+
+          <h3>Phone Support</h3>
+
+          <p>Call us: +234 800 CBT 0000 (Mon–Fri)</p>
+
+          <button class="btn btn-blue" id="phoneSupportBtn">Call Now</button>
+        </article>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- SUPPORT CONTENT -->
+      <!-- ===================================== -->
+
+      <section class="support-content">
+        <!-- ===================================== -->
+        <!-- CONTACT FORM -->
+        <!-- ===================================== -->
+
+        <section class="settings-card support-form-card">
+          <div class="card-header">
+            <h3>SEND US A MESSAGE</h3>
+
+            <div class="divider"></div>
+          </div>
+
+          <form id="supportForm" class="support-form">
+            <!-- FULL NAME -->
+
+            <div class="form-group">
+              <label for="fullName"> Full Name <span>*</span> </label>
+
+              <input
+                type="text"
+                id="fullName"
+                name="full_name"
+                placeholder="e.g. Bankole Okonjo"
+                required
+              />
+            </div>
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+              <label for="email"> Email Address <span>*</span> </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="admin@mobayoacademic.edu.ng"
+                required
+              />
+            </div>
+
+            <!-- CATEGORY -->
+
+            <div class="form-group">
+              <label for="category"> Subject / Category <span>*</span> </label>
+
+              <select id="category" name="category" required>
+                <option value="">Select a topic</option>
+
+                <option value="technical">Technical Issue</option>
+
+                <option value="subscription">Subscription & Billing</option>
+
+                <option value="account">Account Settings</option>
+
+                <option value="principal">Principal Account</option>
+
+                <option value="student">Student Management</option>
+
+                <option value="teacher">Teacher Management</option>
+
+                <option value="general">General Enquiry</option>
+              </select>
+            </div>
+
+            <!-- MESSAGE -->
+
+            <div class="form-group">
+              <label for="message"> Your Message <span>*</span> </label>
+
+              <textarea
+                id="message"
+                name="message"
+                rows="7"
+                placeholder="Describe your issue or question in detail..."
+                required
+              ></textarea>
+            </div>
+
+            <!-- ACTION -->
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- ===================================== -->
+        <!-- FAQ -->
+        <!-- ===================================== -->
+
+        <aside class="settings-card faq-card">
+          <div class="card-header">
+            <h3>FREQUENTLY ASKED QUESTIONS</h3>
+
+            <div class="divider"></div>
+          </div>
+
+          <div class="faq-list" id="faqAccordion">
+            <!-- FAQ 1 -->
+
+            <article class="faq-item active">
+              <button class="faq-question" type="button">
+                <span class="faq-arrow">
+                  <i data-lucide="chevron-right"></i>
+                </span>
+
+                <span> How do I reset my school URL? </span>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  Go to <strong>Account Settings</strong> →
+                  <strong>School URL</strong> and choose a new subdomain.
+                </p>
+              </div>
+            </article>
+
+            <!-- FAQ 2 -->
+
+            <article class="faq-item">
+              <button class="faq-question" type="button">
+                <span class="faq-arrow">
+                  <i data-lucide="chevron-right"></i>
+                </span>
+
+                <span> Can I have more than one principal? </span>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  No. Only one principal account is active at a time. Creating a
+                  new principal account automatically replaces the existing one.
+                </p>
+              </div>
+            </article>
+
+            <!-- FAQ 3 -->
+
+            <article class="faq-item">
+              <button class="faq-question" type="button">
+                <span class="faq-arrow">
+                  <i data-lucide="chevron-right"></i>
+                </span>
+
+                <span> How do I renew my subscription? </span>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  Open the <strong>Subscription</strong> page, choose your
+                  preferred plan and click <strong>Renew Now</strong>. Payment
+                  can be completed online or via bank transfer.
+                </p>
+              </div>
+            </article>
+
+            <!-- FAQ 4 -->
+
+            <article class="faq-item">
+              <button class="faq-question" type="button">
+                <span class="faq-arrow">
+                  <i data-lucide="chevron-right"></i>
+                </span>
+
+                <span> What happens when my subscription expires? </span>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  School portal access becomes restricted until your
+                  subscription is renewed. Teachers and students will be unable
+                  to log in during this period.
+                </p>
+              </div>
+            </article>
+
+            <!-- FAQ 5 -->
+
+            <article class="faq-item">
+              <button class="faq-question" type="button">
+                <span class="faq-arrow">
+                  <i data-lucide="chevron-right"></i>
+                </span>
+
+                <span> How long does document verification take? </span>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  Verification usually takes between
+                  <strong>24–48 hours</strong>. You'll receive an email
+                  notification once the review has been completed.
+                </p>
+              </div>
+            </article>
+
+            <!-- FAQ 6 -->
+
+            <article class="faq-item">
+              <button class="faq-question" type="button">
+                <span class="faq-arrow">
+                  <i data-lucide="chevron-right"></i>
+                </span>
+
+                <span> Can I change my subscription plan mid-term? </span>
+              </button>
+
+              <div class="faq-answer">
+                <p>
+                  Yes. Upgrades take effect immediately, while downgrades are
+                  applied from your next billing cycle.
+                </p>
+              </div>
+            </article>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script src="./js/support.js"></script>
+    <script src="./js/account-dropdown.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Dashboard | Overview</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/utilities.css" />
+
+    <link rel="stylesheet" href="./css/overview.css" />
+
+    <link rel="stylesheet" href="./css/subscription.css" />
+    <link rel="stylesheet" href="../css/pricing-cards.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__left">
+        <a href="#" class="school-brand">
+          <div class="school-brand__logo"></div>
+
+          <div class="school-brand__content">
+            <h2>Mobayo Academic School</h2>
+            <span>mobayo-academic.cbtschool.ng</span>
+          </div>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-controls="schoolNavigation"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="top-navigation" id="schoolNavigation">
+          <a href="./index.html" class="nav-link"> Overview </a>
+
+          <a href="./account-settings.html" class="nav-link">
+            Account Settings
+          </a>
+
+          <a href="./subscription.html" class="nav-link active">
+            Subscription
+          </a>
+
+          <a href="./principal-account.html" class="nav-link">
+            Principal Account
+          </a>
+
+          <a href="./support.html" class="nav-link"> Support </a>
+        </nav>
+      </div>
+
+      <div class="topbar__right">
+        <div class="subscription-pill">
+          <i data-lucide="clock-3"></i>
+
+          <span>Expires Aug 20, 2026</span>
+        </div>
+
+        <button class="account-dropdown" type="button" aria-expanded="false">
+          <div class="account-avatar"></div>
+
+          <div class="account-info">
+            <strong>Mobayo Academic</strong>
+
+            <span>School Account</span>
+          </div>
+
+          <i data-lucide="chevron-down"></i>
+        </button>
+
+        <div class="account-menu" role="menu">
+          <button class="account-menu__logout" type="button" role="menuitem">
+            <i data-lucide="log-out"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <!-- ===================================== -->
+      <!-- PAGE HEADER -->
+      <!-- ===================================== -->
+
+      <section class="page-header">
+        <h1>Subscription &amp; Billing</h1>
+
+        <p>
+          Manage your subscription plan, view billing history and renew or
+          upgrade your account.
+        </p>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- CURRENT SUBSCRIPTION -->
+      <!-- ===================================== -->
+
+      <section class="subscription-summary">
+        <div class="subscription-summary__content">
+          <div class="subscription-summary__left">
+            <h2>Standard Plan</h2>
+
+            <p class="subscription-meta">
+              Active
+
+              <span>•</span>
+
+              2nd Term 2025/2026
+
+              <span>•</span>
+
+              Up to 600 students
+
+              <span>•</span>
+
+              30 teachers
+            </p>
+
+            <div class="expiry-badge">
+              <i data-lucide="clock-3"></i>
+
+              <span> Expires Aug 20, 2026 </span>
+            </div>
+          </div>
+
+          <div class="subscription-summary__right">
+            <h3>₦35,000 / term</h3>
+
+            <p>
+              Paid: June 20, 2026
+
+              <span>•</span>
+
+              via Card
+            </p>
+
+            <button class="btn btn-renew" id="renewPlanBtn">
+              Renew Now
+
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- AVAILABLE PLANS -->
+      <!-- ===================================== -->
+
+      <section class="plans-section">
+        <div class="section-heading">
+          <h2>Available Plans</h2>
+
+          <p>
+            Your current plan is highlighted. Select another plan to upgrade or
+            downgrade.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- ===================================== -->
+          <!-- STARTER PLAN -->
+          <!-- ===================================== -->
+
+          <article class="pricing-card starter-plan" data-plan="starter">
+            <h3>Starter</h3>
+
+            <div class="price">₦15,000 <span>/month</span></div>
+
+            <p class="pricing-description">
+              For a single school getting started.
+            </p>
+
+            <hr />
+
+            <ul class="pricing-features">
+              <li>
+                <i data-lucide="check"></i>
+
+                Up to 200 students
+              </li>
+
+              <li>
+                <i data-lucide="check"></i>
+
+                Unlimited exams
+              </li>
+
+              <li>
+                <i data-lucide="check"></i>
+
+                Auto grading
+              </li>
+
+              <li>
+                <i data-lucide="check"></i>
+
+                Email support
+              </li>
+            </ul>
+
+            <button class="btn btn-primary btn-plan" data-plan="starter">
+              Choose Plan
+            </button>
+          </article>
+
+          <!-- ===================================== -->
+          <!-- STANDARD PLAN -->
+          <!-- ===================================== -->
+
+          <article class="pricing-card featured" data-plan="standard">
+            <span class="pricing-badge"> MOST POPULAR </span>
+
+            <h3>Standard</h3>
+
+            <div class="price">₦45,000 <span>/month</span></div>
+
+            <p class="pricing-description">
+              For growing schools with more classes.
+            </p>
+
+            <hr />
+
+            <ul class="pricing-features">
+              <li>
+                <i data-lucide="check"></i>
+
+                Up to 1,000 students
+              </li>
+
+              <li>
+                <i data-lucide="check"></i>
+
+                Unlimited exams
+              </li>
+
+              <li>
+                <i data-lucide="check"></i>
+
+                Advanced analytics
+              </li>
+
+              <li>
+                <i data-lucide="check"></i>
+
+                Priority support
+              </li>
+
+              <li>
+                <i data-lucide="check"></i>
+
+                Lockdown proctoring
+              </li>
+            </ul>
+
+            <button
+              class="btn btn-primary btn-featured-plan"
+              data-plan="standard"
+            >
+              Choose Plan
+            </button>
+          </article>
+
+          <!-- ===================================== -->
+          <!-- ENTERPRISE PLAN -->
+          <!-- ===================================== -->
+
+          <article class="pricing-card enterprise-plan" data-plan="enterprise">
+            <h3>Enterprise</h3>
+
+            <div class="price">Custom</div>
+
+            <p class="pricing-description">
+              For school networks &amp; institutions.
+            </p>
+
+            <hr />
+
+            <ul class="pricing-features">
+              <li>
+                <i data-lucide="check"></i>
+
+                Unlimited students
+              </li>
+
+              <li>
+                <i data-lucide="check"></i>
+
+                Multi-school dashboard
+              </li>
+
+              <li>
+                <i data-lucide="check"></i>
+
+                Dedicated account manager
+              </li>
+            </ul>
+
+            <button class="btn btn-primary btn-plan" data-plan="enterprise">
+              Choose Plan
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- BILLING HISTORY -->
+      <!-- ===================================== -->
+
+      <section class="billing-card">
+        <div class="card-header">
+          <h2>BILLING HISTORY</h2>
+
+          <div class="divider"></div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="billing-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+
+                <th>Plan</th>
+
+                <th>Term</th>
+
+                <th>Amount</th>
+
+                <th>Method</th>
+
+                <th>Status</th>
+
+                <th>Receipt</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Jun 20, 2026</td>
+
+                <td>Standard</td>
+
+                <td>2nd Term 2025/2026</td>
+
+                <td class="amount">₦38,125</td>
+
+                <td>Card</td>
+
+                <td>
+                  <span class="status-pill paid">
+                    <i data-lucide="check"></i>
+
+                    Paid
+                  </span>
+                </td>
+
+                <td>
+                  <button
+                    class="receipt-btn"
+                    data-receipt="receipt-20260620.pdf"
+                  >
+                    <i data-lucide="download"></i>
+
+                    PDF
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Feb 18, 2026</td>
+
+                <td>Standard</td>
+
+                <td>1st Term 2025/2026</td>
+
+                <td class="amount">₦38,125</td>
+
+                <td>Card</td>
+
+                <td>
+                  <span class="status-pill paid">
+                    <i data-lucide="check"></i>
+
+                    Paid
+                  </span>
+                </td>
+
+                <td>
+                  <button
+                    class="receipt-btn"
+                    data-receipt="receipt-20260218.pdf"
+                  >
+                    <i data-lucide="download"></i>
+
+                    PDF
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Oct 10, 2025</td>
+
+                <td>Starter</td>
+
+                <td>3rd Term 2024/2025</td>
+
+                <td class="amount">₦17,000</td>
+
+                <td>Bank Transfer</td>
+
+                <td>
+                  <span class="status-pill paid">
+                    <i data-lucide="check"></i>
+
+                    Paid
+                  </span>
+                </td>
+
+                <td>
+                  <button
+                    class="receipt-btn"
+                    data-receipt="receipt-20251010.pdf"
+                  >
+                    <i data-lucide="download"></i>
+
+                    PDF
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script src="./js/subscription.js"></script>
+    <script src="./js/account-dropdown.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+  </body>
+</html>

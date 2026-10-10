@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Principal Dashboard</title>
+
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+
+  <body>
+    <main class="login-page">
+      <!-- HEADER -->
+      <section class="login-header">
+        <img src="./assets/logo.png" alt="School Logo" class="logo" />
+        <h1>Mobayo Academic</h1>
+        <p class="tagline">...Knowledge, Discipline, Excellence...</p>
+      </section>
+
+      <!-- CARD -->
+      <section class="login-card">
+        <form class="login-form">
+          <!-- Email Address -->
+          <div class="form-group">
+            <label>Email Address</label>
+            <input
+              type="email"
+              id=""
+              placeholder="e.g principal@mobayoacademic.edu"
+              required
+            />
+
+            <small class="error-message" id="accessError">
+              Invalid email address
+            </small>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label>Password</label>
+
+            <div class="password-wrapper">
+              <input
+                type="password"
+                placeholder="enter password"
+                id="password"
+                required
+              />
+              <span class="toggle-password" id="togglePassword">👁️</span>
+            </div>
+
+            <small class="hint">Password must be in title case</small>
+
+            <small class="error-message" id="passwordError">
+              Incorrect password
+            </small>
+          </div>
+
+          <!-- Forgot -->
+          <div class="forgot">
+            <a href="#" id="forgotPasswordLink">Forget password?</a>
+          </div>
+
+          <!-- FORGOT PASSWORD MODAL -->
+          <div class="modal-overlay" id="forgotModal">
+            <div class="forgot-modal">
+              <h3>⚠ Password Change Restricted</h3>
+
+              <p>
+                Please contact the school authority to recover or reset your
+                password.
+              </p>
+
+              <button id="closeModal">Okay</button>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <button type="submit" class="login-btn">Login →</button>
+        </form>
+      </section>
+
+      <!-- FOOTER -->
+      <p class="access-note change-color">
+        ....Principal Portal — Access restricted to authorized school administrators only...
+      </p>
+    </main>
+
+    <script src="./js/login.js"></script>
+  </body>
+</html>

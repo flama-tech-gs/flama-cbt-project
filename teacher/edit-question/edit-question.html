@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Teacher Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/cards.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <!-- <link rel="stylesheet" href="../css/classes.css" /> -->
+
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/sidebar.css" />
+    <link rel="stylesheet" href="../css/table.css" />
+    <link rel="stylesheet" href="../css/topbar.css" />
+
+    <!-- <link rel="stylesheet" href="./css/upload.css" />
+    <link rel="stylesheet" href="./css/uploaded-questions.css" />
+
+    <link rel="stylesheet" href="./css/submitted-questions.css" />
+
+    <link rel="stylesheet" href="./css/question-bank.css" /> -->
+
+    <link rel="stylesheet" href="./css/edit-question.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="../assets/logo.png" alt="School Logo" />
+
+            <div>
+              <h2>Mobayo Academic</h2>
+
+              <p>...Knowledge, Discipline, Excellence...</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav>
+            <a href="../overview.html" class="nav-link">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Overview</span>
+            </a>
+
+            <a href="../classes.html" class="nav-link">
+              <i data-lucide="users"></i>
+
+              <span>Classes & Students</span>
+            </a>
+
+            <a href="../upload-question/upload.html" class="nav-link">
+              <i data-lucide="upload"></i>
+
+              <span>Upload Questions</span>
+            </a>
+
+            <a
+              href="../upload-question/uploaded-questions.html"
+              class="nav-link"
+            >
+              <i data-lucide="files"></i>
+
+              <span>Uploaded Questions</span>
+            </a>
+
+            <a href="./submitted-questions.html" class="nav-link active">
+              <i data-lucide="clipboard-check"></i>
+
+              <span>Submitted Questions</span>
+            </a>
+
+            <a
+              href="../notifications/notifications.html"
+              class="nav-link notification-link"
+            >
+              <i data-lucide="bell"></i>
+
+              <span>Notifications</span>
+
+              <span class="badge"> 2 </span>
+            </a>
+
+            <a href="../student-scores/student-scores.html" class="nav-link">
+              <i data-lucide="bar-chart-3"></i>
+
+              <span>Student Scores</span>
+            </a>
+
+            <a href="../theory/theory.html" class="nav-link">
+              <i data-lucide="book-open"></i>
+
+              <span>Theory</span>
+            </a>
+
+            <a href="../recorded-theory/recorded-theory.html" class="nav-link">
+              <i data-lucide="file-text"></i>
+
+              <span>Recorded Theory</span>
+            </a>
+
+            <a href="../profile/profile.html" class="nav-link">
+              <i data-lucide="user-circle"></i>
+
+              <span>Profile</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Logout -->
+
+        <button class="logout-btn">
+          <i data-lucide="log-out"></i>
+
+          Logout
+        </button>
+      </aside>
+
+      <!-- overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+
+      <main class="main-content">
+        <!-- ==========================================
+TOPBAR
+========================================== -->
+
+        <header class="topbar">
+          <div class="topbar-left">
+            <div class="topbar-title">
+              <h1>Edit Question</h1>
+
+              <p>
+                Make corrections to this question, then resubmit for approval.
+              </p>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="teacher-profile">
+              <img src="../assets/image.png" alt="Teacher" />
+
+              <div>
+                <h3>Mrs. Adebayo Folake</h3>
+
+                <p>Biology Teacher</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-container">
+          <!-- ==========================================
+BACK BUTTON
+========================================== -->
+
+          <a href="../question-bank/question-bank.html" class="back-btn">
+            <i data-lucide="arrow-left"></i>
+
+            Back to Question Bank
+          </a>
+
+          <!-- ==========================================
+SUMMARY
+========================================== -->
+
+          <section class="summary-card">
+            <div class="summary-item">
+              <span>Subject</span>
+
+              <strong>Biology</strong>
+            </div>
+
+            <div class="summary-item">
+              <span>Class</span>
+
+              <strong>JSS 3B</strong>
+            </div>
+
+            <div class="summary-item">
+              <span>Term</span>
+
+              <strong>2nd Term</strong>
+            </div>
+
+            <div class="summary-item">
+              <span>Question</span>
+
+              <strong id="questionCounter"> 1 of 50 </strong>
+            </div>
+
+            <div class="summary-item">
+              <span>Exam Status</span>
+
+              <span class="badge pending"> Pending Approval </span>
+            </div>
+          </section>
+
+          <!-- ==========================================
+QUESTION
+========================================== -->
+
+          <section class="question-builder">
+            <h2>Question <span id="questionNumber">1</span></h2>
+
+            <div class="question-field">
+              <label>Question Text</label>
+
+              <textarea id="questionText"></textarea>
+            </div>
+
+            <div class="options-grid">
+              <div class="option-card">
+                <div class="option-header">
+                  <h3>Option A</h3>
+
+                  <button class="correct-btn" data-option="A">
+                    Mark as Correct
+                  </button>
+                </div>
+
+                <input id="optionA" type="text" />
+              </div>
+
+              <div class="option-card">
+                <div class="option-header">
+                  <h3>Option B</h3>
+
+                  <button class="correct-btn" data-option="B">
+                    Mark as Correct
+                  </button>
+                </div>
+
+                <input id="optionB" type="text" />
+              </div>
+
+              <div class="option-card">
+                <div class="option-header">
+                  <h3>Option C</h3>
+
+                  <button class="correct-btn" data-option="C">
+                    Mark as Correct
+                  </button>
+                </div>
+
+                <input id="optionC" type="text" />
+              </div>
+
+              <div class="option-card">
+                <div class="option-header">
+                  <h3>Option D</h3>
+
+                  <button class="correct-btn" data-option="D">
+                    Mark as Correct
+                  </button>
+                </div>
+
+                <input id="optionD" type="text" />
+              </div>
+
+              <div class="option-card full-width">
+                <div class="option-header">
+                  <h3>Option E</h3>
+
+                  <button class="correct-btn" data-option="E">
+                    Mark as Correct
+                  </button>
+                </div>
+
+                <input id="optionE" type="text" />
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================
+NAVIGATION
+========================================== -->
+
+          <section class="question-navigation">
+            <button class="btn-outline" id="previousQuestion">
+              <i data-lucide="arrow-left"></i>
+
+              Previous Question
+            </button>
+
+            <span id="navigationCounter"> Question 1 of 50 </span>
+
+            <button class="btn-outline" id="nextQuestion">
+              Next Question
+
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </section>
+
+          <!-- ==========================================
+ACTIONS
+========================================== -->
+
+          <section class="builder-actions">
+            <button class="btn-primary" id="saveChanges">Save Changes</button>
+
+            <button class="btn-outline" id="discardChanges">
+              Discard Changes
+            </button>
+          </section>
+
+          <!-- ==========================================
+SUBMIT BAR
+========================================== -->
+
+          <section class="submission-bar">
+            <div>
+              <strong> Ready to resubmit this question? </strong>
+
+              <p>It will be sent to the school administrator for review.</p>
+            </div>
+
+            <button class="btn-primary" id="submitQuestion">
+              Submit for Approval
+            </button>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/edit-question.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

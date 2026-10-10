@@ -1,0 +1,394 @@
+/*==================================
+CONTACT HERO
+==================================*/
+
+.contact-hero {
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 248, 220, 0.85) 0%,
+      rgba(193, 255, 122, 0.35) 45%,
+      rgba(0, 0, 0, 0) 70%
+    ),
+    url("../assets/image-3.png") center right/contain no-repeat;
+
+  /* background-image: url("../assets/image-3.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right center; */
+}
+
+.contact-hero .page-hero-content {
+  max-width: 620px;
+}
+
+.contact-hero .page-tag {
+  display: inline-block;
+  padding: 14px 22px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  margin-bottom: 34px;
+}
+
+.contact-hero h1 {
+  line-height: 1.18;
+  color: var(--color-secondary);
+  margin-bottom: 32px;
+
+  font-size: 3.5rem;
+  font-family: "Baloo 2", sans-serif;
+}
+
+.contact-hero p {
+  max-width: 600px;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.6;
+}
+
+/*========================*/
+
+@media (max-width: 992px) {
+  .contact-hero {
+    min-height: 620px;
+    background-position: 70% center;
+  }
+
+  .contact-hero h1 {
+    font-size: 3.8rem;
+  }
+
+  .contact-hero p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    min-height: 560px;
+    text-align: center;
+
+    background:
+      linear-gradient(rgba(255, 248, 220, 0.88), rgba(255, 248, 220, 0.88)),
+      url("../images/contact-hero.png") center/cover no-repeat;
+
+    background-image: url("../assets/image-3.png");
+    background-repeat: no-repeat;
+    background-size: contain; /* Keeps the whole image visible */
+    background-position: right center;
+  }
+
+  .contact-hero .page-hero-content {
+    margin: auto;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .contact-hero p {
+    font-size: 1rem;
+  }
+
+  .contact-hero .page-tag {
+    font-size: 0.95rem;
+    padding: 12px 18px;
+  }
+}
+
+/* Part 2: Contact Info */
+
+/*==================================
+CONTACT SECTION
+==================================*/
+
+.contact-section {
+  padding: 110px 0;
+  background: #fff;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.contact-info h2 {
+  font-size: 2.25rem;
+  color: var(--color-secondary);
+  margin: 18px 0 28px;
+
+  font-family: "Baloo 2", sans-serif;
+}
+
+.contact-intro {
+  color: #555;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 50px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.contact-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--color-primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-item span {
+  display: block;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.contact-item h4 {
+  font-size: 1.063rem;
+  color: #222;
+}
+
+.contact-card {
+  background: #f8f9f9;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.contact-card h3 {
+  font-size: 1.75rem;
+  color: var(--color-secondary);
+  margin-bottom: 34px;
+
+  font-family: "Baloo 2", sans-serif;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  font: inherit;
+  transition: 0.3s;
+  background: #fff;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.12);
+}
+
+.contact-btn {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/*======================*/
+
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 80px 0;
+  }
+
+  .contact-info h2 {
+    font-size: 2.5rem;
+  }
+
+  .contact-card {
+    padding: 28px;
+  }
+
+  .contact-card h3 {
+    font-size: 2rem;
+  }
+
+  .contact-item h4 {
+    font-size: 1.25rem;
+  }
+}
+
+/* additional styles for the contact section */
+
+@media (max-width: 768px) {
+  .contact-hero {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    padding: 0;
+    background: #eaf8d0;
+    overflow: hidden;
+  }
+
+  .contact-hero .page-hero-content {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 24px 18px 28px;
+    color: #222;
+    background: linear-gradient(110deg, #fff8dc 0%, #eaf8d0 100%);
+  }
+
+  .contact-hero .page-tag {
+    display: inline-block;
+    width: fit-content;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 0.65rem;
+    letter-spacing: 0;
+  }
+
+  .contact-hero h1 {
+    margin-bottom: 8px;
+    color: var(--color-secondary);
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+
+  .contact-hero p {
+    max-width: none;
+    margin: 0;
+    color: #222;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+}
+
+/* Contact hero image — hidden on desktop */
+.contact-hero-image {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    text-align: left;
+    background: linear-gradient(110deg, #fff8dc 0%, #eaf8d0 100%);
+    overflow: hidden;
+  }
+
+  /* Full-width image above the content */
+  .contact-hero-image {
+    display: block;
+    width: 100%;
+    height: 185px;
+    overflow: hidden;
+  }
+
+  .contact-hero-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 45%;
+  }
+
+  .contact-hero > .container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-hero .page-hero-content {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 22px 18px 28px;
+    color: #222;
+  }
+
+  .contact-hero .page-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 9px;
+    border-radius: 5px;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 0.65rem;
+    letter-spacing: 0;
+  }
+
+  .contact-hero h1 {
+    margin-bottom: 8px;
+    color: var(--color-secondary);
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+
+  .contact-hero p {
+    max-width: none;
+    margin: 0;
+    color: #222;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+}

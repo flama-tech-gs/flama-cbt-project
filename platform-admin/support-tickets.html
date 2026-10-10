@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Support Tickets</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/support-tickets.css" />
+  </head>
+
+  <body>
+    <div class="platform-layout">
+      <!-- ==========================================
+         SIDEBAR
+    ========================================== -->
+
+      <aside class="platform-sidebar" id="platformSidebar">
+        <div class="sidebar-brand">
+          <div class="brand-logo">C</div>
+
+          <div class="brand-info">
+            <h2>CBT School</h2>
+
+            <p>Super Admin</p>
+          </div>
+        </div>
+
+        <nav class="platform-navigation">
+          <a href="./index.html" class="platform-nav-link">
+            <i data-lucide="house"></i>
+
+            <span>Dashboard</span>
+          </a>
+
+          <a href="school-directory.html" class="platform-nav-link">
+            <i data-lucide="school"></i>
+
+            <span>Schools</span>
+          </a>
+
+          <a href="./subscriptions.html" class="platform-nav-link">
+            <i data-lucide="credit-card"></i>
+
+            <span>Subscriptions &amp; Billing</span>
+          </a>
+
+          <a href="./support-tickets.html" class="platform-nav-link active">
+            <i data-lucide="ticket"></i>
+
+            <span>Support Tickets</span>
+          </a>
+
+          <a href="./reports.html" class="platform-nav-link">
+            <i data-lucide="bar-chart-3"></i>
+
+            <span>Reports</span>
+          </a>
+
+          <a href="./settings.html" class="platform-nav-link">
+            <i data-lucide="settings"></i>
+
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-admin">
+          <div class="admin-avatar">SA</div>
+
+          <div class="admin-account">
+            <strong>Super Admin</strong>
+
+            <button type="button" class="logout-link">Log Out →</button>
+          </div>
+        </div>
+      </aside>
+
+      <button
+        class="sidebar-overlay"
+        type="button"
+        aria-label="Close navigation"
+        tabindex="-1"
+      ></button>
+
+      <!-- ==========================================
+         MAIN AREA
+    ========================================== -->
+
+      <main class="platform-main">
+        <!-- ======================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="platform-topbar">
+          <button
+            type="button"
+            class="mobile-menu-toggle"
+            aria-label="Open navigation"
+            aria-controls="platformSidebar"
+            aria-expanded="false"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+
+          <div class="global-search">
+            <i data-lucide="search"></i>
+
+            <input
+              type="search"
+              placeholder="Search schools, tickets, transactions..."
+              aria-label="Search platform"
+            />
+          </div>
+
+          <div class="topbar-actions">
+            <button
+              type="button"
+              class="notification-button"
+              aria-label="Notifications"
+            >
+              <i data-lucide="bell"></i>
+
+              <span class="notification-dot"></span>
+            </button>
+
+            <div class="topbar-admin">
+              <div class="topbar-avatar">SA</div>
+
+              <div class="topbar-admin-info">
+                <strong>Super Admin</strong>
+
+                <span>Platform Team⌄</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ======================================
+             PAGE CONTENT
+        ====================================== -->
+
+        <div class="dashboard-content">
+          <!-- ==========================================
+         PAGE CONTENT
+    =========================================== -->
+
+          <section class="support-page">
+            <!-- Page heading -->
+
+            <div class="support-page-header">
+              <h1>Support Tickets</h1>
+
+              <p>All support requests raised across the platform.</p>
+            </div>
+
+            <!-- ==========================================
+           SUMMARY CARDS
+      =========================================== -->
+
+            <section class="support-stats-grid">
+              <article class="support-stat-card">
+                <div class="support-stat-heading">
+                  <span>Open Tickets</span>
+
+                  <span class="stat-icon"> 🔴 </span>
+                </div>
+
+                <strong>9</strong>
+
+                <p>3 high priority</p>
+              </article>
+
+              <article class="support-stat-card">
+                <div class="support-stat-heading">
+                  <span>In Progress</span>
+
+                  <span class="stat-icon"> 🟡 </span>
+                </div>
+
+                <strong>6</strong>
+
+                <p>Avg 1.2 days</p>
+              </article>
+
+              <article class="support-stat-card">
+                <div class="support-stat-heading">
+                  <span>Resolved Today</span>
+
+                  <span class="stat-icon"> ✅ </span>
+                </div>
+
+                <strong>4</strong>
+
+                <p>14 resolved this week</p>
+              </article>
+
+              <article class="support-stat-card">
+                <div class="support-stat-heading">
+                  <span>Avg Response Time</span>
+
+                  <span class="stat-icon"> ⏱️ </span>
+                </div>
+
+                <strong>3.4h</strong>
+
+                <p>-0.6h vs last week</p>
+              </article>
+            </section>
+
+            <!-- ==========================================
+           SEARCH + FILTERS
+      =========================================== -->
+
+            <section class="ticket-toolbar">
+              <div class="ticket-search">
+                <i data-lucide="search"></i>
+
+                <input
+                  type="text"
+                  id="ticketSearch"
+                  placeholder="Search tickets by school or subject..."
+                />
+              </div>
+
+              <div class="ticket-filters">
+                <button
+                  type="button"
+                  class="ticket-filter active"
+                  data-filter="all"
+                >
+                  All (24)
+                </button>
+
+                <button type="button" class="ticket-filter" data-filter="high">
+                  High Priority (3)
+                </button>
+
+                <button type="button" class="ticket-filter" data-filter="open">
+                  Open (9)
+                </button>
+
+                <button
+                  type="button"
+                  class="ticket-filter"
+                  data-filter="resolved"
+                >
+                  Resolved (11)
+                </button>
+              </div>
+            </section>
+
+            <!-- ==========================================
+           TICKETS
+      =========================================== -->
+
+            <section class="tickets-card">
+              <h2>All Support Tickets</h2>
+
+              <div class="tickets-table-wrapper">
+                <table class="tickets-table">
+                  <thead>
+                    <tr>
+                      <th>Ticket</th>
+                      <th>School</th>
+                      <th>Subject</th>
+                      <th>Priority</th>
+                      <th>Status</th>
+                      <th>Updated</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="ticketsTableBody">
+                    <tr data-priority="high" data-status="open">
+                      <td class="ticket-number">#4821</td>
+
+                      <td>Green Valley College</td>
+
+                      <td>Cannot upload logo, error on save</td>
+
+                      <td>
+                        <span class="priority high"> High </span>
+                      </td>
+
+                      <td>
+                        <span class="ticket-status open"> Open </span>
+                      </td>
+
+                      <td>2h ago</td>
+
+                      <td>
+                        <button class="open-ticket-btn" data-ticket="4821">
+                          Open →
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr data-priority="high" data-status="open">
+                      <td class="ticket-number">#4818</td>
+
+                      <td>Horizon Comprehensive</td>
+
+                      <td>Account suspended after payment</td>
+
+                      <td>
+                        <span class="priority high"> High </span>
+                      </td>
+
+                      <td>
+                        <span class="ticket-status open"> Open </span>
+                      </td>
+
+                      <td>5h ago</td>
+
+                      <td>
+                        <button class="open-ticket-btn" data-ticket="4818">
+                          Open →
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr data-priority="high" data-status="open">
+                      <td class="ticket-number">#4815</td>
+
+                      <td>Fountainhead Secondary</td>
+
+                      <td>Bulk student import stuck at 40%</td>
+
+                      <td>
+                        <span class="priority high"> High </span>
+                      </td>
+
+                      <td>
+                        <span class="ticket-status open"> Open </span>
+                      </td>
+
+                      <td>6h ago</td>
+
+                      <td>
+                        <button class="open-ticket-btn" data-ticket="4815">
+                          Open →
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr data-priority="medium" data-status="progress">
+                      <td class="ticket-number">#4809</td>
+
+                      <td>Newgate International</td>
+
+                      <td>Question bank import failing</td>
+
+                      <td>
+                        <span class="priority medium"> Medium </span>
+                      </td>
+
+                      <td>
+                        <span class="ticket-status progress">
+                          In Progress
+                        </span>
+                      </td>
+
+                      <td>1d ago</td>
+
+                      <td>
+                        <button class="open-ticket-btn" data-ticket="4809">
+                          Open →
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr data-priority="medium" data-status="progress">
+                      <td class="ticket-number">#4802</td>
+
+                      <td>Lighthouse Academy</td>
+
+                      <td>Teacher cannot reset own password</td>
+
+                      <td>
+                        <span class="priority medium"> Medium </span>
+                      </td>
+
+                      <td>
+                        <span class="ticket-status progress">
+                          In Progress
+                        </span>
+                      </td>
+
+                      <td>1d ago</td>
+
+                      <td>
+                        <button class="open-ticket-btn" data-ticket="4802">
+                          Open →
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr data-priority="low" data-status="progress">
+                      <td class="ticket-number">#4795</td>
+
+                      <td>Mobayo Academic School</td>
+
+                      <td>Requesting invoice for last term</td>
+
+                      <td>
+                        <span class="priority low"> Low </span>
+                      </td>
+
+                      <td>
+                        <span class="ticket-status progress">
+                          In Progress
+                        </span>
+                      </td>
+
+                      <td>2d ago</td>
+
+                      <td>
+                        <button class="open-ticket-btn" data-ticket="4795">
+                          Open →
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr data-priority="low" data-status="resolved">
+                      <td class="ticket-number">#4780</td>
+
+                      <td>Trinity High School</td>
+
+                      <td>Portal subdomain change request</td>
+
+                      <td>
+                        <span class="priority low"> Low </span>
+                      </td>
+
+                      <td>
+                        <span class="ticket-status resolved"> Resolved </span>
+                      </td>
+
+                      <td>4d ago</td>
+
+                      <td>
+                        <button class="open-ticket-btn" data-ticket="4780">
+                          Open →
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr data-priority="medium" data-status="resolved">
+                      <td class="ticket-number">#4772</td>
+
+                      <td>St. Augustine's Grammar</td>
+
+                      <td>Exam results not showing for one class</td>
+
+                      <td>
+                        <span class="priority medium"> Medium </span>
+                      </td>
+
+                      <td>
+                        <span class="ticket-status resolved"> Resolved </span>
+                      </td>
+
+                      <td>5d ago</td>
+
+                      <td>
+                        <button class="open-ticket-btn" data-ticket="4772">
+                          Open →
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/support-tickets.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register School | Step 2</title>
+
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+    <link rel="stylesheet" href="./css/register-step1.css" />
+    <link rel="stylesheet" href="./css/register-step2.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="auth-layout">
+      <!-- Sidebar -->
+      <aside class="auth-sidebar">
+        <div class="sidebar-content">
+          <a href="../index.html" class="auth-logo">
+            <img src="./assets/Ellipse.png" alt="CBT School" />
+          </a>
+
+          <div class="sidebar-text">
+            <h1>Register Your<br />School on CBT</h1>
+
+            <p>
+              Join hundreds of schools delivering seamless computer-based exams
+              to their students.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Instant principal dashboard</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Teacher & student management</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i><span>Automated exam delivery</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Real-time results & analytics</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Dedicated school URL portal</span>
+            </li>
+          </ul>
+
+          <div class="sidebar-footer">
+            <a href="login.html" class="register-link">
+              Already registered? Sign in
+              <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main -->
+
+      <main class="auth-main">
+        <section class="registration-wrapper">
+          <!-- Progress -->
+
+          <div class="registration-progress">
+            <div class="progress-item completed">
+              <i class="ri-check-line"></i>
+            </div>
+
+            <div class="progress-line active"></div>
+
+            <div class="progress-item active">
+              <span>2</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-item">
+              <span>3</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-item">
+              <span>4</span>
+            </div>
+
+            <p>Step 2 of 4 — Principal Account & Password</p>
+          </div>
+
+          <!-- Header -->
+
+          <header class="registration-header">
+            <h2>Create Principal Account</h2>
+
+            <p>
+              This account will be used by your school principal to access and
+              manage the CBT portal.
+            </p>
+          </header>
+
+          <!-- Card -->
+
+          <div class="registration-card">
+            <form id="step2Form">
+              <!-- Personal Details -->
+
+              <div class="form-section">
+                <h4>Principal's Personal Details</h4>
+
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label>Principal's First Name <span>*</span></label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      placeholder="e.g. Bankole"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Principal's Last Name <span>*</span></label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      placeholder="e.g. Okonjo"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Title / Salutation <span>*</span></label>
+
+                    <select id="title" name="title" required>
+                      <option value="">Dr. / Mr. / Mrs. / Prof.</option>
+                      <option>Mr.</option>
+                      <option>Mrs.</option>
+                      <option>Miss</option>
+                      <option>Dr.</option>
+                      <option>Prof.</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Phone Number <span>*</span></label>
+
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder="+234 801 234 5678"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Login -->
+
+              <div class="form-section">
+                <h4>Login Credentials</h4>
+
+                <div class="form-grid">
+                  <div class="form-group full-width">
+                    <label>Principal Login Email <span>*</span></label>
+
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="principal@yourschool.edu.ng"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Create Password <span>*</span></label>
+
+                    <div class="password-field">
+                      <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                      />
+
+                      <button class="password-toggle" type="button">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Confirm Password <span>*</span></label>
+
+                    <div class="password-field">
+                      <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        required
+                      />
+
+                      <button class="password-toggle" type="button">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Strength -->
+
+                <div class="password-strength">
+                  <span id="strengthText"> Password strength: Strong </span>
+
+                  <div class="strength-bars">
+                    <div class="strength-bar active"></div>
+                    <div class="strength-bar active"></div>
+                    <div class="strength-bar active"></div>
+                    <div class="strength-bar"></div>
+                  </div>
+
+                  <ul class="password-rules">
+                    <li><i class="ri-check-line"></i> Min 8 characters</li>
+                    <li><i class="ri-check-line"></i> Uppercase & lowercase</li>
+                    <li><i class="ri-check-line"></i> Number or symbol</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Upload -->
+
+              <div class="form-section">
+                <h4>Government Approval Document</h4>
+
+                <label class="upload-area">
+                  <input
+                    type="file"
+                    id="approvalDocument"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    hidden
+                  />
+
+                  <i class="ri-file-paper-2-line upload-icon"></i>
+
+                  <h5>Upload School Government Approval Document</h5>
+
+                  <p>
+                    PDF, JPG or PNG • Max 5MB • CAC certificate, Ministry
+                    approval letter or equivalent
+                  </p>
+                </label>
+
+                <p class="review-note">
+                  <i class="ri-information-line"></i>
+
+                  Your document will be reviewed within 24–48 hours. You'll be
+                  notified by email.
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <!-- Navigation -->
+
+          <div class="registration-actions">
+            <button type="button" class="btn btn-outline" id="backBtn">
+              <i class="ri-arrow-left-line"></i>
+
+              Back
+            </button>
+
+            <button type="submit" form="step2Form" class="btn btn-primary">
+              Continue to Step 3
+
+              <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/auth.js"></script>
+    <script src="./js/register-step2.js"></script>
+  </body>
+</html>

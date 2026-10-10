@@ -1,0 +1,309 @@
+/* ==========================================
+BACK BUTTON
+========================================== */
+
+.back-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.75rem;
+
+  margin: 1rem 0 2rem;
+
+  color: #333;
+
+  text-decoration: none;
+
+  font-size: 1.05rem;
+
+  font-weight: 500;
+}
+
+.back-btn i {
+  width: 22px;
+
+  height: 22px;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  padding: 0.9rem;
+
+  border-radius: 12px;
+}
+
+/* ==========================================
+CARD
+========================================== */
+
+.schedule-card {
+  background: #fff;
+
+  border-radius: 22px;
+
+  padding: 2rem;
+
+  box-shadow: var(--shadow-sm);
+}
+
+.schedule-card h2 {
+  color: var(--primary);
+
+  font-size: 1.8rem;
+
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  color: #666;
+
+  margin-bottom: 2rem;
+}
+
+/* ==========================================
+FORM
+========================================== */
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.7rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  color: var(--primary);
+
+  font-size: 1.45rem;
+
+  font-weight: 500;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+
+  height: 58px;
+
+  border: none;
+
+  outline: none;
+
+  background: #eaf8e8;
+
+  border-radius: 14px;
+
+  padding: 0 1rem;
+
+  font-size: 1rem;
+
+  color: #555;
+}
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 1.5rem;
+}
+
+/* ==========================================
+QUESTIONS
+========================================== */
+
+.questions-card {
+  background: #f8f8f8;
+
+  border-radius: 18px;
+
+  padding: 1.5rem;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin: 1rem 0 2rem;
+}
+
+.questions-card small {
+  color: #666;
+}
+
+.questions-card h3 {
+  margin-top: 0.4rem;
+
+  font-size: 2rem;
+
+  color: var(--primary);
+}
+
+.pill {
+  background: #ddf2dc;
+
+  color: var(--primary);
+
+  padding: 0.5rem 1rem;
+
+  border-radius: 999px;
+
+  font-weight: 600;
+}
+
+/* ==========================================
+QUICK BUTTONS
+========================================== */
+
+.quick-title,
+.custom-title {
+  margin: 2rem 0 1rem;
+
+  color: var(--primary);
+}
+
+.quick-buttons {
+  display: flex;
+
+  gap: 1rem;
+
+  flex-wrap: wrap;
+}
+
+.quick-buttons button {
+  height: 50px;
+
+  padding: 0 1.5rem;
+
+  border: 1px solid #ddd;
+
+  background: #fff;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.quick-buttons button.active {
+  background: var(--primary);
+
+  color: #fff;
+
+  border-color: var(--primary);
+}
+
+/* ==========================================
+INFO
+========================================== */
+
+.info-box {
+  background: linear-gradient(90deg, #eaf8e8, #f1f9d7);
+
+  border-radius: 14px;
+
+  padding: 1.25rem;
+
+  color: #2e7d32;
+
+  margin: 1.5rem 0 2rem;
+
+  line-height: 1.7;
+}
+
+/* ==========================================
+BUTTONS
+========================================== */
+
+.action-buttons {
+  display: flex;
+
+  gap: 1rem;
+}
+
+.primary-btn {
+  height: 56px;
+
+  padding: 0 2rem;
+
+  border: none;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  border-radius: 12px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.75rem;
+
+  cursor: pointer;
+}
+
+.secondary-btn {
+  height: 56px;
+
+  padding: 0 2rem;
+
+  border: 1px solid #ddd;
+
+  background: #fff;
+
+  border-radius: 12px;
+
+  font-size: 1rem;
+
+  cursor: pointer;
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .quick-buttons {
+    flex-direction: column;
+  }
+
+  .quick-buttons button {
+    width: 100%;
+  }
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}

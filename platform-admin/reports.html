@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Reports & Analytics</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/reports.css" />
+  </head>
+
+  <body>
+    <div class="platform-layout">
+      <!-- ==========================================
+         SIDEBAR
+    ========================================== -->
+
+      <aside class="platform-sidebar" id="platformSidebar">
+        <div class="sidebar-brand">
+          <div class="brand-logo">C</div>
+
+          <div class="brand-info">
+            <h2>CBT School</h2>
+
+            <p>Super Admin</p>
+          </div>
+        </div>
+
+        <nav class="platform-navigation">
+          <a href="./index.html" class="platform-nav-link">
+            <i data-lucide="house"></i>
+
+            <span>Dashboard</span>
+          </a>
+
+          <a href="school-directory.html" class="platform-nav-link">
+            <i data-lucide="school"></i>
+
+            <span>Schools</span>
+          </a>
+
+          <a href="./subscriptions.html" class="platform-nav-link">
+            <i data-lucide="credit-card"></i>
+
+            <span>Subscriptions &amp; Billing</span>
+          </a>
+
+          <a href="./support-tickets.html" class="platform-nav-link">
+            <i data-lucide="ticket"></i>
+
+            <span>Support Tickets</span>
+          </a>
+
+          <a href="./reports.html" class="platform-nav-link active">
+            <i data-lucide="bar-chart-3"></i>
+
+            <span>Reports</span>
+          </a>
+
+          <a href="./settings.html" class="platform-nav-link">
+            <i data-lucide="settings"></i>
+
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-admin">
+          <div class="admin-avatar">SA</div>
+
+          <div class="admin-account">
+            <strong>Super Admin</strong>
+
+            <button type="button" class="logout-link">Log Out →</button>
+          </div>
+        </div>
+      </aside>
+
+      <button
+        class="sidebar-overlay"
+        type="button"
+        aria-label="Close navigation"
+        tabindex="-1"
+      ></button>
+
+      <!-- ==========================================
+         MAIN AREA
+    ========================================== -->
+
+      <main class="platform-main">
+        <!-- ======================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="platform-topbar">
+          <button
+            type="button"
+            class="mobile-menu-toggle"
+            aria-label="Open navigation"
+            aria-controls="platformSidebar"
+            aria-expanded="false"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+
+          <div class="global-search">
+            <i data-lucide="search"></i>
+
+            <input
+              type="search"
+              placeholder="Search schools, tickets, transactions..."
+              aria-label="Search platform"
+            />
+          </div>
+
+          <div class="topbar-actions">
+            <button
+              type="button"
+              class="notification-button"
+              aria-label="Notifications"
+            >
+              <i data-lucide="bell"></i>
+
+              <span class="notification-dot"></span>
+            </button>
+
+            <div class="topbar-admin">
+              <div class="topbar-avatar">SA</div>
+
+              <div class="topbar-admin-info">
+                <strong>Super Admin</strong>
+
+                <span>Platform Team⌄</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ======================================
+             PAGE CONTENT
+        ====================================== -->
+
+        <div class="dashboard-content">
+          <!-- ==========================================
+       REPORTS PAGE
+  =========================================== -->
+
+          <section class="reports-page">
+            <!-- Page Header -->
+
+            <div class="reports-header">
+              <h1>Reports &amp; Analytics</h1>
+
+              <p>Platform growth, activity and performance at a glance.</p>
+            </div>
+
+            <!-- ==========================================
+         SUMMARY CARDS
+    =========================================== -->
+
+            <section class="reports-stats-grid">
+              <article class="report-stat-card">
+                <div class="report-stat-top">
+                  <span>New Schools This Term</span>
+
+                  <span class="report-stat-icon"> 🏫 </span>
+                </div>
+
+                <strong>12</strong>
+
+                <p>+20% vs last term</p>
+              </article>
+
+              <article class="report-stat-card">
+                <div class="report-stat-top">
+                  <span>Student Growth</span>
+
+                  <span class="report-stat-icon"> 🎓 </span>
+                </div>
+
+                <strong>+6.8%</strong>
+
+                <p>68,420 total students</p>
+              </article>
+
+              <article class="report-stat-card">
+                <div class="report-stat-top">
+                  <span>Exams Conducted</span>
+
+                  <span class="report-stat-icon"> 📝 </span>
+                </div>
+
+                <strong>3,940</strong>
+
+                <p>This term</p>
+              </article>
+
+              <article class="report-stat-card">
+                <div class="report-stat-top">
+                  <span>Avg Pass Rate</span>
+
+                  <span class="report-stat-icon"> ✅ </span>
+                </div>
+
+                <strong>71.2%</strong>
+
+                <p>+2.1pt vs last term</p>
+              </article>
+            </section>
+
+            <!-- ==========================================
+         CHARTS
+    =========================================== -->
+
+            <section class="reports-charts-grid">
+              <!-- School Growth -->
+
+              <article class="report-chart-card">
+                <div class="chart-heading">
+                  <div>
+                    <h2>School Growth</h2>
+
+                    <p>New schools onboarded per month</p>
+                  </div>
+                </div>
+
+                <div class="chart-divider"></div>
+
+                <div class="bar-chart" id="schoolGrowthChart">
+                  <div class="chart-column" data-value="6" data-label="Jan">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>6</strong>
+                    <span>Jan</span>
+                  </div>
+
+                  <div class="chart-column" data-value="8" data-label="Feb">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>8</strong>
+                    <span>Feb</span>
+                  </div>
+
+                  <div class="chart-column" data-value="7" data-label="Mar">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>7</strong>
+                    <span>Mar</span>
+                  </div>
+
+                  <div class="chart-column" data-value="9" data-label="Apr">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>9</strong>
+                    <span>Apr</span>
+                  </div>
+
+                  <div class="chart-column" data-value="11" data-label="May">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>11</strong>
+                    <span>May</span>
+                  </div>
+
+                  <div class="chart-column" data-value="12" data-label="Jun">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>12</strong>
+                    <span>Jun</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Exam Activity -->
+
+              <article class="report-chart-card">
+                <div class="chart-heading">
+                  <div>
+                    <h2>Exam Activity</h2>
+
+                    <p>Exams conducted per month, platform-wide</p>
+                  </div>
+                </div>
+
+                <div class="chart-divider"></div>
+
+                <div class="bar-chart" id="examActivityChart">
+                  <div class="chart-column" data-value="520" data-label="Jan">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>520</strong>
+                    <span>Jan</span>
+                  </div>
+
+                  <div class="chart-column" data-value="610" data-label="Feb">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>610</strong>
+                    <span>Feb</span>
+                  </div>
+
+                  <div class="chart-column" data-value="580" data-label="Mar">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>580</strong>
+                    <span>Mar</span>
+                  </div>
+
+                  <div class="chart-column" data-value="690" data-label="Apr">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>690</strong>
+                    <span>Apr</span>
+                  </div>
+
+                  <div class="chart-column" data-value="740" data-label="May">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>740</strong>
+                    <span>May</span>
+                  </div>
+
+                  <div class="chart-column" data-value="800" data-label="Jun">
+                    <div class="bar-track">
+                      <div class="bar-fill"></div>
+                    </div>
+
+                    <strong>800</strong>
+                    <span>Jun</span>
+                  </div>
+                </div>
+              </article>
+            </section>
+
+            <!-- ==========================================
+         TOP PERFORMING SCHOOLS
+    =========================================== -->
+
+            <section class="performing-schools-card">
+              <div class="performing-header">
+                <h2>Top Performing Schools</h2>
+              </div>
+
+              <div class="performing-table-wrapper">
+                <table class="performing-table">
+                  <thead>
+                    <tr>
+                      <th>School</th>
+                      <th>Exams Conducted</th>
+                      <th>Pass Rate</th>
+                      <th>Avg Score</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="school-ranking">
+                          <span class="rank-badge"> 1 </span>
+
+                          <strong> Newgate International </strong>
+                        </div>
+                      </td>
+
+                      <td>612</td>
+
+                      <td>
+                        <strong class="pass-rate"> 84% </strong>
+                      </td>
+
+                      <td>71.2%</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <div class="school-ranking">
+                          <span class="rank-badge"> 2 </span>
+
+                          <strong> Trinity High School </strong>
+                        </div>
+                      </td>
+
+                      <td>540</td>
+
+                      <td>
+                        <strong class="pass-rate"> 79% </strong>
+                      </td>
+
+                      <td>68.4%</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <div class="school-ranking">
+                          <span class="rank-badge"> 3 </span>
+
+                          <strong> St. Augustine's Grammar </strong>
+                        </div>
+                      </td>
+
+                      <td>398</td>
+
+                      <td>
+                        <strong class="pass-rate"> 76% </strong>
+                      </td>
+
+                      <td>66.9%</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <div class="school-ranking">
+                          <span class="rank-badge"> 4 </span>
+
+                          <strong> Mobayo Academic School </strong>
+                        </div>
+                      </td>
+
+                      <td>355</td>
+
+                      <td>
+                        <strong class="pass-rate"> 73% </strong>
+                      </td>
+
+                      <td>64.1%</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <div class="school-ranking">
+                          <span class="rank-badge"> 5 </span>
+
+                          <strong> Fountainhead Secondary </strong>
+                        </div>
+                      </td>
+
+                      <td>210</td>
+
+                      <td>
+                        <strong class="pass-rate"> 70% </strong>
+                      </td>
+
+                      <td>61.8%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/reports.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

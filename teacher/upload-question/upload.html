@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Teacher Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/cards.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/sidebar.css" />
+    <link rel="stylesheet" href="../css/table.css" />
+    <link rel="stylesheet" href="../css/topbar.css" />
+
+    <link rel="stylesheet" href="./css/upload.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="../assets/logo.png" alt="School Logo" />
+
+            <div>
+              <h2>Mobayo Academic</h2>
+
+              <p>...Knowledge, Discipline, Excellence...</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav>
+            <a href="../overview.html" class="nav-link">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Overview</span>
+            </a>
+
+            <a href="../classes.html" class="nav-link">
+              <i data-lucide="users"></i>
+
+              <span>Classes & Students</span>
+            </a>
+
+            <a href="./upload.html" class="nav-link active">
+              <i data-lucide="upload"></i>
+
+              <span>Upload Questions</span>
+            </a>
+
+            <a href="./uploaded-questions.html" class="nav-link">
+              <i data-lucide="files"></i>
+
+              <span>Uploaded Questions</span>
+            </a>
+
+            <a
+              href="../submitted-question/submitted-questions.html"
+              class="nav-link"
+            >
+              <i data-lucide="clipboard-check"></i>
+
+              <span>Submitted Questions</span>
+            </a>
+
+            <a
+              href="../notifications/notifications.html"
+              class="nav-link notification-link"
+            >
+              <i data-lucide="bell"></i>
+
+              <span>Notifications</span>
+
+              <span class="badge"> 2 </span>
+            </a>
+
+            <a href="../student-scores/student-scores.html" class="nav-link">
+              <i data-lucide="bar-chart-3"></i>
+
+              <span>Student Scores</span>
+            </a>
+
+            <a href="../theory/theory.html" class="nav-link">
+              <i data-lucide="book-open"></i>
+
+              <span>Theory</span>
+            </a>
+
+            <a href="../recorded-theory/recorded-theory.html" class="nav-link">
+              <i data-lucide="file-text"></i>
+
+              <span>Recorded Theory</span>
+            </a>
+
+            <a href="../profile/profile.html" class="nav-link">
+              <i data-lucide="user-circle"></i>
+
+              <span>Profile</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Logout -->
+
+        <button class="logout-btn">
+          <i data-lucide="log-out"></i>
+
+          Logout
+        </button>
+      </aside>
+
+      <!-- overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+
+      <main class="main-content">
+        <!-- =========================
+     PAGE HEADER
+========================= -->
+
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="menu-toggle" id="menuToggle">
+              <i data-lucide="menu"></i>
+            </button>
+
+            <div class="topbar-title">
+              <h1>Upload Exam Questions</h1>
+              <p>Create and submit exam questions for student examinations.</p>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="teacher-profile">
+              <img src="../assets/image.png" alt="Teacher" />
+
+              <div>
+                <h3>Mrs. Adebayo Folake</h3>
+
+                <p>Biology Teacher</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-container">
+          <!-- =========================
+     EXAM DETAILS
+========================= -->
+
+          <section class="exam-details">
+            <h2>Exam Details</h2>
+
+            <form id="examDetailsForm">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="classSelect">Class</label>
+
+                  <select id="classSelect">
+                    <option value="">Select Class</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="subjectSelect">Subject</label>
+
+                  <select id="subjectSelect">
+                    <option value="">Select Subject</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="termSelect">Term</label>
+
+                  <select id="termSelect">
+                    <option value="">Select Term</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="sessionInput"> Session / Academic Year </label>
+
+                  <input
+                    id="sessionInput"
+                    type="text"
+                    placeholder="2025/2026"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="durationInput"> Duration (Minutes) </label>
+
+                  <input id="durationInput" type="number" placeholder="45" />
+                </div>
+
+                <div class="form-group">
+                  <label for="totalQuestionsInput"> Total Questions </label>
+
+                  <input
+                    id="totalQuestionsInput"
+                    type="number"
+                    placeholder="40"
+                  />
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="instructionInput"> Instructions </label>
+
+                  <textarea
+                    id="instructionInput"
+                    placeholder="e.g Answer all questions"
+                  ></textarea>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <!-- ==========================================
+     QUESTION BUILDER
+========================================== -->
+
+          <section class="question-builder">
+            <div class="builder-header">
+              <div>
+                <span class="question-counter" id="questionCounter">
+                  Question 1 of 40
+                </span>
+
+                <div class="progress-wrapper">
+                  <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                  </div>
+
+                  <p class="progress-text" id="progressText">
+                    0 / 40 Questions Completed (0%)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div id="questionContainer">
+              <!-- Question Text -->
+
+              <div class="question-field">
+                <label for="questionText"> Question Text </label>
+
+                <textarea
+                  id="questionText"
+                  placeholder="Type the exam question here..."
+                ></textarea>
+              </div>
+
+              <!-- Options -->
+
+              <div class="options-grid">
+                <!-- OPTION A -->
+
+                <div class="option-card">
+                  <div class="option-header">
+                    <h3>Option A</h3>
+
+                    <button
+                      type="button"
+                      class="correct-btn active"
+                      data-option="A"
+                    >
+                      ✓ Correct Answer
+                    </button>
+                  </div>
+
+                  <input
+                    type="text"
+                    id="optionA"
+                    placeholder="Enter option A"
+                  />
+                </div>
+
+                <!-- OPTION B -->
+
+                <div class="option-card">
+                  <div class="option-header">
+                    <h3>Option B</h3>
+
+                    <button type="button" class="correct-btn" data-option="B">
+                      Mark as Correct
+                    </button>
+                  </div>
+
+                  <input
+                    type="text"
+                    id="optionB"
+                    placeholder="Enter option B"
+                  />
+                </div>
+
+                <!-- OPTION C -->
+
+                <div class="option-card">
+                  <div class="option-header">
+                    <h3>Option C</h3>
+
+                    <button type="button" class="correct-btn" data-option="C">
+                      Mark as Correct
+                    </button>
+                  </div>
+
+                  <input
+                    type="text"
+                    id="optionC"
+                    placeholder="Enter option C"
+                  />
+                </div>
+
+                <!-- OPTION D -->
+
+                <div class="option-card">
+                  <div class="option-header">
+                    <h3>Option D</h3>
+
+                    <button type="button" class="correct-btn" data-option="D">
+                      Mark as Correct
+                    </button>
+                  </div>
+
+                  <input
+                    type="text"
+                    id="optionD"
+                    placeholder="Enter option D"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================
+     ACTION BUTTONS
+========================================== -->
+
+          <section class="builder-actions">
+            <button class="btn-primary" id="saveNextBtn">
+              Save & Add Next Question
+              <i data-lucide="arrow-right"></i>
+            </button>
+
+            <button class="btn-outline" id="clearBtn">Clear Form</button>
+          </section>
+
+          <!-- ==========================================
+     SUBMISSION BAR
+========================================== -->
+
+          <section class="submission-bar">
+            <div>
+              <strong id="progressSummary"> 0 Questions Added </strong>
+
+              <p>
+                Questions will be reviewed by the school administrator before
+                becoming available to students.
+              </p>
+            </div>
+
+            <button class="btn-primary" id="submitExamBtn">
+              Submit for Approval
+            </button>
+          </section>
+
+          <p class="footer-note">
+            Note: Submitted questions will be reviewed by the school
+            administrator before they become available to students.
+          </p>
+        </div>
+
+        <!-- ==========================================
+     CONFIRM SUBMISSION MODAL
+========================================== -->
+
+        <div class="modal-overlay hidden" id="confirmModal">
+          <div class="modal">
+            <h2>Submit Questions?</h2>
+
+            <p>
+              You are about to submit this examination for approval. Once
+              submitted, you won't be able to edit it until it is reviewed.
+            </p>
+
+            <div class="modal-summary">
+              <p><strong>Class:</strong> <span id="summaryClass">-</span></p>
+
+              <p>
+                <strong>Subject:</strong> <span id="summarySubject">-</span>
+              </p>
+
+              <p>
+                <strong>Questions:</strong> <span id="summaryQuestions">0</span>
+              </p>
+            </div>
+
+            <div class="modal-actions">
+              <button class="btn-outline" id="cancelSubmit">Cancel</button>
+
+              <button class="btn-primary" id="confirmSubmit">Submit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+     SUCCESS MODAL
+========================================== -->
+
+        <div class="modal-overlay hidden" id="successModal">
+          <div class="modal success-modal">
+            <div class="success-icon">✓</div>
+
+            <h2>Questions Submitted Successfully</h2>
+
+            <p>
+              Your examination has been submitted successfully and is now
+              awaiting approval.
+            </p>
+
+            <div class="modal-actions">
+              <button class="btn-outline" id="viewQuestionsBtn">
+                View Uploaded Questions
+              </button>
+
+              <button class="btn-primary" id="newExamBtn">
+                Upload Another
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/state.js"></script>
+    <script src="./js/builder.js"></script>
+
+    <script src="./js/submit.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

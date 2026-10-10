@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Principal Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <link rel="stylesheet" href="./css/profile.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar" id="principalSidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="assets/logo.png" alt="School Logo" />
+
+            <div>
+              <h2>Mobayo Academic</h2>
+
+              <p>...Knowledge, Discipline, Excellence...</p>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav>
+            <a href="./overview.html" class="nav-link">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Overview</span>
+            </a>
+
+            <a href="./data-analysis.html" class="nav-link">
+              <i data-lucide="database"></i>
+
+              <span>Data Analysis</span>
+            </a>
+
+            <a href="./exam-control/exam-control.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Exam Control</span>
+            </a>
+
+            <a href="./student-scores.html" class="nav-link">
+              <i data-lucide="podium"></i>
+
+              <span>Student Scores</span>
+            </a>
+
+            <a href="./student-reports/student-reports.html" class="nav-link">
+              <i data-lucide="clipboard-check"></i>
+
+              <span>Student Reports</span>
+            </a>
+
+            <a href="./theory.html" class="nav-link">
+              <i data-lucide="book-check"></i>
+
+              <span>Theory</span>
+            </a>
+
+            <a href="./broadcasts/broadcasts.html" class="nav-link">
+              <i data-lucide="megaphone"></i>
+
+              <span>Broadcasts</span>
+            </a>
+
+            <a href="./students/students.html" class="nav-link">
+              <i data-lucide="person-standing"></i>
+
+              <span>Students</span>
+            </a>
+
+            <a href="./teachers/teachers.html" class="nav-link">
+              <i data-lucide="graduation-cap"></i>
+
+              <span>Teachers</span>
+            </a>
+
+            <a href="./departments/departments.html" class="nav-link">
+              <i data-lucide="building-2"></i>
+
+              <span>Departments</span>
+            </a>
+
+            <a
+              href="./submitted-questions/submitted-questions.html"
+              class="nav-link"
+            >
+              <i data-lucide="file-text"></i>
+
+              <span>Submitted Questions</span>
+            </a>
+
+            <a href="./profile.html" class="nav-link active">
+              <i data-lucide="circle-user-round"></i>
+
+              <span>Profile</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Logout -->
+
+        <button class="logout-btn">
+          <i data-lucide="log-out"></i>
+
+          Logout
+        </button>
+      </aside>
+
+      <!-- overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+      <!-- For the main content of the page -->
+
+      <main class="main-content">
+        <!-- ==========================================
+    PAGE HEADER
+    ========================================== -->
+
+        <header class="page-header">
+          <div class="page-title">
+            <button
+              class="menu-toggle"
+              id="menuToggle"
+              type="button"
+              aria-label="Open navigation"
+              aria-controls="principalSidebar"
+              aria-expanded="false"
+            >
+              <i data-lucide="menu"></i>
+            </button>
+
+            <div>
+              <h1>Principal Profile</h1>
+
+              <p>
+                Your personal information and a snapshot of the school you
+                oversee.
+              </p>
+            </div>
+          </div>
+
+          <div class="principal-profile">
+            <div class="principal-avatar">
+              <img src="./assets/image.png" alt="Principal" />
+
+              <span class="online-dot"></span>
+            </div>
+
+            <div class="principal-details">
+              <h4>Dr. Bankole Okonjo</h4>
+
+              <p>School Principal</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="main-container">
+          <!-- ==========================================
+    NOTICE
+    ========================================== -->
+
+          <div class="profile-notice">
+            <div class="notice-icon">
+              <i data-lucide="arrow-left"></i>
+            </div>
+
+            <p>
+              <strong>Note:</strong>
+              To update your profile information, please contact Mobayo
+              Academic's board administrator.
+            </p>
+          </div>
+
+          <!-- ==========================================
+    PROFILE CARD
+    ========================================== -->
+
+          <section class="profile-card">
+            <div class="profile-image">
+              <img src="./assets/teacher.png" alt="Principal Profile" />
+            </div>
+
+            <div class="profile-details-grid">
+              <div class="detail-row">
+                <span>Full Name:</span>
+
+                <strong>Bankole Adewale Okonjo</strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Staff ID:</span>
+
+                <strong>PRN/2025/001</strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Role:</span>
+
+                <strong>School Principal</strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Phone Number:</span>
+
+                <strong>+2348034567890</strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Email Address:</span>
+
+                <strong>principal@mobayoacademic.edu</strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Qualification:</span>
+
+                <strong> Ph.D Educational Administration, M.Ed </strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Address:</span>
+
+                <strong>
+                  3, Government Reservation Area, Abeokuta, Ogun State.
+                </strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Date Appointed:</span>
+
+                <strong>September 2019</strong>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================
+    SCHOOL OVERVIEW
+    ========================================== -->
+
+          <section>
+            <h2 class="section-title">School Overview</h2>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <h3>1,247</h3>
+
+                <p>Total Students</p>
+              </div>
+
+              <div class="stat-card">
+                <h3>58</h3>
+
+                <p>Total Teachers</p>
+              </div>
+
+              <div class="stat-card">
+                <h3>18</h3>
+
+                <p>Total Classes</p>
+              </div>
+
+              <div class="stat-card">
+                <h3>22</h3>
+
+                <p>Total Subjects</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==========================================
+    DEPARTMENTS
+    ========================================== -->
+
+          <section class="table-section">
+            <h2 class="section-title">Departments Overview</h2>
+
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Department</th>
+
+                    <th>Teachers</th>
+
+                    <th>Subjects</th>
+
+                    <th>Head of Department</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Science Department</td>
+
+                    <td>10</td>
+
+                    <td>5</td>
+
+                    <td>Mrs. Adebayo Folake</td>
+                  </tr>
+
+                  <tr>
+                    <td>Mathematics Department</td>
+
+                    <td>7</td>
+
+                    <td>2</td>
+
+                    <td>Mr. Chukwu Emeka</td>
+                  </tr>
+
+                  <tr>
+                    <td>Arts Department</td>
+
+                    <td>12</td>
+
+                    <td>6</td>
+
+                    <td>Mrs. Ige Sarah</td>
+                  </tr>
+
+                  <tr>
+                    <td>Languages Department</td>
+
+                    <td>9</td>
+
+                    <td>3</td>
+
+                    <td>Mr. Adeyemi Kola</td>
+                  </tr>
+
+                  <tr>
+                    <td>Social Science Department</td>
+
+                    <td>8</td>
+
+                    <td>4</td>
+
+                    <td>Mrs. Nwankwo Chika</td>
+                  </tr>
+
+                  <tr>
+                    <td>Vocational & Technical</td>
+
+                    <td>6</td>
+
+                    <td>2</td>
+
+                    <td>Mr. Bamidele Ayo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/profile.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

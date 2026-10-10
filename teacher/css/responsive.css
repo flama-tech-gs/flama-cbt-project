@@ -1,0 +1,188 @@
+/* ==========================================
+   LARGE DESKTOPS (1400px+)
+========================================== */
+
+@media (min-width: 1400px) {
+  .main-content {
+    padding: 40px 50px;
+  }
+
+  .stats-grid {
+    gap: 28px;
+  }
+}
+
+/* ==========================================
+   DESKTOP (1200px–1399px)
+========================================== */
+
+@media (max-width: 1399px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ==========================================
+   LAPTOP (992px–1199px)
+========================================== */
+
+@media (max-width: 1199px) {
+  :root {
+    --sidebar-width: 240px;
+  }
+
+  .main-content {
+    padding: 28px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .teacher-profile {
+    padding: 10px;
+  }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .sidebar {
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+    height: 100vh;
+
+    transform: translateX(-100%);
+
+    transition: 0.3s ease;
+
+    z-index: 1200;
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: 0.3s;
+
+    z-index: 1100;
+  }
+
+  .sidebar-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+  }
+
+  .main-content {
+    margin-left: 0;
+
+    width: 100%;
+
+    padding: 20px;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topbar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================
+   SMALL PHONES
+========================================== */
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-profile {
+    width: 100%;
+  }
+
+  .teacher-profile img {
+    width: 48px;
+
+    height: 48px;
+  }
+
+  .table-section {
+    padding: 16px;
+  }
+}
+
+/* ==========================================
+   EXTRA SMALL DEVICES
+========================================== */
+
+@media (max-width: 400px) {
+  .main-content {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .topbar-title p {
+    font-size: 13px;
+  }
+
+  .stat-card {
+    padding: 18px;
+  }
+
+  .table-action {
+    width: 100%;
+
+    justify-content: center;
+  }
+}

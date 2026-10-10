@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Dashboard | Overview</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/utilities.css" />
+
+    <link rel="stylesheet" href="./css/overview.css" />
+    <link rel="stylesheet" href="./css/contact-support.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__left">
+        <a href="#" class="school-brand">
+          <div class="school-brand__logo"></div>
+
+          <div class="school-brand__content">
+            <h2>Mobayo Academic School</h2>
+            <span>mobayo-academic.cbtschool.ng</span>
+          </div>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-controls="schoolNavigation"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="top-navigation" id="schoolNavigation">
+          <a href="./index.html" class="nav-link"> Overview </a>
+
+          <a href="./account-settings.html" class="nav-link">
+            Account Settings
+          </a>
+
+          <a href="./subscription.html" class="nav-link"> Subscription </a>
+
+          <a href="./principal-account.html" class="nav-link">
+            Principal Account
+          </a>
+
+          <a href="./support.html" class="nav-link active"> Support </a>
+        </nav>
+      </div>
+
+      <div class="topbar__right">
+        <div class="subscription-pill">
+          <i data-lucide="clock-3"></i>
+
+          <span>Expires Aug 20, 2026</span>
+        </div>
+
+        <button class="account-dropdown" type="button" aria-expanded="false">
+          <div class="account-avatar"></div>
+
+          <div class="account-info">
+            <strong>Mobayo Academic</strong>
+
+            <span>School Account</span>
+          </div>
+
+          <i data-lucide="chevron-down"></i>
+        </button>
+
+        <div class="account-menu" role="menu">
+          <button class="account-menu__logout" type="button" role="menuitem">
+            <i data-lucide="log-out"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <!-- ===================================== -->
+      <!-- BACK NAVIGATION -->
+      <!-- ===================================== -->
+
+      <section class="back-navigation">
+        <button
+          type="button"
+          class="back-button"
+          id="backSupportBtn"
+          aria-label="Back to Support"
+        >
+          <i data-lucide="arrow-left"></i>
+        </button>
+
+        <a href="support.html" class="back-link"> Back to Support </a>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- PAGE HEADER -->
+      <!-- ===================================== -->
+
+      <section class="page-header">
+        <h1>Contact Support</h1>
+
+        <p>Fill in the form below and our team will respond within 24 hours.</p>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- PAGE CONTENT -->
+      <!-- ===================================== -->
+
+      <section class="contact-support-layout">
+        <!-- ===================================== -->
+        <!-- SUPPORT FORM -->
+        <!-- ===================================== -->
+
+        <section class="settings-card support-form-card">
+          <div class="card-header">
+            <h3>SEND US A MESSAGE</h3>
+
+            <div class="divider"></div>
+          </div>
+
+          <form id="contactSupportForm" class="support-form">
+            <!-- FULL NAME -->
+
+            <div class="form-group">
+              <label for="fullName"> Full Name <span>*</span> </label>
+
+              <input
+                type="text"
+                id="fullName"
+                name="full_name"
+                placeholder="Dr. Bankole Okonjo"
+                required
+              />
+            </div>
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+              <label for="emailAddress"> Email Address <span>*</span> </label>
+
+              <input
+                type="email"
+                id="emailAddress"
+                name="email"
+                placeholder="admin@mobayoacademic.edu.ng"
+                required
+              />
+            </div>
+
+            <!-- SUBJECT -->
+
+            <div class="form-group">
+              <label for="supportSubject"> Subject <span>*</span> </label>
+
+              <select id="supportSubject" name="subject" required>
+                <option value="">Select a topic</option>
+
+                <option value="technical">Technical Issue</option>
+
+                <option value="subscription">Subscription & Billing</option>
+
+                <option value="account">Account Settings</option>
+
+                <option value="principal">Principal Account</option>
+
+                <option value="teacher">Teacher Management</option>
+
+                <option value="student">Student Management</option>
+
+                <option value="general">General Enquiry</option>
+              </select>
+            </div>
+
+            <!-- MESSAGE -->
+
+            <div class="form-group">
+              <label for="supportMessage"> Your Message <span>*</span> </label>
+
+              <textarea
+                id="supportMessage"
+                name="message"
+                rows="7"
+                placeholder="Describe your issue or question in detail..."
+                required
+              ></textarea>
+            </div>
+
+            <!-- ===================================== -->
+            <!-- PRIORITY LEVEL -->
+            <!-- ===================================== -->
+
+            <div class="form-group">
+              <label> Priority Level </label>
+
+              <div class="priority-selector" id="prioritySelector">
+                <button type="button" class="priority-pill" data-priority="low">
+                  Low
+                </button>
+
+                <button
+                  type="button"
+                  class="priority-pill active"
+                  data-priority="normal"
+                >
+                  Normal
+                </button>
+
+                <button
+                  type="button"
+                  class="priority-pill"
+                  data-priority="urgent"
+                >
+                  Urgent
+                </button>
+
+                <button
+                  type="button"
+                  class="priority-pill"
+                  data-priority="critical"
+                >
+                  Critical
+                </button>
+              </div>
+
+              <input
+                type="hidden"
+                id="priority"
+                name="priority"
+                value="normal"
+              />
+            </div>
+
+            <!-- ===================================== -->
+            <!-- FORM ACTIONS -->
+            <!-- ===================================== -->
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+
+              <button type="reset" class="btn btn-outline" id="clearFormBtn">
+                Clear Form
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- ===================================== -->
+        <!-- GET IN TOUCH -->
+        <!-- ===================================== -->
+
+        <aside class="settings-card contact-info-card">
+          <div class="card-header">
+            <h3>GET IN TOUCH</h3>
+
+            <div class="divider"></div>
+          </div>
+
+          <!-- EMAIL -->
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i data-lucide="mail"></i>
+            </div>
+
+            <div class="contact-details">
+              <span>Email</span>
+
+              <strong> support@cbtschool.ng </strong>
+
+              <p>Reply within 24 hours</p>
+            </div>
+          </div>
+
+          <!-- PHONE -->
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i data-lucide="phone"></i>
+            </div>
+
+            <div class="contact-details">
+              <span>Phone</span>
+
+              <strong> +234 800 CBT 0000 </strong>
+
+              <p>Mon – Fri, 8:00 AM – 6:00 PM</p>
+            </div>
+          </div>
+
+          <!-- LIVE CHAT -->
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i data-lucide="message-circle"></i>
+            </div>
+
+            <div class="contact-details">
+              <span>Live Chat</span>
+
+              <strong> Available on Portal </strong>
+
+              <p>Mon – Fri, 9:00 AM – 5:00 PM</p>
+            </div>
+          </div>
+
+          <!-- OFFICE -->
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i data-lucide="map-pin"></i>
+            </div>
+
+            <div class="contact-details">
+              <span>Office</span>
+
+              <strong> Lagos, Nigeria </strong>
+
+              <p>By appointment only</p>
+            </div>
+          </div>
+
+          <!-- ===================================== -->
+          <!-- RESPONSE TIMES -->
+          <!-- ===================================== -->
+
+          <div class="response-card">
+            <div class="response-header">
+              <i data-lucide="zap"></i>
+
+              <h4>Typical Response Times</h4>
+            </div>
+
+            <ul class="response-list">
+              <li>
+                <strong>Email Support:</strong>
+
+                within 24 hours
+              </li>
+
+              <li>
+                <strong>Live Chat:</strong>
+
+                under 5 minutes
+              </li>
+
+              <li>
+                <strong>Phone:</strong>
+
+                Immediate
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script src="./js/contact-support.js"></script>
+    <script src="./js/account-dropdown.js"></script>
+    <script src="./js/mobile-navigation.js"></script>
+  </body>
+</html>

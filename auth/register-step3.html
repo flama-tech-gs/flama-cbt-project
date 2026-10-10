@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register School | Step 3</title>
+
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+    <link rel="stylesheet" href="./css/register-step1.css" />
+    <link rel="stylesheet" href="./css/register-step2.css" />
+    <link rel="stylesheet" href="./css/register-step3.css" />
+    <link rel="stylesheet" href="../css/pricing-cards.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="">
+      <!-- Sidebar -->
+      <!-- <aside class="auth-sidebar">
+        <div class="sidebar-content">
+          <a href="../index.html" class="auth-logo">
+            <img src="./assets/Ellipse.png" alt="CBT School" />
+          </a>
+
+          <div class="sidebar-text">
+            <h1>Register Your<br />School on CBT</h1>
+
+            <p>
+              Join hundreds of schools delivering seamless computer-based exams
+              to their students.
+            </p>
+          </div>
+
+          <ul class="feature-list">
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Instant principal dashboard</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Teacher & student management</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i><span>Automated exam delivery</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Real-time results & analytics</span>
+            </li>
+            <li>
+              <i class="ri-check-line"></i
+              ><span>Dedicated school URL portal</span>
+            </li>
+          </ul>
+
+          <div class="sidebar-footer">
+            <a href="login.html" class="register-link">
+              Already registered? Sign in
+              <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+      </aside> -->
+
+      <!-- Main -->
+
+      <main class="auth-main">
+        <section class="registration-wrapper">
+          <!-- Progress -->
+
+          <div class="registration-progress">
+            <div class="progress-item completed">
+              <i class="ri-check-line"></i>
+            </div>
+
+            <div class="progress-line active"></div>
+
+            <div class="progress-item completed">
+              <i class="ri-check-line"></i>
+            </div>
+
+            <div class="progress-line active"></div>
+
+            <div class="progress-item active">
+              <span>3</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-item">
+              <span>4</span>
+            </div>
+
+            <p>Step 3 of 4 — Subscription Plan</p>
+          </div>
+
+          <!-- Header -->
+
+          <header class="registration-header">
+            <h2>Choose Your Plan</h2>
+
+            <p>
+              Select the plan that best fits your school size. You can upgrade
+              anytime from your dashboard.
+            </p>
+          </header>
+
+          <!-- Plans -->
+
+          <form id="step3Form">
+            <div class="pricing-grid plan-grid">
+              <!-- Starter -->
+
+              <label class="pricing-card plan-card">
+                <input type="radio" name="plan" value="starter" hidden />
+
+                <h3>Starter</h3>
+
+                <div class="price">₦15,000 <span>/month</span></div>
+
+                <p class="pricing-description">
+                  For a single school getting started.
+                </p>
+
+                <hr />
+
+                <ul class="pricing-features">
+                  <li><i class="ri-check-line"></i>Up to 200 students</li>
+                  <li><i class="ri-check-line"></i>Unlimited exams</li>
+                  <li><i class="ri-check-line"></i>Auto grading</li>
+                  <li><i class="ri-check-line"></i>Email support</li>
+                </ul>
+
+                <button type="button" class="btn btn-primary plan-button">
+                  Choose Plan
+                </button>
+              </label>
+
+              <!-- Standard -->
+
+              <label class="pricing-card plan-card featured">
+                <input
+                  type="radio"
+                  name="plan"
+                  value="standard"
+                  checked
+                  hidden
+                />
+
+                <span class="pricing-badge plan-badge"> MOST POPULAR </span>
+
+                <h3>Standard</h3>
+
+                <div class="price">₦45,000 <span>/month</span></div>
+
+                <p class="pricing-description">
+                  For growing schools with more classes.
+                </p>
+
+                <hr />
+
+                <ul class="pricing-features">
+                  <li><i class="ri-check-line"></i>Up to 1,000 students</li>
+                  <li><i class="ri-check-line"></i>Unlimited exams</li>
+                  <li><i class="ri-check-line"></i>Advanced analytics</li>
+                  <li><i class="ri-check-line"></i>Priority support</li>
+                  <li><i class="ri-check-line"></i>Lockdown proctoring</li>
+                </ul>
+
+                <button type="button" class="btn btn-primary plan-button dark">
+                  Choose Plan
+                </button>
+              </label>
+
+              <!-- Enterprise -->
+
+              <label class="pricing-card plan-card">
+                <input type="radio" name="plan" value="enterprise" hidden />
+
+                <h3>Enterprise</h3>
+
+                <div class="price">Custom</div>
+
+                <p class="pricing-description">
+                  For school networks & institutions.
+                </p>
+
+                <hr />
+
+                <ul class="pricing-features">
+                  <li><i class="ri-check-line"></i>Unlimited students</li>
+                  <li><i class="ri-check-line"></i>Multi-school dashboard</li>
+                  <li>
+                    <i class="ri-check-line"></i>Dedicated account manager
+                  </li>
+                </ul>
+
+                <button type="button" class="btn btn-primary plan-button">
+                  Choose Plan
+                </button>
+              </label>
+            </div>
+
+            <!-- Terms -->
+
+            <div class="terms-card">
+              <h3>Terms & Conditions</h3>
+
+              <div class="terms-box">
+                <p><strong>1. School Registration Agreement</strong></p>
+
+                <p>
+                  By registering, you agree that all information provided is
+                  accurate. CBT School reserves the right to verify submitted
+                  documents.
+                </p>
+
+                <br />
+
+                <p><strong>2. Subscription & Payments</strong></p>
+              </div>
+
+              <label class="checkbox">
+                <input type="checkbox" id="agreeTerms" required />
+
+                <span class="checkmark"></span>
+
+                <span>
+                  I have read and agree to the Terms & Conditions and Privacy
+                  Policy.
+                </span>
+              </label>
+            </div>
+
+            <!-- Actions -->
+
+            <div class="registration-actions">
+              <button type="button" class="btn btn-outline" id="backBtn">
+                <i class="ri-arrow-left-line"></i>
+
+                Back
+              </button>
+
+              <button type="submit" class="btn btn-primary">
+                Proceed to Payment
+
+                <i class="ri-arrow-right-line"></i>
+              </button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="./js/register-step3.js"></script>
+  </body>
+</html>

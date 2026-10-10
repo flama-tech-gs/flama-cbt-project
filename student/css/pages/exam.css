@@ -154,6 +154,15 @@ body {
   .right-panel {
     width: 100%;
   }
+
+  /* Stacked order: timer + Submit first, then the question, then the grid */
+  .right-panel {
+    order: -1;
+  }
+
+  .left-panel {
+    order: 1;
+  }
 }
 
 /* Topbar */

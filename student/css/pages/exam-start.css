@@ -147,3 +147,10 @@ body {
 .back-btn:hover {
   background: #1b5e20;
 }
+
+/* Phones: keep the back button on screen, 16px from the left edge */
+@media (max-width: 600px) {
+  .back-btn {
+    left: 16px;
+  }
+}

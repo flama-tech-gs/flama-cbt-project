@@ -76,11 +76,19 @@ body {
   color: #222;
 }
 
+/* Each answer label gets 4px vertical padding (>=24px tap target); the gap and
+   margins shrink by the same amount so the visible spacing is unchanged. */
 .options {
-  margin-top: 20px;
+  margin-top: 16px;
+  margin-bottom: -4px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2px;
+}
+
+.options .option {
+  padding: 4px 0;
+  cursor: pointer;
 }
 
 .options button {

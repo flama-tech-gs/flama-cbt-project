@@ -530,3 +530,10 @@ RESPONSIVE
     padding-left: 40px;
   }
 }
+
+@media (max-width: 640px) {
+  /* Re-apply overview.css phone width; this file resets .dashboard to 95% */
+  .dashboard {
+    width: 92%;
+  }
+}

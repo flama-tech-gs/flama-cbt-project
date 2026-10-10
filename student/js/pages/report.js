@@ -62,10 +62,3 @@ termToggles.forEach((toggle) => {
     toggle.classList.toggle("active");
   });
 });
-
-// PRINT FUNCTION
-const printBtn = document.querySelector(".print-btn");
-
-printBtn.addEventListener("click", () => {
-  window.print();
-});

@@ -1182,6 +1182,15 @@ RESPONSIVE
 ==============================================================*/
 
 @media (max-width: 1200px) {
+  /* Tighter single-row topbar just above the 1100px stacking breakpoint */
+  .topbar {
+    padding: 0 24px;
+  }
+
+  .topbar__left {
+    gap: 24px;
+  }
+
   .stats-grid {
     grid-template-columns: repeat(3, 1fr);
   }

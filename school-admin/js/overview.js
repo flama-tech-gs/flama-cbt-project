@@ -96,6 +96,14 @@ function initializeDropdown() {
     dropdown.setAttribute("aria-expanded", "false");
   });
 
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+
+    menu.classList.remove("show");
+    dropdown.classList.remove("active");
+    dropdown.setAttribute("aria-expanded", "false");
+  });
+
   logoutButton?.addEventListener("click", () => {
     localStorage.removeItem("schoolRegistration");
     sessionStorage.clear();

@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+
   logoutButton?.addEventListener("click", () => {
     localStorage.removeItem("schoolRegistration");
     sessionStorage.clear();

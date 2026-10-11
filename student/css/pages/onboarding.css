@@ -134,6 +134,8 @@
 @media (max-width: 900px) {
   .card-grid {
     grid-template-columns: 1fr 1fr;
+    /* cards are narrower than their column; centre them instead of left-aligning */
+    justify-items: center;
   }
 }
 

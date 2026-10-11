@@ -285,6 +285,12 @@ SCHOOL LOGO
 } */
 
 .logo-preview {
+  /* overview.css also styles .logo-preview as a 34x34 dashboard thumbnail;
+     undo that size here so this card fills the form */
+  width: auto;
+
+  height: auto;
+
   display: flex;
 
   align-items: center;
@@ -786,6 +792,15 @@ RESPONSIVE
     flex-direction: column;
 
     text-align: center;
+  }
+
+  /* the details line is 400px wide on desktop; let it wrap inside the card */
+  .logo-preview__details p {
+    width: auto;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
   }
 }
 

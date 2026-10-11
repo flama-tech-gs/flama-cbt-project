@@ -43,6 +43,11 @@ const session = document.getElementById("session");
 const startBtn = document.querySelector(".start-btn");
 const backBtn = document.querySelector(".back-btn");
 
+// Back to the student hub (the only page that links to Exam Start)
+backBtn?.addEventListener("click", () => {
+  window.location.href = "./onboarding.html";
+});
+
 
 
 

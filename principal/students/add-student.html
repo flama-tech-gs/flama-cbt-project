@@ -20,6 +20,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/photo-upload.css" />
 
     <link rel="stylesheet" href="./css/add-student.css" />
   </head>
@@ -190,6 +191,26 @@ FORM
 
             <section class="form-section">
               <h3>Student Information</h3>
+              <!-- Optional photo: preview + validation in ../js/photo-upload.js -->
+              <div class="photo-upload" data-photo-upload>
+                <div class="photo-upload__preview" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" /></svg>
+                  <img alt="" hidden />
+                </div>
+
+                <div class="photo-upload__body">
+                  <span class="photo-upload__title" id="studentPhotoTitle">Student Photo <span class="photo-upload__optional">(optional)</span></span>
+                  <p class="photo-upload__hint" id="studentPhotoHint">PNG or JPG, up to 2MB.</p>
+
+                  <div class="photo-upload__actions">
+                    <input type="file" id="studentPhoto" name="student_photo" class="photo-upload__input" accept=".png,.jpg,.jpeg,image/png,image/jpeg" aria-labelledby="studentPhotoTitle" aria-describedby="studentPhotoHint studentPhotoError" />
+                    <label for="studentPhoto" class="photo-upload__button">Upload photo</label>
+                    <button type="button" class="photo-upload__remove" hidden>Remove</button>
+                  </div>
+
+                  <p class="photo-upload__error" id="studentPhotoError" role="alert" hidden></p>
+                </div>
+              </div>
 
               <div class="form-grid">
                 <div class="form-group">
@@ -398,6 +419,7 @@ STUDENT CREATED SUCCESS MODAL
       </div>
     </div>
 
+    <script src="../js/photo-upload.js"></script>
     <script src="./js/add-student.js"></script>
 
     <script>

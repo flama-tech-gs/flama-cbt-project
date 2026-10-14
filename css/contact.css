@@ -245,11 +245,11 @@ CONTACT SECTION
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 80px 0;
+    padding: 20px 0;
   }
 
   .contact-info h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .contact-card {
@@ -257,7 +257,7 @@ CONTACT SECTION
   }
 
   .contact-card h3 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .contact-item h4 {

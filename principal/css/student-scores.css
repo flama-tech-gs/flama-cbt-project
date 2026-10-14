@@ -94,7 +94,7 @@ FILTER CARD
 .filter-card select {
   flex: 1;
 
-  height: 50px;
+  height: 55px;
 
   border: none;
 
@@ -104,7 +104,7 @@ FILTER CARD
 
   padding: 0 1rem;
 
-  font-size: 0.95rem;
+  font-size: 0.6rem;
 
   color: #555;
 

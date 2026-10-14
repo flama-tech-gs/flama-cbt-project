@@ -35,6 +35,7 @@ TESTIMONIALS
 .quote svg {
   width: 30px;
   height: 30px;
+  color: #04530b;
 }
 
 .quote.green svg {
@@ -472,8 +473,8 @@ FOOTER
 }
 
 .footer-column h4 {
-  margin-bottom: 24px;
-  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
   color: #fff;
 }
 
@@ -571,7 +572,7 @@ FOOTER
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 45px;
+    gap: 20px;
   }
 
   .footer-bottom {

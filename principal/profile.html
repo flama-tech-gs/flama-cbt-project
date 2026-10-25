@@ -33,10 +33,10 @@
       <aside class="sidebar" id="principalSidebar">
         <div class="sidebar-top">
           <div class="logo-area">
-            <img src="assets/logo.png" alt="School Logo" />
+            <img id="schoolLogo" src="assets/logo.png" alt="School Logo" />
 
             <div>
-              <h2>Mobayo Academic</h2>
+              <h2 id="schoolName">Loading school…</h2>
 
               <p>...Knowledge, Discipline, Excellence...</p>
             </div>
@@ -169,15 +169,15 @@
 
           <div class="principal-profile">
             <div class="principal-avatar">
-              <img src="./assets/image.png" alt="Principal" />
+              <img src="./assets/image.png" alt="Principal" id="principalHeaderImage"/>
 
               <span class="online-dot"></span>
             </div>
 
             <div class="principal-details">
-              <h4>Dr. Bankole Okonjo</h4>
+               <h4 id="principalHeaderName">Loading…</h4>
 
-              <p>School Principal</p>
+              <p id="principalHeaderRole">Principal</p>
             </div>
           </div>
         </header>
@@ -194,8 +194,8 @@
 
             <p>
               <strong>Note:</strong>
-              To update your profile information, please contact Mobayo
-              Academic's board administrator.
+              To update your profile information, please contact
+              <span id="schoolNameForNotice">the school</span>'s board administrator.
             </p>
           </div>
 
@@ -205,58 +205,56 @@
 
           <section class="profile-card">
             <div class="profile-image">
-              <img src="./assets/teacher.png" alt="Principal Profile" />
+              <img id="principalProfileImage" src="./assets/teacher.png" alt="Principal Profile" />
             </div>
 
             <div class="profile-details-grid">
               <div class="detail-row">
                 <span>Full Name:</span>
 
-                <strong>Bankole Adewale Okonjo</strong>
+                <strong id="principalFullName">Loading…</strong>
               </div>
 
               <div class="detail-row">
                 <span>Staff ID:</span>
 
-                <strong>PRN/2025/001</strong>
+                <strong id="principalStaffId">—</strong>
               </div>
 
               <div class="detail-row">
                 <span>Role:</span>
 
-                <strong>School Principal</strong>
+                <strong id="principalRole">—</strong>
               </div>
 
               <div class="detail-row">
                 <span>Phone Number:</span>
 
-                <strong>+2348034567890</strong>
+                <strong id="principalPhone">—</strong>
               </div>
 
               <div class="detail-row">
                 <span>Email Address:</span>
 
-                <strong>principal@mobayoacademic.edu</strong>
+                <strong id="principalEmail">—</strong>
               </div>
 
               <div class="detail-row">
                 <span>Qualification:</span>
 
-                <strong> Ph.D Educational Administration, M.Ed </strong>
+                <strong id="principalQualification">—</strong>
               </div>
 
               <div class="detail-row">
                 <span>Address:</span>
 
-                <strong>
-                  3, Government Reservation Area, Abeokuta, Ogun State.
-                </strong>
+                <strong id="principalAddress">—</strong>
               </div>
 
               <div class="detail-row">
                 <span>Date Appointed:</span>
 
-                <strong>September 2019</strong>
+                <strong id="principalAppointedAt">—</strong>
               </div>
             </div>
           </section>
@@ -270,25 +268,25 @@
 
             <div class="stats-grid">
               <div class="stat-card">
-                <h3>1,247</h3>
+                <h3 id="totalStudents">—</h3>
 
                 <p>Total Students</p>
               </div>
 
               <div class="stat-card">
-                <h3>58</h3>
+                <h3 id="totalTeachers">—</h3>
 
                 <p>Total Teachers</p>
               </div>
 
               <div class="stat-card">
-                <h3>18</h3>
+                <h3 id="totalClasses">—</h3>
 
                 <p>Total Classes</p>
               </div>
 
               <div class="stat-card">
-                <h3>22</h3>
+                <h3 id="totalSubjects">—</h3>
 
                 <p>Total Subjects</p>
               </div>
@@ -385,6 +383,7 @@
     </div>
 
     <script src="./js/profile.js"></script>
+    <script src="../backend/principalProfile.js"></script>
 
     <script>
       lucide.createIcons();

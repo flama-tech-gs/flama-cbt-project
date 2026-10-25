@@ -12,9 +12,11 @@
     <main class="login-page">
       <!-- HEADER -->
       <section class="login-header">
-        <img src="./assets/logo.png" alt="School Logo" class="logo" />
-        <h1>Mobayo Academic</h1>
-        <p class="tagline">...Knowledge, Discipline, Excellence...</p>
+        <img src="./assets/logo.png" alt="School Logo" class="logo" id="schoolLogo"/>
+        <h1 id="schoolName">Loading school…</h1>
+        <p class="tagline" id="schoolTagline">
+          Principal Portal
+        </p>
       </section>
 
       <!-- CARD -->
@@ -25,13 +27,15 @@
             <label>Email Address</label>
             <input
               type="email"
-              id=""
+              id="identifier"
+              name="identifier"
               placeholder="e.g principal@mobayoacademic.edu"
+              autocomplete="username"
               required
             />
 
             <small class="error-message" id="accessError">
-              Invalid email address
+              
             </small>
           </div>
 
@@ -42,11 +46,13 @@
             <div class="password-wrapper">
               <input
                 type="password"
-                placeholder="enter password"
                 id="password"
+                placeholder="enter password"
+                autocomplete="current-password"
                 required
               />
-              <span class="toggle-password" id="togglePassword">👁️</span>
+              <button type="button" class="toggle-password" id="togglePassword"
+                aria-label="Show password">👁️</button>
             </div>
 
             <small class="hint">Password must be in title case</small>
@@ -76,7 +82,7 @@
           </div>
 
           <!-- Button -->
-          <button type="submit" class="login-btn">Login →</button>
+          <button type="submit" class="login-btn" id="loginButton">Login →</button>
         </form>
       </section>
 
@@ -86,6 +92,7 @@
       </p>
     </main>
 
-    <script src="./js/login.js"></script>
+    <script src="../backend/principalLogin.js"></script>
+    <!-- <script src="./js/login.js"></script> -->
   </body>
 </html>

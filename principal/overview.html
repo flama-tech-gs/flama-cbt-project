@@ -33,10 +33,10 @@
       <aside class="sidebar" id="principalSidebar">
         <div class="sidebar-top">
           <div class="logo-area">
-            <img src="assets/logo.png" alt="School Logo" />
+            <img id="schoolLogo" src="assets/logo.png" alt="School Logo" />
 
             <div>
-              <h2>Mobayo Academic</h2>
+              <h2 id="schoolName">Loading school…</h2>
 
               <p>...Knowledge, Discipline, Excellence...</p>
             </div>
@@ -169,10 +169,10 @@ TOPBAR
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="./assets/image.png" alt="Principal" />
+              <img id="principalImage" src="./assets/image.png" alt="Principal" />
 
               <div>
-                <h3>Dr. Bankole Okonjo</h3>
+                <h3 id="principalName">Loading…</h3>
 
                 <p>School Principal</p>
               </div>
@@ -189,13 +189,13 @@ SESSION INFO
             <span>
               Current Session:
 
-              <strong>2025/2026</strong>
+              <strong id="currentSession">Loading…</strong>
             </span>
 
             <span>
               Current Term:
 
-              <strong>2nd Term</strong>
+              <strong id="currentTerm">Loading…</strong>
             </span>
           </div>
 
@@ -238,6 +238,7 @@ PENDING QUESTIONS
       </main>
     </div>
 
+    <script src="../backend/principalOverview.js"></script>
     <script src="./js/overview.js"></script>
 
     <script>

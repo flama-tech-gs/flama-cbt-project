@@ -76,11 +76,10 @@
         </nav>
 
         <div class="sidebar-admin">
-          <div class="admin-avatar">SA</div>
-
+          <!-- Sidebar profile -->
+          <div class="admin-avatar" id="sidebarAdminAvatar">SA</div>
           <div class="admin-account">
-            <strong>Super Admin</strong>
-
+            <strong id="sidebarAdminName">Loading...</strong>
             <button type="button" class="logout-link">Log Out →</button>
           </div>
         </div>
@@ -135,14 +134,13 @@
             </button>
 
             <div class="topbar-admin">
-              <div class="topbar-avatar">SA</div>
-
+              <!-- Topbar profile -->
+              <div class="topbar-avatar" id="topbarAdminAvatar">SA</div>
               <div class="topbar-admin-info">
-                <strong>Super Admin</strong>
-
-                <span>Platform Team⌄</span>
+                <strong id="topbarAdminName">Loading...</strong>
+                <span id="topbarAdminRole">Loading...</span>
               </div>
-            </div>
+            </div>   
           </div>
         </header>
 
@@ -160,7 +158,9 @@
             <div class="schools-page-header">
               <div>
                 <h1>All Schools</h1>
-                <p>128 registered schools across the CBT School platform.</p>
+                    <p id="registeredSchoolsText">
+                      Loading registered schools...
+                    </p>
               </div>
 
               <button
@@ -644,8 +644,10 @@
       </main>
     </div>
 
-    <script src="./js/school-directory.js"></script>
+   <!-- <script src="./js/school-directory.js"></script> -->
     <script src="./js/mobile-navigation.js"></script>
+    <script src="../backend/schoolDirectory.js"></script>
+  
 
     <script>
       lucide.createIcons();

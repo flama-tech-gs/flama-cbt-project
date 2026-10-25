@@ -32,8 +32,8 @@
           <div class="school-brand__logo"></div>
 
           <div class="school-brand__content">
-            <h2>Mobayo Academic School</h2>
-            <span>mobayo-academic.cbtschool.ng</span>
+            <h2 id="schoolName">Loading school…</h2>
+            <span id="schoolUrl">Loading URL…</span>
           </div>
         </a>
 
@@ -68,14 +68,14 @@
         <div class="subscription-pill">
           <i data-lucide="clock-3"></i>
 
-          <span>Expires Aug 20, 2026</span>
+          <span id="headerExpiry">Loading subscription…</span>
         </div>
 
         <button class="account-dropdown" type="button" aria-expanded="false">
           <div class="account-avatar"></div>
 
           <div class="account-info">
-            <strong>Mobayo Academic</strong>
+            <strong id="accountSchoolName">Loading school…</strong>
 
             <span>School Account</span>
           </div>
@@ -115,25 +115,25 @@
           <div class="principal-profile__left">
             <!-- Avatar -->
 
-            <div class="principal-avatar">BO</div>
+            <div class="principal-avatar" id="principalInitials">-</div>
 
             <!-- Details -->
 
             <div class="principal-details">
-              <h2>Dr. Bankole Okonjo</h2>
+              <h2 id="principalFullName">Loading principal…</h2>
 
               <p>
                 School Principal
 
                 <span>•</span>
 
-                Mobayo Academic School
+                <span id="principalSchoolName">School</span>
               </p>
 
-              <span class="status-badge active">
+              <span class="status-badge active" id="principalStatus">
                 <i data-lucide="circle"></i>
 
-                Active
+                Loading...
               </span>
             </div>
           </div>
@@ -144,7 +144,7 @@
             <div class="last-login">
               <span> Last login: </span>
 
-              <strong> June 28, 2026 at 8:42 AM </strong>
+              <strong id="principalLastLogin">Not available</strong>
             </div>
 
             <button
@@ -172,37 +172,37 @@
           <div class="detail-item">
             <label> First Name </label>
 
-            <p>Bankole</p>
+            <p id="principalFirstName">—</p>
           </div>
 
           <div class="detail-item">
             <label> Last Name </label>
 
-            <p>Okonjo</p>
+            <p id="principalLastName">—</p>
           </div>
 
           <div class="detail-item">
             <label> Title / Salutation </label>
 
-            <p>Dr.</p>
+            <p id="principalTitle">—</p>
           </div>
 
           <div class="detail-item">
             <label> Phone Number </label>
 
-            <p>+234 802 345 6789</p>
+            <p id="principalPhone">—</p>
           </div>
 
           <div class="detail-item">
             <label> Login Email </label>
 
-            <p>principal@mobayoacademic.edu.ng</p>
+            <p id="principalEmail">—</p>
           </div>
 
           <div class="detail-item">
             <label> Joined </label>
 
-            <p>June 20, 2026</p>
+            <p id="principalJoined">—</p>
           </div>
         </div>
       </section>
@@ -368,16 +368,11 @@
 
               <select id="title" name="title" required>
                 <option value="">Select Title</option>
-
-                <option>Mr.</option>
-
-                <option>Mrs.</option>
-
-                <option>Miss</option>
-
-                <option>Dr.</option>
-
-                <option>Prof.</option>
+                <option value="Mr">Mr.</option>
+                <option value="Mrs">Mrs.</option>
+                <option value="Miss">Miss</option>
+                <option value="Dr">Dr.</option>
+                <option value="Chief">Prof.</option>
               </select>
             </div>
 
@@ -484,7 +479,8 @@
       lucide.createIcons();
     </script>
 
-    <script src="./js/principal-account.js"></script>
+    <script src="../backend/principalAccount.js"></script>
+    <!-- <script src="./js/principal-account.js"></script> -->
     <script src="./js/account-dropdown.js"></script>
     <script src="./js/mobile-navigation.js"></script>
   </body>

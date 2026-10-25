@@ -77,10 +77,10 @@
         </nav>
 
         <div class="sidebar-admin">
-          <div class="admin-avatar">SA</div>
+          <div class="admin-avatar" id="sidebarAdminAvatar">SA</div>
 
           <div class="admin-account">
-            <strong>Super Admin</strong>
+            <strong id="sidebarAdminName">Loading...</strong>
 
             <button type="button" class="logout-link">Log Out →</button>
           </div>
@@ -136,12 +136,12 @@
             </button>
 
             <div class="topbar-admin">
-              <div class="topbar-avatar">SA</div>
+              <div class="topbar-avatar" id="topbarAdminAvatar">SA</div>
 
               <div class="topbar-admin-info">
-                <strong>Super Admin</strong>
+                <strong id="topbarAdminName">Loading...</strong>
 
-                <span>Platform Team⌄</span>
+                <span id="topbarAdminRole">Loading...</span>
               </div>
             </div>
           </div>
@@ -177,9 +177,9 @@
                   <span class="billing-stat-icon"> 💰 </span>
                 </div>
 
-                <strong>₦4.82M</strong>
+                <strong id="mrrValue">Loading...</strong>
 
-                <p>+8.4% vs last month</p>
+                <p id="mrrDescription">+8.4% vs last month</p>
               </article>
 
               <article class="billing-stat-card">
@@ -189,9 +189,8 @@
                   <span class="billing-stat-icon"> ✅ </span>
                 </div>
 
-                <strong>₦38.6M</strong>
-
-                <p>96% collection rate</p>
+                <strong id="collectedValue">Loading...</strong>
+                <p id="collectedDescription">Loading period...</p>
               </article>
 
               <article class="billing-stat-card">
@@ -201,9 +200,8 @@
                   <span class="billing-stat-icon"> ⏳ </span>
                 </div>
 
-                <strong>₦1.62M</strong>
-
-                <p>14 schools pending</p>
+                <strong id="outstandingValue">Loading...</strong>
+                <p id="outstandingDescription">Loading...</p>
               </article>
 
               <article class="billing-stat-card">
@@ -213,7 +211,7 @@
                   <span class="billing-stat-icon"> 📉 </span>
                 </div>
 
-                <strong>3</strong>
+                <strong id="churnedSchoolsValue">Loading...</strong>
 
                 <p>Last 90 days</p>
               </article>
@@ -231,7 +229,7 @@
                 <article class="pricing-card">
                   <h3>Starter</h3>
 
-                  <div class="price">₦17,000 <span>/term</span></div>
+                  <div class="price" data-plan-price>₦17,000 <span>/term</span></div>
 
                   <p class="pricing-description">Up to 250 students</p>
 
@@ -247,6 +245,7 @@
                     type="button"
                     class="btn btn-primary pricing-edit-btn"
                     data-plan="Starter"
+                    data-plan-id=""
                   >
                     Edit Pricing
                   </button>
@@ -258,7 +257,7 @@
 
                   <h3>Standard</h3>
 
-                  <div class="price">₦38,125 <span>/term</span></div>
+                  <div class="price" data-plan-price>₦38,125 <span>/term</span></div>
 
                   <p class="pricing-description">Up to 600 students</p>
 
@@ -275,6 +274,7 @@
                     type="button"
                     class="btn btn-primary pricing-edit-btn"
                     data-plan="Standard"
+                    data-plan-id=""
                   >
                     Edit Pricing
                   </button>
@@ -284,7 +284,7 @@
                 <article class="pricing-card">
                   <h3>Premium</h3>
 
-                  <div class="price">₦65,000 <span>/term</span></div>
+                  <div class="price" data-plan-price>₦65,000 <span>/term</span></div>
 
                   <p class="pricing-description">Unlimited students</p>
 
@@ -301,6 +301,7 @@
                     type="button"
                     class="btn btn-primary pricing-edit-btn"
                     data-plan="Premium"
+                    data-plan-id=""
                   >
                     Edit Pricing
                   </button>
@@ -336,6 +337,10 @@
                   </thead>
 
                   <tbody id="transactionsTableBody">
+                    <tr>
+                      <td colspan="7">Loading transactions...</td>
+                    </tr>
+                    <!--
                     <tr>
                       <td>Jun 20, 2026</td>
                       <td>Mobayo Academic School</td>
@@ -455,6 +460,8 @@
                         </button>
                       </td>
                     </tr>
+
+                    -->
                   </tbody>
                 </table>
               </div>
@@ -464,7 +471,9 @@
       </main>
     </div>
 
-    <script src="./js/subscriptions.js"></script>
+
+    <!-- <script src="./js/subscriptions.js"></script> -->
+    <script src="../backend/subscriptions.js"></script>
     <script src="./js/mobile-navigation.js"></script>
 
     <script>

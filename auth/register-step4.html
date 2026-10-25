@@ -89,32 +89,56 @@
                 <p id="schoolName">Mobayo Academy</p>
               </div>
 
-              <h2 id="planPrice">₦35,000</h2>
+              <h2 id="planPrice">₦0.00</h2>
             </div>
 
             <div class="summary-item">
               <span>Subtotal</span>
-              <strong>₦35,000</strong>
+              <strong id="subtotalAmount">₦0.00</strong>
             </div>
 
             <div class="summary-item">
               <span>VAT (7.5%)</span>
-              <strong>₦2,625</strong>
+              <strong id="vatAmount">₦0.00</strong>
             </div>
 
             <div class="summary-item">
               <span>Processing Fee</span>
-              <strong>₦500</strong>
+              <strong id="processingFee">₦0.00</strong>
             </div>
 
             <div class="summary-total">
               <span>Total Due</span>
-              <strong id="totalAmount">₦38,125</strong>
+              <strong id="totalAmount">₦0.00</strong>
             </div>
           </section>
 
           <!-- Payment -->
+          
+          <section class="registration-card">
+            <h3>Payment</h3>
+            <p>
+              You will be redirected to Paystack to complete your payment securely.
+              Available payment options depend on Paystack checkout.
+            </p>
+          </section>
 
+          <!-- Keep the form active. It does not collect card details. -->
+          <form id="paymentForm">
+            <button
+              type="submit"
+              id="payButton"
+              class="btn btn-primary btn-payment"
+            >
+              <i class="ri-lock-line"></i>
+              <span id="payButtonText">Pay Securely</span>
+              <span id="payAmount">₦0.00</span>
+            </button>
+
+            <p id="paymentError" role="alert" aria-live="polite"></p>
+          </form>
+
+          <!--
           <section class="registration-card">
             <h3>Payment Method</h3>
 
@@ -142,7 +166,7 @@
               </button>
             </div>
 
-            <!-- Card Form -->
+            <!-- Card Form 
 
             <form id="paymentForm">
               <div id="cardPayment">
@@ -206,8 +230,8 @@
               </div>
             </form>
           </section>
-
-          <!-- Pay -->
+        
+          <!-- Pay 
 
           <button
             type="submit"
@@ -221,10 +245,14 @@
 
             Securely
           </button>
+          -->
+        
         </section>
       </main>
     </div>
 
-    <script src="./js/register-step4.js"></script>
+    <!--<script src="./js/register-step4.js"></script> -->
+    <script src="../backend/api.js"></script>
+    <script src="../backend/registerStep4.js"></script>
   </body>
 </html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verify Admin Email</title>
+  <style>
+    body { font: 16px Arial, sans-serif; background: #f4f6f8; margin: 0; padding: 32px 16px; color: #1c2430; }
+    main { max-width: 520px; margin: auto; background: white; padding: 28px; border-radius: 12px; }
+    form { display: grid; gap: 14px; }
+    label { display: grid; gap: 6px; font-weight: 600; }
+    input, button { box-sizing: border-box; width: 100%; padding: 11px; border: 1px solid #ccd3dd; border-radius: 7px; font: inherit; }
+    button { background: #2457d6; border: 0; color: white; font-weight: 700; cursor: pointer; }
+    button:disabled { opacity: .6; }
+    #formMessage { display: none; margin: 14px 0; padding: 12px; background: #eef3ff; border-radius: 7px; white-space: pre-wrap; }
+    #formMessage.error { background: #fff0f0; color: #9d2020; }
+    a { color: #2457d6; }
+  </style>
+    <script src="../../backend/adminAuth.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Verify email</h1>
+    <p>Enter the six-digit code sent to your admin email.</p>
+    <div id="formMessage" role="status"></div>
+
+    <form id="verifyEmailForm">
+      <label>Email
+        <input name="email" type="email" required>
+      </label>
+      <label>Six-digit code
+        <input name="otp" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required>
+      </label>
+      <button type="submit">Verify email</button>
+    </form>
+
+    <h2>Need another code?</h2>
+    <form id="resendOtpForm">
+      <label>Email
+        <input name="email" type="email" required>
+      </label>
+      <button type="submit">Resend code</button>
+    </form>
+
+    <p><a href="./admin-register.html">Invite another admin</a></p>
+    <p><a href="./admin-forgot-password.html">Forgot password?</a></p>
+  </main>
+</body>
+</html>

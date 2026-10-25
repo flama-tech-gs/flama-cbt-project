@@ -76,10 +76,10 @@
         </nav>
 
         <div class="sidebar-admin">
-          <div class="admin-avatar">SA</div>
+          <div class="admin-avatar" id="sidebarAdminAvatar">SA</div>
 
           <div class="admin-account">
-            <strong>Super Admin</strong>
+            <strong id="sidebarAdminName">Loading...</strong>
 
             <button type="button" class="logout-link">Log Out →</button>
           </div>
@@ -135,12 +135,12 @@
             </button>
 
             <div class="topbar-admin">
-              <div class="topbar-avatar">SA</div>
+              <div class="topbar-avatar" id="topbarAdminAvatar">SA</div> 
 
               <div class="topbar-admin-info">
-                <strong>Super Admin</strong>
+                <strong id="topbarAdminName">Loading...</strong>
 
-                <span>Platform Team⌄</span>
+                <span id="topbarAdminRole">Loading...</span>
               </div>
             </div>
           </div>
@@ -176,7 +176,7 @@
                   <span class="stat-icon"> 🔴 </span>
                 </div>
 
-                <strong>9</strong>
+                <strong id="openTicketsCount">Loading...</strong>
 
                 <p>3 high priority</p>
               </article>
@@ -188,7 +188,7 @@
                   <span class="stat-icon"> 🟡 </span>
                 </div>
 
-                <strong>6</strong>
+                <strong id="inProgressCount">Loading...</strong>
 
                 <p>Avg 1.2 days</p>
               </article>
@@ -200,7 +200,7 @@
                   <span class="stat-icon"> ✅ </span>
                 </div>
 
-                <strong>4</strong>
+                <strong id="resolvedTodayCount">Loading...</strong>
 
                 <p>14 resolved this week</p>
               </article>
@@ -227,9 +227,10 @@
                 <i data-lucide="search"></i>
 
                 <input
-                  type="text"
-                  id="ticketSearch"
+                  type="search"
+                  id="supportSchoolSearch"
                   placeholder="Search tickets by school or subject..."
+                  autocomplete="off"
                 />
               </div>
 
@@ -237,25 +238,25 @@
                 <button
                   type="button"
                   class="ticket-filter active"
-                  data-filter="all"
+                  data-ticket-filter="all"
                 >
-                  All (24)
+                  All
                 </button>
 
                 <button type="button" class="ticket-filter" data-filter="high">
-                  High Priority (3)
+                  High Priority
                 </button>
 
-                <button type="button" class="ticket-filter" data-filter="open">
-                  Open (9)
+                <button type="button" class="ticket-filter" data-ticket-filter="open">
+                  Open 
                 </button>
 
                 <button
                   type="button"
                   class="ticket-filter"
-                  data-filter="resolved"
+                  data-ticket-filter="resolved"
                 >
-                  Resolved (11)
+                  Resolved
                 </button>
               </div>
             </section>
@@ -281,7 +282,11 @@
                     </tr>
                   </thead>
 
-                  <tbody id="ticketsTableBody">
+                  <tbody id=""supportTicketsTableBody">
+
+                    <tr><td colspan="7">Loading tickets...</td></tr>
+
+                    <!--
                     <tr data-priority="high" data-status="open">
                       <td class="ticket-number">#4821</td>
 
@@ -479,6 +484,8 @@
                         </button>
                       </td>
                     </tr>
+
+                  -->
                   </tbody>
                 </table>
               </div>
@@ -488,7 +495,8 @@
       </main>
     </div>
 
-    <script src="./js/support-tickets.js"></script>
+    <!-- <script src="./js/support-tickets.js"></script> -->
+    <script src="../backend/supportTickets.js"></script>
     <script src="./js/mobile-navigation.js"></script>
 
     <script>

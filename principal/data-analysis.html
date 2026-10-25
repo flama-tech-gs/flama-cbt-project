@@ -33,10 +33,10 @@
       <aside class="sidebar" id="principalSidebar">
         <div class="sidebar-top">
           <div class="logo-area">
-            <img src="assets/logo.png" alt="School Logo" />
+            <img id="schoolLogo" src="assets/logo.png" alt="School Logo" />
 
             <div>
-              <h2>Mobayo Academic</h2>
+              <h2 id="schoolName">...</h2>
 
               <p>...Knowledge, Discipline, Excellence...</p>
             </div>
@@ -169,10 +169,10 @@ TOPBAR
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="./assets/image.png" alt="Principal" />
+              <img id="principalImage" src="./assets/image.png" alt="Principal" />
 
               <div>
-                <h3>Dr. Bankole Okonjo</h3>
+                <h3 id="principalName">...</h3>
 
                 <p>School Principal</p>
               </div>
@@ -208,13 +208,16 @@ PERFORMANCE
 
             <div class="filters">
               <select id="classFilter">
-                <option>JSS 3B</option>
+                <!-- <option>JSS 3B</option> -->
               </select>
 
               <select id="sessionFilter">
-                <option>Session 2026/2027</option>
+                <!-- <option>Session 2026/2027</option> -->
               </select>
 
+              <select id="termFilter"></select>
+
+            <!--
               <div class="term-tabs">
                 <button>1st Term</button>
 
@@ -222,22 +225,23 @@ PERFORMANCE
 
                 <button>3rd Term</button>
               </div>
+            -->
             </div>
 
             <div class="class-banner">
-              Class: <strong>JSS 3B</strong>
+              Class: <strong id="selectedClassName">—</strong>
 
               | Class Teacher:
 
-              <strong>Mr. Obi Chidubem</strong>
+              <strong id="selectedClassTeacher">—</strong>
 
               |
 
-              <strong>35 Students</strong>
+              <strong id="selectedClassStudentCount">— Students</strong>
 
               |
 
-              <strong>2nd Term</strong>
+              <strong id="selectedTermName">—</strong>
             </div>
 
             <div class="table-wrapper">
@@ -266,6 +270,7 @@ PERFORMANCE
       </main>
     </div>
 
+    <script src="../backend/principalDataAnalysis.js"></script>
     <script src="./js/data-analysis.js"></script>
 
     <script>

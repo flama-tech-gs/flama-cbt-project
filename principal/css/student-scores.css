@@ -281,3 +281,9 @@ RESPONSIVE
   margin: 0 auto;
   padding: 0 40px 32px 40px;
 }
+
+
+.grade.f {
+  color: #b42318;
+  background-color: #fee4e2;
+}

@@ -33,10 +33,10 @@
       <aside class="sidebar" id="principalSidebar">
         <div class="sidebar-top">
           <div class="logo-area">
-            <img src="assets/logo.png" alt="School Logo" />
+            <img id="schoolLogo" src="assets/logo.png" alt="School Logo" />
 
             <div>
-              <h2>Mobayo Academic</h2>
+              <h2 id="schoolName"></h2>
 
               <p>...Knowledge, Discipline, Excellence...</p>
             </div>
@@ -168,10 +168,10 @@ TOPBAR
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="./assets/image.png" alt="Principal" />
+              <img id="principalImage" src="./assets/image.png" alt="Principal" />
 
               <div>
-                <h3>Dr. Bankole Okonjo</h3>
+                <h3 id="principalName"></h3>
 
                 <p>School Principal</p>
               </div>
@@ -199,16 +199,16 @@ FILTERS
           <section class="filter-card">
             <h3>Filter Results</h3>
 
-            <select>
-              <option>All Term</option>
+            <select id="termFilter">
+              <option value="">All Term</option>
             </select>
 
-            <select>
-              <option>All Classes</option>
+            <select id="classFilter">
+              <option value="">All Classes</option>
             </select>
 
-            <select>
-              <option>All Subjects</option>
+            <select id="subjectFilter">
+              <option value="">All Subjects</option> 
             </select>
 
             <button class="filter-btn">Apply Filters</button>
@@ -220,7 +220,7 @@ TABLE
 
           <section>
             <h2 class="section-title">
-              JSS 3B – Biology Scores (2nd Term, 2025/2026)
+              <!-- JSS 3B – Biology Scores (2nd Term, 2025/2026) -->
             </h2>
 
             <div class="table-wrapper">
@@ -252,6 +252,7 @@ TABLE
     </div>
 
     <script src="./js/student-scores.js"></script>
+    <script src="../backend/principalStudentScore.js"></script>
 
     <script>
       lucide.createIcons();

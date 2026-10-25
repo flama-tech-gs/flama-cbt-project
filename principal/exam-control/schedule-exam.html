@@ -33,10 +33,10 @@
       <aside class="sidebar">
         <div class="sidebar-top">
           <div class="logo-area">
-            <img src="../assets/logo.png" alt="School Logo" />
+            <img id="schoolLogo" src="../assets/logo.png" alt="School Logo" />
 
             <div>
-              <h2>Mobayo Academic</h2>
+              <h2 id="schoolName">-</h2>
 
               <p>...Knowledge, Discipline, Excellence...</p>
             </div>
@@ -158,10 +158,10 @@ TOPBAR
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="../assets/image.png" alt="Principal" />
+              <img id="principalImage" src="../assets/image.png" alt="Principal" />
 
               <div>
-                <h3>Dr. Bankole Okonjo</h3>
+                <h3 id="principalName">Loading...</h3>
 
                 <p>School Principal</p>
               </div>
@@ -231,16 +231,15 @@ FORM
             <h2 class="quick-title">Quick Schedule</h2>
 
             <div class="quick-buttons">
-              <button class="active">In 1 Hour</button>
-
-              <button>In 3 Hours</button>
-
-              <button>In 6 Hours</button>
-
-              <button>Tomorrow, 8:00 AM</button>
+              <button type="button" data-hours="1">In 1 hour</button>
+              <button type="button" data-hours="3">In 3 hours</button>
+              <button type="button" data-hours="6">In 6 hours</button>
+              <button type="button" data-schedule="tomorrow-8">
+                Tomorrow, 8:00 AM
+              </button>
             </div>
 
-            <h2 class="custom-title">Or Choose a Custom Date & Time</h2>
+            <option class="custom-title" value="custom">Or Choose a Custom Date & Time</option>
 
             <div class="form-grid">
               <div class="form-group">
@@ -276,6 +275,7 @@ FORM
     </div>
 
     <script src="./js/schedule-exam.js"></script>
+    <script src="../../backend/principalScheduleExam.js"></script>
 
     <script>
       lucide.createIcons();
@@ -284,4 +284,4 @@ FORM
   </body>
 </html>
 
-window.location.href = "./create.html";
+

@@ -32,8 +32,8 @@
           <div class="school-brand__logo"></div>
 
           <div class="school-brand__content">
-            <h2>Mobayo Academic School</h2>
-            <span>mobayo-academic.cbtschool.ng</span>
+            <h2 id="schoolName">Loading school…</h2>
+            <span id="schoolUrl">Loading URL…</span>
           </div>
         </a>
 
@@ -68,14 +68,14 @@
         <div class="subscription-pill">
           <i data-lucide="clock-3"></i>
 
-          <span>Expires Aug 20, 2026</span>
+          <span id="headerExpiry">Loading subscription…</span>
         </div>
 
         <button class="account-dropdown" type="button" aria-expanded="false">
           <div class="account-avatar"></div>
 
           <div class="account-info">
-            <strong>Mobayo Academic</strong>
+            <strong id="accountSchoolName">Loading school…</strong>
 
             <span>School Account</span>
           </div>
@@ -394,6 +394,7 @@
       lucide.createIcons();
     </script>
 
+    <script src="../backend/ownerSupport.js"></script>
     <script src="./js/support.js"></script>
     <script src="./js/account-dropdown.js"></script>
     <script src="./js/mobile-navigation.js"></script>

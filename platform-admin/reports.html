@@ -76,10 +76,10 @@
         </nav>
 
         <div class="sidebar-admin">
-          <div class="admin-avatar">SA</div>
+          <div class="admin-avatar" id="sidebarAdminAvatar">SA</div>
 
           <div class="admin-account">
-            <strong>Super Admin</strong>
+            <strong id="sidebarAdminName">Loading...</strong>
 
             <button type="button" class="logout-link">Log Out →</button>
           </div>
@@ -135,12 +135,12 @@
             </button>
 
             <div class="topbar-admin">
-              <div class="topbar-avatar">SA</div>
+              <div class="topbar-avatar" id="topbarAdminAvatar">SA</div>
 
               <div class="topbar-admin-info">
-                <strong>Super Admin</strong>
+                <strong id="topbarAdminName">Loading...</strong>
 
-                <span>Platform Team⌄</span>
+                <span id="topbarAdminRole">Loading...</span>
               </div>
             </div>
           </div>
@@ -176,9 +176,9 @@
                   <span class="report-stat-icon"> 🏫 </span>
                 </div>
 
-                <strong>12</strong>
+                <strong id="newSchoolsThisTerm">Loading...</strong>
 
-                <p>+20% vs last term</p>
+                <p id="newSchoolsDescription">+20% vs last term</p>
               </article>
 
               <article class="report-stat-card">
@@ -188,9 +188,9 @@
                   <span class="report-stat-icon"> 🎓 </span>
                 </div>
 
-                <strong>+6.8%</strong>
+                <strong id="studentGrowthValue">Loading...</strong>
 
-                <p>68,420 total students</p>
+                <p id="studentGrowthDescription">Loading total students</p>
               </article>
 
               <article class="report-stat-card">
@@ -200,7 +200,7 @@
                   <span class="report-stat-icon"> 📝 </span>
                 </div>
 
-                <strong>3,940</strong>
+                <strong id="examsConductedValue">Loading...</strong>
 
                 <p>This term</p>
               </article>
@@ -212,7 +212,7 @@
                   <span class="report-stat-icon"> ✅ </span>
                 </div>
 
-                <strong>71.2%</strong>
+                <strong id="averagePassRateValue">Loading...</strong>
 
                 <p>+2.1pt vs last term</p>
               </article>
@@ -384,7 +384,11 @@
                     </tr>
                   </thead>
 
-                  <tbody>
+                  <tbody id="topPerformingSchoolsBody">
+
+                    <tr>
+                      <td colspan="4">Loading school performance...</td>
+                    </tr>
                     <tr>
                       <td>
                         <div class="school-ranking">
@@ -483,7 +487,8 @@
       </main>
     </div>
 
-    <script src="./js/reports.js"></script>
+    <!-- <script src="./js/reports.js"></script> -->
+    <script src="../backend/reports.js"></script>
     <script src="./js/mobile-navigation.js"></script>
 
     <script>

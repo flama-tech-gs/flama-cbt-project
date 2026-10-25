@@ -76,10 +76,10 @@
         </nav>
 
         <div class="sidebar-admin">
-          <div class="admin-avatar">SA</div>
+          <div class="admin-avatar" id="sidebarAdminAvatar">SA</div>
 
           <div class="admin-account">
-            <strong>Super Admin</strong>
+            <strong id="sidebarAdminName">Loading...</strong>
 
             <button type="button" class="logout-link">Log Out →</button>
           </div>
@@ -117,6 +117,7 @@
             <i data-lucide="search"></i>
 
             <input
+              id="adminSearch"
               type="search"
               placeholder="Search schools, tickets, transactions..."
               aria-label="Search platform"
@@ -135,12 +136,12 @@
             </button>
 
             <div class="topbar-admin">
-              <div class="topbar-avatar">SA</div>
+              <div class="topbar-avatar" id="topbarAdminAvatar">SA</div>
 
               <div class="topbar-admin-info">
-                <strong>Super Admin</strong>
+                <strong id="topbarAdminName">Loading...</strong>
 
-                <span>Platform Team⌄</span>
+                <span id="topbarAdminRole">Loading...</span>
               </div>
             </div>
           </div>
@@ -341,7 +342,7 @@
                   type="button"
                   id="inviteAdminBtn"
                 >
-                  + Invite Admin
+                 <a href="./45rgfjk$hgvz%25x23fgmhk65%23erfsdvzgm/admin-register.html">+ Invite Admin</a>
                 </button>
               </div>
 
@@ -357,7 +358,12 @@
                     </tr>
                   </thead>
 
-                  <tbody>
+                  
+                  <tbody id="adminsTableBody">
+
+                    <tr><td colspan="5">Loading administrators...</td></tr>
+
+                    <!--
                     <tr>
                       <td>
                         <div class="user-name">
@@ -461,6 +467,8 @@
                         </div>
                       </td>
                     </tr>
+
+                  -->
                   </tbody>
                 </table>
               </div>
@@ -471,6 +479,7 @@
     </div>
 
     <script src="./js/settings.js"></script>
+    <script src="../backend/settings.js"></script>
     <script src="./js/mobile-navigation.js"></script>
 
     <script>

@@ -15,12 +15,12 @@
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
+    <!--
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/layout.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
     <link rel="stylesheet" href="assets/css/utilities.css" />
-
+    -->
     <link rel="stylesheet" href="./css/overview.css" />
   </head>
 
@@ -28,11 +28,11 @@
     <header class="topbar">
       <div class="topbar__left">
         <a href="#" class="school-brand">
-          <div class="school-brand__logo"></div>
+          <div class="school-brand__logo" id="school-image"></div>
 
           <div class="school-brand__content">
-            <h2>Mobayo Academic School</h2>
-            <span>mobayo-academic.cbtschool.ng</span>
+            <h2 id="school-name">Loading school…</h2>
+            <span id="school-host"></span>
           </div>
         </a>
 
@@ -67,14 +67,14 @@
         <div class="subscription-pill">
           <i data-lucide="clock-3"></i>
 
-          <span>Expires Aug 20, 2026</span>
+          <span id="expiry-date2">Loading...</span>
         </div>
 
         <button class="account-dropdown" type="button" aria-expanded="false">
-          <div class="account-avatar"></div>
+          <div class="account-avatar" id="school-image2"></div>
 
           <div class="account-info">
-            <strong>Mobayo Academic</strong>
+            <strong id="school-name2">Loading School...</strong>
 
             <span>School Account</span>
           </div>
@@ -100,7 +100,7 @@
         <div class="page-header__content">
           <h1>
             Welcome back,
-            <span>Mobayo Academic School</span>
+            <span id="welcome-school-name">Loading school…</span>
             👋
           </h1>
 
@@ -129,7 +129,7 @@
 
           <span class="stat-card__label"> School Status </span>
 
-          <h3 class="success">Active</h3>
+          <h3 id="school-status">Loading…</h3>
 
           <p>Portal is live</p>
         </article>
@@ -141,21 +141,21 @@
 
           <span class="stat-card__label"> Current Plan </span>
 
-          <h3 class="primary">Standard</h3>
+          <h3 id="current-plan" class="primary">Loading…</h3>
 
           <p>2nd Term 2025/2026</p>
         </article>
 
         <article class="stat-card">
           <div class="stat-card__icon">
-            <i data-lucide="clock-3"></i>
+            <i data-lucide="clock-3"></i> 
           </div>
 
           <span class="stat-card__label"> Expires </span>
 
-          <h3 class="warning">Aug 20, 2026</h3>
+          <h3 class="warning"  id="expiry-date">Loading...</h3>
 
-          <p>51 days remaining</p>
+          <p id="expiry-remaining"></p>
         </article>
 
         <article class="stat-card">
@@ -165,9 +165,9 @@
 
           <span class="stat-card__label"> Principal </span>
 
-          <h3 class="success">Active</h3>
+          <h3 id="principal-status">Loading…</h3>
 
-          <p>Dr. Bankole Okonjo</p>
+          <p id="principal-name"></p>
         </article>
 
         <article class="stat-card">
@@ -177,9 +177,9 @@
 
           <span class="stat-card__label"> School URL </span>
 
-          <h3 class="success">Live</h3>
+          <h3 class="success" id="school-url-status">Loading…</h3>
 
-          <p>mobayo-academic.cbt...</p>
+          <p><a id="school-url" href="#">Loading…</a></p>
         </article>
       </section>
 
@@ -192,6 +192,9 @@
 
         <section class="dashboard-card school-details">
           <div class="card-header">
+
+           
+            
             <div>
               <h2>School Details</h2>
 
@@ -211,57 +214,57 @@
             <div class="detail-item">
               <span>School Name</span>
 
-              <strong> Mobayo Academic School </strong>
+              <strong id="detail-school-name">Loading…</strong>
             </div>
 
             <div class="detail-item">
               <span>Type</span>
 
-              <strong> Secondary School </strong>
+              <strong id="detail-school-type">Not provided</strong>
             </div>
 
             <div class="detail-item">
               <span>RC Number</span>
 
-              <strong> RC-1234567 </strong>
+              <strong id="detail-rc-number">Not provided</strong>
             </div>
 
             <div class="detail-item">
               <span>Year Founded</span>
 
-              <strong> 2005 </strong>
+               <strong id="detail-year">Not provided</strong>
             </div>
 
             <div class="detail-item">
               <span>Address</span>
 
-              <strong> 12 Mobayo Street, Abeokuta, Ogun State </strong>
+              <strong id="detail-address">Not provided</strong>
             </div>
 
             <div class="detail-item">
               <span>Phone</span>
 
-              <strong> +234 801 234 5678 </strong>
+              <strong id="detail-phone">Not provided</strong>
             </div>
 
             <div class="detail-item">
               <span>Email</span>
 
-              <strong> admin@mobayoacademic.edu.ng </strong>
+              <strong id="detail-email">Not provided</strong>
             </div>
 
             <div class="detail-item">
               <span>Website</span>
 
-              <strong> www.mobayoacademic.edu.ng </strong>
+              <strong id="detail-website">Not provided</strong>
             </div>
           </div>
 
           <div class="logo-panel">
             <div class="logo-panel__left">
-              <div class="logo-preview"></div>
+              <div class="logo-preview" id="school-logo-preview"></div>
 
-              <div>
+              <div id=""school-image3></div>
                 <h4>School Logo</h4>
 
                 <p>PNG • 44KB • Uploaded Jun 2026</p>
@@ -306,7 +309,7 @@
 
                 <h3>Update School Logo</h3>
 
-                <p>Replace your logo</p>
+                <p>Replace your logo</p> 
               </article>
 
               <article class="quick-card">
@@ -357,11 +360,8 @@
             <div class="portal-links">
               <div class="portal-link">
                 <div class="portal-link__url">
-                  <span>
-                    https://mobayo-academic.cbtschool.ng/student-portal
-                  </span>
-
-                  <a href="#" aria-label="Open Student Portal">
+                  <span id="student-portal-url"></span>
+                  <a id="student-portal-open" href="#" aria-label="Open Student Portal">
                     <i data-lucide="arrow-up-right"></i>
                   </a>
                 </div>
@@ -375,11 +375,8 @@
 
               <div class="portal-link">
                 <div class="portal-link__url">
-                  <span>
-                    https://mobayo-academic.cbtschool.ng/staff-portal
-                  </span>
-
-                  <a href="#" aria-label="Open Staff Portal">
+                  <span id="staff-portal-url"></span>
+                  <a id="staff-portal-open" href="#" aria-label="Open Staff Portal">
                     <i data-lucide="arrow-up-right"></i>
                   </a>
                 </div>
@@ -393,9 +390,8 @@
 
               <div class="portal-link">
                 <div class="portal-link__url">
-                  <span> https://mobayo-academic.cbtschool.ng/principal </span>
-
-                  <a href="#" aria-label="Open Principal Portal">
+                  <span id="principal-portal-url"></span>
+                  <a id="principal-portal-open" href="#" aria-label="Open Principal Portal">
                     <i data-lucide="arrow-up-right"></i>
                   </a>
                 </div>
@@ -435,6 +431,7 @@
 
           <section class="dashboard-card subscription-card">
             <div class="card-header">
+              <div id="subscription-summary"></div>
               <div>
                 <h2>Subscription</h2>
 
@@ -450,40 +447,38 @@
 
             <div class="plan-box">
               <div>
-                <h3>Standard Plan</h3>
+                <h3 id="subscription-plan-name">Loading…</h3>
 
-                <p>Up to 600 students • 30 teachers</p>
+                <p id="subscription-plan-description"></p>
               </div>
 
-              <strong>₦35,000/term</strong>
+              <strong id="subscription-price">Loading…</strong>
             </div>
 
             <div class="subscription-info">
               <div class="info-row">
                 <span>Term</span>
 
-                <strong>2nd Term 2025/2026</strong>
+                <strong id="subscription-term-name">Loading…</strong>
               </div>
 
               <div class="info-row">
                 <span>Expires</span>
 
-                <strong class="warning"> August 20, 2026 </strong>
+                <strong class="warning" id="subscription-expires">Loading…</strong>
               </div>
 
               <div class="info-row">
                 <span>Status</span>
 
-                <strong class="success"> Active </strong>
+                <strong class="success" id="subscription-status">Loading…</strong>
               </div>
             </div>
 
             <div class="subscription-alert">
               <i data-lucide="triangle-alert"></i>
 
-              <span>
-                Expires in 51 days — Renew now to avoid interruption
-              </span>
+              <span id="subscription-alert-text">Loading…</span>
             </div>
 
             <button class="btn btn-warning btn-block">
@@ -560,7 +555,9 @@
       lucide.createIcons();
     </script>
 
-    <script src="./js/overview.js"></script>
+    <script src="../backend/api.js"></script>
+    <script src="../backend/ownerDashboard.js"></script>
+    <!-- <script src="./js/overview.js"></script> -->
     <script src="./js/mobile-navigation.js"></script>
   </body>
 </html>

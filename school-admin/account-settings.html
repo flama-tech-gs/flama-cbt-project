@@ -33,7 +33,9 @@
 
           <div class="school-brand__content">
             <h2>Mobayo Academic School</h2>
-            <span>mobayo-academic.cbtschool.ng</span>
+            
+              <span id="currentSchoolUrl">Loading school URL…</span>
+           
           </div>
         </a>
 
@@ -68,7 +70,7 @@
         <div class="subscription-pill">
           <i data-lucide="clock-3"></i>
 
-          <span>Expires Aug 20, 2026</span>
+          <span id="subscriptionExpiry">Loading subscription…</span>
         </div>
 
         <button class="account-dropdown" type="button" aria-expanded="false">
@@ -139,11 +141,15 @@
               <label for="schoolType"> School Type <span>*</span> </label>
 
               <select id="schoolType" name="school_type" required>
-                <option selected>Secondary School</option>
-
-                <option>Primary School</option>
-
-                <option>Nursery School</option>
+                <option value="">Select school type</option>
+                <option value="nursery">Nursery</option>
+                <option value="primary">Primary</option>
+                <option value="secondary">Secondary</option>
+                <option value="university">University</option>
+                <option value="college">College</option>
+                <option value="polytechnic">Polytechnic</option>
+                <option value="vocational">Vocational</option>
+                <option value="other">Other</option>
               </select>
             </div>
 
@@ -497,7 +503,7 @@
           <!-- CURRENT URL -->
 
           <div class="current-url">
-            <span> https://mobayo-academic.cbtschool.ng </span>
+             <span id="currentSchoolUrl">Loading school URL…</span>
 
             <span class="status-badge"> ● Live </span>
           </div>
@@ -554,7 +560,8 @@
       lucide.createIcons();
     </script>
 
-    <script src="./js/account-settings.js"></script>
+    <!-- <script src="./js/account-settings.js"></script> -->
+     <script src="../backend/accountSettings.js"></script>
     <script src="./js/account-dropdown.js"></script>
     <script src="./js/mobile-navigation.js"></script>
   </body>

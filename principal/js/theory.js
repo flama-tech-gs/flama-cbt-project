@@ -272,12 +272,12 @@ document.addEventListener("click", (e) => {
 
   if (!btn) return;
 
-  /*
+  
 
 window.location.href =
 "student-profile.html";
 
-*/
+
 
   alert("Open Student Profile");
 });

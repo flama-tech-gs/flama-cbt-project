@@ -79,7 +79,7 @@
           <div class="admin-avatar">SA</div>
 
           <div class="admin-account">
-            <strong>Super Admin</strong>
+            <strong id="sidebarAdminName">Loading...</strong>
 
             <button type="button" class="logout-link">Log Out →</button>
           </div>
@@ -138,9 +138,9 @@
               <div class="topbar-avatar">SA</div>
 
               <div class="topbar-admin-info">
-                <strong>Super Admin</strong>
+                <strong id="topbarAdminName">Loading...</strong>
 
-                <span>Platform Team⌄</span>
+                 <span id="topbarAdminRole">Loading...</span>
               </div>
             </div>
           </div>
@@ -156,7 +156,7 @@
             ================================== -->
 
           <section class="dashboard-intro">
-            <h1>Good morning, Admin 👋</h1>
+            <h1 id="dashboardGreeting">Good morning, Admin 👋</h1>
 
             <p>Here's what's happening across the CBT School platform today.</p>
           </section>
@@ -175,7 +175,7 @@
                 </div>
               </div>
 
-              <h2>128</h2>
+              <h2 id="totalSchoolsValue">—</h2>
 
               <p>+12 this term</p>
             </article>
@@ -189,7 +189,7 @@
                 </div>
               </div>
 
-              <h2>112</h2>
+              <h2 id="activeSubscriptionsValue">—</h2>
 
               <p>87% active rate</p>
             </article>
@@ -203,7 +203,7 @@
                 </div>
               </div>
 
-              <h2>₦4.82M</h2>
+              <h2 id="monthlyRevenueValue">—</h2>
 
               <p>+8.4% vs last month</p>
             </article>
@@ -217,7 +217,7 @@
                 </div>
               </div>
 
-              <h2>9</h2>
+              <h2 id="openTicketsValue">—</h2>
 
               <p>3 high priority</p>
             </article>
@@ -798,7 +798,8 @@
       </main>
     </div>
 
-    <script src="./js/dashboard.js"></script>
+    <!-- <script src="./js/dashboard.js"></script> -->
+    <script src="../backend/adminDashboard.js"></script>
     <script src="./js/mobile-navigation.js"></script>
 
     <script>

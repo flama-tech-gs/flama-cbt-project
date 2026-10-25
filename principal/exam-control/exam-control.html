@@ -33,10 +33,10 @@
       <aside class="sidebar" id="principalSidebar">
         <div class="sidebar-top">
           <div class="logo-area">
-            <img src="../assets/logo.png" alt="School Logo" />
+            <img id="schoolLogo" src="../assets/logo.png" alt="School Logo" />
 
             <div>
-              <h2>Mobayo Academic</h2>
+              <h2 id="schoolName">Loading...</h2>
 
               <p>...Knowledge, Discipline, Excellence...</p>
             </div>
@@ -169,10 +169,10 @@ TOPBAR
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="../assets/image.png" alt="Principal" />
+              <img id="principalImage" src="../assets/image.png" alt="Principal" />
 
               <div>
-                <h3>Dr. Bankole Okonjo</h3>
+                <h3 id="principalName">Loading...</h3>
 
                 <p>School Principal</p>
               </div>
@@ -192,7 +192,7 @@ ACCORDIONS
 GO LIVE MODAL
 ========================================== -->
 
-        <div class="modal-overlay" id="goLiveModal">
+        <div class="modal-overlay" id="goLiveModal" hidden>
           <div class="modal">
             <div class="modal-icon warning">
               <i data-lucide="play"></i>
@@ -200,9 +200,9 @@ GO LIVE MODAL
 
             <h2>Push this exam live?</h2>
 
-            <p>
-              Students in JSS 1A will immediately be able to access and begin
-              writing the Biology exam. This action cannot be undone once
+            <p> 
+              Students in <span id="liveClassName"></span> will immediately be able to access and begin
+              writing the <span id="liveSubjectName"></span> exam. This action cannot be undone once
               students start submitting answers.
             </p>
 
@@ -210,30 +210,31 @@ GO LIVE MODAL
               <div>
                 <span>Subject</span>
 
-                <strong>Biology</strong>
+                <span id="goLiveSubject"></span>
               </div>
 
               <div>
                 <span>Class</span>
 
-                <strong>JSS 1A (30 students)</strong>
+                <span id="goLiveClass"></span>
+                <span>(<span id="liveStudentCount"></span> students)</span>
               </div>
 
               <div>
                 <span>Duration</span>
 
-                <strong>45 Minutes</strong>
+                <span id="liveDuration"></span>
               </div>
 
               <div>
                 <span>Questions</span>
 
-                <strong>40</strong>
+              <span id="liveQuestionCount"></span>
               </div>
-            </div>
+            </div> 
 
-            <button class="modal-primary" id="confirmGoLive">
-              <i data-lucide="play"></i>
+            <button class="modal-primary" id="confirmGoLive" type="button">
+              <i data-lucide="play"></i> 
 
               Yes, Go Live Now
             </button>
@@ -264,25 +265,25 @@ STOP EXAM MODAL
               <div>
                 <span>Subject</span>
 
-                <strong>Mathematics</strong>
+                <strong id="stopExamSubject"></strong>
               </div>
 
               <div>
                 <span>Class</span>
 
-                <strong>JSS 2A</strong>
+                <strong id="stopExamClass"> </strong>
               </div>
 
               <div>
                 <span>Time Remaining</span>
 
-                <strong>18 Minutes</strong>
-              </div>
+                <strong id="stopExamTimeRemaining"></strong>
+              </div> 
 
               <div>
                 <span>Students In Progress</span>
 
-                <strong style="color: #dc2626"> 28 of 33 </strong>
+                <strong style="color: #dc2626" id="stopExamStudentsInProgress"> 28 of 33 </strong>
               </div>
             </div>
 
@@ -300,7 +301,9 @@ STOP EXAM MODAL
       </main>
     </div>
 
+    
     <script src="./js/exam-control.js"></script>
+    <script src="../../backend/principalExamControl.js"></script>
 
     <script>
       lucide.createIcons();

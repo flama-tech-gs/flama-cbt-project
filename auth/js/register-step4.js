@@ -169,13 +169,14 @@ function initPaymentForm() {
                 }
 
             }).openIframe();
-        */
+       
 
     // Demo
 
     setTimeout(() => {
       window.location.href = "registration-success.html";
     }, 2000);
+     */
   });
 }
 

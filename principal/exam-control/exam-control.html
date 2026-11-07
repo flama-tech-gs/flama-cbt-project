@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="../css/styles.css" />
 
     <link rel="stylesheet" href="./css/exam-control.css" />
-  </head>
+    <link rel="stylesheet" href="../../backend/createExam.css" />
+      <script src="../../backend/portalAccessGuard.js"></script>
+</head>
 
   <body>
     <div class="dashboard">
@@ -168,6 +170,10 @@ TOPBAR
           </div>
 
           <div class="topbar-right">
+            <button class="create-exam-trigger" id="openCreateExam" type="button">
+              <i data-lucide="plus"></i>
+              Create Exam
+            </button>
             <div class="teacher-profile">
               <img id="principalImage" src="../assets/image.png" alt="Principal" />
 
@@ -179,6 +185,19 @@ TOPBAR
             </div>
           </div>
         </header>
+
+        <div class="create-exam-overlay" id="createExamModal" hidden>
+          <section class="create-exam-modal" role="dialog" aria-modal="true" aria-labelledby="createExamHeading">
+            <header class="create-exam-modal-header">
+              <div>
+                <h2 id="createExamHeading">Create exam</h2>
+                <p>Set up the exam details and choose its questions.</p>
+              </div>
+              <button class="create-exam-close" type="button" aria-label="Close" data-close-create-exam>&times;</button>
+            </header>
+            <div id="createExamFormRoot"></div>
+          </section>
+        </div>
 
         <div class="main-container">
           <!-- ==========================================
@@ -304,6 +323,7 @@ STOP EXAM MODAL
     
     <script src="./js/exam-control.js"></script>
     <script src="../../backend/principalExamControl.js"></script>
+    <script src="../../backend/createExam.js"></script>
 
     <script>
       lucide.createIcons();

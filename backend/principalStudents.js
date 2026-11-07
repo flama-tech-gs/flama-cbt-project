@@ -9,9 +9,26 @@
   const searchInput = document.querySelector(".students-toolbar .search-box input");
   const promoteAllButton = document.querySelector("#promoteAllBtn");
   const togglePromoteButton = document.querySelector("#disablePromoteAllBtn");
+  const resetModal = document.querySelector("#resetModal");
+  const resetStudent = document.querySelector("#resetStudent");
+  const resetClass = document.querySelector("#resetClass");
+  const resetCode = document.querySelector("#resetCode");
+  const confirmResetButton = document.querySelector("#confirmReset");
+  const closeResetButton = document.querySelector("#closeReset");
+  const actionModal = document.querySelector("#studentActionModal");
+  const actionDialog = actionModal?.querySelector(".action-dialog");
+  const actionTitle = document.querySelector("#actionDialogTitle");
+  const actionMessage = document.querySelector("#actionDialogMessage");
+  const actionDetails = document.querySelector("#actionDialogDetails");
+  const actionIcon = document.querySelector("#actionDialogIcon");
+  const actionSelectWrap = document.querySelector("#actionSelectWrap");
+  const actionSelect = document.querySelector("#actionSelect");
+  const actionConfirmButton = document.querySelector("#actionConfirm");
+  const actionCancelButton = document.querySelector("#actionCancel");
 
   let classes = [];
   let searchTimer;
+  let studentPendingReset = null;
 
   function escapeHtml(value) {
     return String(value ?? "").replace(/[&<>"']/g, (character) => ({
@@ -90,6 +107,183 @@
     }
     if (principalImage && data.principal?.image) {
       principalImage.src = data.principal.image;
+    }
+  }
+
+  function showActionPopup({
+    title,
+    message,
+    details = [],
+    options = null,
+    confirmText = "Continue",
+    cancelText = "Cancel",
+    showCancel = true,
+    isError = false,
+  }) {
+    if (!actionModal || !actionDialog) return Promise.resolve(null);
+
+    actionTitle.textContent = title;
+    actionMessage.textContent = message;
+    actionIcon.textContent = isError ? "!" : "✓";
+    actionDialog.classList.toggle("is-error", isError);
+    actionDetails.replaceChildren();
+
+    details.forEach(({ label, value }) => {
+      const row = document.createElement("div");
+      row.className = "action-dialog-detail";
+      const labelNode = document.createElement("span");
+      labelNode.textContent = label;
+      const valueNode = document.createElement("strong");
+      valueNode.textContent = value;
+      row.append(labelNode, valueNode);
+      actionDetails.appendChild(row);
+    });
+
+    actionSelectWrap.hidden = !Array.isArray(options);
+    actionSelect.replaceChildren();
+    if (Array.isArray(options)) {
+      options.forEach(({ value, label }) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = label;
+        actionSelect.appendChild(option);
+      });
+    }
+
+    actionConfirmButton.textContent = confirmText;
+    actionCancelButton.textContent = cancelText;
+    actionCancelButton.hidden = !showCancel;
+    actionModal.classList.add("show");
+    actionModal.setAttribute("aria-hidden", "false");
+
+    return new Promise((resolve) => {
+      let finished = false;
+      const finish = (value) => {
+        if (finished) return;
+        finished = true;
+        actionModal.classList.remove("show");
+        actionModal.setAttribute("aria-hidden", "true");
+        actionConfirmButton.removeEventListener("click", onConfirm);
+        actionCancelButton.removeEventListener("click", onCancel);
+        actionModal.removeEventListener("click", onOverlayClick);
+        document.removeEventListener("keydown", onKeyDown);
+        resolve(value);
+      };
+      const onConfirm = () => finish(Array.isArray(options) ? actionSelect.value : true);
+      const onCancel = () => finish(null);
+      const onOverlayClick = (event) => {
+        if (event.target === actionModal) finish(null);
+      };
+      const onKeyDown = (event) => {
+        if (event.key === "Escape") finish(null);
+      };
+
+      actionConfirmButton.addEventListener("click", onConfirm);
+      actionCancelButton.addEventListener("click", onCancel);
+      actionModal.addEventListener("click", onOverlayClick);
+      document.addEventListener("keydown", onKeyDown);
+      actionConfirmButton.focus();
+    });
+  }
+
+  function showNotice(title, message, { details = [], isError = false } = {}) {
+    return showActionPopup({
+      title,
+      message,
+      details,
+      confirmText: "Close",
+      showCancel: false,
+      isError,
+    });
+  }
+
+  function studentRecord(studentId) {
+    for (const classItem of classes) {
+      const student = classItem.records.find(
+        (record) => record.studentId === studentId
+      );
+      if (student) return { student, classItem };
+    }
+    return null;
+  }
+
+  function openResetModal(studentId) {
+    const result = studentRecord(studentId);
+    if (!result || !resetModal) {
+      void showNotice("Student not found", "Refresh the student list and try again.", {
+        isError: true,
+      });
+      return;
+    }
+
+    studentPendingReset = result;
+    resetStudent.textContent = result.student.name;
+    resetClass.textContent = result.classItem.class;
+    resetCode.textContent = result.student.code || "—";
+    resetModal.classList.add("show");
+    resetModal.setAttribute("aria-hidden", "false");
+    confirmResetButton.focus();
+  }
+
+  function closeResetModal() {
+    resetModal?.classList.remove("show");
+    resetModal?.setAttribute("aria-hidden", "true");
+    studentPendingReset = null;
+  }
+
+  function createTemporaryPassword() {
+    if (!window.crypto?.getRandomValues) {
+      throw new Error("Secure password generation is unavailable in this browser.");
+    }
+
+    const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789";
+    const limit = Math.floor(256 / alphabet.length) * alphabet.length;
+    let value = "";
+
+    while (value.length < 14) {
+      const bytes = new Uint8Array(20);
+      window.crypto.getRandomValues(bytes);
+      for (const byte of bytes) {
+        if (byte < limit) value += alphabet[byte % alphabet.length];
+        if (value.length === 14) break;
+      }
+    }
+
+    return `Flama-${value}`;
+  }
+
+  async function resetStudentPassword() {
+    if (!studentPendingReset || confirmResetButton.disabled) return;
+
+    const pendingReset = studentPendingReset;
+    confirmResetButton.disabled = true;
+
+    try {
+      const temporaryPassword = createTemporaryPassword();
+      await requestJson(
+        `/principal/students/${encodeURIComponent(pendingReset.student.studentId)}/password`,
+        {
+          method: "PATCH",
+          body: JSON.stringify({ newPassword: temporaryPassword }),
+        }
+      );
+
+      closeResetModal();
+      await showNotice(
+        "Password reset successfully",
+        "Share this temporary password with the student. Their admission number stays the same.",
+        {
+          details: [
+            { label: "Student", value: pendingReset.student.name },
+            { label: "Temporary Password", value: temporaryPassword },
+          ],
+        }
+      );
+    } catch (error) {
+      closeResetModal();
+      await showNotice("Could not reset password", error.message, { isError: true });
+    } finally {
+      confirmResetButton.disabled = false;
     }
   }
 
@@ -221,7 +415,7 @@
     render();
   }
 
-  function chooseClass(message, excludedId = "") {
+  async function chooseClass(message, excludedId = "") {
     const available = classes.filter(
       (item) => item.classId !== excludedId
     );
@@ -230,19 +424,17 @@
       throw new Error("No destination class is available.");
     }
 
-    const choices = available
-      .map((item, index) => `${index + 1}. ${item.class}`)
-      .join("\n");
+    const selectedId = await showActionPopup({
+      title: "Choose a class",
+      message,
+      options: available.map((item) => ({
+        value: item.classId,
+        label: item.class,
+      })),
+      confirmText: "Continue",
+    });
 
-    const answer = window.prompt(`${message}\n\n${choices}`);
-    if (!answer) return null;
-
-    const index = Number(answer) - 1;
-    if (!Number.isInteger(index) || !available[index]) {
-      throw new Error("Enter the number beside a listed class.");
-    }
-
-    return available[index];
+    return available.find((item) => item.classId === selectedId) || null;
   }
 
   async function handleStudentAction(button) {
@@ -251,9 +443,13 @@
 
     if (action === "pause" || action === "activate") {
       const status = action === "pause" ? "SUSPENDED" : "ACTIVE";
-      const confirmed = window.confirm(
-        `${action === "pause" ? "Pause" : "Reactivate"} this student account?`
-      );
+      const record = studentRecord(studentId)?.student;
+      const confirmed = await showActionPopup({
+        title: action === "pause" ? "Pause student account?" : "Reactivate student account?",
+        message: `${action === "pause" ? "Pause" : "Reactivate"} this student account?`,
+        details: record ? [{ label: "Student", value: record.name }] : [],
+        confirmText: action === "pause" ? "Yes, Pause Account" : "Reactivate Account",
+      });
       if (!confirmed) return;
 
       await requestJson(`/principal/students/${studentId}/status`, {
@@ -262,21 +458,15 @@
       });
 
       await loadStudents(searchInput?.value.trim() || "");
+      await showNotice(
+        action === "pause" ? "Student account paused" : "Student account reactivated",
+        `${record?.name || "The student"} is now ${action === "pause" ? "suspended" : "active"}.`
+      );
       return;
     }
 
     if (action === "password") {
-      const newPassword = window.prompt(
-        "Enter the new student password (at least 8 characters):"
-      );
-      if (newPassword === null) return;
-
-      await requestJson(`/principal/students/${studentId}/password`, {
-        method: "PATCH",
-        body: JSON.stringify({ newPassword }),
-      });
-
-      window.alert("Student password changed.");
+      openResetModal(studentId);
       return;
     }
 
@@ -284,32 +474,43 @@
       const sourceClass = classes.find((item) =>
         item.records.some((student) => student.studentId === studentId)
       );
-      const target = chooseClass(
-        "Choose the destination class by entering its number:",
+      const target = await chooseClass(
+        "Select the destination class:",
         sourceClass?.classId
       );
       if (!target) return;
+
+      const record = studentRecord(studentId)?.student;
+      const confirmed = await showActionPopup({
+        title: "Promote student?",
+        message: `Move this student to ${target.class}?`,
+        details: record ? [{ label: "Student", value: record.name }] : [],
+        confirmText: "Yes, Promote",
+      });
+      if (!confirmed) return;
 
       await requestJson(`/principal/students/${studentId}/promote`, {
         method: "PATCH",
         body: JSON.stringify({ classId: target.classId }),
       });
 
-      window.alert(`Student promoted to ${target.class}.`);
       await loadStudents(searchInput?.value.trim() || "");
+      await showNotice("Student promoted", `The student has been promoted to ${target.class}.`);
     }
   }
 
   async function promoteClass(classItem) {
-    const target = chooseClass(
+    const target = await chooseClass(
       `Choose the destination class for all ${classItem.class} students:`,
       classItem.classId
     );
     if (!target) return;
 
-    const confirmed = window.confirm(
-      `Promote all ${classItem.students} students from ${classItem.class} to ${target.class}?`
-    );
+    const confirmed = await showActionPopup({
+      title: "Promote this class?",
+      message: `Promote all ${classItem.students} students from ${classItem.class} to ${target.class}?`,
+      confirmText: "Yes, Promote All",
+    });
     if (!confirmed) return;
 
     const data = await requestJson("/principal/students/promote", {
@@ -320,11 +521,12 @@
       }),
     });
 
-    window.alert(
-      `${data.modifiedCount ?? 0} students promoted to ${target.class}.`
-    );
-
     await loadStudents(searchInput?.value.trim() || "");
+    await showNotice(
+      "Class promoted",
+      `Students have been promoted to ${target.class}.`,
+      { details: [{ label: "Students Promoted", value: String(data.modifiedCount ?? 0) }] }
+    );
   }
 
   function bindEvents() {
@@ -365,11 +567,10 @@
     promoteAllButton?.addEventListener("click", async () => {
       if (promoteAllButton.disabled) return;
 
-      const source = chooseClass("Choose the class to promote:");
-      if (!source) return;
-
       try {
         promoteAllButton.disabled = true;
+        const source = await chooseClass("Choose the class to promote:");
+        if (!source) return;
         await promoteClass(source);
       } catch (error) {
         showError(error);
@@ -389,11 +590,25 @@
 
   function showError(error) {
     console.error("Principal students integration error:", error);
-    window.alert(error.message || "Could not complete the student action.");
+    void showNotice(
+      "Action could not be completed",
+      error.message || "Could not complete the student action.",
+      { isError: true }
+    );
   }
 
   async function init() {
     bindEvents();
+    closeResetButton?.addEventListener("click", closeResetModal);
+    confirmResetButton?.addEventListener("click", resetStudentPassword);
+    resetModal?.addEventListener("click", (event) => {
+      if (event.target === resetModal) closeResetModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && resetModal?.classList.contains("show")) {
+        closeResetModal();
+      }
+    });
 
     try {
       await Promise.all([

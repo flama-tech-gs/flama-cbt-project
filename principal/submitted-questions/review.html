@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="../css/styles.css" />
 
     <link rel="stylesheet" href="./css/review.css" />
-  </head>
+      <script src="../../backend/portalAccessGuard.js"></script>
+</head>
 
   <body>
     <div class="dashboard">
@@ -584,6 +585,58 @@ SEND BACK FOR CORRECTION MODAL
           <button class="btn btn-outline" id="cancelSendBack">Cancel</button>
         </div>
       </div>
+    </div>
+
+    <div class="modal-overlay question-action-modal" id="approveQuestionModal" aria-hidden="true">
+      <section class="modal-card question-action-card" role="dialog" aria-modal="true" aria-labelledby="approveQuestionTitle">
+        <div class="modal-icon">
+          <div class="icon-circle"><i data-lucide="check"></i></div>
+        </div>
+        <h2 id="approveQuestionTitle">Approve this question?</h2>
+        <p class="modal-text" id="approveQuestionMessage">
+          Once approved, this question will be available to the teacher to schedule for students.
+        </p>
+        <div class="exam-info question-action-info">
+          <div class="info-row"><span>Subject</span><strong id="approveQuestionSubject">—</strong></div>
+          <div class="info-row"><span>Class</span><strong id="approveQuestionClass">—</strong></div>
+          <div class="info-row"><span>Teacher</span><strong id="approveQuestionTeacher">—</strong></div>
+          <div class="info-row"><span>Question</span><strong id="approveQuestionNumber">—</strong></div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-success" id="confirmApproveQuestion" type="button">
+            <i data-lucide="check"></i> Yes, Approve Question
+          </button>
+          <button class="btn btn-outline" id="cancelApproveQuestion" type="button">Cancel</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="modal-overlay question-action-modal" id="correctQuestionModal" aria-hidden="true">
+      <section class="modal-card question-action-card correction-action-card" role="dialog" aria-modal="true" aria-labelledby="correctQuestionTitle">
+        <div class="modal-icon">
+          <div class="icon-circle danger"><i data-lucide="alert-triangle"></i></div>
+        </div>
+        <h2 id="correctQuestionTitle">Send back for correction?</h2>
+        <p class="modal-text">
+          The teacher will be notified and asked to correct this question before resubmitting.
+        </p>
+        <div class="comment-section">
+          <label for="questionCorrectionComment">Summary Comment for Teacher</label>
+          <textarea id="questionCorrectionComment" placeholder="Summarize what needs to be fixed."></textarea>
+          <p class="correction-comment-error" id="correctionCommentError" role="alert" hidden>
+            Enter a correction comment before sending it back.
+          </p>
+        </div>
+        <div class="exam-info question-action-info">
+          <div class="info-row"><span>Subject</span><strong id="correctQuestionSubject">—</strong></div>
+          <div class="info-row"><span>Class</span><strong id="correctQuestionClass">—</strong></div>
+          <div class="info-row"><span>Flagged Question</span><strong id="correctQuestionNumber">—</strong></div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-danger" id="confirmCorrectQuestion" type="button">Send Back for Correction</button>
+          <button class="btn btn-outline" id="cancelCorrectQuestion" type="button">Cancel</button>
+        </div>
+      </section>
     </div>
 
     <!-- <script src="./js/review.js"></script> -->

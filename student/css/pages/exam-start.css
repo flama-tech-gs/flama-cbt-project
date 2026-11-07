@@ -23,7 +23,15 @@ body {
 
 .top-right img {
   width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 50%;
+}
+
+.top-right p {
+  margin-top: 3px;
+  color: #5d6b60;
+  font-size: 0.8rem;
 }
 
 /* Back button */
@@ -45,8 +53,29 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 120px;
+  padding: 0 20px 32px;
 
   background-color: white;
+}
+
+.page-title {
+  margin-bottom: 20px;
+  color: #243b28;
+  text-align: center;
+}
+
+.exam-status {
+  max-width: 720px;
+  margin-bottom: 18px;
+  color: #536257;
+  text-align: center;
+}
+
+.exam-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  gap: 20px;
+  width: min(100%, 920px);
 }
 
 /* Card */
@@ -54,8 +83,8 @@ body {
   background: #f4f4f4;
   padding: 30px;
   border-radius: 16px;
-  width: 420px;
-  max-width: 90%;
+  width: 100%;
+  max-width: 100%;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -76,6 +105,23 @@ body {
   font-size: 16px;
 }
 
+.exam-info p span:first-child {
+  display: inline-block;
+  min-width: 145px;
+}
+
+.exam-info p span:last-child {
+  color: #263528;
+  font-weight: 400;
+}
+
+.exam-info .exam-instructions {
+  display: block;
+  margin: 6px 0 0;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
 .exam-info span {
   color: #2e7d32;
   font-weight: bold;
@@ -94,6 +140,41 @@ body {
   cursor: pointer;
 }
 
+.start-btn.is-submitted,
+.start-btn.is-submitted:hover {
+  background: #647067;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.start-btn:focus-visible,
+.back-btn:focus-visible {
+  outline: 3px solid #f2b84b;
+  outline-offset: 3px;
+}
+
+.exam-empty {
+  grid-column: 1 / -1;
+  width: min(100%, 620px);
+  margin: 0 auto;
+  padding: 24px;
+  border: 1px solid #e0e8e1;
+  border-radius: 12px;
+  color: #536257;
+  text-align: center;
+}
+
+.exam-empty h2 {
+  margin-bottom: 8px;
+  color: #243b28;
+}
+
+.exam-empty.is-error {
+  border-color: #f1c5c2;
+  color: #8e302b;
+}
+
 /* Note */
 .note {
   margin-top: 20px;
@@ -104,12 +185,24 @@ body {
 
 /* Responsive */
 @media (max-width: 600px) {
+  .exam-container {
+    margin-top: 135px;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
   .exam-card {
     padding: 20px;
   }
 
   .exam-info p {
     font-size: 14px;
+  }
+
+  .exam-info p span:first-child {
+    min-width: 125px;
   }
 }
 

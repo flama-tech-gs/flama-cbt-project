@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Exam | Teacher Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./css/cards.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/sidebar.css" />
+    <link rel="stylesheet" href="./css/topbar.css" />
+    <link rel="stylesheet" href="../backend/createExam.css" />
+      <script src="../backend/portalAccessGuard.js"></script>
+</head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div class="logo-area">
+            <img src="assets/logo.png" alt="School Logo" />
+            <div><h2>Mobayo Academic</h2><p>...Knowledge, Discipline, Excellence...</p></div>
+          </div>
+          <nav>
+            <a href="./overview.html" class="nav-link"><i data-lucide="layout-dashboard"></i><span>Overview</span></a>
+            <a href="./classes.html" class="nav-link"><i data-lucide="users"></i><span>Classes &amp; Students</span></a>
+            <a href="./create-exam.html" class="nav-link active" data-create-exam-link><i data-lucide="file-plus-2"></i><span>Create Exam</span></a>
+            <a href="./upload-question/upload.html" class="nav-link"><i data-lucide="upload"></i><span>Upload Questions</span></a>
+            <a href="./upload-question/uploaded-questions.html" class="nav-link"><i data-lucide="files"></i><span>Uploaded Questions</span></a>
+            <a href="./submitted-question/submitted-questions.html" class="nav-link"><i data-lucide="clipboard-check"></i><span>Submitted Questions</span></a>
+            <a href="./notifications/notifications.html" class="nav-link notification-link"><i data-lucide="bell"></i><span>Notifications</span></a>
+            <a href="./student-scores/student-scores.html" class="nav-link"><i data-lucide="bar-chart-3"></i><span>Student Scores</span></a>
+            <a href="./theory/theory.html" class="nav-link"><i data-lucide="book-open"></i><span>Theory</span></a>
+            <a href="./recorded-theory/recorded-theory.html" class="nav-link"><i data-lucide="file-text"></i><span>Recorded Theory</span></a>
+            <a href="./profile/profile.html" class="nav-link"><i data-lucide="user-circle"></i><span>Profile</span></a>
+          </nav>
+        </div>
+        <button class="logout-btn"><i data-lucide="log-out"></i>Logout</button>
+      </aside>
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+      <main class="main-content">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="menu-toggle" type="button" aria-label="Open navigation"><i data-lucide="menu"></i></button>
+            <div class="topbar-title"><h1>Create Exam</h1><p>Prepare a draft exam using approved questions for your school.</p></div>
+          </div>
+        </header>
+        <div class="main-container">
+          <section class="create-exam-page-card">
+            <div class="create-exam-page-heading">
+              <h2>Exam details</h2>
+              <p>Choose the academic period, class, subject offering, schedule, and questions. The exam is saved as a draft for the Principal to schedule or publish.</p>
+            </div>
+            <div id="createExamFormRoot"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="./js/sidebar-nav.js"></script>
+    <script src="../backend/createExam.js"></script>
+    <script>window.lucide?.createIcons();</script>
+  </body>
+</html>

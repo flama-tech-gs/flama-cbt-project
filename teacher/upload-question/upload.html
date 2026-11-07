@@ -27,7 +27,8 @@
     <link rel="stylesheet" href="../css/topbar.css" />
 
     <link rel="stylesheet" href="./css/upload.css" />
-  </head>
+      <script src="../../backend/portalAccessGuard.js"></script>
+</head>
 
   <body>
     <div class="dashboard">
@@ -434,14 +435,14 @@
           <div class="modal success-modal">
             <div class="success-icon">✓</div>
 
-            <h2>Questions Submitted Successfully</h2>
+            <h2>Questions Uploaded Successfully!</h2>
 
-            <p>
-              Your examination has been submitted successfully and is now
-              awaiting approval.
+            <p id="uploadSuccessMessage">
+              Your questions have been uploaded and are pending approval by the principal.
             </p>
+            <span class="approval-status">♟ Pending Principal Approval</span>
 
-            <div class="modal-actions">
+            <div class="modal-actions success-actions">
               <button class="btn-outline" id="viewQuestionsBtn">
                 View Uploaded Questions
               </button>

@@ -62,16 +62,22 @@
           </div>
 
           <!-- FORGOT PASSWORD MODAL -->
-          <div class="modal-overlay" id="forgotModal">
-            <div class="forgot-modal">
-              <h3>⚠ Password Change Restricted</h3>
-
-              <p>
-                Please contact the school authority to recover or reset your
-                password.
-              </p>
-
-              <button id="closeModal">Okay</button>
+          <div class="modal-overlay" id="forgotModal" aria-hidden="true">
+            <div
+              class="forgot-modal"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="forgotModalTitle"
+            >
+              <div class="forgot-modal__message">
+                <h3 id="forgotModalTitle">⚠️ Password Change Restricted</h3>
+                <p>
+                  For security reasons, students cannot reset their passwords
+                  directly. Please contact your school administrator or ICT
+                  office for assistance.
+                </p>
+              </div>
+              <button id="closeModal" type="button">Okay</button>
             </div>
           </div>
 

@@ -36,7 +36,8 @@
     <link rel="stylesheet" href="./css/question-bank.css" /> -->
 
     <link rel="stylesheet" href="./css/edit-question.css" />
-  </head>
+      <script src="../../backend/portalAccessGuard.js"></script>
+</head>
 
   <body>
     <div class="dashboard">
@@ -346,6 +347,46 @@ SUBMIT BAR
           </section>
         </div>
       </main>
+    </div>
+
+    <div
+      id="editQuestionToastRegion"
+      class="edit-question-toast-region"
+      aria-live="polite"
+      aria-atomic="false"
+    ></div>
+
+    <div
+      id="approvalSuccessModal"
+      class="approval-success-overlay hidden"
+      aria-hidden="true"
+    >
+      <section
+        class="approval-success-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="approvalSuccessTitle"
+      >
+        <div class="success-icon"><i data-lucide="check"></i></div>
+        <h2 id="approvalSuccessTitle">Submitted Successfully!</h2>
+        <p class="approval-success-message">
+          Your questions have been submitted and are now awaiting approval from the school administrator.
+        </p>
+        <div class="approval-success-summary">
+          <div><span>Subject</span><strong id="successSubject">—</strong></div>
+          <div><span>Date Submitted</span><strong id="successSubmittedDate">—</strong></div>
+          <div><span>Class</span><strong id="successClass">—</strong></div>
+          <div><span>Questions</span><strong id="successQuestionCount">0</strong></div>
+        </div>
+        <a
+          id="backToSubmittedQuestions"
+          class="approval-success-primary"
+          href="../submitted-question/submitted-questions.html"
+        >
+          Back to Submitted Questions
+        </a>
+        <button id="closeApprovalSuccess" class="approval-success-secondary" type="button">Close</button>
+      </section>
     </div>
 
     <script src="./js/edit-question.js"></script>

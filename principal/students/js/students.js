@@ -267,28 +267,6 @@ BUTTON
 
 document.getElementById("addStudentBtn").addEventListener("click", () => {
   window.location.href = "./add-student.html";
-
-  // alert("Add Student");
-});
-
-const promoteAllButton = document.getElementById("promoteAllBtn");
-const disablePromoteAllButton = document.getElementById("disablePromoteAllBtn");
-
-promoteAllButton.addEventListener("click", () => {
-  const confirmed = confirm("Promote all students to the next class?");
-
-  if (!confirmed) return;
-
-  alert("All students are queued for promotion.");
-});
-
-disablePromoteAllButton.addEventListener("click", () => {
-  const isDisabled = promoteAllButton.disabled;
-
-  promoteAllButton.disabled = !isDisabled;
-  disablePromoteAllButton.textContent = isDisabled
-    ? "Disable Promote All"
-    : "Enable Promote All";
 });
 
 /*
@@ -332,36 +310,4 @@ document.addEventListener("keydown", (event) => {
 // Reset the drawer when the viewport grows back to desktop width.
 window.matchMedia("(max-width: 1024px)").addEventListener("change", (event) => {
   if (!event.matches) closeSidebar();
-});
-
-/*
-==========================================
-RESET ACCESS CODE
-==========================================
-*/
-
-const resetModal = document.getElementById("resetModal");
-
-document.addEventListener("click", (e) => {
-  const resetBtn = e.target.closest(".reset-access");
-
-  if (resetBtn) {
-    resetModal.classList.add("show");
-  }
-});
-
-document.getElementById("closeReset").addEventListener("click", () => {
-  resetModal.classList.remove("show");
-});
-
-document.getElementById("confirmReset").addEventListener("click", () => {
-  alert("New access code generated.");
-
-  resetModal.classList.remove("show");
-});
-
-resetModal.addEventListener("click", (e) => {
-  if (e.target === resetModal) {
-    resetModal.classList.remove("show");
-  }
 });

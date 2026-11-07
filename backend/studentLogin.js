@@ -260,13 +260,35 @@
       closeModal.type = "button";
       closeModal.addEventListener("click", (event) => {
         event.preventDefault();
-        if (forgotModal) forgotModal.style.display = "none";
+        if (forgotModal) {
+          forgotModal.classList.remove("active");
+          forgotModal.setAttribute("aria-hidden", "true");
+        }
       });
     }
 
     forgotLink?.addEventListener("click", (event) => {
       event.preventDefault();
-      if (forgotModal) forgotModal.style.display = "flex";
+      if (forgotModal) {
+        forgotModal.classList.add("active");
+        forgotModal.setAttribute("aria-hidden", "false");
+        closeModal?.focus();
+      }
+    });
+
+    forgotModal?.addEventListener("click", (event) => {
+      if (event.target === forgotModal) {
+        forgotModal.classList.remove("active");
+        forgotModal.setAttribute("aria-hidden", "true");
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && forgotModal?.classList.contains("active")) {
+        forgotModal.classList.remove("active");
+        forgotModal.setAttribute("aria-hidden", "true");
+        forgotLink?.focus();
+      }
     });
   }
 

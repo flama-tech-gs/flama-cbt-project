@@ -93,6 +93,8 @@
     successModal?.querySelector("#viewQuestionsBtn");
   const newExamButton =
     successModal?.querySelector("#newExamBtn");
+  const uploadSuccessMessage =
+    successModal?.querySelector("#uploadSuccessMessage");
 
   const correctButtons = [
     ...mainContainer.querySelectorAll(
@@ -653,6 +655,11 @@
     hideModal(confirmModal);
     clearMessage();
 
+    const selectedOffering = offerings.find(
+      (offering) => offering.offeringId === subjectSelect?.value
+    );
+    const selectedTerm = termSelect?.selectedOptions?.[0]?.textContent?.trim();
+    const selectedSession = sessionInput?.value?.trim();
     let submittedCount = 0;
 
     try {
@@ -668,6 +675,16 @@
       drafts = [];
       saveDrafts();
       updateProgress();
+      if (uploadSuccessMessage) {
+        const className = selectedOffering?.className || "your class";
+        const subjectName = selectedOffering?.subjectName || "your subject";
+        const termName = selectedTerm && !/select/i.test(selectedTerm)
+          ? selectedTerm
+          : "the selected term";
+        const sessionName = selectedSession || "the selected session";
+        uploadSuccessMessage.textContent =
+          `Your exam questions for ${className} - ${subjectName} (${termName}, ${sessionName}) have been uploaded and are pending approval by the principal.`;
+      }
       showModal(successModal);
     } catch (error) {
       // Retain only questions that haven't already been accepted by the API.

@@ -21,6 +21,7 @@
   let questions = [];
   let currentPage = 1;
   let reviewInProgress = false;
+  let pendingQuestion = null;
 
   if (!mainContainer) {
     console.error("Review integration: .main-container was not found.");
@@ -656,6 +657,24 @@
     modal.setAttribute("aria-hidden", "true");
   }
 
+  function setQuestionActionDetails(question) {
+    const questionNumber = questions.indexOf(question) + 1;
+    const details = {
+      approveQuestionSubject: getSubjectName(question),
+      approveQuestionClass: getClassName(question),
+      approveQuestionTeacher: getTeacherName(question),
+      approveQuestionNumber: `${questionNumber} of ${questions.length}`,
+      correctQuestionSubject: getSubjectName(question),
+      correctQuestionClass: getClassName(question),
+      correctQuestionNumber: `${questionNumber} of ${questions.length}`,
+    };
+
+    Object.entries(details).forEach(([id, value]) => {
+      const element = document.getElementById(id);
+      if (element) element.textContent = value;
+    });
+  }
+
   async function loadQuestions() {
     if (!token) {
       showMessage(
@@ -754,7 +773,9 @@
       if (!question) return;
 
       if (button.dataset.action === "approve-one") {
-        await reviewQuestions([id], "APPROVED");
+        pendingQuestion = question;
+        setQuestionActionDetails(question);
+        showModal(document.getElementById("approveQuestionModal"));
         return;
       }
 
@@ -762,28 +783,62 @@
         button.dataset.action === "reject-one" ||
         button.dataset.action === "comment"
       ) {
-        const number = questions.indexOf(question) + 1;
-        const comment = window.prompt(
-          `Enter the correction comment for question ${number}:`,
-          question.rejectionReason || ""
-        );
+        pendingQuestion = question;
+        setQuestionActionDetails(question);
+        const commentInput = document.getElementById("questionCorrectionComment");
+        const commentError = document.getElementById("correctionCommentError");
+        if (commentInput) commentInput.value = question.rejectionReason || "";
+        if (commentError) commentError.hidden = true;
+        showModal(document.getElementById("correctQuestionModal"));
+      }
+    });
 
-        if (comment === null) return;
+    const approveQuestionModal = document.getElementById("approveQuestionModal");
+    const correctQuestionModal = document.getElementById("correctQuestionModal");
 
-        if (!comment.trim()) {
-          window.alert(
-            "Enter a correction comment before sending it back."
-          );
+    document
+      .getElementById("confirmApproveQuestion")
+      ?.addEventListener("click", async () => {
+        if (!pendingQuestion || reviewInProgress) return;
+        const questionId = String(pendingQuestion._id);
+        hideModal(approveQuestionModal);
+        pendingQuestion = null;
+        await reviewQuestions([questionId], "APPROVED");
+      });
+
+    document
+      .getElementById("cancelApproveQuestion")
+      ?.addEventListener("click", () => {
+        hideModal(approveQuestionModal);
+        pendingQuestion = null;
+      });
+
+    document
+      .getElementById("confirmCorrectQuestion")
+      ?.addEventListener("click", async () => {
+        if (!pendingQuestion || reviewInProgress) return;
+
+        const commentInput = document.getElementById("questionCorrectionComment");
+        const commentError = document.getElementById("correctionCommentError");
+        const comment = commentInput?.value.trim() || "";
+        if (!comment) {
+          if (commentError) commentError.hidden = false;
+          commentInput?.focus();
           return;
         }
 
-        await reviewQuestions(
-          [id],
-          "REJECTED",
-          comment.trim()
-        );
-      }
-    });
+        const questionId = String(pendingQuestion._id);
+        hideModal(correctQuestionModal);
+        pendingQuestion = null;
+        await reviewQuestions([questionId], "REJECTED", comment);
+      });
+
+    document
+      .getElementById("cancelCorrectQuestion")
+      ?.addEventListener("click", () => {
+        hideModal(correctQuestionModal);
+        pendingQuestion = null;
+      });
 
     const approveModal =
       document.getElementById("approveExamModal");
@@ -847,7 +902,7 @@
         hideModal(sendBackModal);
       });
 
-    [approveModal, sendBackModal].forEach((modal) => {
+    [approveModal, sendBackModal, approveQuestionModal, correctQuestionModal].forEach((modal) => {
       modal?.addEventListener("click", (event) => {
         if (event.target === modal) hideModal(modal);
       });

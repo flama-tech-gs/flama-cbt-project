@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="../css/styles.css" />
 
     <link rel="stylesheet" href="./css/students.css" />
-  </head>
+      <script src="../../backend/portalAccessGuard.js"></script>
+</head>
 
   <body>
     <div class="dashboard">
@@ -226,18 +227,18 @@ CLASS ACCORDIONS
 RESET ACCESS CODE MODAL
 ========================================== -->
 
-    <div class="modal-overlay" id="resetModal">
-      <div class="reset-modal">
+    <div class="modal-overlay" id="resetModal" aria-hidden="true">
+      <div class="reset-modal" role="dialog" aria-modal="true" aria-labelledby="resetModalTitle">
         <div class="reset-icon">
           <i data-lucide="rotate-cw"></i>
         </div>
 
-        <h2>Reset access code?</h2>
+        <h2 id="resetModalTitle">Reset access code?</h2>
 
         <p class="reset-text">
-          A new access code will be generated for this student. Their current
-          code will stop working immediately, and they'll need the new one to
-          log in.
+          A new temporary password will be generated for this student. Their
+          current password will stop working immediately. Their admission
+          number will stay the same.
         </p>
 
         <div class="reset-info">
@@ -254,9 +255,9 @@ RESET ACCESS CODE MODAL
           </div>
 
           <div>
-            <span>Current Access Code</span>
+            <span>Admission Number</span>
 
-            <strong id="resetCode"> JS/52/2024 </strong>
+            <strong id="resetCode">—</strong>
           </div>
         </div>
 
@@ -264,6 +265,32 @@ RESET ACCESS CODE MODAL
 
         <button class="cancel-btn" id="closeReset">Cancel</button>
       </div>
+    </div>
+
+    <div
+      class="action-modal-overlay"
+      id="studentActionModal"
+      aria-hidden="true"
+    >
+      <section
+        class="action-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="actionDialogTitle"
+      >
+        <div class="action-dialog-icon" id="actionDialogIcon" aria-hidden="true">✓</div>
+        <h2 id="actionDialogTitle"></h2>
+        <p id="actionDialogMessage"></p>
+        <div class="action-dialog-details" id="actionDialogDetails"></div>
+        <label class="action-dialog-select-wrap" id="actionSelectWrap" hidden>
+          <span>Destination class</span>
+          <select id="actionSelect"></select>
+        </label>
+        <div class="action-dialog-buttons">
+          <button class="action-dialog-cancel" id="actionCancel" type="button">Cancel</button>
+          <button class="action-dialog-confirm" id="actionConfirm" type="button">Continue</button>
+        </div>
+      </section>
     </div>
 
     <script src="./js/students.js"></script>

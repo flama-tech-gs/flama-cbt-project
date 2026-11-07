@@ -389,7 +389,7 @@ RESET MODAL
   justify-content: center;
   align-items: center;
 
-  z-index: 5000;
+  z-index: 6000;
 }
 
 .modal-overlay.show {
@@ -397,47 +397,40 @@ RESET MODAL
 }
 
 .reset-modal {
-  width: 430px;
-  max-width: 92%;
-
+  width: min(360px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
   background: #fff;
-
-  border-radius: 24px;
-
-  padding: 2rem;
-
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
   animation: fadeIn 0.25s ease;
 }
 
 .reset-icon {
-  width: 62px;
-  height: 62px;
-
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-
   background: #fff4e6;
-
   display: flex;
   justify-content: center;
   align-items: center;
 
   color: #c77700;
 
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .reset-modal h2 {
-  font-size: 2rem;
-
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
 }
 
 .reset-text {
   color: #666;
-
-  line-height: 1.7;
-
-  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
 .reset-info {
@@ -445,9 +438,8 @@ RESET MODAL
 
   border-radius: 14px;
 
-  padding: 1rem 1.2rem;
-
-  margin-bottom: 1.5rem;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
 }
 
 .reset-info div {
@@ -455,7 +447,9 @@ RESET MODAL
 
   justify-content: space-between;
 
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
+  gap: 12px;
+  font-size: 0.82rem;
 }
 
 .reset-info div:last-child {
@@ -468,38 +462,167 @@ RESET MODAL
 
 .confirm-btn {
   width: 100%;
-  height: 54px;
-
+  height: 44px;
   border: none;
-
-  border-radius: 12px;
-
+  border-radius: 9px;
   background: var(--primary);
-
   color: #fff;
-
-  font-size: 1rem;
-
+  font-size: 0.9rem;
   font-weight: 600;
-
   cursor: pointer;
-
-  margin-bottom: 1rem;
+  margin-bottom: 0.65rem;
 }
 
 .cancel-btn {
   width: 100%;
-  height: 54px;
-
+  height: 42px;
   background: #fff;
-
   border: 1px solid #ddd;
-
-  border-radius: 12px;
-
+  border-radius: 9px;
   cursor: pointer;
+  font-size: 0.9rem;
+}
 
-  font-size: 1rem;
+.action-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 7000;
+  display: none;
+  place-items: center;
+  padding: 16px;
+  background: rgba(22, 22, 22, 0.62);
+}
+
+.action-modal-overlay.show {
+  display: grid;
+}
+
+.action-dialog {
+  width: min(420px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding: 24px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
+  animation: fadeIn 0.2s ease;
+}
+
+.action-dialog-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: #e7f4e9;
+  color: var(--primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.action-dialog.is-error .action-dialog-icon {
+  background: #fff0f0;
+  color: #c62828;
+}
+
+.action-dialog h2 {
+  margin: 0 0 9px;
+  color: #252525;
+  font-size: 1.2rem;
+}
+
+.action-dialog > p {
+  margin: 0 0 15px;
+  color: #626262;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.action-dialog-details {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #f7f8f7;
+}
+
+.action-dialog-details:empty {
+  display: none;
+}
+
+.action-dialog-detail {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.8rem;
+}
+
+.action-dialog-detail span {
+  color: #777;
+}
+
+.action-dialog-detail strong {
+  color: #292929;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.action-dialog-select-wrap {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 16px;
+  color: #666;
+  font-size: 0.82rem;
+}
+
+.action-dialog-select-wrap[hidden] {
+  display: none;
+}
+
+.action-dialog-select-wrap select {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid #d5d9d5;
+  border-radius: 8px;
+  background: #fff;
+  color: #252525;
+}
+
+.action-dialog-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.action-dialog-buttons button {
+  min-height: 42px;
+  flex: 1;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.action-dialog-cancel {
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #333;
+}
+
+.action-dialog-confirm {
+  border: 0;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600 !important;
+}
+
+.action-dialog-confirm:disabled,
+.confirm-btn:disabled {
+  cursor: wait;
+  opacity: 0.7;
 }
 
 @keyframes fadeIn {

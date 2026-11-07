@@ -48,6 +48,24 @@
 
     if (!sidebar) return;
 
+    const nav = sidebar.querySelector("nav");
+    if (nav && !nav.querySelector('[data-create-exam-link]')) {
+      const nestedTeacherPage = /\/teacher\/[^/]+\/[^/]+$/.test(window.location.pathname);
+      const href = nestedTeacherPage ? "../create-exam.html" : "./create-exam.html";
+      const createExamLink = document.createElement("a");
+      createExamLink.href = href;
+      createExamLink.className = "nav-link";
+      createExamLink.dataset.createExamLink = "true";
+      createExamLink.innerHTML = '<i data-lucide="file-plus-2"></i><span>Create Exam</span>';
+      const classesLink = [...nav.querySelectorAll("a")].find((link) =>
+        link.textContent.includes("Classes & Students"),
+      );
+      if (classesLink) classesLink.insertAdjacentElement("afterend", createExamLink);
+      else nav.appendChild(createExamLink);
+      if (window.location.pathname.endsWith("/create-exam.html")) createExamLink.classList.add("active");
+      window.lucide?.createIcons();
+    }
+
     const toggle =
       document.querySelector(".main-content .menu-toggle") || createToggle();
 

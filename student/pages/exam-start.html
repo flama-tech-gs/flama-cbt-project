@@ -3,18 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exam Details</title>
+    <title>Available Exams | Student Portal</title>
 
     <link rel="stylesheet" href="../css/pages/exam-start.css" />
-  </head>
+      <script src="../../backend/portalAccessGuard.js"></script>
+</head>
 
   <body>
     <!-- TOP RIGHT USER -->
     <div class="top-right">
-      <img src="../assets/icons/avatar.png" />
+      <img id="studentAvatar" src="../assets/icons/avatar.png" alt="Student profile" />
       <div>
-        <h4 id="topStudentName">loading....</h4>
-        <p id="topStudentClass" >loading....</p>
+        <h4 id="topStudentName">Loading student…</h4>
+        <p id="topStudentClass">Loading class…</p>
+        <p id="topStudentRole">Student</p>
       </div>
     </div>
 
@@ -22,30 +24,19 @@
     <button class="back-btn">←</button>
 
     <!-- EXAM CARD -->
-    <div class="exam-container">
-      <div class="exam-card">
-        <h3 class="warning">⚠ Examination Details</h3>
-
-        <div class="exam-info">
-          <p><span>Student Name:</span> <span id="studentName"></span></p>
-          <p><span>Class:</span> <span id="studentClass"></span></p>
-          <p><span>Subject:</span> <span id="subject"></span></p>
-          <p><span>Duration:</span> <span id="duration"></span></p>
-          <p><span>Total Questions:</span> <span id="totalQuestions"></span></p>
-          <p><span>Instructions:</span> <span id="instructions"></span></p>
-          <p><span>Term:</span> <span id="term"></span></p>
-          <p><span>Session:</span> <span id="session"></span></p>
-        </div>
-
-        <button class="start-btn">START EXAM</button>
-      </div>
+    <main class="exam-container">
+      <h1 class="page-title">Exams available for you</h1>
+      <p id="examStatus" class="exam-status" role="status" aria-live="polite">
+        Loading your profile and available exams…
+      </p>
+      <section id="examList" class="exam-list" aria-label="Available exams"></section>
 
       <p class="note change-color">
         ⚠ Your countdown timer will start immediately after you click Start. You
         cannot pause or restart the exam once started.
       </p>
-    </div>
+    </main>
 
-    <script src="../js/pages/exam-start.js"></script>
+    <script src="../../backend/studentExamStart.js"></script>
   </body>
 </html>

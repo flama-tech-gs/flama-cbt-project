@@ -55,6 +55,13 @@
     submit: document.getElementById("submitQuestion"),
 
     summaryItems: document.querySelectorAll(".summary-item"),
+    approvalSuccessModal: document.getElementById("approvalSuccessModal"),
+    successSubject: document.getElementById("successSubject"),
+    successClass: document.getElementById("successClass"),
+    successQuestionCount: document.getElementById("successQuestionCount"),
+    successSubmittedDate: document.getElementById("successSubmittedDate"),
+    closeApprovalSuccess: document.getElementById("closeApprovalSuccess"),
+    toastRegion: document.getElementById("editQuestionToastRegion"),
   };
 
   const designedLogoSrc = el.logo?.getAttribute("src") || "";
@@ -215,6 +222,64 @@
 
     node.textContent = message;
     node.style.color = isError ? "#b42318" : "";
+  }
+
+  function showToast(title, description, kind = "saved") {
+    if (!el.toastRegion) return;
+
+    const toast = document.createElement("article");
+    toast.className = `edit-question-toast is-${kind}`;
+    toast.setAttribute("role", "status");
+
+    const icon = document.createElement("span");
+    icon.className = "edit-question-toast__icon";
+    icon.setAttribute("aria-hidden", "true");
+    icon.textContent = kind === "discarded" ? "↶" : "✓";
+
+    const content = document.createElement("div");
+    content.className = "edit-question-toast__content";
+
+    const heading = document.createElement("strong");
+    heading.textContent = title;
+    const detail = document.createElement("span");
+    detail.textContent = description;
+    content.append(heading, detail);
+
+    const close = document.createElement("button");
+    close.className = "edit-question-toast__close";
+    close.type = "button";
+    close.setAttribute("aria-label", "Dismiss notification");
+    close.textContent = "×";
+    close.addEventListener("click", () => toast.remove());
+
+    toast.append(icon, content, close);
+    el.toastRegion.appendChild(toast);
+
+    window.setTimeout(() => toast.remove(), 5000);
+  }
+
+  function showApprovalSuccess() {
+    const submission = state.submission || {};
+    const submittedAt = new Intl.DateTimeFormat(undefined, {
+      dateStyle: "medium",
+    }).format(new Date());
+
+    if (el.successSubject) el.successSubject.textContent = submission.subject || "Questions";
+    if (el.successClass) el.successClass.textContent = submission.className || "—";
+    if (el.successQuestionCount) {
+      el.successQuestionCount.textContent = String(state.questions.length);
+    }
+    if (el.successSubmittedDate) el.successSubmittedDate.textContent = submittedAt;
+
+    el.approvalSuccessModal?.classList.remove("hidden");
+    el.approvalSuccessModal?.setAttribute("aria-hidden", "false");
+    window.lucide?.createIcons();
+    el.closeApprovalSuccess?.focus();
+  }
+
+  function hideApprovalSuccess() {
+    el.approvalSuccessModal?.classList.add("hidden");
+    el.approvalSuccessModal?.setAttribute("aria-hidden", "true");
   }
 
   function activeQuestion() {
@@ -380,7 +445,11 @@
       state.hasChanges = false;
 
       if (showSuccess) {
-        showMessage("Changes saved successfully.");
+        showToast(
+          "Question saved!",
+          `Question ${state.currentIndex + 1} of ${state.questions.length} has been saved.`,
+          "saved"
+        );
       }
     } finally {
       state.saving = false;
@@ -416,22 +485,19 @@
         return;
       }
 
-      const result = await request(RESUBMIT_URL, {
+      await request(RESUBMIT_URL, {
         method: "POST",
         body: JSON.stringify({
           questionIds: state.questions.map((question) => question._id),
         }),
       });
 
-      showMessage(
-        result.message || "Questions submitted for approval."
-      );
-
       state.questions.forEach((question) => {
         question.reviewStatus = "PENDING";
       });
 
       setStatus("PENDING");
+      showApprovalSuccess();
     } catch (error) {
       showMessage(error.message || "Could not submit questions.", true);
     }
@@ -470,7 +536,13 @@
 
     el.discard?.addEventListener("click", () => {
       if (!state.questions.length) return;
+      const questionNumber = state.currentIndex + 1;
       renderQuestion();
+      showToast(
+        "Changes discarded",
+        `Question ${questionNumber} has been restored to its last saved version.`,
+        "discarded"
+      );
     });
 
     el.previous?.addEventListener("click", () => {
@@ -502,6 +574,15 @@
     });
 
     el.submit?.addEventListener("click", submitForApproval);
+    el.closeApprovalSuccess?.addEventListener("click", hideApprovalSuccess);
+    el.approvalSuccessModal?.addEventListener("click", (event) => {
+      if (event.target === el.approvalSuccessModal) hideApprovalSuccess();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !el.approvalSuccessModal?.classList.contains("hidden")) {
+        hideApprovalSuccess();
+      }
+    });
 
     // Return to the submitted questions listing.
     const backLink = document.querySelector(".back-btn");

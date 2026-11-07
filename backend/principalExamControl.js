@@ -439,6 +439,8 @@ async function loadExamControl() {
     renderExamList(data.classes || []);
 }
 
+window.refreshPrincipalExamControl = loadExamControl;
+
 async function confirmGoLive() {
     if (!examToGoLive) {
         alert("Select an exam first.");

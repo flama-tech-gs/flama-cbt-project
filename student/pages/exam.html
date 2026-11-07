@@ -7,7 +7,8 @@
 
     <link rel="stylesheet" href="../css/pages/login.css" />
     <link rel="stylesheet" href="../css/pages/exam.css" />
-  </head>
+      <script src="../../backend/portalAccessGuard.js"></script>
+</head>
 
   <body>
     <!-- TOP BAR -->
@@ -26,13 +27,18 @@
       </div>
 
       <div class="user-info">
-        <img src="../assets/icons/avatar.png" alt="user" />
+        <img src="../assets/icons/avatar.png" alt="Student profile" />
         <div>
           <h4 id="studentName">Loading...</h4>
           <p id="studentClass">Loading...</p>
+          <p id="studentRole">Student</p>
         </div>
       </div>
     </header>
+
+    <p id="examPageStatus" class="exam-page-status" role="status" aria-live="polite">
+      Loading your examination…
+    </p>
 
     <div class="exam-layout">
       <!-- DOM order = phone reading/focus order: timer, question, grid, submit.
@@ -58,11 +64,12 @@
           <p id="questionText"></p>
 
           <div id="options" class="options"></div>
+          <p id="saveStatus" class="save-indicator" role="status" aria-live="polite"></p>
         </div>
 
         <div class="nav-buttons">
-          <button id="prevBtn">← Back</button>
-          <button id="nextBtn">Next →</button>
+          <button id="prevBtn" type="button" disabled>← Back</button>
+          <button id="nextBtn" type="button" disabled>Next →</button>
         </div>
 
         <p class="warning-text change-color">
@@ -78,7 +85,7 @@
         <h3>Subject: <span id="subjectName">Loading...</span></h3>
 
 
-        <p>Total Questions</p>
+        <p>Total Questions: <span id="totalQuestionCount">—</span></p>
 
         <div class="question-grid" id="questionGrid"></div>
       </aside>
@@ -91,7 +98,7 @@
             Once you click SUBMIT, your answers cannot be changed. Make sure you
             have answered all questions before submitting
           </p>
-          <button id="submitBtn" onclick="openModal()">Submit</button>
+          <button id="submitBtn" type="button" disabled>Submit</button>
         </div>
       </aside>
     </div>
@@ -113,10 +120,10 @@
         </p>
 
         <div class="modal-actions">
-          <button class="back-btn" onclick="closeModal()">
+          <button class="back-btn" type="button">
             Back to Questions
           </button>
-          <button class="submit-btn" onclick="confirmSubmit()">Submit</button>
+          <button class="submit-btn" type="button">Submit</button>
         </div>
       </div>
     </div>
@@ -124,19 +131,17 @@
     <!-- SUCCESS MODAL -->
     <div id="successModal" class="modal hidden">
       <div class="modal-content success-box">
-        <h2>✅ Examination!</h2>
-        <p>Submitted successfully!</p>
-        <p>
-          Your examination has been submitted. Thank you for completing your
-          exam.
-        </p>
-
-        <button onclick="goToDashboard()">Continue</button>
+        <div class="success-message">
+          <h2>✅ Examination</h2>
+          <p class="success-title">Submitted Successfully!</p>
+          <p class="success-description">
+            Your examination has been submitted. Thank you for completing your exam.
+          </p>
+        </div>
+        <button type="button">Continue</button>
       </div>
     </div>
 
-    <script src="../js/pages/exam2.js"></script>
-
-    <script></script>
+    <script src="../../backend/studentExam.js"></script>
   </body>
 </html>

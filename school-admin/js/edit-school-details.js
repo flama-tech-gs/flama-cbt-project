@@ -163,26 +163,9 @@ function initializeCancelButton() {
 ==========================================================*/
 
 function submitForm() {
-  /*
-    ==========================================================
-
-    Backend Integration
-
-    Replace this section with your API request.
-
-    Example:
-
-    fetch('/api/school/update', {
-        method:'PUT',
-        body:new FormData(...)
-    })
-
-    ==========================================================
-    */
-
-  console.log("Submitting School Details...");
-
-  showNotification("School details updated successfully.");
+  showNotification(
+    "School detail updates are not available yet. Your changes were not saved."
+  );
 }
 
 /*==========================================================
@@ -190,10 +173,5 @@ function submitForm() {
 ==========================================================*/
 
 function showNotification(message) {
-  /*
-    Replace with your reusable toast component
-    when integrating the full dashboard.
-    */
-
   alert(message);
 }

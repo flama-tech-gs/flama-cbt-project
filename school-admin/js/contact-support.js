@@ -81,31 +81,8 @@ function initializeSupportForm() {
 ==========================================================*/
 
 async function submitSupportTicket(formData) {
-  /*
-    ===========================================
-
-    Backend Endpoint
-
-    POST
-
-    /api/support/contact
-
-    Example
-
-    await fetch("/api/support/contact",{
-
-        method:"POST",
-
-        body:formData
-
-    });
-
-    ===========================================
-    */
-
-  console.log(Object.fromEntries(formData));
-
-  notify("Support request submitted successfully.");
+  void formData;
+  notify("Support ticket submission is not available yet. Your message was not sent.");
 }
 
 /*==========================================================

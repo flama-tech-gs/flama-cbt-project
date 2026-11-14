@@ -59,36 +59,15 @@ function initializeSupportForm() {
 
     const data = new FormData(form);
 
-    await submitSupportTicket(data);
-
-    form.reset();
+    const submitted = await submitSupportTicket(data);
+    if (submitted) form.reset();
   });
 }
 
 async function submitSupportTicket(formData) {
-  /*
-    =======================================
-
-    Backend Endpoint
-
-    POST
-
-    /api/support/ticket
-
-    =======================================
-
-    Example:
-
-    await fetch("/api/support/ticket",{
-        method:"POST",
-        body:formData
-    });
-
-    */
-
-  console.log(Object.fromEntries(formData));
-
-  notify("Your message has been sent successfully.");
+  void formData;
+  notify("Support ticket submission is not available yet. Your message was not sent.");
+  return false;
 }
 
 /*==========================================================
@@ -128,7 +107,7 @@ function openDocumentation() {
 
   console.log("Documentation");
 
-  notify("Opening documentation...");
+  notify("Documentation is not available yet.");
 }
 
 /*==========================================================
@@ -153,7 +132,7 @@ function openLiveChat() {
 
   console.log("Live Chat");
 
-  notify("Launching live chat...");
+  notify("Live chat is not available yet.");
 }
 
 /*==========================================================

@@ -235,6 +235,28 @@
       return;
     }
 
+    if (portal !== "platform-admin") {
+      try {
+        const schoolResponse = await fetch(
+          `${apiBase()}/tenant/auth/school-info`,
+          {
+            headers: {
+              Accept: "application/json",
+              "X-School-Subdomain": schoolSlug,
+            },
+            cache: "no-store",
+          }
+        );
+
+        if (schoolResponse.status === 404) {
+          showNotFound();
+          return;
+        }
+      } catch {
+        // Continue to the authenticated portal check during a temporary outage.
+      }
+    }
+
     const stored = readToken();
     if (!stored) {
       redirectToLogin();

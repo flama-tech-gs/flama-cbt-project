@@ -340,6 +340,47 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
 
+    // Restore saved school details when returning from a later registration step.
+    try {
+        const savedSchool = getRegistration()?.school;
+        if (savedSchool) {
+            const savedFields = {
+                schoolName: savedSchool.schoolName,
+                registrationNumber: savedSchool.registrationNumber,
+                schoolType: savedSchool.schoolType,
+                yearFounded: savedSchool.year,
+                address: savedSchool.address,
+                phone: savedSchool.phone,
+                email: savedSchool.officialEmail,
+                website: savedSchool.website,
+            };
+
+            Object.entries(savedFields).forEach(([name, value]) => {
+                const field = form.elements[name];
+                if (field && value !== undefined && value !== null) {
+                    field.value = value;
+                }
+            });
+
+            if (stateSelect && lgaSelect) {
+                stateSelect.value = savedSchool.state || "";
+                populateLgas(stateSelect.value, savedSchool.localGovernment || "");
+            }
+        }
+    } catch {
+        // Keep the form usable if previously saved registration data is malformed.
+    }
+
+    if (typeof getRegistrationFile === "function") {
+        getRegistrationFile("schoolLogo")
+            .then((savedLogo) => {
+                if (savedLogo) processLogo(savedLogo);
+            })
+            .catch(() => {
+                // The school logo is optional; continue if it cannot be restored.
+            });
+    }
+
     // Create the logo preview and upload message.
     let preview = document.getElementById("schoolLogoPreview");
 

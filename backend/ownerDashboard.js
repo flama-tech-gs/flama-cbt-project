@@ -46,6 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function getHost(url, subdomain) {
+        const currentHost = window.location.hostname.toLowerCase();
+        if (
+            subdomain &&
+            (currentHost === "creativesbee.site" ||
+                currentHost.endsWith(".creativesbee.site"))
+        ) {
+            return `${subdomain}.creativesbee.site`;
+        }
+
         const normalized = normalizeUrl(url);
 
         if (normalized) {
@@ -139,22 +148,48 @@ document.addEventListener("DOMContentLoaded", () => {
         return data;
     }
 
-    function renderPortalLinks(urls) {
+    function renderPortalLinks(urls, subdomain) {
+        const currentHost = window.location.hostname.toLowerCase();
+        const customSchoolHost = subdomain &&
+            (currentHost === "creativesbee.site" ||
+                currentHost.endsWith(".creativesbee.site"))
+            ? `${subdomain}.creativesbee.site`
+            : "";
+        const openSchoolPortal = byId("openSchoolPortal");
+        const principalUrl = normalizeUrl(
+            customSchoolHost
+                ? `https://${customSchoolHost}/principal/index.html`
+                : urls?.principal
+        );
+        if (openSchoolPortal) {
+            if (principalUrl) {
+                openSchoolPortal.href = principalUrl;
+                openSchoolPortal.target = "_blank";
+                openSchoolPortal.rel = "noopener";
+            } else {
+                openSchoolPortal.removeAttribute("href");
+            }
+        }
+
         const links = document.querySelectorAll(
             ".portal-links .portal-link"
         );
 
         const portalItems = [
             {
-                url: urls?.student,
+                url: customSchoolHost
+                    ? `https://${customSchoolHost}/student/index.html`
+                    : urls?.student,
                 label: "Student Portal",
             },
             {
-                url: urls?.staff,
+                url: customSchoolHost
+                    ? `https://${customSchoolHost}/teacher/index.html`
+                    : urls?.staff,
                 label: "Staff Portal",
             },
             {
-                url: urls?.principal,
+                url: principalUrl,
                 label: "Principal Portal",
             },
         ];
@@ -313,9 +348,13 @@ document.addEventListener("DOMContentLoaded", () => {
             "school-url-status",
             school.url ? "Live" : "Not available"
         );
-        setLink("school-url", school.url, school.url);
+        setLink(
+            "school-url",
+            school.url,
+            getHost(school.url, school.subdomain)
+        );
 
-        renderPortalLinks(school.urls);
+        renderPortalLinks(school.urls, school.subdomain);
 
         // Update existing subscription card elements by their IDs
         // when present, otherwise update the card's current elements.

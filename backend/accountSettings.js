@@ -3,6 +3,25 @@
 const API_BASE = (window.FLAMA_API_BASE || (["localhost", "127.0.0.1"].includes(window.location.hostname) || window.location.hostname.endsWith(".localhost") ? `${window.location.protocol}//${window.location.hostname}:5000/api` : "https://flama.onrender.com/api")) + "/owner";
 const TOKEN_KEY = "flamaAccessToken";
 
+function schoolHostLabel(school) {
+    const currentHost = window.location.hostname.toLowerCase();
+    if (
+        school?.subdomain &&
+        (currentHost === "creativesbee.site" ||
+            currentHost.endsWith(".creativesbee.site"))
+    ) {
+        return `${school.subdomain}.creativesbee.site`;
+    }
+    try {
+        if (school?.url) return new URL(school.url).host;
+    } catch {
+        // Use the saved subdomain if the API URL is malformed.
+    }
+    return school?.subdomain
+        ? `${school.subdomain}.creativesbee.site`
+        : "School URL unavailable";
+}
+
 const schoolDetailsForm = document.querySelector("#schoolDetailsForm");
 const schoolLogoForm = document.querySelector("#schoolLogoForm");
 const logoInput = document.querySelector("#logoUpload");
@@ -73,7 +92,7 @@ async function loadSchoolSettings() {
         setValue("#website", school.website);
         setValue("#schoolSlug", school.subdomain);
 
-        setText("#currentSchoolUrl", school.url || "School URL unavailable");
+        setText("#currentSchoolUrl", schoolHostLabel(school));
 
         setText(
             "#subscriptionExpiry",
@@ -108,8 +127,9 @@ function setValue(selector, value) {
 }
 
 function setText(selector, value) {
-    const element = document.querySelector(selector);
-    if (element) element.textContent = value ?? "";
+    document.querySelectorAll(selector).forEach((element) => {
+        element.textContent = value ?? "";
+    });
 }
 
 schoolDetailsForm?.addEventListener("submit", async (event) => {
@@ -220,7 +240,9 @@ schoolLogoForm?.addEventListener("submit", async (event) => {
 // Subdomain changes are not supported by the backend code shown so far.
 document.querySelector("#schoolUrlForm")?.addEventListener("submit", (event) => {
     event.preventDefault();
-    showMessage("School URL changes are not enabled yet.");
+    showMessage(
+        "School URL changes are not available yet. Your subdomain was not changed."
+    );
 });
 
 document.addEventListener("DOMContentLoaded", loadSchoolSettings);

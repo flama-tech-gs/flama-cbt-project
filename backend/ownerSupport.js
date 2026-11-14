@@ -3,6 +3,25 @@
 const API_BASE = (window.FLAMA_API_BASE || (["localhost", "127.0.0.1"].includes(window.location.hostname) || window.location.hostname.endsWith(".localhost") ? `${window.location.protocol}//${window.location.hostname}:5000/api` : "https://flama.onrender.com/api"));
 const TOKEN_KEY = "flamaAccessToken";
 
+function schoolHostLabel(school) {
+    const currentHost = window.location.hostname.toLowerCase();
+    if (
+        school?.subdomain &&
+        (currentHost === "creativesbee.site" ||
+            currentHost.endsWith(".creativesbee.site"))
+    ) {
+        return `${school.subdomain}.creativesbee.site`;
+    }
+    try {
+        if (school?.url) return new URL(school.url).host;
+    } catch {
+        // Use the saved subdomain if the API URL is malformed.
+    }
+    return school?.subdomain
+        ? `${school.subdomain}.creativesbee.site`
+        : "School URL unavailable";
+}
+
 function getOwnerToken() {
     const token = sessionStorage.getItem(TOKEN_KEY);
 
@@ -60,8 +79,7 @@ async function loadOwnerSupportProfile() {
         const schoolUrlElement = document.querySelector("#schoolUrl");
 
         if (schoolUrlElement) {
-            schoolUrlElement.textContent =
-                school.url || "School URL unavailable";
+            schoolUrlElement.textContent = schoolHostLabel(school);
 
             if (school.url) {
                 schoolUrlElement.href = school.url;

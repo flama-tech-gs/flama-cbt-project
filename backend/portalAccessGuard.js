@@ -155,6 +155,27 @@
     }
   }
 
+  // The www host is the central frontend alias, not a tenant subdomain.
+  // When an owner signs in there, use the school returned by onboarding login
+  // to scope authenticated portal requests to the correct tenant.
+  if (
+    portal === "school-admin" &&
+    ["creativesbee.site", "www.creativesbee.site"].includes(hostname)
+  ) {
+    try {
+      const school = JSON.parse(
+        sessionStorage.getItem("flamaSchool") ||
+          localStorage.getItem("flamaSchool") ||
+          "null"
+      );
+      if (validSchoolSlug(school?.subdomain)) {
+        schoolSlug = school.subdomain.trim().toLowerCase();
+      }
+    } catch {
+      // The existing guard will reject the page if there is no valid tenant.
+    }
+  }
+
   if (validSchoolSlug(schoolSlug)) {
     schoolSlug = schoolSlug.trim().toLowerCase();
     const nativeFetch = window.fetch.bind(window);

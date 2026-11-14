@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttonText = document.getElementById("payButtonText");
 
     if (!form || !button) {
-        console.error("Step 4: paymentForm or payButton was not found.");
         return;
     }
 
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 ? getRegistration() || {}
                 : JSON.parse(sessionStorage.getItem("flamaRegistration") || "{}");
         } catch (error) {
-            console.error("Unable to read onboarding data:", error);
             return {};
         }
     };
@@ -73,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return false;
         }
         if (!school.id || !onboardingToken) {
-            showError("Your verified school registration is missing. Please complete email verification again.");
+            showError("Your saved registration is incomplete. Please sign in again to resume onboarding.");
             button.disabled = true;
             return false;
         }
@@ -96,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!summaryIsValid) return;
 
         if (typeof apiRequest !== "function") {
-            showError("The API helper did not load. Check the api.js script path.");
+            showError("We couldn’t connect to the payment service. Refresh the page and try again.");
             return;
         }
 
@@ -118,8 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const payment = response?.data ?? response;
             const authorizationUrl = payment?.authorizationUrl || payment?.authorization_url;
             if (!authorizationUrl) {
-                console.error("Payment initialization response:", response);
-                throw new Error("The server did not return a Paystack checkout URL.");
+                throw new Error("We couldn’t open the payment page. Please try again.");
             }
 
             if (payment.reference) {
@@ -127,10 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             window.location.assign(authorizationUrl);
         } catch (error) {
-            console.error("Onboarding payment initialization failed:", error);
             showError(typeof getApiErrorMessage === "function"
-                ? getApiErrorMessage(error)
-                : error?.message || "Unable to initialize payment.");
+                ? getApiErrorMessage(error, "We couldn’t start your payment. Please try again.")
+                : "We couldn’t start your payment. Please try again.");
             setLoading(false);
         }
     });

@@ -142,7 +142,6 @@ function initPaymentForm() {
     const registration =
       JSON.parse(localStorage.getItem("schoolRegistration")) || {};
 
-    console.log("Registration Data", registration);
 
     // ==========================================
     // PAYSTACK INTEGRATION HERE

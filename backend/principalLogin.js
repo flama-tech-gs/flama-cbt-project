@@ -34,6 +34,7 @@ async function loadSchoolBranding() {
             {
                 headers: {
                     Accept: "application/json",
+                    ...(window.flamaSchoolHeaders?.() || {}),
                 },
             }
         );
@@ -109,6 +110,7 @@ form?.addEventListener("submit", async (event) => {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
+                    ...(window.flamaSchoolHeaders?.() || {}),
                 },
                 body: JSON.stringify({
                     identifier,

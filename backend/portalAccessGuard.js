@@ -39,6 +39,45 @@
 
   if (!settings) return;
 
+  // Handle the logout controls centrally so every protected page uses the
+  // same role-aware cleanup and school-aware login destination.
+  const logoutSelectors = {
+    student: ".logout-btn, .logout-link, .account-menu__logout",
+    teacher: ".logout-btn, .logout-link, .account-menu__logout",
+    principal: ".logout-btn, .logout-link, .account-menu__logout",
+    "school-admin": ".logout-btn, .logout-link, .account-menu__logout",
+    "platform-admin": ".logout-btn, .logout-link, .account-menu__logout",
+  };
+  const authKeys = [
+    "studentAccessToken", "studentRefreshToken", "studentUser",
+    "teacherAccessToken", "teacherRefreshToken", "teacherUser", "teacherToken",
+    "principalAccessToken", "principalRefreshToken", "principalAccount",
+    "tenantAccessToken", "flamaAccessToken", "flamaRefreshToken", "flamaOwner",
+    "flamaSchool", "flamaLogin", "adminAccessToken", "adminRefreshToken",
+    "accessToken", "refreshToken", "schoolRegistration",
+  ];
+  document.addEventListener("click", (event) => {
+    const control = event.target instanceof Element
+      ? event.target.closest(logoutSelectors[portal])
+      : null;
+    if (!control) return;
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    for (const key of authKeys) {
+      sessionStorage.removeItem(key);
+      localStorage.removeItem(key);
+    }
+    for (const key of ["flamaPortalAuthCheck:student", "flamaPortalAuthCheck:teacher",
+      "flamaPortalAuthCheck:principal", "flamaPortalAuthCheck:school-admin",
+      "flamaPortalAuthCheck:platform-admin"]) {
+      sessionStorage.removeItem(key);
+    }
+
+    const destination = new URL(settings.login, window.location.origin);
+    window.location.replace(destination.href);
+  }, true);
+
   let authorized = false;
   document.documentElement.style.visibility = "hidden";
   document.addEventListener(
@@ -100,6 +139,57 @@
       : "https://flama.onrender.com/api";
   };
 
+  const validSchoolSlug = (value) => {
+    const normalized = String(value || "").trim().toLowerCase();
+    return normalized.length >= 3 && normalized.length <= 30 &&
+      /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(normalized);
+  };
+  let schoolSlug = "";
+  const hostname = window.location.hostname.toLowerCase();
+  for (const suffix of [".cbt-frontend-sjlh.onrender.com", ".flama.com", ".localhost"]) {
+    if (!hostname.endsWith(suffix)) continue;
+    const prefix = hostname.slice(0, -suffix.length);
+    if (prefix && !prefix.includes(".") && validSchoolSlug(prefix)) {
+      schoolSlug = prefix;
+      break;
+    }
+  }
+
+  if (validSchoolSlug(schoolSlug)) {
+    schoolSlug = schoolSlug.trim().toLowerCase();
+    const nativeFetch = window.fetch.bind(window);
+    window.fetch = (input, options = {}) => {
+      let requestUrl;
+      try {
+        requestUrl = new URL(
+          typeof input === "string" ? input : input.url,
+          window.location.href
+        );
+        const apiUrl = new URL(apiBase(), window.location.href);
+        const apiPath = apiUrl.pathname.replace(/\/+$/, "");
+        const isApiRequest =
+          requestUrl.origin === apiUrl.origin &&
+          (requestUrl.pathname === apiPath || requestUrl.pathname.startsWith(`${apiPath}/`));
+
+        if (isApiRequest) {
+          const headers = new Headers(
+            typeof Request !== "undefined" && input instanceof Request
+              ? input.headers
+              : undefined
+          );
+          new Headers(options.headers || {}).forEach((value, key) => {
+            headers.set(key, value);
+          });
+          headers.set("X-School-Subdomain", schoolSlug);
+          return nativeFetch(input, { ...options, headers });
+        }
+      } catch {
+        // Let fetch report malformed inputs and preserve non-API behavior.
+      }
+      return nativeFetch(input, options);
+    };
+  }
+
   const redirectToLogin = () => {
     clearTokens();
     window.location.replace(settings.login);
@@ -119,6 +209,11 @@
   }
 
   async function protect() {
+    if (portal !== "platform-admin" && !validSchoolSlug(schoolSlug)) {
+      showNotFound();
+      return;
+    }
+
     const stored = readToken();
     if (!stored) {
       redirectToLogin();

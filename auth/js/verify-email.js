@@ -136,7 +136,6 @@ function initVerification() {
     // ==================================
 
     setTimeout(() => {
-      console.log("Verification Code:", code);
 
       // window.location.href = "success.html";
 

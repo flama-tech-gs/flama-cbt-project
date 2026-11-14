@@ -4,11 +4,19 @@
   document.documentElement.style.visibility = "hidden";
 
   const hostname = window.location.hostname.toLowerCase();
-  const isLocalSchool = hostname.endsWith(".localhost");
-  const isProductionSchool =
-    hostname.endsWith(".flama.com") &&
-    hostname !== "flama.com" &&
-    hostname !== "www.flama.com";
+  const isLocalHost =
+    hostname === "localhost" ||
+    hostname === "127.0.0.1" ||
+    hostname.endsWith(".localhost");
+  const schoolDomainSuffixes = [".cbt-frontend-sjlh.onrender.com", ".flama.com", ".localhost"];
+  const isSchoolHost = schoolDomainSuffixes.some((suffix) => hostname.endsWith(suffix));
+  const schoolSubdomain = String(schoolDomainSuffixes
+    .filter((suffix) => hostname.endsWith(suffix))
+    .map((suffix) => hostname.slice(0, -suffix.length))[0] || "").trim().toLowerCase();
+  const validSchoolSubdomain =
+    schoolSubdomain.length >= 3 &&
+    schoolSubdomain.length <= 30 &&
+    /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(schoolSubdomain);
 
   function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, (character) => ({
@@ -396,7 +404,7 @@
     }
   }
 
-  if (!isLocalSchool && !isProductionSchool) {
+  if (!isSchoolHost || !validSchoolSubdomain) {
     renderError({
       title: "School address required",
       message: "Open the portal using your school's Flama subdomain.",
@@ -405,7 +413,7 @@
     return;
   }
 
-  const apiBase = isLocalSchool
+  const apiBase = isLocalHost
     ? `${window.location.protocol}//${hostname}:5000/api`
     : "https://flama.onrender.com/api";
 
@@ -416,7 +424,10 @@
 
   fetch(schoolInfoUrl.toString(), {
     method: "GET",
-    headers: { Accept: "application/json" },
+    headers: {
+      Accept: "application/json",
+      "X-School-Subdomain": schoolSubdomain,
+    },
   })
     .then(async (response) => {
       const body = await response.json().catch(() => ({}));

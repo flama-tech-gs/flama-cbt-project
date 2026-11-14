@@ -75,11 +75,6 @@ function handleSubmit(e) {
   setTimeout(() => {
     setLoading(false);
 
-    console.log({
-      email: email.value.trim(),
-      password: password.value,
-      remember: document.getElementById("remember").checked,
-    });
 
     // Example
     // window.location.href = "../dashboard/index.html";

@@ -80,7 +80,10 @@
     try {
       const response = await fetch(SCHOOL_INFO_URL, {
         method: "GET",
-        headers: { Accept: "application/json" },
+        headers: {
+          Accept: "application/json",
+          ...(window.flamaSchoolHeaders?.() || {}),
+        },
       });
 
       const body = await response.json().catch(() => ({}));
@@ -145,6 +148,7 @@
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
+          ...(window.flamaSchoolHeaders?.() || {}),
         },
         body: JSON.stringify({
           admissionNumber,

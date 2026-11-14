@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("step2Form");
 
     if (!form) {
-        console.error("Step 2 form (#step2Form) was not found.");
         return;
     }
 
@@ -261,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         if (typeof apiRequest !== "function") {
-            setMessage("The API helper is unavailable. Refresh the page and try again.");
+            setMessage("We couldn’t connect to the registration service. Refresh the page and try again.");
             return;
         }
 
@@ -269,7 +268,6 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             registration = getRegistration() || {};
         } catch (error) {
-            console.error("Could not load registration data:", error);
             setMessage("Unable to load your school details. Please revisit Step 1.");
             return;
         }
@@ -336,8 +334,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     payload.append("schoolLogo", logoFile, filename);
                 }
             }
-        } catch (error) {
-            console.warn("Could not read saved school logo:", error);
+        } catch {
+            // The logo is optional; continue with the other registration details.
         }
         if (approvalFile) {
             payload.append("approvalDocument", approvalFile, approvalFile.name);
@@ -355,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const draftId = result?.draftId || result?.id || result?._id;
             if (!draftId) {
-                throw new Error("The server did not return an onboarding draft ID.");
+                throw new Error("We couldn’t save your registration. Please try again.");
             }
 
             saveRegistration("onboardingDraftId", draftId);
@@ -371,8 +369,9 @@ document.addEventListener("DOMContentLoaded", () => {
             // Never store the password in sessionStorage or localStorage.
             window.location.href = "./verify-email.html";
         } catch (error) {
-            console.error("Step 2 registration failed:", error);
-            setMessage(error?.message || "Unable to save registration. Please try again.");
+            setMessage(typeof getApiErrorMessage === "function"
+                ? getApiErrorMessage(error, "Unable to save your registration. Please try again.")
+                : "Unable to save your registration. Please try again.");
             setSubmitting(false);
         }
     });

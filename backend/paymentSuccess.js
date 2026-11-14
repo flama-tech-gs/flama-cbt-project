@@ -99,11 +99,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             showError("The payment has not been confirmed as successful yet.");
         }
     } catch (error) {
-        console.error("[Payment Success] Could not load receipt:", error);
-        showError(
-            error.message ||
-            "Payment details could not be loaded. Please contact support with your reference."
-        );
+        showError(typeof getApiErrorMessage === "function"
+            ? getApiErrorMessage(error, "Payment details could not be loaded. Please try again shortly.")
+            : "Payment details could not be loaded. Please try again shortly.");
     }
 
     function showError(message) {

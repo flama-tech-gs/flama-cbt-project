@@ -120,6 +120,8 @@ The frontend is currently being implemented using Vanilla JavaScript without fro
 
 Browser integration scripts use the local API on port `5000` during local development and the deployed API in production. Set `window.FLAMA_API_BASE` before a page's integration scripts to override the API base when needed.
 
+School portals identify the school from the hostname, for example `https://school-slug.cbt-frontend-sjlh.onrender.com/`. The frontend derives the subdomain from the hostname and sends it as `X-School-Subdomain`; the API verifies it against the school database before opening a tenant database. Hosting must route each school subdomain to the frontend service (Render requires a wildcard custom domain on a domain you control).
+
 ---
 
 ## Project Structure

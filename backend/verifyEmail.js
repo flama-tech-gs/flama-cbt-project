@@ -9,24 +9,23 @@ function initEmailVerification() {
     const emailElement = document.getElementById("schoolEmail");
 
     if (!form || otpInputs.length !== 6) {
-        console.error("Verification form or OTP inputs are missing.");
         return;
     }
 
     if (typeof apiRequest !== "function") {
-        alert("API helper not found. Please refresh the page.");
+        alert("We couldn’t connect to the verification service. Please refresh the page and try again.");
         return;
     }
 
     let registration = {};
 
     try {
-        registration = JSON.parse(
-            sessionStorage.getItem("flamaRegistration") || "{}"
-        );
-    } catch (error) {
-        console.error("Unable to read registration data:", error);
-    }
+        registration = typeof getRegistration === "function"
+            ? getRegistration() || {}
+            : JSON.parse(localStorage.getItem("schoolRegistration") || "{}");
+        } catch {
+            registration = {};
+        }
 
     const email =
         registration.ownerEmail ||
@@ -40,7 +39,7 @@ function initEmailVerification() {
 
     if (!email) {
         alert(
-            "Your registered email was not found. Please return to Step 2 and register again."
+            "We couldn’t find your saved registration. Please sign in again to resume, or start a new registration."
         );
         return;
     }
@@ -115,10 +114,7 @@ function initEmailVerification() {
         }
 
         registration[key] = value;
-        sessionStorage.setItem(
-            "flamaRegistration",
-            JSON.stringify(registration)
-        );
+        localStorage.setItem("schoolRegistration", JSON.stringify(registration));
     }
 
     otpInputs.forEach((input, index) => {
@@ -230,7 +226,7 @@ function initEmailVerification() {
 
             if (!schoolId || !onboardingPaymentToken) {
                 throw new Error(
-                    "Email was verified, but the backend did not return the school ID and payment token. Update the email verification endpoint, then try again."
+                    "Your email is verified, but we couldn’t continue registration. Please sign in again to resume, or contact support if the problem continues."
                 );
             }
 
@@ -274,13 +270,10 @@ function initEmailVerification() {
 
             window.location.href = "./register-step3.html";
         } catch (error) {
-            console.error("Email verification failed:", error);
 
-            showMessage(
-                error.message ||
-                    "Invalid or expired OTP. Please try again.",
-                "error"
-            );
+            showMessage(typeof getApiErrorMessage === "function"
+                ? getApiErrorMessage(error, "That verification code could not be confirmed. Check it and try again.")
+                : "That verification code could not be confirmed. Check it and try again.", "error");
         } finally {
             setButtonLoading(false, "Verify & Continue");
         }
@@ -314,13 +307,10 @@ function initEmailVerification() {
 
             otpInputs[0].focus();
         } catch (error) {
-            console.error("Resending OTP failed:", error);
 
-            showMessage(
-                error.message ||
-                    "Unable to resend the OTP. Please try again.",
-                "error"
-            );
+            showMessage(typeof getApiErrorMessage === "function"
+                ? getApiErrorMessage(error, "We couldn’t send a new verification code. Please try again.")
+                : "We couldn’t send a new verification code. Please try again.", "error");
         } finally {
             resendLink.dataset.sending = "false";
             resendLink.style.pointerEvents = "";

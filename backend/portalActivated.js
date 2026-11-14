@@ -8,15 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const copyButton = document.getElementById("copyPortalUrl");
     const emailButton = document.getElementById("emailLink");
     const whatsappButton = document.getElementById("whatsappLink");
-    const DOMAIN_SUFFIX = ".cbtschool.ng";
 
     let registration = {};
     try {
         registration = typeof getRegistration === "function"
             ? getRegistration() || {}
             : JSON.parse(sessionStorage.getItem("flamaRegistration") || "{}");
-    } catch (error) {
-        console.error("Unable to read registration data:", error);
+    } catch {
+        registration = {};
     }
 
     const school = registration.registeredSchool || {};
@@ -24,7 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const schoolName = school.name || school.schoolName || registration.school?.schoolName || "Your School";
     const schoolEmail = registration.ownerEmail || owner.email || "";
     const subdomain = String(school.subdomain || "").trim().toLowerCase();
-    const portalUrl = registration.portalUrl || (subdomain ? `https://${subdomain}${DOMAIN_SUFFIX}` : "");
+    const domain = window.FLAMA_SCHOOL_DOMAIN || "cbt-frontend-sjlh.onrender.com";
+    const fallbackUrl = subdomain
+        ? new URL("/auth/login.html", `https://${subdomain}.${domain}`)
+        : null;
+    const portalUrl = fallbackUrl ? fallbackUrl.toString() : (registration.portalUrl || "");
 
     if (schoolNameElement) schoolNameElement.textContent = schoolName;
     if (schoolEmailElement) schoolEmailElement.textContent = schoolEmail || "your registered email";
@@ -58,10 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const dashboardLink = document.querySelector('a[href="../school-admin/index.html"]');
     if (dashboardLink && portalUrl) {
-        dashboardLink.href = "../school-admin/index.html";
+        dashboardLink.href = portalUrl;
         dashboardLink.target = "_blank";
         dashboardLink.rel = "noopener noreferrer";
     }
 
-    if (!portalUrl) console.warn("Activated portal URL is missing from registration storage.");
+    if (!portalUrl && portalUrlElement) portalUrlElement.textContent = "Your school portal link is being prepared. Please sign in again later.";
 });

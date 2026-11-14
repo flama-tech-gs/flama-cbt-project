@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const DASHBOARD_URL = "../school-admin/index.html";
 
   if (!loginForm) {
-    console.error("Login form #loginForm was not found.");
     return;
   }
 
@@ -138,10 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
       payload?.session?.refresh_token;
 
     if (!accessToken) {
-      console.error("Login response payload:", payload);
-      throw new Error(
-        "Login response did not include an access token. Check the /onboarding/login response."
-      );
+      throw new Error("We couldn’t sign you in. Please check your details and try again.");
     }
 
     // api.js reads flamaAccessToken from sessionStorage.
@@ -242,9 +238,51 @@ document.addEventListener("DOMContentLoaded", () => {
     setLoading(true);
 
     try {
-      // Clear an old token before attempting a new login.
+      // Try to resume an unfinished registration before normal owner login.
       sessionStorage.removeItem(TOKEN_KEY);
       sessionStorage.removeItem(REFRESH_TOKEN_KEY);
+
+      let resumeData = null;
+      try {
+        const resumeResponse = await apiRequest("/onboarding/resume", {
+          method: "POST",
+          body: JSON.stringify({ email, password }),
+        });
+        resumeData = resumeResponse?.data ?? resumeResponse;
+      } catch {
+        // A completed school account continues through the regular login below.
+      }
+
+      if (resumeData?.resumable) {
+        let saved = {};
+        try {
+          saved = JSON.parse(localStorage.getItem("schoolRegistration") || "{}");
+        } catch {
+          saved = {};
+        }
+
+        const savedEmail = String(
+          saved.ownerEmail || saved.registeredOwner?.email || ""
+        ).trim().toLowerCase();
+        const keepSavedPlan = savedEmail === email;
+        const registration = keepSavedPlan ? saved : {};
+        Object.assign(registration, resumeData);
+        registration.ownerEmail = email;
+        registration.onboardingDraftId = resumeData.draftId;
+        registration.registeredOwner = resumeData.registeredOwner;
+        if (resumeData.onboardingPaymentToken) {
+          registration.onboardingPaymentToken = resumeData.onboardingPaymentToken;
+          registration.onboardingToken = resumeData.onboardingPaymentToken;
+        }
+        localStorage.setItem("schoolRegistration", JSON.stringify(registration));
+
+        const nextStep = resumeData.nextStep === "register-step3.html" &&
+          keepSavedPlan && (registration.selectedPlan || registration.plan)
+          ? "register-step4.html"
+          : resumeData.nextStep;
+        window.location.assign(`./${nextStep}`);
+        return;
+      }
 
       const response = await apiRequest("/onboarding/login", {
         method: "POST",
@@ -274,8 +312,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       window.location.assign(DASHBOARD_URL);
     } catch (error) {
-      console.error("School owner login failed:", error);
-
       const message = String(error?.message || "");
       const isUnverified =
         /verify your account|email.*not verified|not verified/i.test(
@@ -293,9 +329,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      showAlert(
-        message || "Unable to sign in. Check your details and try again."
-      );
+      showAlert(error?.status === 401
+        ? "Email or password is incorrect. Please try again."
+        : typeof getApiErrorMessage === "function"
+          ? getApiErrorMessage(error, "Email or password is incorrect. Please try again.")
+          : "Email or password is incorrect. Please try again.");
     } finally {
       setLoading(false);
     }

@@ -70,6 +70,7 @@
       cache: "no-store",
       headers: {
         Accept: "application/json",
+        ...(window.flamaSchoolHeaders?.() || {}),
         ...(options.body
           ? { "Content-Type": "application/json" }
           : {}),

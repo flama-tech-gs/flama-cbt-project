@@ -120,10 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Reset password error:", error);
 
-      showMessage(
-        error.message ||
-          "Unable to reset your password. The link may have expired."
-      );
+      showMessage(typeof getApiErrorMessage === "function"
+        ? getApiErrorMessage(error, "We couldn’t reset your password. Request a new reset link and try again.")
+        : "We couldn’t reset your password. Request a new reset link and try again.");
     } finally {
       setLoading(false);
     }

@@ -64,9 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Forgot password error:", error);
 
-      showMessage(
-        error.message || "Unable to process your request. Please try again."
-      );
+      showMessage(typeof getApiErrorMessage === "function"
+        ? getApiErrorMessage(error, "We couldn’t process your request. Please try again.")
+        : "We couldn’t process your request. Please try again.");
     } finally {
       setLoading(false);
     }

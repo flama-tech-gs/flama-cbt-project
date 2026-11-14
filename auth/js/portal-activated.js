@@ -24,7 +24,9 @@ function loadPortalDetails() {
     registration.email ||
     "admin@yourschool.edu.ng";
 
-  const portalUrl = registration.portalUrl || "https://yourschool.cbtschool.ng";
+  const subdomain = registration.registeredSchool?.subdomain || registration.school?.subdomain || registration.subdomain || "your-school";
+  const domain = window.FLAMA_SCHOOL_DOMAIN || "cbt-frontend-sjlh.onrender.com";
+  const portalUrl = `https://${subdomain}.${domain}/auth/login.html`;
 
   document.getElementById("schoolName").textContent = schoolName;
 

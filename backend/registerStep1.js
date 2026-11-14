@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("schoolInfoForm");
 
     if (!form) {
-        console.error("School registration form was not found.");
         return;
     }
 
@@ -467,8 +466,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const transfer = new DataTransfer();
                 transfer.items.add(file);
                 logoInput.files = transfer.files;
-            } catch (error) {
-                console.warn("Could not attach dropped file to input.", error);
+            } catch {
+                // Keep the form usable in browsers that cannot attach a dropped file.
             }
 
             processLogo(file);
@@ -551,7 +550,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (typeof saveRegistrationFile !== "function") {
                     throw new Error(
-                        "The file-storage helper did not load. Check registrationStorage.js."
+                        "We couldn’t save the school logo. Please refresh the page and try again."
                     );
                 }
 
@@ -560,7 +559,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (typeof saveRegistration !== "function") {
                 throw new Error(
-                    "The registration storage helper did not load. Check registrationStorage.js."
+                    "We couldn’t save your registration details. Please refresh the page and try again."
                 );
             }
 
@@ -569,11 +568,10 @@ document.addEventListener("DOMContentLoaded", () => {
             // Continue to Step 2. The subdomain is selected after payment.
             window.location.href = "./register-step2.html";
         } catch (error) {
-            console.error("Step 1 registration error:", error);
 
             const message =
                 typeof getApiErrorMessage === "function"
-                    ? getApiErrorMessage(error)
+                    ? getApiErrorMessage(error, "Unable to save school information. Please check the details and try again.")
                     : error.message || "Unable to save school information.";
 
             alert(message);

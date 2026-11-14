@@ -1,39 +1,15 @@
 // backend/setupSchoolUrl.js
-// Uses existing setup-school-url.html IDs and logs onboarding diagnostics.
+// Validates the selected school address and activates the portal.
 
 document.addEventListener("DOMContentLoaded", () => {
-    const LOG_PREFIX = "[Setup School URL]";
     const input = document.getElementById("subdomain");
     const preview = document.getElementById("previewUrl");
     const copyButton = document.getElementById("copyUrl");
     const statusElement = document.getElementById("urlStatus");
     const form = document.getElementById("portalForm");
-    const DOMAIN_SUFFIX = ".cbtflamaschool.ng";
 
-    console.group(`${LOG_PREFIX} Page initialization`);
-    console.log("Page URL:", window.location.href);
-    console.log("API helper available:", typeof apiRequest === "function");
-    console.log("Registration helpers:", {
-        getRegistration: typeof getRegistration,
-        saveRegistration: typeof saveRegistration,
-    });
-    console.log("Expected page elements:", {
-        subdomain: Boolean(input),
-        previewUrl: Boolean(preview),
-        copyUrl: Boolean(copyButton),
-        urlStatus: Boolean(statusElement),
-        portalForm: Boolean(form),
-    });
-    console.groupEnd();
 
     if (!input || !form) {
-        console.error(
-            `${LOG_PREFIX} Required page elements are missing.`,
-            {
-                subdomain: Boolean(input),
-                portalForm: Boolean(form),
-            }
-        );
         return;
     }
 
@@ -41,9 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
         typeof getRegistration !== "function" ||
         typeof saveRegistration !== "function"
     ) {
-        console.error(
-            `${LOG_PREFIX} Registration storage helpers are unavailable.`
-        );
         showStatus(
             "Registration storage is unavailable. Refresh and try again.",
             "error"
@@ -52,9 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (typeof apiRequest !== "function") {
-        console.error(`${LOG_PREFIX} apiRequest() is unavailable.`);
         showStatus(
-            "The API helper is unavailable. Check that api.js loads before this file.",
+            "We couldn’t connect to the school portal service. Refresh the page and try again.",
             "error"
         );
         return;
@@ -65,34 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
         registration = getRegistration() || {};
 
-        // Log only field names and whether ID fields exist.
-        // Do not log the full registration object: it may contain tokens.
-        console.group(`${LOG_PREFIX} Registration storage`);
-        console.log("Registration keys:", Object.keys(registration));
-        console.log("Draft ID field presence:", {
-            onboardingDraftId: Boolean(registration.onboardingDraftId),
-            draftId: Boolean(registration.draftId),
-            onboardingDraftIdNested: Boolean(
-                registration.onboardingDraft?._id
-            ),
-            draftIdNested: Boolean(
-                registration.draft?._id || registration.draft?.id
-            ),
-        });
-        console.log("School data available:", {
-            registeredSchool: Boolean(registration.registeredSchool),
-            school: Boolean(registration.school),
-            registeredSchoolKeys: Object.keys(
-                registration.registeredSchool || {}
-            ),
-            schoolKeys: Object.keys(registration.school || {}),
-        });
-        console.groupEnd();
-    } catch (error) {
-        console.error(
-            `${LOG_PREFIX} Could not read registration storage:`,
-            error
-        );
+    } catch {
         showStatus("Unable to load your onboarding details.", "error");
         return;
     }
@@ -108,23 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const school = registration.registeredSchool || {};
 
     if (!draftId) {
-        console.error(
-            `${LOG_PREFIX} No onboarding draft ID was found.`,
-            {
-                availableRegistrationKeys: Object.keys(registration),
-                expectedFields: [
-                    "onboardingDraftId",
-                    "draftId",
-                    "onboardingDraft._id",
-                    "draft._id",
-                    "draft.id",
-                ],
-                currentPage: window.location.href,
-            }
-        );
 
         showStatus(
-            "Onboarding draft ID is missing. Check the console diagnostics and registration verification response.",
+            "Your saved registration could not be found. Please sign in again to resume, or start a new registration.",
             "error"
         );
 
@@ -135,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    console.log(`${LOG_PREFIX} Draft ID found.`);
 
     let availableSubdomain = "";
     let checkTimer = null;
@@ -156,15 +86,19 @@ document.addEventListener("DOMContentLoaded", () => {
         /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
 
     function portalUrl(value) {
-        return value ? `https://${value}${DOMAIN_SUFFIX}` : "";
+        if (!value) return "";
+        const hostname = window.location.hostname.toLowerCase();
+        const isLocal = hostname === "localhost" || hostname === "127.0.0.1" || hostname.endsWith(".localhost");
+        const domain = isLocal
+            ? "localhost"
+            : (window.FLAMA_SCHOOL_DOMAIN || "cbt-frontend-sjlh.onrender.com");
+        const port = isLocal && window.location.port ? `:${window.location.port}` : "";
+        const url = new URL("/auth/login.html", `${isLocal ? "http" : "https"}://${value}.${domain}${port}`);
+        return url.toString();
     }
 
     function showStatus(message, state = "info") {
         if (!statusElement) {
-            console.warn(
-                `${LOG_PREFIX} Cannot show status; #urlStatus is missing.`,
-                { message, state }
-            );
             return;
         }
 
@@ -207,31 +141,24 @@ document.addEventListener("DOMContentLoaded", () => {
             document.createTextNode(` ${message}`)
         );
 
-        console.log(`${LOG_PREFIX} Status:`, { state, message });
     }
 
     function updatePreview(value = input.value.trim()) {
         if (preview) {
             preview.textContent =
                 portalUrl(value) ||
-                "https://your-school.cbtflamaschool.ng";
+                "https://your-school.cbt-frontend-sjlh.onrender.com/auth/login.html";
         }
     }
 
     async function checkAvailability(value, sequence) {
-        console.group(`${LOG_PREFIX} Subdomain availability check`);
-        console.log("Subdomain:", value);
-        console.log("Check sequence:", sequence);
-        console.log("Draft ID present:", Boolean(draftId));
 
         if (!isValidSlug(value)) {
             availableSubdomain = "";
-            console.warn("Subdomain format is invalid.");
             showStatus(
                 "Use 3–30 lowercase letters, numbers, and hyphens between words.",
                 "error"
             );
-            console.groupEnd();
             return;
         }
 
@@ -246,18 +173,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const path =
                 `/onboarding/subdomain-availability?${query.toString()}`;
 
-            console.log("Request path:", path);
 
             const response = await apiRequest(path);
 
             // Ignore a stale response if the user has since typed again.
             if (sequence !== checkSequence) {
-                console.warn("Ignoring stale availability response.");
-                console.groupEnd();
                 return;
             }
 
-            console.log("Availability response:", response);
 
             if (response?.available === true) {
                 availableSubdomain = value;
@@ -272,30 +195,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         } catch (error) {
             if (sequence !== checkSequence) {
-                console.warn(
-                    "Ignoring stale availability error:",
-                    error
-                );
-                console.groupEnd();
                 return;
             }
 
             availableSubdomain = "";
-            console.error(
-                `${LOG_PREFIX} Availability request failed:`,
-                {
-                    message: error?.message,
-                    error,
-                }
-            );
-            showStatus(
-                error?.message ||
-                    "Could not check this subdomain. Try again.",
-                "error"
-            );
+            showStatus(typeof getApiErrorMessage === "function"
+                ? getApiErrorMessage(error, "Could not check this school address. Please try again.")
+                : "Could not check this school address. Please try again.", "error");
         }
 
-        console.groupEnd();
     }
 
     function scheduleAvailabilityCheck() {
@@ -329,7 +237,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ""
     );
 
-    console.log(`${LOG_PREFIX} Initial subdomain value:`, input.value);
 
     input.addEventListener("input", scheduleAvailabilityCheck);
     updatePreview();
@@ -339,10 +246,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const subdomain = input.value.trim().toLowerCase();
         const url = portalUrl(subdomain);
 
-        console.log(`${LOG_PREFIX} Copy button clicked.`, {
-            subdomain,
-            valid: isValidSlug(subdomain),
-        });
 
         if (!isValidSlug(subdomain)) {
             showStatus(
@@ -356,10 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
             await navigator.clipboard.writeText(url);
             showStatus("Portal URL copied", "available");
         } catch (error) {
-            console.warn(
-                `${LOG_PREFIX} Clipboard API failed; showing prompt.`,
-                error
-            );
             window.prompt("Copy your school portal URL:", url);
         }
     });
@@ -369,11 +268,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const subdomain = input.value.trim().toLowerCase();
 
-        console.group(`${LOG_PREFIX} Portal activation`);
-        console.log("Submitted subdomain:", subdomain);
-        console.log("Subdomain valid:", isValidSlug(subdomain));
-        console.log("Availability confirmed:", availableSubdomain === subdomain);
-        console.log("Draft ID present:", Boolean(draftId));
 
         if (!isValidSlug(subdomain)) {
             showStatus(
@@ -381,7 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 "error"
             );
             input.focus();
-            console.groupEnd();
             return;
         }
 
@@ -394,19 +287,11 @@ document.addEventListener("DOMContentLoaded", () => {
             await checkAvailability(subdomain, ++checkSequence);
 
             if (availableSubdomain !== subdomain) {
-                console.error(
-                    `${LOG_PREFIX} Activation stopped because availability was not confirmed.`
-                );
-                console.groupEnd();
                 return;
             }
         }
 
         if (isSubmitting) {
-            console.warn(
-                `${LOG_PREFIX} Ignored duplicate form submission.`
-            );
-            console.groupEnd();
             return;
         }
 
@@ -429,18 +314,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const requestBody = { subdomain };
 
-            console.log("Activation request:", {
-                method: "POST",
-                path,
-                body: requestBody,
-            });
 
             const result = await apiRequest(path, {
                 method: "POST",
                 body: JSON.stringify(requestBody),
             });
 
-            console.log("Activation response:", result);
 
             const activatedSchool =
                 result?.school || result?.activatedSchool;
@@ -453,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!activatedSchool?.id && !activatedSchool?._id) {
                 throw new Error(
-                    "The server did not return the activated school record."
+                    "We couldn’t finish activating your school portal. Please sign in again to resume, or contact support if the issue continues."
                 );
             }
 
@@ -474,33 +353,13 @@ document.addEventListener("DOMContentLoaded", () => {
             saveRegistration("portalUrl", finalUrl);
             saveRegistration("portalActivated", true);
 
-            console.log(
-                `${LOG_PREFIX} Portal activated. Redirecting.`,
-                {
-                    portalUrl: finalUrl,
-                    schoolIdPresent: Boolean(
-                        activatedSchool.id ||
-                        activatedSchool._id
-                    ),
-                }
-            );
 
-            console.groupEnd();
             window.location.href = "./portal-activated.html";
         } catch (error) {
-            console.error(
-                `${LOG_PREFIX} Portal activation failed:`,
-                {
-                    message: error?.message,
-                    error,
-                }
-            );
 
-            showStatus(
-                error?.message ||
-                    "Unable to activate the portal. Please try again.",
-                "error"
-            );
+            showStatus(typeof getApiErrorMessage === "function"
+                ? getApiErrorMessage(error, "Unable to activate the portal. Please try again.")
+                : "Unable to activate the portal. Please try again.", "error");
 
             isSubmitting = false;
 
@@ -509,7 +368,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 submitButton.textContent = originalText;
             }
 
-            console.groupEnd();
         }
     });
 });

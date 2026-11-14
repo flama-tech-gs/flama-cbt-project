@@ -22,6 +22,30 @@
   cursor: pointer;
 }
 
+/* Keep monthly prices compact enough for each plan card. */
+.plan-grid .price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem;
+  min-width: 0;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.plan-grid .price .price-interval {
+  font-size: 0.8em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .plan-grid .price {
+    font-size: clamp(1.2rem, 6vw, 1.55rem);
+  }
+}
+
 .plan-card input {
   display: none;
 }

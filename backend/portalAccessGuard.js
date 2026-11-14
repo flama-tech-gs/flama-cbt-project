@@ -123,10 +123,10 @@
       document.documentElement.appendChild(document.createElement("body"));
     }
     document.body.innerHTML = `
-      <main style="min-height:100vh;display:grid;place-content:center;text-align:center;font:16px/1.5 Arial,sans-serif;color:#263238;background:#f7f9fc;padding:24px">
-        <h1 style="font-size:5rem;line-height:1;margin:0;color:#27833b">404</h1>
+      <main style="min-height:100vh;display:grid;place-content:center;text-align:center;font:16px/1.5 Inter,system-ui,-apple-system,'Segoe UI',sans-serif;color:#202124;background:#f8faf8;padding:24px">
+        <h1 style="font-size:5rem;line-height:1;margin:0;color:#2e7d32">404</h1>
         <p style="font-size:1.25rem">This page is unavailable.</p>
-        <a href="/" style="color:#27833b">Return to home</a>
+        <a href="/" style="color:#2e7d32">Return to home</a>
       </main>`;
   };
 

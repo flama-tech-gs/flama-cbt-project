@@ -114,8 +114,8 @@
             color-scheme: light;
             font-family: Inter, ui-sans-serif, system-ui, -apple-system,
               BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: #f4f6fb;
-            color: #19233b;
+            background: #f8faf8;
+            color: #202124;
           }
 
           * { box-sizing: border-box; }
@@ -136,7 +136,7 @@
             justify-content: space-between;
             padding: 30px clamp(20px, 5vw, 72px) 24px;
             background:
-              radial-gradient(ellipse at 50% 42%, #fff 0%, #f7f8fc 45%, #eef1f8 100%);
+              radial-gradient(ellipse at 50% 42%, #fff 0%, #f8faf8 45%, #eaf6ea 100%);
           }
 
           .ambient {
@@ -153,13 +153,13 @@
           .ambient-one {
             top: -170px;
             left: -130px;
-            background: #93a8ff;
+            background: #f9a825;
           }
 
           .ambient-two {
             right: -150px;
             bottom: -190px;
-            background: #a3e8dc;
+            background: #9fd19d;
           }
 
           .error-brand {
@@ -167,7 +167,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: #273c8f;
+            color: #3b2f8f;
             font-size: 1.3rem;
             font-weight: 800;
             letter-spacing: -.06em;
@@ -179,7 +179,7 @@
             display: grid;
             place-items: center;
             border-radius: 11px;
-            background: #e8edff;
+            background: #eaf6ea;
           }
 
           .brand-mark svg { width: 26px; height: 26px; }
@@ -209,7 +209,7 @@
           }
 
           .error-number {
-            color: #e9edfb;
+            color: #eaf6ea;
             font-size: 5.7rem;
             line-height: 1;
             font-weight: 850;
@@ -219,14 +219,14 @@
           .orbit {
             position: absolute;
             inset: 13px 8px;
-            border: 1px solid #e3e8f7;
+            border: 1px solid #dde5dd;
             border-radius: 50%;
             transform: rotate(-22deg);
           }
 
           .orbit-b {
             inset: 27px 0;
-            border-color: #e8eef5;
+            border-color: #e5eae6;
             transform: rotate(27deg);
           }
 
@@ -241,8 +241,8 @@
             color: #fff;
             border: 5px solid #fff;
             border-radius: 18px;
-            background: linear-gradient(145deg, #596fe0, #394fc0);
-            box-shadow: 0 12px 25px rgba(68, 87, 194, .27);
+            background: linear-gradient(145deg, #2e7d32, #256628);
+            box-shadow: 0 12px 25px rgba(46, 125, 50, .24);
             transform: rotate(-9deg);
           }
 
@@ -253,17 +253,17 @@
             width: 9px;
             height: 9px;
             border-radius: 50%;
-            background: #8e9dec;
+            background: #2e7d32;
             animation: float 3s ease-in-out infinite;
           }
 
           .dot-a { top: 23px; left: 37px; }
-          .dot-b { top: 34px; right: 27px; width: 6px; height: 6px; background: #79cdbd; animation-delay: .6s; }
-          .dot-c { bottom: 18px; right: 52px; width: 7px; height: 7px; background: #f0c16a; animation-delay: 1.1s; }
+          .dot-b { top: 34px; right: 27px; width: 6px; height: 6px; background: #9fd19d; animation-delay: .6s; }
+          .dot-c { bottom: 18px; right: 52px; width: 7px; height: 7px; background: #f9a825; animation-delay: 1.1s; }
 
           .eyebrow {
             margin: 0 0 12px;
-            color: #566bd1;
+            color: #2e7d32;
             font-size: .72rem;
             font-weight: 800;
             letter-spacing: .16em;
@@ -271,7 +271,7 @@
 
           .error-card h1 {
             margin: 0;
-            color: #1c2742;
+            color: #202124;
             font-size: clamp(1.65rem, 5vw, 2.15rem);
             letter-spacing: -.045em;
           }
@@ -279,7 +279,7 @@
           .error-message {
             max-width: 390px;
             margin: 14px auto 24px;
-            color: #65708a;
+            color: #5f6368;
             font-size: .98rem;
             line-height: 1.7;
           }
@@ -289,9 +289,9 @@
             align-items: center;
             gap: 9px;
             padding: 12px 14px;
-            border: 1px solid #e8ebf4;
+            border: 1px solid #dde5dd;
             border-radius: 12px;
-            background: #f8f9fc;
+            background: #f8faf8;
             text-align: left;
           }
 
@@ -300,12 +300,12 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #e17070;
-            box-shadow: 0 0 0 4px #fcecec;
+            background: #dc3545;
+            box-shadow: 0 0 0 4px #fce8ea;
           }
 
           .address-label {
-            color: #858da1;
+            color: #8b8b8b;
             font-size: .78rem;
             white-space: nowrap;
           }
@@ -314,7 +314,7 @@
             min-width: 0;
             margin-left: auto;
             overflow: hidden;
-            color: #35415f;
+            color: #202124;
             font-size: .8rem;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -332,8 +332,8 @@
             border: 0;
             border-radius: 13px;
             color: #fff;
-            background: linear-gradient(105deg, #4d64d3, #394db5);
-            box-shadow: 0 10px 22px rgba(67, 85, 190, .2);
+            background: linear-gradient(105deg, #2e7d32, #256628);
+            box-shadow: 0 10px 22px rgba(46, 125, 50, .2);
             font: inherit;
             font-weight: 700;
             cursor: pointer;
@@ -342,14 +342,14 @@
 
           .retry-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 14px 26px rgba(67, 85, 190, .27);
+            box-shadow: 0 14px 26px rgba(46, 125, 50, .26);
           }
 
           .retry-button svg { width: 19px; height: 19px; }
 
           .help-text {
             margin: 18px 0 0;
-            color: #9299aa;
+            color: #777777;
             font-size: .78rem;
             line-height: 1.5;
           }
@@ -358,7 +358,7 @@
             width: min(100%, 1080px);
             display: flex;
             justify-content: space-between;
-            color: #9299aa;
+            color: #777777;
             font-size: .78rem;
           }
 

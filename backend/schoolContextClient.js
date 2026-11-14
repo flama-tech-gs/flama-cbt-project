@@ -19,6 +19,7 @@
     for (const domainSuffix of domainSuffixes) {
       if (!hostname.endsWith(domainSuffix)) continue;
       const prefix = hostname.slice(0, -domainSuffix.length);
+      if (prefix === "www" && domainSuffix === ".creativesbee.site") continue;
       if (prefix && !prefix.includes(".") && isValidSubdomain(prefix)) {
         return prefix;
       }

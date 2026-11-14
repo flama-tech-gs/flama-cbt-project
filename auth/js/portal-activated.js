@@ -25,7 +25,7 @@ function loadPortalDetails() {
     "admin@yourschool.edu.ng";
 
   const subdomain = registration.registeredSchool?.subdomain || registration.school?.subdomain || registration.subdomain || "your-school";
-  const domain = window.FLAMA_SCHOOL_DOMAIN || "cbt-frontend-sjlh.onrender.com";
+  const domain = window.FLAMA_SCHOOL_DOMAIN || "creativesbee.site";
   const portalUrl = `https://${subdomain}.${domain}/auth/login.html`;
 
   document.getElementById("schoolName").textContent = schoolName;

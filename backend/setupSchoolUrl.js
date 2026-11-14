@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const isLocal = hostname === "localhost" || hostname === "127.0.0.1" || hostname.endsWith(".localhost");
         const domain = isLocal
             ? "localhost"
-            : (window.FLAMA_SCHOOL_DOMAIN || "cbt-frontend-sjlh.onrender.com");
+            : (window.FLAMA_SCHOOL_DOMAIN || "creativesbee.site");
         const port = isLocal && window.location.port ? `:${window.location.port}` : "";
         const url = new URL("/auth/login.html", `${isLocal ? "http" : "https"}://${value}.${domain}${port}`);
         return url.toString();
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (preview) {
             preview.textContent =
                 portalUrl(value) ||
-                "https://your-school.cbt-frontend-sjlh.onrender.com/auth/login.html";
+                "https://your-school.creativesbee.site/auth/login.html";
         }
     }
 

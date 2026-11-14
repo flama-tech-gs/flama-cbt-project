@@ -146,7 +146,7 @@
   };
   let schoolSlug = "";
   const hostname = window.location.hostname.toLowerCase();
-  for (const suffix of [".cbt-frontend-sjlh.onrender.com", ".flama.com", ".localhost"]) {
+  for (const suffix of [".creativesbee.site", ".cbt-frontend-sjlh.onrender.com", ".flama.com", ".localhost"]) {
     if (!hostname.endsWith(suffix)) continue;
     const prefix = hostname.slice(0, -suffix.length);
     if (prefix && !prefix.includes(".") && validSchoolSlug(prefix)) {

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const schoolName = school.name || school.schoolName || registration.school?.schoolName || "Your School";
     const schoolEmail = registration.ownerEmail || owner.email || "";
     const subdomain = String(school.subdomain || "").trim().toLowerCase();
-    const domain = window.FLAMA_SCHOOL_DOMAIN || "cbt-frontend-sjlh.onrender.com";
+    const domain = window.FLAMA_SCHOOL_DOMAIN || "creativesbee.site";
     const fallbackUrl = subdomain
         ? new URL("/auth/login.html", `https://${subdomain}.${domain}`)
         : null;

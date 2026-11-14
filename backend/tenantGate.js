@@ -8,7 +8,7 @@
     hostname === "localhost" ||
     hostname === "127.0.0.1" ||
     hostname.endsWith(".localhost");
-  const schoolDomainSuffixes = [".cbt-frontend-sjlh.onrender.com", ".flama.com", ".localhost"];
+  const schoolDomainSuffixes = [".creativesbee.site", ".cbt-frontend-sjlh.onrender.com", ".flama.com", ".localhost"];
   const isSchoolHost = schoolDomainSuffixes.some((suffix) => hostname.endsWith(suffix));
   const schoolSubdomain = String(schoolDomainSuffixes
     .filter((suffix) => hostname.endsWith(suffix))

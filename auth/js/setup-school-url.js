@@ -53,7 +53,7 @@ function updatePreview() {
 
   const hostname = window.location.hostname.toLowerCase();
   const isLocal = hostname === "localhost" || hostname === "127.0.0.1" || hostname.endsWith(".localhost");
-  const domain = isLocal ? "localhost" : (window.FLAMA_SCHOOL_DOMAIN || "cbt-frontend-sjlh.onrender.com");
+  const domain = isLocal ? "localhost" : (window.FLAMA_SCHOOL_DOMAIN || "creativesbee.site");
   const port = isLocal && window.location.port ? `:${window.location.port}` : "";
   const portalUrl = new URL("/auth/login.html", `${isLocal ? "http" : "https"}://${input.value}.${domain}${port}`);
   preview.textContent = portalUrl.toString();

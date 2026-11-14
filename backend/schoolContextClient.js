@@ -11,6 +11,7 @@
   function findSchoolSubdomain() {
     const hostname = window.location.hostname.toLowerCase();
     const domainSuffixes = [
+      ".creativesbee.site",
       ".cbt-frontend-sjlh.onrender.com",
       ".flama.com",
       ".localhost",

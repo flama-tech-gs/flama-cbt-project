@@ -113,6 +113,13 @@ The public-facing website provides:
 
 The frontend is currently being implemented using Vanilla JavaScript without frontend frameworks.
 
+## Deployment
+
+- Frontend: https://cbt-frontend-sjlh.onrender.com
+- Backend API: https://flama.onrender.com/api
+
+Browser integration scripts use the local API on port `5000` during local development and the deployed API in production. Set `window.FLAMA_API_BASE` before a page's integration scripts to override the API base when needed.
+
 ---
 
 ## Project Structure

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const API_BASE_URL = "http://localhost:5000/api";
+  const API_BASE_URL = (window.FLAMA_API_BASE || (["localhost", "127.0.0.1"].includes(window.location.hostname) || window.location.hostname.endsWith(".localhost") ? `${window.location.protocol}//${window.location.hostname}:5000/api` : "https://flama.onrender.com/api"));
   const ADMINS_URL = `${API_BASE_URL}/admin/users`;
 
   const tbody = document.getElementById("adminsTableBody");

@@ -97,7 +97,7 @@
     const local = host === "localhost" || host === "127.0.0.1" || host.endsWith(".localhost");
     return local
       ? `${window.location.protocol}//${host}:5000/api`
-      : `${window.location.origin}/api`;
+      : "https://flama.onrender.com/api";
   };
 
   const redirectToLogin = () => {

@@ -1,7 +1,7 @@
 //backend/adminAuth.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  const API_URL = "http://localhost:5000/api/admin/auth";
+  const API_URL = (window.FLAMA_API_BASE || (["localhost", "127.0.0.1"].includes(window.location.hostname) || window.location.hostname.endsWith(".localhost") ? `${window.location.protocol}//${window.location.hostname}:5000/api` : "https://flama.onrender.com/api")) + "/admin/auth";
   const messageBox = document.getElementById("formMessage");
 
   const getToken = () =>

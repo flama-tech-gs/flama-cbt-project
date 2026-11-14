@@ -1,6 +1,6 @@
 // Shared exam creation form for the Principal modal and Teacher page.
 (function () {
-  const API_BASE = `${window.location.protocol}//${window.location.hostname}:5000/api`;
+  const API_BASE = window.FLAMA_API_BASE || (["localhost", "127.0.0.1"].includes(window.location.hostname) || window.location.hostname.endsWith(".localhost") ? `${window.location.protocol}//${window.location.hostname}:5000/api` : "https://flama.onrender.com/api");
   const principalPage = window.location.pathname.includes("/principal/");
   const TOKEN_KEYS = principalPage
     ? ["principalAccessToken", "tenantAccessToken"]

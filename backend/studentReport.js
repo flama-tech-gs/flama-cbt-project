@@ -9,10 +9,7 @@
     window.location.hostname.endsWith(".localhost");
 
   const API_BASE =
-    window.FLAMA_API_BASE ||
-    (isLocal
-      ? `${window.location.protocol}//${window.location.hostname}:5000/api`
-      : `${window.location.origin}/api`);
+    window.FLAMA_API_BASE || (isLocal ? `${window.location.protocol}//${window.location.hostname}:5000/api` : "https://flama.onrender.com/api");
 
   const API_URL = `${API_BASE}/student-dashboard/report`;
 

@@ -1,6 +1,6 @@
 //backend/accountSettings.js
 
-const API_BASE = "http://localhost:5000/api/owner";
+const API_BASE = (window.FLAMA_API_BASE || (["localhost", "127.0.0.1"].includes(window.location.hostname) || window.location.hostname.endsWith(".localhost") ? `${window.location.protocol}//${window.location.hostname}:5000/api` : "https://flama.onrender.com/api")) + "/owner";
 const TOKEN_KEY = "flamaAccessToken";
 
 const schoolDetailsForm = document.querySelector("#schoolDetailsForm");

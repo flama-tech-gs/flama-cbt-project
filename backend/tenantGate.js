@@ -407,7 +407,7 @@
 
   const apiBase = isLocalSchool
     ? `${window.location.protocol}//${hostname}:5000/api`
-    : `${window.location.origin}/api`;
+    : "https://flama.onrender.com/api";
 
   const schoolInfoUrl = new URL(
     `${apiBase}/tenant/auth/school-info`

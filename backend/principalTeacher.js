@@ -4,7 +4,7 @@
   "use strict";
 
   const API_BASE =
-    `${window.location.protocol}//${window.location.hostname}:5000/api`;
+    window.FLAMA_API_BASE || (["localhost", "127.0.0.1"].includes(window.location.hostname) || window.location.hostname.endsWith(".localhost") ? `${window.location.protocol}//${window.location.hostname}:5000/api` : "https://flama.onrender.com/api");
   const TEACHERS_URL = `${API_BASE}/principal/teachers`;
   const token = sessionStorage.getItem("principalAccessToken");
 

@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
        * Later:
        *
        * window.location.href =
-       * `./ticket-details.html?id=${ticketId}`;
+       * `./ticket-details?id=${ticketId}`;
        */
 
       console.log(`Opening support ticket #${ticketId}`);

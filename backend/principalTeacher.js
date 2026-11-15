@@ -376,7 +376,7 @@
 
   // Add New Teacher navigates to the existing add-teacher page.
   addTeacherButton?.addEventListener("click", () => {
-    window.location.href = "./add-teacher.html";
+    window.location.href = "./add-teacher";
   });
 
   searchInput?.addEventListener("input", () => {

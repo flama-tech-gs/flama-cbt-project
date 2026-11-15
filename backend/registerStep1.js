@@ -607,7 +607,7 @@ document.addEventListener("DOMContentLoaded", () => {
             saveRegistration("school", school);
 
             // Continue to Step 2. The subdomain is selected after payment.
-            window.location.href = "./register-step2.html";
+            window.location.href = "./register-step2";
         } catch (error) {
 
             const message =

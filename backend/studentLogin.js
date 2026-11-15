@@ -220,7 +220,7 @@
         sessionStorage.setItem("studentUser", JSON.stringify(student));
       }
 
-      window.location.assign("./pages/onboarding.html");
+      window.location.assign("./pages/onboarding");
     } catch (error) {
       console.error("Student login failed:", error);
       showError(

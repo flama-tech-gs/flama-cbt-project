@@ -266,7 +266,7 @@ BUTTON
 */
 
 document.getElementById("addStudentBtn").addEventListener("click", () => {
-  window.location.href = "./add-student.html";
+  window.location.href = "./add-student";
 });
 
 /*

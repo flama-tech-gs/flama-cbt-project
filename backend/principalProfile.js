@@ -210,7 +210,7 @@ async function loadPrincipalProfile() {
     const token = sessionStorage.getItem(TOKEN_KEY);
 
     if (!token) {
-        window.location.assign("./index.html");
+        window.location.assign("./index");
         return;
     }
 
@@ -232,7 +232,7 @@ async function loadPrincipalProfile() {
                 sessionStorage.removeItem(TOKEN_KEY);
                 sessionStorage.removeItem("principalRefreshToken");
                 sessionStorage.removeItem("principalAccount");
-                window.location.assign("./index.html");
+                window.location.assign("./index");
                 return;
             }
 

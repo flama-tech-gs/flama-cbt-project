@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const TOKEN_KEY = "flamaAccessToken";
     const DASHBOARD_ENDPOINT = "/owner/dashboard";
-    const LOGIN_URL = "../auth/login.html";
+    const LOGIN_URL = "../auth/login";
 
     const byId = (id) => document.getElementById(id);
 
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const openSchoolPortal = byId("openSchoolPortal");
         const principalUrl = normalizeUrl(
             customSchoolHost
-                ? `https://${customSchoolHost}/principal/index.html`
+                ? `https://${customSchoolHost}/principal/index`
                 : urls?.principal
         );
         if (openSchoolPortal) {
@@ -178,13 +178,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const portalItems = [
             {
                 url: customSchoolHost
-                    ? `https://${customSchoolHost}/student/index.html`
+                    ? `https://${customSchoolHost}/student/index`
                     : urls?.student,
                 label: "Student Portal",
             },
             {
                 url: customSchoolHost
-                    ? `https://${customSchoolHost}/teacher/index.html`
+                    ? `https://${customSchoolHost}/teacher/index`
                     : urls?.staff,
                 label: "Staff Portal",
             },

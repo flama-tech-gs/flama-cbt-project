@@ -92,7 +92,7 @@ ${item.delivered}
 
 ${item.date}
 
-<a class="edit-broadcast-btn" href="./new-broadcast.html?edit=${index}&title=${encodeURIComponent(item.title)}&message=${encodeURIComponent(item.message)}&audience=${encodeURIComponent(item.audience)}">
+<a class="edit-broadcast-btn" href="./new-broadcast?edit=${index}&title=${encodeURIComponent(item.title)}&message=${encodeURIComponent(item.message)}&audience=${encodeURIComponent(item.audience)}">
 
 <i data-lucide="pencil"></i>
 
@@ -115,7 +115,7 @@ NEW BROADCAST
 */
 
 document.getElementById("newBroadcastBtn").addEventListener("click", () => {
-  window.location.href = "./new-broadcast.html";
+  window.location.href = "./new-broadcast";
 
   // alert("Open New Broadcast");
 });

@@ -256,7 +256,7 @@ async function loadAnalysis({ populateFilters = false } = {}) {
     const token = sessionStorage.getItem(TOKEN_KEY);
 
     if (!token) {
-        window.location.replace("./index.html");
+        window.location.replace("./index");
         return;
     }
 
@@ -312,7 +312,7 @@ async function loadAnalysis({ populateFilters = false } = {}) {
             sessionStorage.removeItem(TOKEN_KEY);
             sessionStorage.removeItem("principalRefreshToken");
             sessionStorage.removeItem("principalAccount");
-            window.location.replace("./index.html");
+            window.location.replace("./index");
             return;
         }
 

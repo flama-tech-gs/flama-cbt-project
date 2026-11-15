@@ -306,7 +306,7 @@ function initBackButton() {
     }
 
     backButton.addEventListener("click", () => {
-        window.location.href = "./register-step2.html";
+        window.location.href = "./register-step2";
     });
 }
 
@@ -428,7 +428,7 @@ function initStep3Form() {
 
 
 
-        window.location.href = "./register-step4.html";
+        window.location.href = "./register-step4";
     });
 }
 

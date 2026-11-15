@@ -13,7 +13,7 @@
   function token() {
     const value = sessionStorage.getItem(TOKEN_KEY);
     if (!value) {
-      window.location.assign("../index.html");
+      window.location.assign("../index");
       throw new Error("Your login session has expired.");
     }
     return value;
@@ -331,7 +331,7 @@
 
   successModal?.querySelector(".btn-success")
     ?.addEventListener("click", () => {
-      window.location.assign("../students/students.html");
+      window.location.assign("../students/students");
     });
 
   loadFormData().catch((error) => {

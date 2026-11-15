@@ -539,7 +539,7 @@
   }
 
   function goToDashboard() {
-    window.location.assign("./onboarding.html");
+    window.location.assign("./onboarding");
   }
 
   elements.previous.addEventListener("click", () => showQuestion(currentQuestion - 1));
@@ -553,7 +553,7 @@
 
   async function initialize() {
     if (!token) {
-      window.location.replace("../index.html");
+      window.location.replace("../index");
       return;
     }
     if (!examId) {
@@ -622,7 +622,7 @@
       if (error.status === 401) {
         sessionStorage.removeItem("tenantAccessToken");
         sessionStorage.removeItem("studentAccessToken");
-        window.location.replace("../index.html");
+        window.location.replace("../index");
         return;
       }
       showPageError(error.message || "Could not load this exam.");

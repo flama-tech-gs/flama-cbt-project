@@ -282,7 +282,7 @@
     function showSuccessModal(result) {
         if (!successModal) {
             alert("Department created successfully.");
-            window.location.href = "./departments.html";
+            window.location.href = "./departments";
             return;
         }
 
@@ -440,7 +440,7 @@
         (event) => {
             event.preventDefault();
             event.stopImmediatePropagation();
-            window.location.href = "./departments.html";
+            window.location.href = "./departments";
         },
         true
     );
@@ -448,7 +448,7 @@
     viewDepartmentsButton?.addEventListener(
         "click",
         () => {
-            window.location.href = "./departments.html";
+            window.location.href = "./departments";
         },
         true
     );

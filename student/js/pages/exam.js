@@ -168,7 +168,7 @@ document.getElementById("submitBtn").onclick = () => {
 function submitExam() {
   alert("Exam submitted!");
   localStorage.removeItem("answers");
-  window.location.href = "report.html";
+  window.location.href = "report";
 }
 
 // function confirmSubmit() {
@@ -180,7 +180,7 @@ function submitExam() {
 
 // function goToDashboard() {
 
-//   window.location.href = "index.html";
+//   window.location.href = "index";
 // }
 
 // function confirmSubmit() {

@@ -224,7 +224,7 @@ document.addEventListener("click", (e) => {
 
   if (!btn) return;
 
-  window.location.href = "./student-report.html";
+  window.location.href = "./student-report";
 
   // alert("Open Student Report");
 });

@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     backButton?.addEventListener("click", () => {
-        window.location.href = "./register-step1.html";
+        window.location.href = "./register-step1";
     });
 
     form.addEventListener("submit", async (event) => {
@@ -367,7 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             // Never store the password in sessionStorage or localStorage.
-            window.location.href = "./verify-email.html";
+            window.location.href = "./verify-email";
         } catch (error) {
             setMessage(typeof getApiErrorMessage === "function"
                 ? getApiErrorMessage(error, "Unable to save your registration. Please try again.")

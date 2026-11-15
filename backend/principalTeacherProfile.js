@@ -346,7 +346,7 @@
     document
         .getElementById("backButton")
         ?.addEventListener("click", () => {
-            window.location.href = "./teachers.html";
+            window.location.href = "./teachers";
         });
 
     const accountButtons = document.querySelectorAll(

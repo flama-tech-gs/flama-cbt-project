@@ -9,7 +9,7 @@
   function token() {
     const value = sessionStorage.getItem(TOKEN_KEY);
     if (!value) {
-      window.location.assign("../index.html");
+      window.location.assign("../index");
       throw new Error("Your session has expired. Please log in again.");
     }
     return value;

@@ -275,7 +275,7 @@ document.addEventListener("click", (e) => {
   
 
 window.location.href =
-"student-profile.html";
+"student-profile";
 
 
 

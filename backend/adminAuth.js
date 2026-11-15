@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     onSuccess: (body) => {
       // Carry the invited admin's email to the verification page.
       location.href =
-        `./admin-verify.html?email=${encodeURIComponent(body.email)}`;
+        `./admin-verify?email=${encodeURIComponent(body.email)}`;
     },
   });
 

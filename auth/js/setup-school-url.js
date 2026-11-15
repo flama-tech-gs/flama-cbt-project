@@ -55,7 +55,7 @@ function updatePreview() {
   const isLocal = hostname === "localhost" || hostname === "127.0.0.1" || hostname.endsWith(".localhost");
   const domain = isLocal ? "localhost" : (window.FLAMA_SCHOOL_DOMAIN || "creativesbee.site");
   const port = isLocal && window.location.port ? `:${window.location.port}` : "";
-  const portalUrl = new URL("/auth/login.html", `${isLocal ? "http" : "https"}://${input.value}.${domain}${port}`);
+  const portalUrl = new URL("/auth/login", `${isLocal ? "http" : "https"}://${input.value}.${domain}${port}`);
   preview.textContent = portalUrl.toString();
 }
 
@@ -141,7 +141,7 @@ function initPortalForm() {
             }
         */
 
-    window.location.href = "../principal/dashboard.html";
+    window.location.href = "../principal/dashboard";
   });
 }
 

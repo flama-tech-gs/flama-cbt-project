@@ -152,7 +152,7 @@ function updateSchoolStatus(row, status) {
             <div class="table-actions">
 
                 <a
-                    href="./school-details.html"
+                    href="./school-details"
                     class="action-view"
                 >
                     View
@@ -178,7 +178,7 @@ function updateSchoolStatus(row, status) {
             <div class="table-actions">
 
                 <a
-                    href="./school-details.html"
+                    href="./school-details"
                     class="action-view"
                 >
                     View
@@ -254,7 +254,7 @@ function initializeLogout() {
      * await logoutUser();
      *
      * window.location.href =
-     * "./login.html";
+     * "./login";
      */
 
     console.log("Platform administrator logged out.");

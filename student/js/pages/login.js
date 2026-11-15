@@ -16,7 +16,7 @@ if (token) {
     }
   } catch (err) {
     localStorage.clear();
-    window.location.href = "index.html";
+    window.location.href = "index";
   }
 }
 
@@ -93,7 +93,7 @@ loginForm.addEventListener("submit", async (e) => {
 
       alert("Login successful");
 
-      window.location.href = "./pages/profile.html";
+      window.location.href = "./pages/profile";
     } else {
       if (
         data.message === "Student not found" ||

@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <td>
             <div class="table-actions">
               <a
-                href="./school-details.html?id=${schoolId}"
+                href="./school-details?id=${schoolId}"
                 class="action-view"
               >
                 View
@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <td>
             <a
-              href="./ticket-details.html?id=${ticketId}"
+              href="./ticket-details?id=${ticketId}"
               class="ticket-action"
             >
               Open →

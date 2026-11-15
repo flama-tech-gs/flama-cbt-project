@@ -30,7 +30,7 @@ function initializeBackButton() {
   if (!button) return;
 
   button.addEventListener("click", () => {
-    window.location.href = "support.html";
+    window.location.href = "support";
   });
 }
 

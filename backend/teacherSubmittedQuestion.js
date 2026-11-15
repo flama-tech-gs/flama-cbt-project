@@ -133,7 +133,7 @@
   function makeEditUrl(submission) {
     // Root-relative path: avoids resolving under /submitted-question/.
     const url = new URL(
-      "teacher/edit-question/edit-question.html",
+      "teacher/edit-question/edit-question",
       window.location.origin
     );
 

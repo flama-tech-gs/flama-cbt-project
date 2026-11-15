@@ -108,7 +108,7 @@ CANCEL
 */
 
 document.querySelector(".cancel-btn").addEventListener("click", () => {
-  window.location.href = "../broadcasts/broadcasts.html";
+  window.location.href = "../broadcasts/broadcasts";
 });
 
 /*
@@ -140,7 +140,7 @@ fetch(...)
 
   alert("Broadcast Sent Successfully!");
 
-  window.location.href = "../broadcasts/broadcasts.html";
+  window.location.href = "../broadcasts/broadcasts";
 });
 
 /*

@@ -26,7 +26,7 @@ function loadPortalDetails() {
 
   const subdomain = registration.registeredSchool?.subdomain || registration.school?.subdomain || registration.subdomain || "your-school";
   const domain = window.FLAMA_SCHOOL_DOMAIN || "creativesbee.site";
-  const portalUrl = `https://${subdomain}.${domain}/auth/login.html`;
+  const portalUrl = `https://${subdomain}.${domain}/auth/login`;
 
   document.getElementById("schoolName").textContent = schoolName;
 

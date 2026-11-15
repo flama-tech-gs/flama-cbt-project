@@ -269,7 +269,7 @@ function reviewSubmission(subject, classroom) {
   // Future route
 
   // window.location.href =
-  // "../review-questions/review.html";
+  // "../review-questions/review";
 }
 
 /*

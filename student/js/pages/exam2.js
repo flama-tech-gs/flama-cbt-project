@@ -16,7 +16,7 @@ if (token) {
     }
   } catch (err) {
     localStorage.clear();
-    window.location.href = "../index.html";
+    window.location.href = "../index";
   }
 }
 
@@ -573,7 +573,7 @@ window.addEventListener(
 
 //Dashboard
 function goToDashboard() {
-  window.location.href = "./profile.html"; // adjust path
+  window.location.href = "./profile"; // adjust path
 }
 
 //DOM

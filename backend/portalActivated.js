@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const subdomain = String(school.subdomain || "").trim().toLowerCase();
     const domain = window.FLAMA_SCHOOL_DOMAIN || "creativesbee.site";
     const fallbackUrl = subdomain
-        ? new URL("/auth/login.html", `https://${subdomain}.${domain}`)
+        ? new URL("/auth/login", `https://${subdomain}.${domain}`)
         : null;
     const portalUrl = fallbackUrl ? fallbackUrl.toString() : (registration.portalUrl || "");
 
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.open(`https://wa.me/?text=${message}`, "_blank", "noopener,noreferrer");
     });
 
-    const dashboardLink = document.querySelector('a[href="../school-admin/index.html"]');
+    const dashboardLink = document.querySelector('a[href="../school-admin/index"]');
     if (dashboardLink && portalUrl) {
         dashboardLink.href = portalUrl;
         dashboardLink.target = "_blank";

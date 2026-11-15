@@ -348,7 +348,7 @@
 
   async function loadTeacherProfile() {
     if (!token) {
-      window.location.assign("../login.html");
+      window.location.assign("../login");
       return;
     }
 
@@ -408,7 +408,7 @@
     sessionStorage.removeItem("teacherRefreshToken");
     sessionStorage.removeItem("tenantAccessToken");
     sessionStorage.removeItem("teacherUser");
-    window.location.assign("../login.html");
+    window.location.assign("../login");
   });
 
   loadTeacherProfile();

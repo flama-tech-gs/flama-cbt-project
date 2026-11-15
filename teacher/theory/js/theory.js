@@ -375,7 +375,7 @@ document.querySelectorAll(".action-profile").forEach((button) => {
 Backend
 
 window.location.href=
-`../student-profile/student-profile.html?id=1`;
+`../student-profile/student-profile?id=1`;
 
 */
 

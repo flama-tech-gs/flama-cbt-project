@@ -206,7 +206,7 @@
       startButton.setAttribute("aria-label", `Start ${exam.title || "exam"}`);
       startButton.addEventListener("click", () => {
         const query = new URLSearchParams({ examId: idOf(exam) });
-        window.location.assign(`./exam.html?${query.toString()}`);
+        window.location.assign(`./exam?${query.toString()}`);
       });
     }
 
@@ -247,7 +247,7 @@
       sessionStorage.getItem("studentAccessToken");
 
     if (!token) {
-      window.location.replace("../index.html");
+      window.location.replace("../index");
       return;
     }
 
@@ -304,7 +304,7 @@
       if (error.status === 401) {
         sessionStorage.removeItem(TOKEN_KEY);
         sessionStorage.removeItem("studentAccessToken");
-        window.location.replace("../index.html");
+        window.location.replace("../index");
         return;
       }
 
@@ -331,7 +331,7 @@
   }
 
   document.querySelector(".back-btn")?.addEventListener("click", () => {
-    window.location.assign("./onboarding.html");
+    window.location.assign("./onboarding");
   });
 
   if (document.readyState === "loading") {

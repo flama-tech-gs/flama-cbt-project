@@ -413,7 +413,7 @@
 
   function initialize() {
     const backLink = document.querySelector(".back-btn a");
-    if (backLink) backLink.href = "../pages/onboarding.html";
+    if (backLink) backLink.href = "../pages/onboarding";
 
     el.printButtons.forEach((button) => {
       button.addEventListener("click", () => window.print());

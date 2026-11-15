@@ -65,7 +65,7 @@ function initializeNoticeButton() {
     if (window.history.length > 1) {
       window.history.back();
     } else {
-      window.location.href = "./overview.html";
+      window.location.href = "./overview";
     }
   });
 }
@@ -98,7 +98,7 @@ function initializeDepartmentRows() {
       // Navigate to department details
       //
       // window.location.href =
-      // `edit-department.html?id=department-id`;
+      // `edit-department?id=department-id`;
       // =====================================
     });
   });

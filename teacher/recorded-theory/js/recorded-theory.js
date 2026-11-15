@@ -239,7 +239,7 @@ ${student.score}
 <td>
 
 <a
-href="../profile/profile.html?id=${student.id}"
+href="../profile/profile?id=${student.id}"
 class="profile-link">
 
 View Profile

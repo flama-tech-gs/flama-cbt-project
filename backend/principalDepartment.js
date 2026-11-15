@@ -106,7 +106,7 @@
     }
 
     function buildEditUrl(department) {
-        const url = new URL("./edit.html", window.location.href);
+        const url = new URL("./edit", window.location.href);
 
         if (department.id) {
             url.searchParams.set("departmentId", department.id);
@@ -223,7 +223,7 @@
         (event) => {
             event.preventDefault();
             event.stopImmediatePropagation();
-            window.location.href = "./create.html";
+            window.location.href = "./create";
         },
         true
     );

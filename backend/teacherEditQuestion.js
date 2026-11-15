@@ -587,7 +587,7 @@
     // Return to the submitted questions listing.
     const backLink = document.querySelector(".back-btn");
     if (backLink) {
-      backLink.href = "../submitted-question/submitted-questions.html";
+      backLink.href = "../submitted-question/submitted-questions";
     }
 
     window.addEventListener("beforeunload", (event) => {

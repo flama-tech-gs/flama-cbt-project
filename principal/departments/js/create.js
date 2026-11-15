@@ -146,7 +146,7 @@ function initializeFormActions() {
   });
 
   cancelButton.addEventListener("click", () => {
-    window.location.href = "./departments.html";
+    window.location.href = "./departments";
   });
 }
 
@@ -227,7 +227,7 @@ document.addEventListener("keydown", function (e) {
 ========================================== */
 
 viewDepartmentsBtn.addEventListener("click", () => {
-  window.location.href = "./departments.html";
+  window.location.href = "./departments";
 });
 
 /* ==========================================

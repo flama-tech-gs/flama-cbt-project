@@ -16,7 +16,7 @@ if (token) {
     }
   } catch (err) {
     localStorage.clear();
-    window.location.href = "../index.html";
+    window.location.href = "../index";
   }
 }
 
@@ -45,7 +45,7 @@ const backBtn = document.querySelector(".back-btn");
 
 // Back to the student hub (the only page that links to Exam Start)
 backBtn?.addEventListener("click", () => {
-  window.location.href = "./onboarding.html";
+  window.location.href = "./onboarding";
 });
 
 

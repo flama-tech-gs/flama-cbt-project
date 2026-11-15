@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (confirmLogout) {
       localStorage.removeItem("teacherToken");
 
-      window.location.href = "login.html";
+      window.location.href = "login";
     }
   });
 });

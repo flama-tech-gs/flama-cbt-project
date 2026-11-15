@@ -137,7 +137,7 @@ function initVerification() {
 
     setTimeout(() => {
 
-      // window.location.href = "success.html";
+      // window.location.href = "success";
 
       button.disabled = false;
       button.classList.remove("loading");

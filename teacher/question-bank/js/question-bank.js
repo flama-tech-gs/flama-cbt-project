@@ -155,7 +155,7 @@ document.addEventListener("click", (e) => {
 
   const questionId = button.dataset.id;
 
-  window.location.href = `../edit-question/edit-question.html?question=${questionId}`;
+  window.location.href = `../edit-question/edit-question?question=${questionId}`;
 });
 
 /*

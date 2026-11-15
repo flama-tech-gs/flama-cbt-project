@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       window.setTimeout(() => {
-        window.location.assign("./login.html");
+        window.location.assign("./login");
       }, 1800);
     } catch (error) {
       console.error("Reset password error:", error);

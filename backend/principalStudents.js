@@ -63,7 +63,7 @@
     const token = sessionStorage.getItem(TOKEN_KEY);
 
     if (!token) {
-      window.location.assign("../index.html");
+      window.location.assign("../index");
       throw new Error("Your login session has expired.");
     }
 
@@ -363,7 +363,7 @@
                         <td>
                           <div class="actions">
                             <a class="action-link"
-                               href="./student-profile.html?studentId=${encodeURIComponent(student.studentId)}">
+                               href="./student-profile?studentId=${encodeURIComponent(student.studentId)}">
                               View
                             </a>
 
@@ -374,7 +374,7 @@
                             </button>
 
                             <a class="action-link"
-                               href="./edit-student.html?studentId=${encodeURIComponent(student.studentId)}">
+                               href="./edit-student?studentId=${encodeURIComponent(student.studentId)}">
                               Edit Profile
                             </a>
 

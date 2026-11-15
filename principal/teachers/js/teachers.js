@@ -291,7 +291,7 @@ document.getElementById("addTeacherBtn").addEventListener("click", () => {
 Later
 
 window.location.href =
-"add-teacher.html";
+"add-teacher";
 
 */
 

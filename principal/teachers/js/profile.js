@@ -28,7 +28,7 @@ function initializeBackButton() {
   backButton.addEventListener("click", (e) => {
     e.preventDefault();
 
-    window.location.href = "./teachers.html";
+    window.location.href = "./teachers";
   });
 }
 

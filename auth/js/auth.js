@@ -77,7 +77,7 @@ function handleSubmit(e) {
 
 
     // Example
-    // window.location.href = "../dashboard/index.html";
+    // window.location.href = "../dashboard/index";
   }, 1500);
 }
 

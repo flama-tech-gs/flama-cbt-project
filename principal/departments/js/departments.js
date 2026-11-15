@@ -66,7 +66,7 @@ function initializeCreateDepartment() {
     // TODO:
     // Open Create Department Modal
 
-    window.location.href = "./create.html";
+    window.location.href = "./create";
 
     console.log("Create Department");
   });
@@ -88,7 +88,7 @@ function initializeEditDepartments() {
       // TODO:
       // Open Edit Department Modal
 
-      window.location.href = "./edit.html";
+      window.location.href = "./edit";
 
       console.log(`Edit ${departmentName}`);
     });

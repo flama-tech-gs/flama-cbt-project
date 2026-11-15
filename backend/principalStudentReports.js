@@ -10,7 +10,7 @@
   function token() {
     const value = sessionStorage.getItem(TOKEN_KEY);
     if (!value) {
-      window.location.assign("../index.html");
+      window.location.assign("../index");
       throw new Error("Your session has expired. Please log in again.");
     }
     return value;
@@ -177,7 +177,7 @@
     event.preventDefault();
     event.stopImmediatePropagation();
 
-    const url = new URL("./student-report.html", window.location.href);
+    const url = new URL("./student-report", window.location.href);
     url.searchParams.set("studentId", button.dataset.studentId);
     window.location.assign(url);
   }, true);

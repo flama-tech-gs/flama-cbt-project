@@ -258,7 +258,7 @@
 
       saveTeacherSession(result);
 
-      window.location.assign("./profile/profile.html");
+      window.location.assign("./profile/profile");
     } catch (error) {
       const message =
         error.message || "Unable to sign in. Please try again.";

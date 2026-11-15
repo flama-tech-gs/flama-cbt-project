@@ -129,7 +129,7 @@ function initializeViewButtons() {
         teacher: row.children[1].textContent.trim(),
       });
 
-      window.location.href = "./review.html";
+      window.location.href = "./review";
     });
   });
 }

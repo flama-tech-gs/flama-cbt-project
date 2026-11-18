@@ -14,11 +14,16 @@
   const form = document.getElementById("recordForm");
   const dialog = document.getElementById("recordDialog");
   const confirmDialog = document.getElementById("deleteDialog");
+  const statusDialog = document.getElementById("statusDialog");
+  const statusForm = document.getElementById("statusForm");
+  const statusSelect = document.getElementById("recordStatus");
+  const statusTitle = document.getElementById("statusDialogTitle");
   const toastRegion = document.getElementById("recordToasts");
   let records = [];
   let sessions = [];
   let editingId = null;
   let deletingId = null;
+  let updatingStatusId = null;
 
   const title = ({ sessions: "Academic Sessions", terms: "Academic Terms", classes: "Classes" })[kind];
   document.title = `${title} | Flama`;
@@ -79,10 +84,10 @@
         : kind === "terms"
           ? `${niceTerm(record.name)} · ${record.academicSession?.name || sessions.find((s) => (s._id || s.id) === (record.academicSession?._id || record.academicSession))?.name || "Session"} · ${dateValue(record.startDate)} to ${dateValue(record.endDate)} · ${record.status || "UPCOMING"}`
           : `${record.code || "—"} · ${record.level || "—"}${record.description ? ` · ${record.description}` : ""}`;
-      const statusControl = !principal && (kind === "sessions" || kind === "terms")
-        ? `<label class="record-status-control"><span class="sr-only">Status for ${escapeHtml(record.name)}</span><select data-status-for="${escapeHtml(id)}">${["UPCOMING", "ACTIVE", "COMPLETED"].map((status) => `<option value="${status}"${(record.status || "UPCOMING") === status ? " selected" : ""}>${status.charAt(0)}${status.slice(1).toLowerCase()}</option>`).join("")}</select><button class="record-btn" data-save-status="${escapeHtml(id)}">Update</button></label>`
+      const statusAction = !principal && (kind === "sessions" || kind === "terms")
+        ? `<button class="record-btn" data-open-status="${escapeHtml(id)}">Update</button>`
         : "";
-      const actions = readOnly ? "" : `<div class="record-actions">${statusControl}<button class="record-btn" data-edit="${escapeHtml(id)}">Edit</button><button class="record-btn danger" data-delete="${escapeHtml(id)}">Delete</button></div>`;
+      const actions = readOnly ? "" : `<div class="record-actions">${statusAction}<button class="record-btn" data-edit="${escapeHtml(id)}">Edit</button><button class="record-btn danger" data-delete="${escapeHtml(id)}">Delete</button></div>`;
       return `<article class="record-card"><div><h2>${escapeHtml(kind === "terms" ? niceTerm(record.name) : record.name)}</h2><p>${escapeHtml(detail)}</p></div>${actions}</article>`;
     }).join("");
   }
@@ -131,6 +136,7 @@
   document.getElementById("createRecordBtn")?.addEventListener("click", () => openEditor());
   document.getElementById("closeRecordDialog")?.addEventListener("click", () => dialog?.close());
   document.getElementById("closeDeleteDialog")?.addEventListener("click", () => confirmDialog?.close());
+  document.getElementById("closeStatusDialog")?.addEventListener("click", () => statusDialog?.close());
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
     const payload = Object.fromEntries(new FormData(form).entries());
@@ -142,30 +148,40 @@
   });
   list.addEventListener("click", (event) => {
     if (readOnly) return;
-    const saveStatus = event.target.closest("[data-save-status]");
-    if (saveStatus) {
-      const recordId = saveStatus.dataset.saveStatus;
-      const statusSelect = list.querySelector(`[data-status-for="${CSS.escape(recordId)}"]`);
-      const status = statusSelect?.value;
-      if (!status) return;
-      saveStatus.disabled = true;
-      request(`/${encodeURIComponent(recordId)}`, {
-        method: "PATCH",
-        body: JSON.stringify({ status, isCurrent: status === "ACTIVE" }),
-      }).then(() => {
-        toast(`${kind === "sessions" ? "Session" : "Term"} status updated.`);
-        return refresh();
-      }).catch((error) => {
-        toast(error.message, true);
-      }).finally(() => {
-        saveStatus.disabled = false;
-      });
+    const openStatus = event.target.closest("[data-open-status]");
+    if (openStatus && statusDialog && statusSelect) {
+      updatingStatusId = openStatus.dataset.openStatus;
+      const record = records.find((item) => String(item._id || item.id) === updatingStatusId);
+      statusTitle.textContent = `Update ${kind === "sessions" ? "session" : "term"} status`;
+      statusSelect.value = record?.status || "UPCOMING";
+      statusDialog.showModal();
       return;
     }
     const edit = event.target.closest("[data-edit]");
     const remove = event.target.closest("[data-delete]");
     if (edit) openEditor(records.find((item) => (item._id || item.id) === edit.dataset.edit));
     if (remove) { deletingId = remove.dataset.delete; confirmDialog.showModal(); }
+  });
+  statusForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!updatingStatusId || !statusSelect?.value) return;
+    const button = statusForm.querySelector('[type="submit"]');
+    button.disabled = true;
+    try {
+      const status = statusSelect.value;
+      await request(`/${encodeURIComponent(updatingStatusId)}`, {
+        method: "PATCH",
+        body: JSON.stringify({ status, isCurrent: status === "ACTIVE" }),
+      });
+      statusDialog.close();
+      toast(`${kind === "sessions" ? "Session" : "Term"} status updated.`);
+      await refresh();
+    } catch (error) {
+      toast(error.message, true);
+    } finally {
+      button.disabled = false;
+      updatingStatusId = null;
+    }
   });
   document.getElementById("confirmDeleteBtn")?.addEventListener("click", async () => {
     const button = document.getElementById("confirmDeleteBtn"); button.disabled = true;

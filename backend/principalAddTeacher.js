@@ -221,6 +221,17 @@
             ? data.subjects
             : [];
 
+        const departments = Array.isArray(data.departments)
+            ? data.departments
+            : [];
+
+        departmentSelect?.replaceChildren(
+            makeOption("", departments.length ? "Select department" : "No departments created yet"),
+            ...departments.map((department) =>
+                makeOption(department.name, department.name)
+            )
+        );
+
         classes = Array.isArray(data.classes)
             ? data.classes
             : [];

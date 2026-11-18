@@ -3,6 +3,7 @@
   if (!page) return;
   const kind = page.dataset.recordKind;
   const principal = page.dataset.portal === "principal";
+  const readOnly = principal && (kind === "sessions" || kind === "terms");
   const tokenKey = principal ? "principalAccessToken" : "flamaAccessToken";
   const endpoint = principal
     ? ({ sessions: "/session", terms: "/term", classes: "/class" }[kind])
@@ -58,14 +59,17 @@
     const saved = await fetch(`${apiBase}${principal ? "/session" : "/owner/sessions"}`, { headers: { Accept: "application/json", Authorization: `Bearer ${token}` } });
     const body = unwrap(await saved.json());
     sessions = body.sessions || (Array.isArray(body) ? body : []);
-    const select = form.elements.namedItem("academicSession");
+    const select = form?.elements.namedItem("academicSession");
     if (!select) return;
     select.replaceChildren(new Option("Select academic session", ""));
     sessions.forEach((session) => select.add(new Option(session.name, session._id || session.id)));
   }
   function render() {
     if (!records.length) {
-      list.innerHTML = `<div class="records-empty"><span>▤</span><h2>No ${title.toLowerCase()} yet</h2><p>Create one using the form to get started.</p></div>`;
+      const emptyMessage = readOnly
+        ? "The school owner has not added any yet."
+        : "Create one using the form to get started.";
+      list.innerHTML = `<div class="records-empty"><span>▤</span><h2>No ${title.toLowerCase()} yet</h2><p>${emptyMessage}</p></div>`;
       return;
     }
     list.innerHTML = records.map((record) => {
@@ -75,7 +79,8 @@
         : kind === "terms"
           ? `${niceTerm(record.name)} · ${record.academicSession?.name || sessions.find((s) => (s._id || s.id) === (record.academicSession?._id || record.academicSession))?.name || "Session"} · ${dateValue(record.startDate)} to ${dateValue(record.endDate)}`
           : `${record.code || "—"} · ${record.level || "—"}${record.description ? ` · ${record.description}` : ""}`;
-      return `<article class="record-card"><div><h2>${escapeHtml(kind === "terms" ? niceTerm(record.name) : record.name)}</h2><p>${escapeHtml(detail)}</p></div><div class="record-actions"><button class="record-btn" data-edit="${escapeHtml(id)}">Edit</button><button class="record-btn danger" data-delete="${escapeHtml(id)}">Delete</button></div></article>`;
+      const actions = readOnly ? "" : `<div class="record-actions"><button class="record-btn" data-edit="${escapeHtml(id)}">Edit</button><button class="record-btn danger" data-delete="${escapeHtml(id)}">Delete</button></div>`;
+      return `<article class="record-card"><div><h2>${escapeHtml(kind === "terms" ? niceTerm(record.name) : record.name)}</h2><p>${escapeHtml(detail)}</p></div>${actions}</article>`;
     }).join("");
   }
   function escapeHtml(value) { return String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]); }
@@ -120,10 +125,10 @@
     form.reset(); fields(record || {}); dialog.showModal();
   }
 
-  document.getElementById("createRecordBtn").addEventListener("click", () => openEditor());
-  document.getElementById("closeRecordDialog").addEventListener("click", () => dialog.close());
-  document.getElementById("closeDeleteDialog").addEventListener("click", () => confirmDialog.close());
-  form.addEventListener("submit", async (event) => {
+  document.getElementById("createRecordBtn")?.addEventListener("click", () => openEditor());
+  document.getElementById("closeRecordDialog")?.addEventListener("click", () => dialog?.close());
+  document.getElementById("closeDeleteDialog")?.addEventListener("click", () => confirmDialog?.close());
+  form?.addEventListener("submit", async (event) => {
     event.preventDefault();
     const payload = Object.fromEntries(new FormData(form).entries());
     const button = form.querySelector('[type="submit"]'); button.disabled = true;
@@ -133,12 +138,13 @@
     } catch (error) { toast(error.message, true); } finally { button.disabled = false; }
   });
   list.addEventListener("click", (event) => {
+    if (readOnly) return;
     const edit = event.target.closest("[data-edit]");
     const remove = event.target.closest("[data-delete]");
     if (edit) openEditor(records.find((item) => (item._id || item.id) === edit.dataset.edit));
     if (remove) { deletingId = remove.dataset.delete; confirmDialog.showModal(); }
   });
-  document.getElementById("confirmDeleteBtn").addEventListener("click", async () => {
+  document.getElementById("confirmDeleteBtn")?.addEventListener("click", async () => {
     const button = document.getElementById("confirmDeleteBtn"); button.disabled = true;
     try { await request(`/${encodeURIComponent(deletingId)}`, { method: "DELETE" }); confirmDialog.close(); toast("Record deleted successfully."); await refresh(); }
     catch (error) { confirmDialog.close(); toast(error.message, true); }

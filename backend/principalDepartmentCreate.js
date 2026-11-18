@@ -312,7 +312,10 @@
         const description =
             descriptionInput?.value.trim() || "";
         const teacherIds = [...selectedTeacherIds];
-        const headTeacherId = headSelect?.value || "";
+        const selectedHeadTeacherId = headSelect?.value || "";
+        const headTeacherId = selectedTeacherIds.has(selectedHeadTeacherId)
+            ? selectedHeadTeacherId
+            : null;
 
         if (!name) {
             alert("Enter a department name.");

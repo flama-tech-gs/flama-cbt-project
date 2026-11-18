@@ -3,8 +3,9 @@
 (() => {
   "use strict";
 
-  const API_URL =
-    `${window.location.protocol}//${window.location.hostname}:5000/api/teacher-dashboard/submitted-questions`;
+  const API_BASE =
+    window.FLAMA_API_BASE || ( ["localhost", "127.0.0.1"].includes(window.location.hostname) || window.location.hostname.endsWith(".localhost") ? `${window.location.protocol}//${window.location.hostname}:5000/api` : "https://flama.onrender.com/api");
+  const API_URL = `${API_BASE}/teacher-dashboard/submitted-questions`;
 
   const token =
     sessionStorage.getItem("teacherAccessToken") ||

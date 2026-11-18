@@ -304,7 +304,7 @@
 
   async function loadClasses() {
     if (!token) {
-      window.location.assign("./login");
+      window.location.assign("/teacher/index");
       return;
     }
 
@@ -387,7 +387,7 @@
     sessionStorage.removeItem("teacherRefreshToken");
     sessionStorage.removeItem("tenantAccessToken");
     sessionStorage.removeItem("teacherUser");
-    window.location.assign("./login");
+    window.location.assign("/teacher/index");
   });
 
   loadClasses();

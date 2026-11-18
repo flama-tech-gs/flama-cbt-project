@@ -101,7 +101,7 @@
 
               <span>Notifications</span>
 
-              <span class="badge"> 2 </span>
+              <span class="badge" hidden></span>
             </a>
 
             <a href="../student-scores/student-scores" class="nav-link">
@@ -164,12 +164,12 @@ TOPBAR
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="../assets/image.png" alt="Teacher" />
+              <img alt="Teacher profile" />
 
               <div>
-                <h3>Mrs. Adebayo Folake</h3>
+                <h3>Teacher</h3>
 
-                <p>Biology Teacher</p>
+                <p>Teacher</p>
               </div>
             </div>
           </div>
@@ -180,10 +180,10 @@ TOPBAR
 BACK BUTTON
 ========================================== -->
 
-          <a href="../question-bank/question-bank" class="back-btn">
+          <a href="../submitted-question/submitted-questions" class="back-btn">
             <i data-lucide="arrow-left"></i>
 
-            Back to Question Bank
+            Back to Submitted Questions
           </a>
 
           <!-- ==========================================
@@ -194,31 +194,31 @@ SUMMARY
             <div class="summary-item">
               <span>Subject</span>
 
-              <strong>Biology</strong>
+              <strong>—</strong>
             </div>
 
             <div class="summary-item">
               <span>Class</span>
 
-              <strong>JSS 3B</strong>
+              <strong>—</strong>
             </div>
 
             <div class="summary-item">
               <span>Term</span>
 
-              <strong>2nd Term</strong>
+              <strong>—</strong>
             </div>
 
             <div class="summary-item">
               <span>Question</span>
 
-              <strong id="questionCounter"> 1 of 50 </strong>
+              <strong id="questionCounter">—</strong>
             </div>
 
             <div class="summary-item">
               <span>Exam Status</span>
 
-              <span class="badge pending"> Pending Approval </span>
+              <span class="badge">—</span>
             </div>
           </section>
 
@@ -227,7 +227,7 @@ QUESTION
 ========================================== -->
 
           <section class="question-builder">
-            <h2>Question <span id="questionNumber">1</span></h2>
+            <h2>Question <span id="questionNumber">—</span></h2>
 
             <div class="question-field">
               <label>Question Text</label>
@@ -389,12 +389,13 @@ SUBMIT BAR
       </section>
     </div>
 
-    <script src="./js/edit-question.js"></script>
+    <!-- Demo question editor disabled; backend/teacherEditQuestion.js supplies live data and actions. -->
     <script src="../../backend/teacherEditQuestion.js"></script>
 
     <script>
       lucide.createIcons();
     </script>
     <script src="../js/sidebar-nav.js"></script>
+    <script src="../../backend/teacherFeedback.js"></script>
   </body>
 </html>

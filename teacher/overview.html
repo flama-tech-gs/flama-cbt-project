@@ -105,7 +105,7 @@
 
               <span>Notifications</span>
 
-              <span class="badge"> 2 </span>
+              <span class="badge" hidden></span>
             </a>
 
             <a href="./student-scores/student-scores" class="nav-link">
@@ -168,11 +168,11 @@
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="assets/image.png" alt="Teacher" />
+              <img alt="Teacher profile" />
 
               <div>
-                <h3>Mrs. Adebayo Folake</h3>
-                <p>Biology Teacher</p>
+                <h3>Teacher</h3>
+                <p>Teacher</p>
               </div>
             </div>
           </div>
@@ -195,7 +195,7 @@
                 <i data-lucide="users"></i>
               </div> -->
 
-              <h2 id="studentCount">191</h2>
+              <h2 id="studentCount">—</h2>
 
               <p>Total Students</p>
             </article>
@@ -211,7 +211,7 @@
                 <i data-lucide="school"></i>
               </div> -->
 
-              <h2 id="classCount">3</h2>
+              <h2 id="classCount">—</h2>
 
               <p>Classes Assigned</p>
             </article>
@@ -227,7 +227,7 @@
                 <i data-lucide="book-open"></i>
               </div> -->
 
-              <h2 id="subjectCount">3</h2>
+              <h2 id="subjectCount">—</h2>
 
               <p>Subjects Taught</p>
             </article>
@@ -243,7 +243,7 @@
                 <i data-lucide="clock"></i>
               </div> -->
 
-              <h2 id="pendingCount">3</h2>
+              <h2 id="pendingCount">—</h2>
 
               <p>Pending Approvals</p>
             </article>
@@ -293,11 +293,12 @@
       </main>
     </div>
 
-    <script src="js/overview.js"></script>
+    <!-- Demo overview data disabled; backend/teacherOverview.js supplies live data. -->
     <script src="../backend/teacherOverview.js"></script>
 
     <script>
       lucide.createIcons();
     </script>
+    <script src="../backend/teacherFeedback.js"></script>
   </body>
 </html>

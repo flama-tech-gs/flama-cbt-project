@@ -706,7 +706,7 @@
 
   async function loadUploadData() {
     if (!token) {
-      window.location.assign("../login");
+      window.location.assign("/teacher/index");
       return;
     }
 
@@ -865,7 +865,7 @@
     sessionStorage.removeItem("tenantAccessToken");
     sessionStorage.removeItem("teacherUser");
     sessionStorage.removeItem(DRAFTS_KEY);
-    window.location.assign("../login");
+    window.location.assign("/teacher/index");
   });
 
   updateCorrectAnswerButtons();

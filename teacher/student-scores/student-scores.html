@@ -108,7 +108,7 @@
 
               <span>Notifications</span>
 
-              <span class="badge"> 2 </span>
+              <span class="badge" hidden></span>
             </a>
 
             <a href="./student-scores" class="nav-link active">
@@ -171,12 +171,12 @@ TOPBAR
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="../assets/image.png" alt="Teacher" />
+              <img alt="Teacher profile" />
 
               <div>
-                <h3>Mrs. Adebayo Folake</h3>
+                <h3>Teacher</h3>
 
-                <p>Biology Teacher</p>
+                <p>Teacher</p>
               </div>
             </div>
           </div>
@@ -188,7 +188,7 @@ PAGE TITLE
 ========================================== -->
 
           <section class="page-heading">
-            <h2>JSS 3B – Result Sheet</h2>
+            <h2>Class Result Sheet</h2>
           </section>
 
           <!-- ==========================================
@@ -205,19 +205,19 @@ FILTERS
             <div class="filter-group">
               <label>Subject</label>
 
-              <input type="text" value="Biology" readonly />
+              <input type="text" placeholder="All subjects" readonly />
             </div>
 
             <div class="filter-group">
               <label>Term</label>
 
-              <input type="text" value="2nd Term" readonly />
+              <input type="text" placeholder="All terms" readonly />
             </div>
 
             <div class="filter-group">
               <label>Session</label>
 
-              <input type="text" value="2025/2026" readonly />
+              <input type="text" placeholder="All sessions" readonly />
             </div>
           </section>
 
@@ -227,25 +227,25 @@ SUMMARY CARDS
 
           <section class="stats-grid">
             <div class="stat-card">
-              <h2>35</h2>
+              <h2>—</h2>
 
               <p>Total Students</p>
             </div>
 
             <div class="stat-card">
-              <h2>75%</h2>
+              <h2>—</h2>
 
               <p>Class Average</p>
             </div>
 
             <div class="stat-card">
-              <h2>38 / 40</h2>
+              <h2>—</h2>
 
               <p>Highest Score</p>
             </div>
 
             <div class="stat-card warning">
-              <h2>18 / 40</h2>
+              <h2>—</h2>
 
               <p>Lowest Score</p>
             </div>
@@ -256,7 +256,7 @@ TABLE TITLE
 ========================================== -->
 
           <section class="page-heading">
-            <h2>Biology – Objective Scores (2nd Term, 2025/2026)</h2>
+            <h2>Objective Scores</h2>
           </section>
 
           <!-- ==========================================
@@ -295,5 +295,6 @@ TABLE
       lucide.createIcons();
     </script>
     <script src="../js/sidebar-nav.js"></script>
+    <script src="../../backend/teacherFeedback.js"></script>
   </body>
 </html>

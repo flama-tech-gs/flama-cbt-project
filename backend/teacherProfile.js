@@ -242,8 +242,7 @@
       ? [...new Set(teacher.subjects.filter(Boolean))].join(", ")
       : "";
 
-    const image =
-      getImageUrl(teacher.avatar) || "../assets/teacher.png";
+    const image = getImageUrl(teacher.avatar);
 
     const details = [
       ["Full Name:", fullName],
@@ -261,7 +260,7 @@
     profileCard.innerHTML = `
       <img
         class="profile-image"
-        src="${escapeHtml(image)}"
+        ${image ? `src="${escapeHtml(image)}"` : "hidden"}
         alt="${escapeHtml(fullName)}"
       >
 
@@ -348,7 +347,7 @@
 
   async function loadTeacherProfile() {
     if (!token) {
-      window.location.assign("../login");
+      window.location.assign("/teacher/index");
       return;
     }
 
@@ -408,7 +407,7 @@
     sessionStorage.removeItem("teacherRefreshToken");
     sessionStorage.removeItem("tenantAccessToken");
     sessionStorage.removeItem("teacherUser");
-    window.location.assign("../login");
+    window.location.assign("/teacher/index");
   });
 
   loadTeacherProfile();

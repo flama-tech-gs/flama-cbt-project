@@ -14,6 +14,16 @@
 
   let teachers = [];
   let searchText = "";
+  let pendingTeacherAction = null;
+  const actionDialog = document.getElementById("teacherActionDialog");
+  const actionTitle = document.getElementById("teacherActionTitle");
+  const actionDescription = document.getElementById("teacherActionDescription");
+  const actionError = document.getElementById("teacherActionError");
+  const passwordField = document.getElementById("teacherPasswordField");
+  const passwordInput = document.getElementById("newTeacherPassword");
+  const confirmActionButton = document.getElementById("confirmTeacherAction");
+  const successDialog = document.getElementById("teacherActionSuccessDialog");
+  let successCopyValue = "";
 
   if (!container) {
     console.error("Could not find #teachersAccordion.");
@@ -49,6 +59,50 @@
     ]
       .filter(Boolean)
       .join(" ") || "Unnamed teacher";
+  }
+
+  function openTeacherAction(action, teacher) {
+    pendingTeacherAction = { action, teacher };
+    actionError.hidden = true;
+    actionError.textContent = "";
+    passwordInput.value = "";
+    passwordField.hidden = action !== "password";
+    confirmActionButton.textContent = action === "password" ? "Update Password" : "Yes, continue";
+    if (action === "reset") {
+      actionTitle.textContent = "Change teacher staff ID?";
+      actionDescription.textContent = `Generate a new staff ID for ${teacherName(teacher)} (${teacher.email}). The current ID will stop working.`;
+    } else if (action === "password") {
+      actionTitle.textContent = "Change teacher password?";
+      actionDescription.textContent = `Enter a new password for ${teacherName(teacher)} (${teacher.email}).`;
+    } else {
+      const pause = action === "pause";
+      actionTitle.textContent = pause ? "Pause teacher account?" : "Reactivate teacher account?";
+      actionDescription.textContent = `${pause ? "Pause" : "Reactivate"} ${teacherName(teacher)} (${teacher.email})?`;
+    }
+    actionDialog.showModal();
+    if (action === "password") passwordInput.focus();
+  }
+
+  function showActionSuccess(title, message, details = [], copyValue = "") {
+    document.getElementById("teacherActionSuccessTitle").textContent = title;
+    document.getElementById("teacherActionSuccessMessage").textContent = message;
+    const list = document.getElementById("teacherActionResultDetails");
+    list.replaceChildren();
+    details.forEach(([label, value]) => {
+      const item = document.createElement("div");
+      const term = document.createElement("dt");
+      const description = document.createElement("dd");
+      term.textContent = label;
+      description.textContent = value || "—";
+      item.append(term, description);
+      list.appendChild(item);
+    });
+    successCopyValue = copyValue;
+    const copyButton = document.getElementById("copyTeacherActionValue");
+    copyButton.hidden = !copyValue;
+    copyButton.textContent = "Copy staff ID";
+    successDialog.showModal();
+    if (window.lucide?.createIcons) window.lucide.createIcons();
   }
 
   function teacherId(teacher) {
@@ -429,83 +483,67 @@
 
     if (!teacher) return;
 
-    const teacherUrl =
-      `${TEACHERS_URL}/${encodeURIComponent(teacherId(teacher))}`;
+    if (["reset", "password", "pause", "activate"].includes(action)) {
+      openTeacherAction(action, teacher);
+    }
+  });
 
+  document.getElementById("cancelTeacherAction")?.addEventListener("click", () => actionDialog.close());
+  document.getElementById("closeTeacherActionSuccess")?.addEventListener("click", () => successDialog.close());
+  document.getElementById("copyTeacherActionValue")?.addEventListener("click", async () => {
     try {
+      await navigator.clipboard.writeText(successCopyValue);
+      document.getElementById("copyTeacherActionValue").textContent = "Copied";
+    } catch {
+      actionError.hidden = false;
+      actionError.textContent = "Could not copy automatically. Select and copy the staff ID from the details above.";
+    }
+  });
+  confirmActionButton?.addEventListener("click", async () => {
+    if (!pendingTeacherAction) return;
+    const { action, teacher } = pendingTeacherAction;
+    const teacherUrl = `${TEACHERS_URL}/${encodeURIComponent(teacherId(teacher))}`;
+    const buttonLabel = confirmActionButton.textContent;
+    confirmActionButton.disabled = true;
+    confirmActionButton.textContent = "Updating…";
+    actionError.hidden = true;
+    try {
+      let title;
+      let message;
+      let details = [["Teacher", teacherName(teacher)], ["Email", teacher.email || "—"]];
+      let copyValue = "";
       if (action === "reset") {
-        const confirmed = confirm(
-          `Generate a temporary password for ${teacherName(teacher)}? ` +
-            "The current password will stop working."
-        );
-
-        if (!confirmed) return;
-
-        const result = await apiRequest(
-          `${teacherUrl}/password/reset`,
-          {
-            method: "POST",
-            body: JSON.stringify({}),
-          }
-        );
-
-        if (!result.temporaryPassword) {
-          throw new Error(
-            "The server did not return a temporary password."
-          );
-        }
-
-        prompt(
-          "Copy this temporary password now. It will not be shown again:",
-          result.temporaryPassword
-        );
-
-        return;
+        const result = await apiRequest(`${teacherUrl}/employee-id/reset`, { method: "POST", body: JSON.stringify({}) });
+        const updated = result.teacher || result;
+        if (!updated.employeeId) throw new Error("The server did not return the new staff ID.");
+        details.push(["Previous staff ID", updated.previousEmployeeId || teacher.employeeId || "—"], ["New staff ID", updated.employeeId]);
+        copyValue = updated.employeeId;
+        title = "Staff ID changed";
+        message = "The teacher can now use the new staff ID.";
+        teacher.employeeId = updated.employeeId;
+      } else if (action === "password") {
+        const password = passwordInput.value;
+        if (password.length < 6 || password.length > 128) throw new Error("Password must be between 6 and 128 characters.");
+        await apiRequest(`${teacherUrl}/password`, { method: "PATCH", body: JSON.stringify({ password }) });
+        title = "Password changed";
+        message = "The teacher password was updated successfully.";
+      } else {
+        const paused = action === "pause";
+        await apiRequest(`${teacherUrl}/status`, { method: "PATCH", body: JSON.stringify({ status: paused ? "SUSPENDED" : "ACTIVE" }) });
+        title = paused ? "Account paused" : "Account reactivated";
+        message = `${teacherName(teacher)}’s account was ${paused ? "paused" : "reactivated"} successfully.`;
+        teacher.status = paused ? "SUSPENDED" : "ACTIVE";
       }
-
-      if (action === "password") {
-        const password = prompt(
-          `Enter a new password for ${teacherName(teacher)} ` +
-            "(at least 6 characters):"
-        );
-
-        if (password === null) return;
-
-        if (password.length < 6) {
-          throw new Error("Password must be at least 6 characters.");
-        }
-
-        await apiRequest(`${teacherUrl}/password`, {
-          method: "PATCH",
-          body: JSON.stringify({ password }),
-        });
-
-        alert("Password changed.");
-        return;
-      }
-
-      if (action === "pause" || action === "activate") {
-        const status =
-          action === "pause" ? "SUSPENDED" : "ACTIVE";
-
-        const verb =
-          action === "pause" ? "Pause" : "Reactivate";
-
-        const confirmed = confirm(
-          `${verb} ${teacherName(teacher)}'s account?`
-        );
-
-        if (!confirmed) return;
-
-        await apiRequest(`${teacherUrl}/status`, {
-          method: "PATCH",
-          body: JSON.stringify({ status }),
-        });
-
-        await loadTeachers();
-      }
+      pendingTeacherAction = null;
+      actionDialog.close();
+      await loadTeachers();
+      showActionSuccess(title, message, details, copyValue);
     } catch (error) {
-      alert(error.message || "The action failed.");
+      actionError.hidden = false;
+      actionError.textContent = error.message || "The action failed.";
+    } finally {
+      confirmActionButton.disabled = false;
+      confirmActionButton.textContent = buttonLabel;
     }
   });
 

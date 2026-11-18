@@ -44,6 +44,7 @@
     return [
       teacher.title,
       teacher.firstName,
+      teacher.otherNames,
       teacher.lastName,
     ]
       .filter(Boolean)

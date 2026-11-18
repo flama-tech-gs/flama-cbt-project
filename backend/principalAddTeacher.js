@@ -18,6 +18,7 @@
     const phoneInput = document.getElementById("phone");
     const emailInput = document.getElementById("email");
     const departmentSelect = document.getElementById("department");
+    const cancelButton = document.getElementById("cancelTeacherCreation");
 
     const staffIdPreview =
         document.getElementById("staffIdPreview");
@@ -534,6 +535,26 @@
                     </div>
 
                     <div class="teacher-created-popup__detail">
+                        <span class="teacher-created-popup__label">Phone</span>
+                        <strong class="teacher-created-popup__value" data-teacher-phone></strong>
+                    </div>
+
+                    <div class="teacher-created-popup__detail">
+                        <span class="teacher-created-popup__label">Qualification</span>
+                        <strong class="teacher-created-popup__value" data-teacher-qualification></strong>
+                    </div>
+
+                    <div class="teacher-created-popup__detail">
+                        <span class="teacher-created-popup__label">Date employed</span>
+                        <strong class="teacher-created-popup__value" data-teacher-appointed></strong>
+                    </div>
+
+                    <div class="teacher-created-popup__detail teacher-created-popup__wide">
+                        <span class="teacher-created-popup__label">Home address</span>
+                        <strong class="teacher-created-popup__value" data-teacher-address></strong>
+                    </div>
+
+                    <div class="teacher-created-popup__detail">
                         <span class="teacher-created-popup__label">Department</span>
                         <strong class="teacher-created-popup__value" data-teacher-department></strong>
                     </div>
@@ -594,7 +615,7 @@
         return dialog;
     }
 
-    function showCreatedTeacher(data) {
+    function showCreatedTeacher(data, submitted = {}) {
         const teacher = data.teacher || {};
         const credentials = data.credentials || {};
         const loginId =
@@ -619,7 +640,7 @@
         const dialog = ensureCreatedPopup();
 
         dialog.querySelector("[data-teacher-name]").textContent =
-            [teacher.firstName, teacher.lastName]
+            [teacher.firstName, teacher.otherNames || submitted.otherNames, teacher.lastName]
                 .filter(Boolean)
                 .join(" ") || "—";
 
@@ -628,6 +649,20 @@
 
         dialog.querySelector("[data-teacher-email]").textContent =
             teacher.email || "—";
+
+        dialog.querySelector("[data-teacher-phone]").textContent =
+            teacher.phone || submitted.phone || "—";
+
+        dialog.querySelector("[data-teacher-qualification]").textContent =
+            teacher.qualification || submitted.qualification || "—";
+
+        dialog.querySelector("[data-teacher-appointed]").textContent =
+            teacher.appointedAt
+                ? new Date(teacher.appointedAt).toLocaleDateString()
+                : submitted.appointedAt || "—";
+
+        dialog.querySelector("[data-teacher-address]").textContent =
+            teacher.address || submitted.address || "—";
 
         dialog.querySelector(
             "[data-teacher-department]"
@@ -649,9 +684,11 @@
             "[data-copy-credentials]"
         ).onclick = async () => {
             const text = [
-                `Teacher: ${teacher.firstName || ""} ${
-                    teacher.lastName || ""
-                }`.trim(),
+                `Teacher: ${[
+                    teacher.firstName || "",
+                    teacher.otherNames || submitted.otherNames || "",
+                    teacher.lastName || "",
+                ].filter(Boolean).join(" ")}`,
                 `Login ID: ${loginId}`,
                 `Password: ${password}`,
             ].join("\n");
@@ -677,6 +714,7 @@
     function collectFormData() {
         const payload = {
             firstName: firstNameInput?.value.trim() || "",
+            otherNames: document.getElementById("otherNames")?.value.trim() || "",
             lastName: surnameInput?.value.trim() || "",
             email: emailInput?.value.trim() || "",
             phone: phoneInput?.value.trim() || "",
@@ -684,6 +722,8 @@
             qualification:
                 form.querySelector('input[placeholder*="B.Sc"]')
                     ?.value.trim() || "",
+            appointedAt:
+                form.querySelector('input[type="date"]')?.value || null,
             address:
                 form.querySelector("textarea")?.value.trim() || "",
             password:
@@ -738,7 +778,7 @@
                 body: JSON.stringify(payload),
             });
 
-            showCreatedTeacher(result);
+            showCreatedTeacher(result, payload);
         } catch (error) {
             alert(error.message || "Could not create the teacher.");
         } finally {
@@ -754,6 +794,9 @@
      * handler from displaying its alert or resetting the form.
      */
     form.addEventListener("submit", submitTeacher, true);
+    cancelButton?.addEventListener("click", () => {
+        window.location.href = "./teachers";
+    });
 
     /*
      * The original script creates assignment rows. Replace any sample

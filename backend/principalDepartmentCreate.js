@@ -290,9 +290,11 @@
         const message = successModal.querySelector(".success-modal p");
 
         if (message) {
-            message.textContent =
-                `${department.name || nameInput.value.trim()} has been created ` +
-                `with ${selectedTeacherIds.size} teacher(s) assigned.`;
+            const name = department.name || nameInput.value.trim();
+            const count = selectedTeacherIds.size;
+            message.textContent = count
+                ? `${name} has been created with ${count} teacher${count === 1 ? "" : "s"} assigned.`
+                : `${name} has been created. You can assign teachers and a department head later.`;
         }
 
         successModal.classList.add("show");
@@ -317,17 +319,6 @@
         if (!name) {
             alert("Enter a department name.");
             nameInput?.focus();
-            return;
-        }
-
-        if (!teacherIds.length) {
-            alert("Select at least one teacher.");
-            return;
-        }
-
-        if (!headTeacherId) {
-            alert("Select a head of department.");
-            headSelect?.focus();
             return;
         }
 

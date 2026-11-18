@@ -159,6 +159,7 @@
                             >
                                 ✏️ Edit
                             </a>
+                            <button type="button" class="delete-department-btn" data-delete-department="${escapeHtml(department.id || department._id)}">Delete</button>
                         </div>
 
                         <p class="hod">
@@ -229,6 +230,25 @@
     );
 
     grid.addEventListener("click", (event) => {
+        const deleteButton = event.target.closest("[data-delete-department]");
+        if (deleteButton) {
+            event.preventDefault();
+            if (!window.confirm("Delete this department? Teachers assigned to it will become unassigned.")) return;
+            deleteButton.disabled = true;
+            fetch(`${API_BASE}/principal/departments/${encodeURIComponent(deleteButton.dataset.deleteDepartment)}`, {
+                method: "DELETE",
+                headers: { Accept: "application/json", Authorization: `Bearer ${token}` },
+            }).then(async (response) => {
+                const body = await response.json().catch(() => ({}));
+                if (!response.ok) throw new Error(body.message || "Could not delete department.");
+                window.alert("Department deleted successfully.");
+                await loadDepartments();
+            }).catch((error) => {
+                window.alert(error.message || "Could not delete department.");
+                deleteButton.disabled = false;
+            });
+            return;
+        }
         const retryButton = event.target.closest(
             "[data-reload-departments]"
         );

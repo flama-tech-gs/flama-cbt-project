@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formAlert.hidden = false;
     formAlert.classList.remove("success", "error");
     formAlert.classList.add(type);
+    formAlert.classList.add("show");
   }
 
   function clearAlert() {
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formAlert.textContent = "";
     formAlert.hidden = true;
     formAlert.classList.remove("success", "error");
+    formAlert.classList.remove("show");
   }
 
   function setLoading(isLoading) {
@@ -330,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       showAlert(error?.status === 401
-        ? "Email or password is incorrect. Please try again."
+        ? "Invalid login details"
         : typeof getApiErrorMessage === "function"
           ? getApiErrorMessage(error, "Email or password is incorrect. Please try again.")
           : "Email or password is incorrect. Please try again.");

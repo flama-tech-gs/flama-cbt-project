@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academic terms | Flama</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/records.css">
+  <script src="../backend/portalAccessGuard.js"></script>
+  <style>.records-nav{display:flex;gap:8px;flex-wrap:wrap;width:min(1120px,94%);margin:24px auto 0}.records-nav-link{padding:9px 13px;border-radius:9px;text-decoration:none;color:#527054;font:600 13px Inter,system-ui,sans-serif;background:#eef5ef}.records-nav-link.active{background:#2e7d32;color:white}.records-back{color:#55745a;text-decoration:none;font-size:14px;font-weight:600}</style>
+</head>
+<body data-record-kind="terms" data-portal="owner">
+  <nav class="records-nav"><a class="records-nav-link" href="./sessions">Sessions</a><a class="records-nav-link active" href="./terms">Terms</a><a class="records-nav-link" href="./classes">Classes</a><a class="records-back" style="margin-left:auto" href="./index">← Back to dashboard</a></nav>
+  <main class="records-shell">
+    <header class="records-head"><div><h1 data-page-title>Academic terms</h1><p>Create and manage the school's terms.</p></div><button class="record-primary" id="createRecordBtn">＋ Create Term</button></header>
+    <section class="record-panel"><h2>Created terms</h2><div class="record-list" id="recordList" aria-live="polite"></div></section>
+  </main>
+  <div class="record-toasts" id="recordToasts" aria-live="polite"></div>
+  <dialog class="record-dialog" id="recordDialog"><form class="record-dialog__inner" id="recordForm"><div class="record-dialog__top"><h2 id="recordDialogTitle">Create term</h2><button type="button" class="record-close" id="closeRecordDialog" aria-label="Close">×</button></div><div class="record-fields" id="recordFields"></div><div class="record-dialog__actions"><button type="button" class="record-secondary" onclick="document.getElementById('recordDialog').close()">Cancel</button><button class="record-primary" type="submit">Save Term</button></div></form></dialog>
+  <dialog class="record-dialog" id="deleteDialog"><div class="record-dialog__inner"><div class="record-dialog__top"><h2>Delete term?</h2><button type="button" class="record-close" id="closeDeleteDialog" aria-label="Close">×</button></div><p class="record-confirm-copy">Are you sure you want to delete this term? This action cannot be undone.</p><div class="record-dialog__actions"><button type="button" class="record-secondary" onclick="document.getElementById('deleteDialog').close()">Cancel</button><button type="button" class="record-primary" id="confirmDeleteBtn" style="background:#b42318">Delete Term</button></div></div></dialog>
+  <script src="../shared/records.js"></script>
+</body>
+</html>

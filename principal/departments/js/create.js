@@ -133,12 +133,6 @@ function initializeFormActions() {
       return;
     }
 
-    if (!hod || hod === "Select a teacher") {
-      alert("Please select a Head of Department.");
-
-      return;
-    }
-
     // TODO:
     // Send data to backend
 

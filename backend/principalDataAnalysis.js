@@ -106,9 +106,15 @@ function renderBranding(school, principal) {
     setText("principalName", principal?.name, "Principal");
 
     const principalImage = document.getElementById("principalImage");
-    if (principalImage && principal?.image) {
-        principalImage.src = principal.image;
-        principalImage.alt = principal.name || "Principal";
+    if (principalImage) {
+        if (principal?.image || principal?.profileImage) {
+            principalImage.src = principal.image || principal.profileImage;
+            principalImage.alt = principal.name || "Principal";
+            principalImage.hidden = false;
+        } else {
+            principalImage.removeAttribute("src");
+            principalImage.hidden = true;
+        }
     }
 }
 

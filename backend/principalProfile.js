@@ -54,8 +54,13 @@ function formatDate(value) {
 function setImage(id, url) {
     const image = document.getElementById(id);
 
-    if (image && url) {
+    if (!image) return;
+    if (url) {
         image.src = url;
+        image.hidden = false;
+    } else {
+        image.removeAttribute("src");
+        image.hidden = true;
     }
 }
 

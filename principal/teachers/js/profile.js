@@ -88,25 +88,7 @@ function initializeAccountButtons() {
 // Future Dynamic Data Support
 // =============================================
 
-const teacherProfile = {
-  name: "Adebayo Folake Mojisola",
-
-  staffId: "TCH/2025/014",
-
-  department: "Science Department",
-
-  subjects: "Biology, Basic Science & Technology",
-
-  phone: "+2348023456789",
-
-  qualification: "B.Sc Biology Education (Hons), NCE",
-
-  address: "12, Adeola Crescent, Abeokuta, Ogun State.",
-
-  employed: "September 2022",
-
-  status: "Active",
-};
+const teacherProfile = {};
 
 // This object can later be replaced with data fetched
 // from your backend API.

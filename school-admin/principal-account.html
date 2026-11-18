@@ -112,6 +112,7 @@
       <!-- ===================================== -->
 
       <section class="settings-card principal-profile">
+        <div class="owner-toast-region" id="ownerToastRegion" aria-live="polite" aria-atomic="true"></div>
         <div class="principal-profile__header">
           <div class="principal-profile__left">
             <!-- Avatar -->
@@ -206,6 +207,16 @@
             <p id="principalJoined">—</p>
           </div>
         </div>
+        <form id="editPrincipalForm" class="edit-principal-form" hidden>
+          <div class="form-grid">
+            <div class="form-group"><label for="editPrincipalTitle">Title</label><select id="editPrincipalTitle" name="title" required><option>Mr</option><option>Mrs</option><option>Miss</option><option>Dr</option><option>Chief</option></select></div>
+            <div class="form-group"><label for="editPrincipalFirstName">First name</label><input id="editPrincipalFirstName" name="firstName" required></div>
+            <div class="form-group"><label for="editPrincipalLastName">Last name</label><input id="editPrincipalLastName" name="lastName" required></div>
+            <div class="form-group"><label for="editPrincipalPhone">Phone</label><input id="editPrincipalPhone" name="phone" type="tel"></div>
+            <div class="form-group"><label for="editPrincipalEmail">Login email</label><input id="editPrincipalEmail" name="email" type="email" required></div>
+          </div>
+          <div class="form-actions"><button type="submit" class="btn btn-primary">Save Profile</button><button type="button" class="btn btn-outline" id="cancelEditProfileBtn">Cancel</button></div>
+        </form>
       </section>
 
       <!-- ===================================== -->

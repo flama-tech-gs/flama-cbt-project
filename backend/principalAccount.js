@@ -25,6 +25,33 @@ function schoolHostLabel(school) {
 const createForm = document.querySelector("#createPrincipalForm");
 const passwordForm = document.querySelector("#principalPasswordForm");
 const deactivateButton = document.querySelector("#deactivatePrincipalBtn");
+let currentPrincipal = null;
+
+function notify(message, kind = "success") {
+    const region = document.querySelector("#ownerToastRegion");
+    if (!region) return;
+    const toast = document.createElement("div");
+    toast.className = `owner-toast is-${kind}`;
+    toast.setAttribute("role", kind === "error" ? "alert" : "status");
+    const icon = document.createElement("span");
+    icon.textContent = kind === "error" ? "!" : "✓";
+    const text = document.createElement("span");
+    text.textContent = message;
+    const close = document.createElement("button");
+    close.type = "button";
+    close.setAttribute("aria-label", "Close notification");
+    close.textContent = "×";
+    close.addEventListener("click", () => toast.remove());
+    toast.append(icon, text, close);
+    region.appendChild(toast);
+    window.setTimeout(() => toast.remove(), 5000);
+}
+
+function accessMessage(message) {
+    return /invalid or expired access token/i.test(String(message))
+        ? "Access Invalid or Expired"
+        : message;
+}
 
 function authHeaders(json = false) {
     const token = sessionStorage.getItem(TOKEN_KEY);
@@ -101,6 +128,7 @@ async function loadPrincipalPage() {
 
         const dashboard = unwrap(dashboardResult);
         const principal = unwrap(principalResult);
+        currentPrincipal = principal;
         const school = dashboard.school || {};
         const subscription = dashboard.subscription || {};
 
@@ -177,7 +205,7 @@ async function loadPrincipalPage() {
         }
     } catch (error) {
         console.error("Could not load principal account:", error);
-        alert(error.message || "Could not load principal account.");
+        notify(accessMessage(error.message || "Could not load principal account."), "error");
     }
 }
 
@@ -188,7 +216,7 @@ createForm?.addEventListener("submit", async (event) => {
     const confirmed = document.querySelector("#confirmReplacement")?.checked;
 
     if (!confirmed) {
-        alert("Confirm that you want to create or replace the principal.");
+        notify("Confirm that you want to create or replace the principal.", "error");
         return;
     }
 
@@ -212,12 +240,12 @@ createForm?.addEventListener("submit", async (event) => {
             body: JSON.stringify(payload),
         });
 
-        alert(result.message || "Principal account created.");
+        notify(result.message || "Principal account created.");
         createForm.reset();
         await loadPrincipalPage();
     } catch (error) {
         console.error("Could not create principal:", error);
-        alert(error.message || "Could not create principal.");
+        notify(accessMessage(error.message || "Could not create principal."), "error");
     } finally {
         if (button) button.disabled = false;
     }
@@ -232,12 +260,12 @@ passwordForm?.addEventListener("submit", async (event) => {
         document.querySelector("#confirmPrincipalPassword")?.value || "";
 
     if (newPassword !== confirmPassword) {
-        alert("The passwords do not match.");
+        notify("The passwords do not match.", "error");
         return;
     }
 
     if (newPassword.length < 8) {
-        alert("The password must contain at least 8 characters.");
+        notify("The password must contain at least 8 characters.", "error");
         return;
     }
 
@@ -254,22 +282,18 @@ passwordForm?.addEventListener("submit", async (event) => {
             }
         );
 
-        alert(result.message || "Principal password reset.");
+        notify(result.message || "Principal password reset successfully.");
         passwordForm.reset();
     } catch (error) {
         console.error("Could not reset principal password:", error);
-        alert(error.message || "Could not reset principal password.");
+        notify(accessMessage(error.message || "Could not reset principal password."), "error");
     } finally {
         if (button) button.disabled = false;
     }
 });
 
 deactivateButton?.addEventListener("click", async () => {
-    const confirmed = window.confirm(
-        "Deactivate the principal account? The principal will lose access."
-    );
-
-    if (!confirmed) return;
+    if (!window.confirm("Deactivate the principal account? The principal will lose access.")) return;
 
     deactivateButton.disabled = true;
 
@@ -283,14 +307,63 @@ deactivateButton?.addEventListener("click", async () => {
             }
         );
 
-        alert(result.message || "Principal account deactivated.");
+        notify(result.message || "Principal account deactivated.");
         await loadPrincipalPage();
     } catch (error) {
         console.error("Could not deactivate principal:", error);
-        alert(error.message || "Could not deactivate principal.");
+        notify(accessMessage(error.message || "Could not deactivate principal."), "error");
     } finally {
         deactivateButton.disabled = false;
     }
 });
 
 document.addEventListener("DOMContentLoaded", loadPrincipalPage);
+
+document.querySelectorAll(".password-toggle[data-target]").forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+        const input = document.getElementById(toggle.dataset.target);
+        if (!input) return;
+        input.type = input.type === "password" ? "text" : "password";
+        toggle.setAttribute("aria-label", input.type === "password" ? "Show password" : "Hide password");
+        const icon = toggle.querySelector("i");
+        if (icon) {
+            icon.setAttribute("data-lucide", input.type === "password" ? "eye" : "eye-off");
+            window.lucide?.createIcons();
+        }
+    });
+});
+
+const editForm = document.querySelector("#editPrincipalForm");
+document.querySelector("#editProfileBtn")?.addEventListener("click", () => {
+    if (!currentPrincipal?._id) return notify("No principal profile is available to edit.", "error");
+    editForm.hidden = false;
+    document.querySelector(".details-grid").hidden = true;
+    document.querySelector("#editPrincipalTitle").value = currentPrincipal.title || "Mr";
+    document.querySelector("#editPrincipalFirstName").value = currentPrincipal.firstName || "";
+    document.querySelector("#editPrincipalLastName").value = currentPrincipal.lastName || "";
+    document.querySelector("#editPrincipalPhone").value = currentPrincipal.phone || "";
+    document.querySelector("#editPrincipalEmail").value = currentPrincipal.email || "";
+    document.querySelector("#editProfileBtn").hidden = true;
+});
+function closeProfileEdit() {
+    editForm.hidden = true;
+    document.querySelector(".details-grid").hidden = false;
+    document.querySelector("#editProfileBtn").hidden = false;
+}
+document.querySelector("#cancelEditProfileBtn")?.addEventListener("click", closeProfileEdit);
+editForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const submit = editForm.querySelector('[type="submit"]');
+    submit.disabled = true;
+    try {
+        const payload = Object.fromEntries(new FormData(editForm).entries());
+        const result = await requestJson(`${API_BASE}/owner/principal`, {
+            method: "PATCH", headers: authHeaders(true), body: JSON.stringify(payload),
+        });
+        notify(result.message || "Principal profile updated successfully.");
+        closeProfileEdit();
+        await loadPrincipalPage();
+    } catch (error) {
+        notify(accessMessage(error.message || "Could not update principal profile."), "error");
+    } finally { submit.disabled = false; }
+});

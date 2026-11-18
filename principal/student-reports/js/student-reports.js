@@ -5,70 +5,7 @@ DATA
 ==========================================
 */
 
-const reportData = [
-  {
-    class: "JSS 3B",
-    students: 35,
-    open: true,
-    records: [
-      {
-        name: "Adegbola Abiodun Odunyemi",
-        term: "2nd Term",
-        year: "2025/2026",
-        status: "Active",
-      },
-
-      {
-        name: "Chukwu Ngozi Adaeze",
-        term: "2nd Term",
-        year: "2025/2026",
-        status: "Active",
-      },
-
-      {
-        name: "Bello Tunde Ibrahim",
-        term: "2nd Term",
-        year: "2025/2026",
-        status: "Active",
-      },
-
-      {
-        name: "Okafor Chidinma Grace",
-        term: "2nd Term",
-        year: "2025/2026",
-        status: "Active",
-      },
-    ],
-  },
-
-  {
-    class: "JSS 1A",
-    students: 30,
-    open: false,
-    records: [],
-  },
-
-  {
-    class: "JSS 1B",
-    students: 28,
-    open: false,
-    records: [],
-  },
-
-  {
-    class: "JSS 2A",
-    students: 33,
-    open: false,
-    records: [],
-  },
-
-  {
-    class: "JSS 3A",
-    students: 31,
-    open: false,
-    records: [],
-  },
-];
+const reportData = [];
 
 /*
 ==========================================

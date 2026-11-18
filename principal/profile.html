@@ -22,8 +22,10 @@
     <link rel="stylesheet" href="./css/styles.css" />
 
     <link rel="stylesheet" href="./css/profile.css" />
+    <link rel="stylesheet" href="../shared/records.css" />
       <script src="../backend/portalAccessGuard.js"></script>
-</head>
+  <script src="./js/notifications.js"></script>
+  </head>
 
   <body>
     <div class="dashboard">
@@ -170,7 +172,7 @@
 
           <div class="principal-profile">
             <div class="principal-avatar">
-              <img src="./assets/image.png" alt="Principal" id="principalHeaderImage"/>
+              <img alt="Principal" id="principalHeaderImage"/>
 
               <span class="online-dot"></span>
             </div>
@@ -206,7 +208,7 @@
 
           <section class="profile-card">
             <div class="profile-image">
-              <img id="principalProfileImage" src="./assets/teacher.png" alt="Principal Profile" />
+              <img id="principalProfileImage" alt="Principal Profile" />
             </div>
 
             <div class="profile-details-grid">
@@ -265,6 +267,11 @@
     ========================================== -->
 
           <section>
+            <div class="profile-management-shortcuts">
+              <a href="./sessions">＋ Create Session</a>
+              <a href="./terms">＋ Create Term</a>
+              <a href="./classes">＋ Create Class</a>
+            </div>
             <h2 class="section-title">School Overview</h2>
 
             <div class="stats-grid">
@@ -315,67 +322,7 @@
                   </tr>
                 </thead>
 
-                <tbody>
-                  <tr>
-                    <td>Science Department</td>
-
-                    <td>10</td>
-
-                    <td>5</td>
-
-                    <td>Mrs. Adebayo Folake</td>
-                  </tr>
-
-                  <tr>
-                    <td>Mathematics Department</td>
-
-                    <td>7</td>
-
-                    <td>2</td>
-
-                    <td>Mr. Chukwu Emeka</td>
-                  </tr>
-
-                  <tr>
-                    <td>Arts Department</td>
-
-                    <td>12</td>
-
-                    <td>6</td>
-
-                    <td>Mrs. Ige Sarah</td>
-                  </tr>
-
-                  <tr>
-                    <td>Languages Department</td>
-
-                    <td>9</td>
-
-                    <td>3</td>
-
-                    <td>Mr. Adeyemi Kola</td>
-                  </tr>
-
-                  <tr>
-                    <td>Social Science Department</td>
-
-                    <td>8</td>
-
-                    <td>4</td>
-
-                    <td>Mrs. Nwankwo Chika</td>
-                  </tr>
-
-                  <tr>
-                    <td>Vocational & Technical</td>
-
-                    <td>6</td>
-
-                    <td>2</td>
-
-                    <td>Mr. Bamidele Ayo</td>
-                  </tr>
-                </tbody>
+                <tbody><tr><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody>
               </table>
             </div>
           </section>
@@ -389,5 +336,10 @@
     <script>
       lucide.createIcons();
     </script>
+    <style>
+      .profile-management-shortcuts{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px}
+      .profile-management-shortcuts a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 15px;border:1px solid #d4e5d5;border-radius:10px;background:#f5faf5;color:#2e7d32;text-decoration:none;font-weight:650;font-size:14px;transition:.18s ease}
+      .profile-management-shortcuts a:hover{background:#2e7d32;color:#fff;transform:translateY(-1px)}
+    </style>
   </body>
 </html>

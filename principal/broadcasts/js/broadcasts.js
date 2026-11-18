@@ -4,47 +4,7 @@ DATA
 ==========================================
 */
 
-const broadcasts = [
-  {
-    title: "Mid-Term Break Resumption",
-    audience: "Everyone",
-    badge: "green",
-    message:
-      "School resumes on Monday, June 29th, 2026 after the mid-term break. All students should report by 7:30 AM in full uniform.",
-    delivered: "Delivered to 1,247 students and 58 teachers",
-    date: "Today, 9:00 AM",
-  },
-
-  {
-    title: "Staff Meeting – Friday",
-    audience: "All Teachers",
-    badge: "green",
-    message:
-      "There will be a mandatory staff meeting this Friday at 3:00 PM in the staff room to discuss 2nd term exam scheduling.",
-    delivered: "Delivered to 58 teachers",
-    date: "Jun 18, 2026",
-  },
-
-  {
-    title: "JSS 3 Mock Exam Timetable",
-    audience: "Specific Class",
-    badge: "gray",
-    message:
-      "The mock exam timetable for JSS 3A and JSS 3B has been released. Please check with your subject teachers for details.",
-    delivered: "Delivered to 70 students (JSS 3A, JSS 3B)",
-    date: "Jun 15, 2026",
-  },
-
-  {
-    title: "New Library Hours",
-    audience: "All Students",
-    badge: "orange",
-    message:
-      "The school library will now be open from 7:00 AM to 5:00 PM on weekdays, including during lunch break.",
-    delivered: "Delivered to 1,247 students",
-    date: "Jun 10, 2026",
-  },
-];
+const broadcasts = [];
 
 /*
 ==========================================

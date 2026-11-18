@@ -15,13 +15,9 @@
     return;
   }
 
-  // Remove any demo event listeners attached by login.js while retaining
-  // the existing HTML and CSS.
-  const cleanForm = form.cloneNode(true);
-  form.replaceWith(cleanForm);
+  const cleanForm = form;
 
-  const staffIdInput =
-    cleanForm.querySelector('input[type="text"]');
+  const staffIdInput = cleanForm.querySelector("#staffId");
   const passwordInput =
     cleanForm.querySelector("#password");
   const loginButton =

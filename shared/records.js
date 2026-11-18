@@ -77,9 +77,12 @@
       const detail = kind === "sessions"
         ? `${dateValue(record.startDate)} to ${dateValue(record.endDate)} · ${record.status || "UPCOMING"}`
         : kind === "terms"
-          ? `${niceTerm(record.name)} · ${record.academicSession?.name || sessions.find((s) => (s._id || s.id) === (record.academicSession?._id || record.academicSession))?.name || "Session"} · ${dateValue(record.startDate)} to ${dateValue(record.endDate)}`
+          ? `${niceTerm(record.name)} · ${record.academicSession?.name || sessions.find((s) => (s._id || s.id) === (record.academicSession?._id || record.academicSession))?.name || "Session"} · ${dateValue(record.startDate)} to ${dateValue(record.endDate)} · ${record.status || "UPCOMING"}`
           : `${record.code || "—"} · ${record.level || "—"}${record.description ? ` · ${record.description}` : ""}`;
-      const actions = readOnly ? "" : `<div class="record-actions"><button class="record-btn" data-edit="${escapeHtml(id)}">Edit</button><button class="record-btn danger" data-delete="${escapeHtml(id)}">Delete</button></div>`;
+      const statusControl = !principal && (kind === "sessions" || kind === "terms")
+        ? `<label class="record-status-control"><span class="sr-only">Status for ${escapeHtml(record.name)}</span><select data-status-for="${escapeHtml(id)}">${["UPCOMING", "ACTIVE", "COMPLETED"].map((status) => `<option value="${status}"${(record.status || "UPCOMING") === status ? " selected" : ""}>${status.charAt(0)}${status.slice(1).toLowerCase()}</option>`).join("")}</select><button class="record-btn" data-save-status="${escapeHtml(id)}">Update</button></label>`
+        : "";
+      const actions = readOnly ? "" : `<div class="record-actions">${statusControl}<button class="record-btn" data-edit="${escapeHtml(id)}">Edit</button><button class="record-btn danger" data-delete="${escapeHtml(id)}">Delete</button></div>`;
       return `<article class="record-card"><div><h2>${escapeHtml(kind === "terms" ? niceTerm(record.name) : record.name)}</h2><p>${escapeHtml(detail)}</p></div>${actions}</article>`;
     }).join("");
   }
@@ -139,6 +142,26 @@
   });
   list.addEventListener("click", (event) => {
     if (readOnly) return;
+    const saveStatus = event.target.closest("[data-save-status]");
+    if (saveStatus) {
+      const recordId = saveStatus.dataset.saveStatus;
+      const statusSelect = list.querySelector(`[data-status-for="${CSS.escape(recordId)}"]`);
+      const status = statusSelect?.value;
+      if (!status) return;
+      saveStatus.disabled = true;
+      request(`/${encodeURIComponent(recordId)}`, {
+        method: "PATCH",
+        body: JSON.stringify({ status, isCurrent: status === "ACTIVE" }),
+      }).then(() => {
+        toast(`${kind === "sessions" ? "Session" : "Term"} status updated.`);
+        return refresh();
+      }).catch((error) => {
+        toast(error.message, true);
+      }).finally(() => {
+        saveStatus.disabled = false;
+      });
+      return;
+    }
     const edit = event.target.closest("[data-edit]");
     const remove = event.target.closest("[data-delete]");
     if (edit) openEditor(records.find((item) => (item._id || item.id) === edit.dataset.edit));

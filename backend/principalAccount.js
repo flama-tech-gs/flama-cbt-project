@@ -25,6 +25,8 @@ function schoolHostLabel(school) {
 const createForm = document.querySelector("#createPrincipalForm");
 const passwordForm = document.querySelector("#principalPasswordForm");
 const deactivateButton = document.querySelector("#deactivatePrincipalBtn");
+const deactivateDialog = document.querySelector("#deactivatePrincipalDialog");
+const confirmDeactivateButton = document.querySelector("#confirmDeactivatePrincipal");
 let currentPrincipal = null;
 
 function notify(message, kind = "success") {
@@ -292,10 +294,19 @@ passwordForm?.addEventListener("submit", async (event) => {
     }
 });
 
-deactivateButton?.addEventListener("click", async () => {
-    if (!window.confirm("Deactivate the principal account? The principal will lose access.")) return;
+deactivateButton?.addEventListener("click", () => {
+    deactivateDialog?.showModal();
+    window.lucide?.createIcons();
+});
 
+document.querySelector("#cancelDeactivatePrincipal")?.addEventListener("click", () => {
+    deactivateDialog?.close();
+});
+
+confirmDeactivateButton?.addEventListener("click", async () => {
+    deactivateDialog?.close();
     deactivateButton.disabled = true;
+    confirmDeactivateButton.disabled = true;
 
     try {
         const result = await requestJson(
@@ -314,6 +325,7 @@ deactivateButton?.addEventListener("click", async () => {
         notify(accessMessage(error.message || "Could not deactivate principal."), "error");
     } finally {
         deactivateButton.disabled = false;
+        confirmDeactivateButton.disabled = false;
     }
 });
 

@@ -103,6 +103,31 @@ SETTINGS CARD
 .owner-toast.is-error > span:first-child { background: #fef2f2; color: #dc2626; }
 .edit-principal-form[hidden] { display: none; }
 
+.deactivate-dialog {
+  width: min(460px, calc(100vw - 32px));
+  padding: 30px;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  color: #1f2937;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, .24);
+}
+.deactivate-dialog::backdrop { background: rgba(15, 23, 42, .52); backdrop-filter: blur(3px); }
+.deactivate-dialog__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  background: #fef2f2;
+  color: #dc2626;
+}
+.deactivate-dialog__icon svg { width: 23px; height: 23px; }
+.deactivate-dialog h2 { margin: 0 0 10px; font-size: 1.2rem; }
+.deactivate-dialog p { margin: 0; color: #64748b; line-height: 1.6; }
+.deactivate-dialog__actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 26px; }
+.deactivate-dialog__actions button { min-height: 42px; }
+
 @keyframes owner-toast-in {
   from { opacity:  0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }

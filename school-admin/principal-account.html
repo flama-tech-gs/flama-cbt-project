@@ -487,6 +487,16 @@
       </section>
     </main>
 
+    <dialog class="deactivate-dialog" id="deactivatePrincipalDialog" aria-labelledby="deactivateDialogTitle" aria-describedby="deactivateDialogDescription">
+      <div class="deactivate-dialog__icon" aria-hidden="true"><i data-lucide="user-x"></i></div>
+      <h2 id="deactivateDialogTitle">Deactivate principal?</h2>
+      <p id="deactivateDialogDescription">The principal will lose access to the school portal. You can create a new principal account afterward.</p>
+      <div class="deactivate-dialog__actions">
+        <button class="btn btn-outline" type="button" id="cancelDeactivatePrincipal">Cancel</button>
+        <button class="btn btn-danger" type="button" id="confirmDeactivatePrincipal">Deactivate Principal</button>
+      </div>
+    </dialog>
+
     <script>
       lucide.createIcons();
     </script>

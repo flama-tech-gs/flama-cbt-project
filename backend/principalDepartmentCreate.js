@@ -9,9 +9,7 @@
     const token = sessionStorage.getItem("principalAccessToken");
 
     const form = document.querySelector(".department-form");
-    const nameInput = form?.querySelector(
-        '.form-grid input[type="text"]'
-    );
+    const nameInput = document.getElementById("departmentName");
     const headSelect = form?.querySelector(
         ".form-grid select"
     );

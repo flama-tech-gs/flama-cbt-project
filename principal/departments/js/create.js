@@ -119,26 +119,6 @@ function initializeTeacherSearch() {
 ========================================== */
 
 function initializeFormActions() {
-  departmentForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const departmentName =
-      this.querySelector('input[type="text"]').value.trim();
-
-    const hod = this.querySelector("select").value;
-
-    if (!departmentName) {
-      alert("Please enter a department name.");
-
-      return;
-    }
-
-    // TODO:
-    // Send data to backend
-
-    alert("Department created successfully.");
-  });
-
   cancelButton.addEventListener("click", () => {
     window.location.href = "./departments";
   });
@@ -242,34 +222,6 @@ createAnotherBtn.addEventListener("click", () => {
     .forEach((checkbox) => {
       checkbox.checked = false;
     });
-});
-
-/* ==========================================
-   SAVE DEPARTMENT
-========================================== */
-
-departmentForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const departmentName = this.querySelector('input[type="text"]').value.trim();
-
-  const teacherCount = document.querySelectorAll(
-    'tbody input[type="checkbox"]:checked',
-  ).length;
-
-  if (!departmentName) {
-    alert("Please enter a department name.");
-
-    return;
-  }
-
-  // ======================================
-  // Future Backend Call
-  // ======================================
-
-  // await createDepartment(...)
-
-  openSuccessModal(departmentName, teacherCount);
 });
 
 /* ==========================================

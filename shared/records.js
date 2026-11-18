@@ -6,7 +6,7 @@
   const readOnly = principal && (kind === "sessions" || kind === "terms");
   const tokenKey = principal ? "principalAccessToken" : "flamaAccessToken";
   const endpoint = principal
-    ? ({ sessions: "/session", terms: "/term", classes: "/class" }[kind])
+    ? ({ sessions: "/session", terms: "/term", classes: "/class", subjects: "/subject" }[kind])
     : `/owner/${kind}`;
   const apiBase = window.FLAMA_API_BASE || ((["localhost", "127.0.0.1"].includes(location.hostname) || location.hostname.endsWith(".localhost")) ? `${location.protocol}//${location.hostname}:5000/api` : "https://flama.onrender.com/api");
   const token = sessionStorage.getItem(tokenKey);
@@ -25,7 +25,8 @@
   let deletingId = null;
   let updatingStatusId = null;
 
-  const title = ({ sessions: "Academic Sessions", terms: "Academic Terms", classes: "Classes" })[kind];
+  const title = ({ sessions: "Academic Sessions", terms: "Academic Terms", classes: "Classes", subjects: "Subjects" })[kind];
+  const singular = ({ sessions: "session", terms: "term", classes: "class", subjects: "subject" })[kind];
   document.title = `${title} | Flama`;
   document.querySelector("[data-page-title]").textContent = title;
 
@@ -54,6 +55,7 @@
   function recordsFrom(payload) {
     if (kind === "sessions") return payload.sessions || (Array.isArray(payload) ? payload : []);
     if (kind === "terms") return payload.terms || (Array.isArray(payload) ? payload : []);
+    if (kind === "subjects") return payload.subjects || (Array.isArray(payload) ? payload : []);
     return payload.classes || (Array.isArray(payload) ? payload : []);
   }
   function dateValue(value) { return value ? new Date(value).toISOString().slice(0, 10) : ""; }
@@ -83,6 +85,8 @@
         ? `${dateValue(record.startDate)} to ${dateValue(record.endDate)} · ${record.status || "UPCOMING"}`
         : kind === "terms"
           ? `${niceTerm(record.name)} · ${record.academicSession?.name || sessions.find((s) => (s._id || s.id) === (record.academicSession?._id || record.academicSession))?.name || "Session"} · ${dateValue(record.startDate)} to ${dateValue(record.endDate)} · ${record.status || "UPCOMING"}`
+          : kind === "subjects"
+            ? `${record.code || "—"} · ${record.status || "ACTIVE"}${record.description ? ` · ${record.description}` : ""}`
           : `${record.code || "—"} · ${record.level || "—"}${record.description ? ` · ${record.description}` : ""}`;
       const statusAction = !principal && (kind === "sessions" || kind === "terms")
         ? `<button class="record-btn" data-open-status="${escapeHtml(id)}">Update</button>`
@@ -105,7 +109,9 @@
       ? [{ name: "name", label: "Session name", placeholder: "2026/2027", required: true }, { name: "startDate", label: "Start date", type: "date", required: true }, { name: "endDate", label: "End date", type: "date", required: true }]
       : kind === "terms"
         ? [{ name: "academicSession", label: "Academic session", type: "session", required: true }, { name: "name", label: "Term", type: "term", required: true }, { name: "startDate", label: "Start date", type: "date", required: true }, { name: "endDate", label: "End date", type: "date", required: true }]
-        : [{ name: "name", label: "Class name", placeholder: "JSS 1A", required: true }, { name: "code", label: "Class code", placeholder: "JSS1A", required: true }, { name: "level", label: "Level", placeholder: "JSS 1", required: true }, { name: "description", label: "Description", placeholder: "Optional description" }];
+        : kind === "subjects"
+          ? [{ name: "name", label: "Subject name", placeholder: "Mathematics", required: true }, { name: "code", label: "Subject code", placeholder: "MTH", required: true }, { name: "description", label: "Description", placeholder: "Optional description" }, { name: "status", label: "Status", type: "subject-status", required: true }]
+          : [{ name: "name", label: "Class name", placeholder: "JSS 1A", required: true }, { name: "code", label: "Class code", placeholder: "JSS1A", required: true }, { name: "level", label: "Level", placeholder: "JSS 1", required: true }, { name: "description", label: "Description", placeholder: "Optional description" }];
     for (const item of definitions) {
       const group = document.createElement("label"); group.className = "record-field"; group.textContent = item.label;
       let input;
@@ -114,6 +120,11 @@
         input.name = "academicSession";
         input.add(new Option("Select academic session", ""));
         sessions.forEach((session) => input.add(new Option(session.name, session._id || session.id)));
+      } else if (item.type === "subject-status") {
+        input = document.createElement("select");
+        input.name = item.name;
+        input.add(new Option("Active", "ACTIVE"));
+        input.add(new Option("Inactive", "INACTIVE"));
       } else {
         input = item.type === "term" ? document.createElement("select") : document.createElement("input");
         input.name = item.name;
@@ -123,13 +134,14 @@
       input.required = Boolean(item.required);
       if (item.placeholder) input.placeholder = item.placeholder;
       if (record[item.name]) input.value = item.type === "date" ? dateValue(record[item.name]) : record[item.name];
+      if (item.type === "subject-status" && !record.status) input.value = "ACTIVE";
       if (item.name === "academicSession" && record.academicSession) input.value = record.academicSession._id || record.academicSession;
       group.appendChild(input); document.getElementById("recordFields").appendChild(group);
     }
   }
   function openEditor(record) {
     editingId = record ? (record._id || record.id) : null;
-    document.getElementById("recordDialogTitle").textContent = editingId ? `Edit ${kind === "sessions" ? "session" : kind === "terms" ? "term" : "class"}` : `Create ${kind === "sessions" ? "session" : kind === "terms" ? "term" : "class"}`;
+    document.getElementById("recordDialogTitle").textContent = `${editingId ? "Edit" : "Create"} ${singular}`;
     form.reset(); fields(record || {}); dialog.showModal();
   }
 
@@ -143,7 +155,7 @@
     const button = form.querySelector('[type="submit"]'); button.disabled = true;
     try {
       await request(editingId ? `/${encodeURIComponent(editingId)}` : "", { method: editingId ? "PATCH" : "POST", body: JSON.stringify(payload) });
-      dialog.close(); toast(editingId ? "Changes saved successfully." : `${kind.slice(0, -1)} created successfully.`); await refresh();
+      dialog.close(); toast(editingId ? "Changes saved successfully." : `${singular.charAt(0).toUpperCase()}${singular.slice(1)} created successfully.`); await refresh();
     } catch (error) { toast(error.message, true); } finally { button.disabled = false; }
   });
   list.addEventListener("click", (event) => {
@@ -160,7 +172,14 @@
     const edit = event.target.closest("[data-edit]");
     const remove = event.target.closest("[data-delete]");
     if (edit) openEditor(records.find((item) => (item._id || item.id) === edit.dataset.edit));
-    if (remove) { deletingId = remove.dataset.delete; confirmDialog.showModal(); }
+    if (remove) {
+      deletingId = remove.dataset.delete;
+      const recordLabel = singular;
+      confirmDialog.querySelector(".record-dialog__top h2").textContent = `Delete ${recordLabel}?`;
+      confirmDialog.querySelector(".record-confirm-copy").textContent = `Are you sure you want to delete this ${recordLabel}? This action cannot be undone.`;
+      document.getElementById("confirmDeleteBtn").textContent = `Delete ${recordLabel.charAt(0).toUpperCase()}${recordLabel.slice(1)}`;
+      confirmDialog.showModal();
+    }
   });
   statusForm?.addEventListener("submit", async (event) => {
     event.preventDefault();

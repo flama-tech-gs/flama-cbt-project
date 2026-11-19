@@ -17,7 +17,6 @@
   const attemptStorageKey = `flamaExamAttempt:${examId}`;
   const answersStorageKey = `flamaExamAnswers:${examId}`;
   const questionStorageKey = `flamaExamQuestion:${examId}`;
-  const defaultAvatar = "../assets/icons/avatar.png";
   const defaultLogo = "../assets/icons/logo.png";
 
   const elements = {
@@ -176,13 +175,17 @@
     elements.studentClass.textContent = student.className || "Class not assigned";
     elements.studentRole.textContent = student.role || "Student";
 
-    if (student.avatar) {
-      elements.studentAvatar.onerror = () => {
-        elements.studentAvatar.onerror = null;
-        elements.studentAvatar.src = defaultAvatar;
-      };
-      elements.studentAvatar.src = student.avatar;
+    elements.studentAvatar.hidden = !student.avatar;
+    if (!student.avatar) {
+      elements.studentAvatar.removeAttribute("src");
+      return;
     }
+    elements.studentAvatar.onerror = () => {
+      elements.studentAvatar.onerror = null;
+      elements.studentAvatar.hidden = true;
+      elements.studentAvatar.removeAttribute("src");
+    };
+    elements.studentAvatar.src = student.avatar;
   }
 
   function findSubjectName(examRecord, subjects) {

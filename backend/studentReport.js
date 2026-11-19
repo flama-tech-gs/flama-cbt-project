@@ -39,9 +39,6 @@
   };
 
   const originalLogo = el.logo?.getAttribute("src") || "";
-  const originalStudentImage =
-    el.studentImage?.getAttribute("src") || "";
-
   const escapeHtml = (value) =>
     String(value ?? "").replace(/[&<>"']/g, (character) => ({
       "&": "&amp;",
@@ -133,16 +130,19 @@
     setText(el.studentName, student.name, "Student");
     setText(el.studentClass, student.className, "Student");
 
-    if (el.studentImage && student.avatar) {
+    if (el.studentImage) {
+      el.studentImage.hidden = !student.avatar;
+      if (!student.avatar) {
+        el.studentImage.removeAttribute("src");
+        return;
+      }
       el.studentImage.onerror = () => {
         el.studentImage.onerror = null;
-        if (originalStudentImage) {
-          el.studentImage.src = originalStudentImage;
-        }
+        el.studentImage.hidden = true;
+        el.studentImage.removeAttribute("src");
       };
-
       el.studentImage.src = student.avatar;
-      el.studentImage.alt = student.name || "Student";
+      el.studentImage.alt = student.name || "Student profile";
     }
   }
 
@@ -326,18 +326,12 @@
     ];
 
     ratingCards.forEach((card, groupIndex) => {
-      const listItems = card.querySelectorAll("li");
       const ratings = groups[groupIndex] || [];
-
-      listItems.forEach((item) => {
-        const rating = ratings.find(
-          (entry) =>
-            entry.name?.toLowerCase() ===
-            item.firstChild?.textContent?.trim().toLowerCase()
-        );
-        const value = item.querySelector("span");
-        if (value) value.textContent = rating?.score ?? "—";
-      });
+      const list = card.querySelector("ul");
+      if (!list) return;
+      list.innerHTML = ratings.length
+        ? ratings.map((rating) => `<li>${escapeHtml(rating.name || "Rating")} <span>${escapeHtml(valueOrDash(rating.score))}</span></li>`).join("")
+        : "<li>No ratings recorded</li>";
     });
   }
 

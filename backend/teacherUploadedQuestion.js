@@ -9,7 +9,7 @@
   );
   const token = sessionStorage.getItem("teacherAccessToken") || sessionStorage.getItem("tenantAccessToken");
   const fallbackAvatar = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><rect width="100%" height="100%" fill="#e8edf3"/><circle cx="40" cy="30" r="14" fill="#9aa8b8"/><path d="M12 76c2-18 13-26 28-26s26 8 28 26" fill="#9aa8b8"/></svg>');
-  const state = { exams: [], classId: "all", termId: "all", subjectId: "all", sessionId: "all", status: "all" };
+  const state = { exams: [], classId: "all", termId: "all", subjectId: "all" };
   const el = {
     schoolLogo: document.querySelector(".logo-area img"), schoolName: document.querySelector(".logo-area h2"),
     schoolTagline: document.querySelector(".logo-area p"), teacherImage: document.querySelector(".teacher-profile img"),
@@ -81,7 +81,7 @@
     select.innerHTML = `<option value="all">${escapeHtml(allText)}</option>`;
     el.filters?.append(label, select);
     select.addEventListener("change", () => {
-      const field = { termFilter: "termId", subjectFilter: "subjectId", sessionFilter: "sessionId", statusFilter: "status" }[id];
+      const field = { termFilter: "termId", subjectFilter: "subjectId" }[id];
       state[field] = select.value;
       renderTables();
     });
@@ -103,15 +103,13 @@
       ...classes.map((item) => `<button type="button" class="class-tab ${state.classId === item.id ? "active" : ""}" data-class-id="${escapeHtml(item.id)}">${escapeHtml(item.name)}</button>`),
     ].join("");
     const selected = classes.find((item) => item.id === state.classId);
-    if (el.pageHeading) el.pageHeading.textContent = selected ? `${selected.name} — Exams` : "All Exams";
+    if (el.pageHeading) el.pageHeading.textContent = selected ? `${selected.name} — Uploaded Questions` : "All Classes — Uploaded Questions";
   }
 
   function matchesFilters(exam) {
     return (state.classId === "all" || exam.classId === state.classId)
       && (state.termId === "all" || exam.termId === state.termId)
-      && (state.subjectId === "all" || exam.subjectId === state.subjectId)
-      && (state.sessionId === "all" || exam.sessionId === state.sessionId)
-      && (state.status === "all" || exam.status === state.status);
+      && (state.subjectId === "all" || exam.subjectId === state.subjectId);
   }
 
   function formatDate(value) {
@@ -168,12 +166,8 @@
       state.exams = response.exams || [];
       const terms = uniqueFilterOptions("termId", "term");
       const subjects = uniqueFilterOptions("subjectId", "subject");
-      const sessions = uniqueFilterOptions("sessionId", "session");
-      const statuses = [...new Set(state.exams.map((exam) => exam.status).filter(Boolean))].map((status) => ({ id: status, name: status }));
       populateSelect(document.getElementById("termFilter"), terms, "All terms", state.termId);
       populateSelect(ensureSelect("subjectFilter", "Filter by subject", "All subjects"), subjects, "All subjects", state.subjectId);
-      populateSelect(ensureSelect("sessionFilter", "Filter by session", "All sessions"), sessions, "All sessions", state.sessionId);
-      populateSelect(ensureSelect("statusFilter", "Filter by status", "All statuses"), statuses, "All statuses", state.status);
       document.getElementById("termFilter")?.addEventListener("change", (event) => { state.termId = event.target.value; renderTables(); });
       renderClassTabs();
       renderTables();

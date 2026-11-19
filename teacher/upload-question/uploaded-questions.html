@@ -5,7 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Teacher Dashboard</title>
+    <title>Exams | Teacher Portal</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
@@ -73,7 +73,7 @@
             <a href="./uploaded-questions" class="nav-link active">
               <i data-lucide="files"></i>
 
-              <span>Uploaded Questions</span>
+              <span>Exams</span>
             </a>
 
             <a
@@ -150,9 +150,9 @@
             </button>
 
             <div class="topbar-title">
-              <h1>Uploaded Questions</h1>
+              <h1>Exams</h1>
               <p>
-                Track past, current and pending exam questions for each class.
+                Track exams awaiting approval, active exams, and past exams.
               </p>
             </div>
           </div>
@@ -175,7 +175,7 @@
 ========================================== -->
 
           <section class="page-heading">
-            <h2>Loading assigned classes…</h2>
+            <h2>Loading exams…</h2>
           </section>
 
           <!-- ==========================================
@@ -200,7 +200,7 @@
 
           <section class="exam-section">
             <button class="accordion-btn active" data-target="pendingTable">
-              <span> ⏳ Pending Approval </span>
+              <span> ⏳ Exams Pending Approval </span>
 
               <i data-lucide="chevron-up"></i>
             </button>
@@ -210,10 +210,12 @@
                 <table>
                   <thead>
                     <tr>
+                      <th>Exam</th>
+                      <th>Class</th>
                       <th>Subject</th>
                       <th>Term</th>
                       <th>Session</th>
-                      <th>Date Uploaded</th>
+                      <th>Date Created</th>
                       <th>Questions</th>
                       <th>Status</th>
                     </tr>
@@ -231,7 +233,7 @@
 
           <section class="exam-section">
             <button class="accordion-btn" data-target="activeTable">
-              <span> ✅ Current / Active Exams </span>
+              <span> ✅ Active Exams </span>
 
               <i data-lucide="chevron-down"></i>
             </button>
@@ -241,10 +243,12 @@
                 <table>
                   <thead>
                     <tr>
+                      <th>Exam</th>
+                      <th>Class</th>
                       <th>Subject</th>
                       <th>Term</th>
                       <th>Session</th>
-                      <th>Date Uploaded</th>
+                      <th>Date Created</th>
                       <th>Questions</th>
                       <th>Status</th>
                     </tr>
@@ -272,10 +276,12 @@
                 <table>
                   <thead>
                     <tr>
+                      <th>Exam</th>
+                      <th>Class</th>
                       <th>Subject</th>
                       <th>Term</th>
                       <th>Session</th>
-                      <th>Date Uploaded</th>
+                      <th>Date Created</th>
                       <th>Questions</th>
                       <th>Status</th>
                     </tr>
@@ -293,7 +299,7 @@
     <!-- <script src="./js/builder.js"></script>
     <script src="./js/state.js"></script>
     <script src="./js/submit.js"></script> -->
-    <!-- Demo uploaded-question data disabled; backend/teacherUploadedQuestion.js supplies live data. -->
+    <!-- backend/teacherUploadedQuestion.js loads HOD-scoped exam data. -->
     <script src="../../backend/teacherUploadedQuestion.js"></script>
 
     <script>

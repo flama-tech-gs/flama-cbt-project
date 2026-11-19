@@ -648,13 +648,13 @@
 
   function showModal(modal) {
     if (!modal) return;
-    modal.style.display = "flex";
+    modal.classList.add("show");
     modal.setAttribute("aria-hidden", "false");
   }
 
   function hideModal(modal) {
     if (!modal) return;
-    modal.style.display = "none";
+    modal.classList.remove("show");
     modal.setAttribute("aria-hidden", "true");
   }
 

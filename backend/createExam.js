@@ -101,6 +101,25 @@
     return `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`;
   }
 
+  function showExamToast(message, isError = false) {
+    let region = document.getElementById("examToastRegion");
+    if (!region) {
+      region = document.createElement("div");
+      region.id = "examToastRegion";
+      region.className = "exam-toast-region";
+      region.setAttribute("aria-live", "polite");
+      region.setAttribute("aria-atomic", "false");
+      document.body.appendChild(region);
+    }
+
+    const toast = document.createElement("div");
+    toast.className = `exam-toast${isError ? " is-error" : ""}`;
+    toast.setAttribute("role", isError ? "alert" : "status");
+    toast.textContent = message;
+    region.appendChild(toast);
+    window.setTimeout(() => toast.remove(), 5000);
+  }
+
   function formatTermName(name = "") {
     return String(name)
       .replace(/_/g, " ")
@@ -308,12 +327,10 @@
         termSelect.disabled = true;
         subjectSelect.disabled = true;
         questionList.innerHTML = '<p class="exam-form-hint">Choose a session, term, class and subject first.</p>';
-        window.setTimeout(() => {
-          setMessage("Exam saved as a draft. A Principal can schedule or publish it from Exam Control.", "success");
-        }, 0);
+        showExamToast("Exam saved as a draft. A Principal can schedule or publish it from Exam Control.");
         if (principalPage && window.refreshPrincipalExamControl) window.refreshPrincipalExamControl();
       } catch (error) {
-        setMessage(error.message || "Could not save the exam.", "error");
+        showExamToast(error.message || "Could not save the exam.", true);
       } finally {
         submit.disabled = false;
         submit.textContent = "Save draft exam";

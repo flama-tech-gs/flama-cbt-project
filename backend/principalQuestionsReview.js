@@ -480,10 +480,11 @@
           `
           : "";
 
-        const rejectionHtml = question.rejectionReason
+        const reviewNote = question.reviewComment || question.rejectionReason;
+        const rejectionHtml = reviewNote
           ? `
             <div class="review-comment">
-              <span>${escapeHtml(question.rejectionReason)}</span>
+              <span>${escapeHtml(reviewNote)}</span>
             </div>
           `
           : "";
@@ -675,7 +676,7 @@
     });
   }
 
-  async function loadQuestions() {
+  async function loadQuestions({ showLoading = true } = {}) {
     if (!token) {
       showMessage(
         "Your principal session has expired. Please sign in again.",
@@ -691,7 +692,7 @@
       return;
     }
 
-    showMessage("Loading questions…");
+    if (showLoading) showMessage("Loading questions…");
 
     try {
       const url = new URL(`${ROOT}/questions`);
@@ -724,7 +725,8 @@
   async function reviewQuestions(
     ids,
     reviewStatus,
-    rejectionReason = ""
+    rejectionReason = "",
+    action = "REVIEW"
   ) {
     if (reviewInProgress || ids.length === 0) return;
 
@@ -736,19 +738,19 @@
         method: "PATCH",
         body: JSON.stringify({
           questionIds: ids,
+          action,
           reviewStatus,
           rejectionReason,
+          comment: action === "COMMENT" ? rejectionReason : undefined,
         }),
       });
-
-      showMessage(
-        reviewStatus === "APPROVED"
+      await loadQuestions({ showLoading: false });
+      const message = action === "COMMENT"
+        ? "Comment saved successfully."
+        : reviewStatus === "APPROVED"
           ? "Question(s) approved successfully."
-          : "Question(s) sent back for correction.",
-        "success"
-      );
-
-      await loadQuestions();
+          : "Question(s) sent back for correction.";
+      showMessage(message, "success");
     } catch (error) {
       console.error("Could not update question review:", error);
       showMessage(
@@ -784,12 +786,23 @@
         button.dataset.action === "comment"
       ) {
         pendingQuestion = question;
+        pendingQuestion.reviewAction = button.dataset.action === "comment" ? "COMMENT" : "REVIEW";
         setQuestionActionDetails(question);
         const commentInput = document.getElementById("questionCorrectionComment");
         const commentError = document.getElementById("correctionCommentError");
-        if (commentInput) commentInput.value = question.rejectionReason || "";
+        const correctionModal = document.getElementById("correctQuestionModal");
+        const title = document.getElementById("correctQuestionTitle");
+        const description = correctionModal?.querySelector(".modal-text");
+        const confirmButton = document.getElementById("confirmCorrectQuestion");
+        const isComment = pendingQuestion.reviewAction === "COMMENT";
+        if (title) title.textContent = isComment ? "Comment on this question" : "Send back for correction?";
+        if (description) description.textContent = isComment
+          ? "Save a note for the teacher without changing this question’s approval status."
+          : "The teacher will be asked to correct this question before resubmitting.";
+        if (confirmButton) confirmButton.textContent = isComment ? "Save Comment" : "Send Back for Correction";
+        if (commentInput) commentInput.value = question.reviewComment || question.rejectionReason || "";
         if (commentError) commentError.hidden = true;
-        showModal(document.getElementById("correctQuestionModal"));
+        showModal(correctionModal);
       }
     });
 
@@ -828,9 +841,15 @@
         }
 
         const questionId = String(pendingQuestion._id);
+        const action = pendingQuestion.reviewAction || "REVIEW";
         hideModal(correctQuestionModal);
         pendingQuestion = null;
-        await reviewQuestions([questionId], "REJECTED", comment);
+        await reviewQuestions(
+          [questionId],
+          action === "COMMENT" ? "PENDING" : "REJECTED",
+          comment,
+          action
+        );
       });
 
     document
@@ -880,12 +899,17 @@
         const summary =
           document.getElementById("teacherSummary")?.value || "";
 
+        const summaryError = document.getElementById("teacherSummaryError");
         if (!summary.trim()) {
-          window.alert(
-            "Enter a summary comment before sending questions back."
-          );
+          if (summaryError) {
+            summaryError.textContent = "Enter a summary comment before sending questions back.";
+            summaryError.hidden = false;
+          }
+          document.getElementById("teacherSummary")?.focus();
           return;
         }
+
+        if (summaryError) summaryError.hidden = true;
 
         hideModal(sendBackModal);
 

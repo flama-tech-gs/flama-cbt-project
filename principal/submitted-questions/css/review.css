@@ -7,6 +7,22 @@
   background: #fff;
 }
 
+.review-integration-message {
+  margin: 0 0 18px;
+  padding: 13px 16px;
+  border: 1px solid #d8e6d9;
+  border-radius: 10px;
+  color: #254b2d;
+  background: #f1f8f2;
+  line-height: 1.5;
+}
+
+.review-integration-message.error {
+  border-color: #f2c8c5;
+  color: #9b1c16;
+  background: #fff4f2;
+}
+
 /* .container {
   max-width: 80%;
   margin: 0 20px 0 50px;

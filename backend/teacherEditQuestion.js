@@ -379,7 +379,10 @@
 
     state.hasChanges = false;
 
-    if (approved) {
+    const reviewNote = question.reviewComment || question.rejectionReason;
+    if (reviewNote) {
+      showMessage(`Principal comment: ${reviewNote}`);
+    } else if (approved) {
       showMessage("This question is approved and can no longer be edited.");
     } else {
       showMessage("");

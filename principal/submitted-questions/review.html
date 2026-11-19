@@ -554,8 +554,12 @@ SEND BACK FOR CORRECTION MODAL
 
           <textarea
             id="teacherSummary"
+            maxlength="1000"
             placeholder="e.g Question 12 has two correct options — please review and resubmit."
           ></textarea>
+          <p class="correction-comment-error" id="teacherSummaryError" role="alert" hidden>
+            Enter a summary comment before sending questions back.
+          </p>
         </div>
 
         <div class="exam-info">
@@ -623,7 +627,7 @@ SEND BACK FOR CORRECTION MODAL
         </p>
         <div class="comment-section">
           <label for="questionCorrectionComment">Summary Comment for Teacher</label>
-          <textarea id="questionCorrectionComment" placeholder="Summarize what needs to be fixed."></textarea>
+          <textarea id="questionCorrectionComment" maxlength="1000" placeholder="Summarize what needs to be fixed."></textarea>
           <p class="correction-comment-error" id="correctionCommentError" role="alert" hidden>
             Enter a correction comment before sending it back.
           </p>

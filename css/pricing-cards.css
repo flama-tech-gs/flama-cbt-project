@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .pricing-card {
@@ -20,9 +20,20 @@
 }
 
 .pricing-card:hover {
-  transform: translateY(-10px);
+  animation: pricing-card-hover 1.2s ease-in-out infinite;
   background: #f9a825;
   color: #261a05;
+}
+
+@keyframes pricing-card-hover {
+  0%,
+  100% {
+    transform: translateY(-15px) scale(1.1);
+  }
+
+  50% {
+    transform: translateY(15px) scale(1.1);
+  }
 }
 
 .pricing-card:hover .btn {
@@ -51,7 +62,7 @@
 
 .pricing-card.featured:hover,
 .pricing-card.featured-plan:hover {
-  transform: scale(1.05) translateY(-10px);
+  animation: pricing-card-hover 1.2s ease-in-out infinite;
 }
 
 .pricing-card.selected {
@@ -177,7 +188,7 @@
 
   .pricing-card.featured:hover,
   .pricing-card.featured-plan:hover {
-    transform: translateY(-10px);
+    transform: none;
   }
 }
 
@@ -263,6 +274,7 @@
   .pricing-card:hover,
   .pricing-card.featured:hover,
   .pricing-card.featured-plan:hover {
+    animation: none;
     transform: none;
   }
 

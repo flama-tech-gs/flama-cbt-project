@@ -36,8 +36,20 @@
   transition: var(--transition);
 }
 
-.strength-bar.active {
-  background: var(--primary-color);
+.strength-bar.active.weak {
+  background: #e53935;
+}
+
+.strength-bar.active.fair {
+  background: #fb8c00;
+}
+
+.strength-bar.active.good {
+  background: #fdd835;
+}
+
+.strength-bar.active.strong {
+  background: #2e7d32;
 }
 
 .password-rules {

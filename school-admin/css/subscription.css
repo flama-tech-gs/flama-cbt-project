@@ -277,10 +277,6 @@ PRICING CARD
   color: #261a05;
 }
 
-.pricing-card:hover {
-  transform: translateY(-6px);
-}
-
 .pricing-card h3 {
   margin: 0 0 28px;
 

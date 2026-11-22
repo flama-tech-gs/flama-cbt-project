@@ -141,19 +141,22 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = passwordInput?.value || "";
         const checks = getPasswordChecks(password);
         const score = checks.filter(Boolean).length;
+        const strength = password ? Math.max(score, 1) : 0;
         const labels = ["Weak", "Weak", "Fair", "Good", "Strong"];
 
         if (strengthText) {
             strengthText.textContent = password
-                ? `Password strength: ${labels[score]}`
+                ? `Password strength: ${labels[strength]}`
                 : "Password strength: Enter a password";
         }
 
         strengthBars.forEach((bar, index) => {
-            bar.classList.toggle("active", index < score);
-            bar.classList.toggle("weak", score <= 1 && index < score);
-            bar.classList.toggle("medium", score === 2 && index < score);
-            bar.classList.toggle("strong", score >= 3 && index < score);
+            const active = index < strength;
+            bar.classList.toggle("active", active);
+            bar.classList.toggle("weak", active && strength === 1);
+            bar.classList.toggle("fair", active && strength === 2);
+            bar.classList.toggle("good", active && strength === 3);
+            bar.classList.toggle("strong", active && strength === 4);
         });
 
         const rulePasses = [

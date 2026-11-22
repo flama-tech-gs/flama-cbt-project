@@ -152,7 +152,7 @@ form?.addEventListener("submit", async (event) => {
             JSON.stringify(principal)
         );
 
-        window.location.assign("./profile.html");
+        window.location.assign("./profile");
     } catch (error) {
         console.error("Principal login failed:", error);
 

@@ -52,7 +52,7 @@ document.getElementById("confirmSubmit").addEventListener("click", async () => {
 });
 
 document.getElementById("viewQuestionsBtn").addEventListener("click", () => {
-  window.location.href = "uploaded-questions.html";
+  window.location.href = "uploaded-questions";
 });
 
 document.getElementById("newExamBtn").addEventListener("click", () => {

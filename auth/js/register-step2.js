@@ -105,7 +105,7 @@ function initNavigation() {
 
   if (back) {
     back.addEventListener("click", () => {
-      window.location.href = "register-step1.html";
+      window.location.href = "register-step1";
     });
   }
 
@@ -129,6 +129,6 @@ function initNavigation() {
       }),
     );
 
-    window.location.href = "register-step3.html";
+    window.location.href = "register-step3";
   });
 }

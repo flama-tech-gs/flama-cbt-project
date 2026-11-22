@@ -11,7 +11,6 @@
     window.FLAMA_API_BASE || (isLocal ? `${window.location.protocol}//${window.location.hostname}:5000/api` : "https://flama.onrender.com/api");
 
   const TOKEN_KEY = "tenantAccessToken";
-  const DEFAULT_AVATAR = "../assets/icons/avatar.png";
   const statusElement = document.getElementById("examStatus");
   const examList = document.getElementById("examList");
 
@@ -104,13 +103,17 @@
       student.role || "Student";
 
     const avatar = document.getElementById("studentAvatar");
-    if (student.avatar) {
-      avatar.onerror = () => {
-        avatar.onerror = null;
-        avatar.src = DEFAULT_AVATAR;
-      };
-      avatar.src = student.avatar;
+    avatar.hidden = !student.avatar;
+    if (!student.avatar) {
+      avatar.removeAttribute("src");
+      return;
     }
+    avatar.onerror = () => {
+      avatar.onerror = null;
+      avatar.hidden = true;
+      avatar.removeAttribute("src");
+    };
+    avatar.src = student.avatar;
   }
 
   function idOf(value) {
@@ -206,7 +209,7 @@
       startButton.setAttribute("aria-label", `Start ${exam.title || "exam"}`);
       startButton.addEventListener("click", () => {
         const query = new URLSearchParams({ examId: idOf(exam) });
-        window.location.assign(`./exam.html?${query.toString()}`);
+        window.location.assign(`./exam?${query.toString()}`);
       });
     }
 
@@ -242,12 +245,13 @@
   }
 
   async function initialize() {
+    const deviceNotice = new URLSearchParams(window.location.search).get("device") === "unsupported";
     const token =
       sessionStorage.getItem(TOKEN_KEY) ||
       sessionStorage.getItem("studentAccessToken");
 
     if (!token) {
-      window.location.replace("../index.html");
+      window.location.replace("../index");
       return;
     }
 
@@ -274,7 +278,9 @@
       const exams = returnedExams.filter((exam) => explainAvailability(exam, now).available);
 
       if (!exams.length) {
-        statusElement.textContent = "No exams are currently open for your class.";
+        statusElement.textContent = deviceNotice
+          ? "Exams can only be taken on a desktop or laptop. No exams are currently open for your class."
+          : "No exams are currently open for your class.";
         showMessage(
           "No available exams",
           "Check back when your school schedules an examination."
@@ -292,7 +298,9 @@
       const attemptStatusByExam = new Map(
         (statusResponse?.attempts || []).map((item) => [item.examId, item])
       );
-      statusElement.textContent = `${exams.length} exam${exams.length === 1 ? "" : "s"} currently available for your class.`;
+      statusElement.textContent = deviceNotice
+        ? `Exams can only be taken on a desktop or laptop. ${exams.length} exam${exams.length === 1 ? " is" : "s are"} currently available for your class.`
+        : `${exams.length} exam${exams.length === 1 ? "" : "s"} currently available for your class.`;
       examList.replaceChildren(
         ...exams.map((exam) =>
           createExamCard(exam, student, subjects, attemptStatusByExam.get(idOf(exam)))
@@ -304,7 +312,7 @@
       if (error.status === 401) {
         sessionStorage.removeItem(TOKEN_KEY);
         sessionStorage.removeItem("studentAccessToken");
-        window.location.replace("../index.html");
+        window.location.replace("../index");
         return;
       }
 
@@ -331,7 +339,7 @@
   }
 
   document.querySelector(".back-btn")?.addEventListener("click", () => {
-    window.location.assign("./onboarding.html");
+    window.location.assign("./onboarding");
   });
 
   if (document.readyState === "loading") {

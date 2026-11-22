@@ -23,8 +23,8 @@
         <form class="login-form">
           <!-- Staff ID -->
           <div class="form-group">
-            <label>Staff ID</label>
-            <input type="text" id="" placeholder="e.g TCH/2025/014" required />
+            <label for="staffId">Staff ID or Email</label>
+            <input type="text" id="staffId" name="identifier" autocomplete="username" placeholder="e.g. TCH/2025/014 or name@school.com" required />
 
             <small class="error-message" id="accessError">
               Invalid staff ID
@@ -82,7 +82,6 @@
       </p>
     </main>
 
-    <script src="./js/login.js"></script>
     <script src="../backend/schoolContextClient.js"></script>
     <script src="../backend/teacherLogin.js"></script>
   </body>

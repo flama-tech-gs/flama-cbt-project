@@ -307,7 +307,7 @@
       (submission.questionIds || []).join(",")
     );
 
-    return `./review.html?${params.toString()}`;
+    return `./review?${params.toString()}`;
   }
 
   function getVisibleSessions() {

@@ -44,7 +44,7 @@
     const token = sessionStorage.getItem(TOKEN_KEY);
 
     if (!token) {
-      window.location.assign("./index.html");
+      window.location.assign("./index");
       throw new Error("Your login session has expired.");
     }
 

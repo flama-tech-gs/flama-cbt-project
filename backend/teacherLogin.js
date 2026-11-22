@@ -15,13 +15,9 @@
     return;
   }
 
-  // Remove any demo event listeners attached by login.js while retaining
-  // the existing HTML and CSS.
-  const cleanForm = form.cloneNode(true);
-  form.replaceWith(cleanForm);
+  const cleanForm = form;
 
-  const staffIdInput =
-    cleanForm.querySelector('input[type="text"]');
+  const staffIdInput = cleanForm.querySelector("#staffId");
   const passwordInput =
     cleanForm.querySelector("#password");
   const loginButton =
@@ -258,7 +254,7 @@
 
       saveTeacherSession(result);
 
-      window.location.assign("./profile/profile.html");
+      window.location.assign("./profile/profile");
     } catch (error) {
       const message =
         error.message || "Unable to sign in. Please try again.";

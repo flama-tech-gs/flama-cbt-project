@@ -706,7 +706,7 @@
 
   async function loadUploadData() {
     if (!token) {
-      window.location.assign("../login.html");
+      window.location.assign("/teacher/index");
       return;
     }
 
@@ -828,7 +828,7 @@
 
   viewQuestionsButton?.addEventListener("click", (event) => {
     event.preventDefault();
-    window.location.assign("./uploaded-questions.html");
+    window.location.assign("./uploaded-questions");
   });
 
   newExamButton?.addEventListener("click", (event) => {
@@ -865,7 +865,7 @@
     sessionStorage.removeItem("tenantAccessToken");
     sessionStorage.removeItem("teacherUser");
     sessionStorage.removeItem(DRAFTS_KEY);
-    window.location.assign("../login.html");
+    window.location.assign("/teacher/index");
   });
 
   updateCorrectAnswerButtons();

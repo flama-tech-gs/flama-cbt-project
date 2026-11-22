@@ -58,7 +58,7 @@ loginForm.addEventListener("submit", (e) => {
 
   // SUCCESS
   if (!hasError) {
-    window.location.href = "../pages/onboarding.html";
+    window.location.href = "../pages/onboarding";
   }
 });
 

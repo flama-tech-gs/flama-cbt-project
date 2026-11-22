@@ -4,31 +4,7 @@ AUDIENCE OPTIONS
 ==========================================
 */
 
-const audienceOptions = [
-  {
-    title: "Everyone",
-    subtitle: "All teachers & students",
-    note: "This broadcast will be delivered immediately to all 1,247 students and 58 teachers.",
-  },
-
-  {
-    title: "All Teachers",
-    subtitle: "58 teachers",
-    note: "This broadcast will be delivered to all 58 teachers.",
-  },
-
-  {
-    title: "All Students",
-    subtitle: "1,247 students",
-    note: "This broadcast will be delivered to all 1,247 students.",
-  },
-
-  {
-    title: "Specific Class",
-    subtitle: "Choose one or more classes",
-    note: "This broadcast will only be delivered to the selected classes.",
-  },
-];
+const audienceOptions = [];
 
 /*
 ==========================================
@@ -108,7 +84,7 @@ CANCEL
 */
 
 document.querySelector(".cancel-btn").addEventListener("click", () => {
-  window.location.href = "../broadcasts/broadcasts.html";
+  window.location.href = "../broadcasts/broadcasts";
 });
 
 /*
@@ -140,7 +116,7 @@ fetch(...)
 
   alert("Broadcast Sent Successfully!");
 
-  window.location.href = "../broadcasts/broadcasts.html";
+  window.location.href = "../broadcasts/broadcasts";
 });
 
 /*

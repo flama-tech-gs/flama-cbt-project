@@ -16,7 +16,7 @@ if (token) {
     }
   } catch (err) {
     localStorage.clear();
-    window.location.href = "../index.html";
+    window.location.href = "../index";
   }
 }
 

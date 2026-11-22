@@ -321,7 +321,7 @@ function initializeAddSchool() {
   if (!button) return;
 
   button.addEventListener("click", () => {
-    window.location.href = "./add-school.html";
+    window.location.href = "./add-school";
   });
 }
 

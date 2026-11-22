@@ -117,7 +117,7 @@ saveBtn.addEventListener("click", () => {
 ========================================== */
 
 cancelBtn.addEventListener("click", () => {
-  window.location.href = "./departments.html";
+  window.location.href = "./departments";
 });
 
 /* ==========================================
@@ -134,7 +134,7 @@ deleteBtn.addEventListener("click", () => {
   // TODO:
   // deleteDepartment(id)
 
-  window.location.href = "./departments.html";
+  window.location.href = "./departments";
 });
 
 /* ==========================================

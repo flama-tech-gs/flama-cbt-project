@@ -4,23 +4,9 @@ DATA (Replace with API)
 ==========================================
 */
 
-const subjects = [
-  "Biology",
-  "Mathematics",
-  "English Language",
-  "Chemistry",
-  "Physics",
-];
+const subjects = [];
 
-const classes = ["JSS 1A", "JSS 1B", "JSS 2A", "JSS 2B", "JSS 3A", "JSS 3B"];
-
-const durations = [
-  "30 Minutes",
-  "45 Minutes",
-  "60 Minutes",
-  "90 Minutes",
-  "120 Minutes",
-];
+const classes = [];
 
 /*
 ==========================================

@@ -379,7 +379,10 @@
 
     state.hasChanges = false;
 
-    if (approved) {
+    const reviewNote = question.reviewComment || question.rejectionReason;
+    if (reviewNote) {
+      showMessage(`Principal comment: ${reviewNote}`);
+    } else if (approved) {
       showMessage("This question is approved and can no longer be edited.");
     } else {
       showMessage("");
@@ -587,7 +590,7 @@
     // Return to the submitted questions listing.
     const backLink = document.querySelector(".back-btn");
     if (backLink) {
-      backLink.href = "../submitted-question/submitted-questions.html";
+      backLink.href = "../submitted-question/submitted-questions";
     }
 
     window.addEventListener("beforeunload", (event) => {

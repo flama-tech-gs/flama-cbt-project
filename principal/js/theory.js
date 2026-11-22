@@ -4,53 +4,7 @@ DATA
 ==========================================
 */
 
-const theoryData = [
-  {
-    class: "JSS 3B",
-    subjects: 2,
-    open: true,
-
-    subjectList: [
-      {
-        subject: "Biology",
-        teacher: "Mrs. Adebayo Folake",
-        students: 2,
-        open: true,
-
-        records: [
-          {
-            name: "Adegbola Abiodun Odunyemi",
-            code: "JS/50/2024",
-            session: "2025/2026",
-            score: 58,
-          },
-
-          {
-            name: "Chukwu Ngozi Adaeze",
-            code: "JS/51/2024",
-            session: "2025/2026",
-            score: 49,
-          },
-        ],
-      },
-
-      {
-        subject: "Basic Science & Technology",
-        teacher: "Mrs. Adebayo Folake",
-        students: 35,
-        open: false,
-        records: [],
-      },
-    ],
-  },
-
-  {
-    class: "JSS 1A",
-    subjects: 4,
-    open: false,
-    subjectList: [],
-  },
-];
+const theoryData = [];
 
 /*
 ==========================================
@@ -275,7 +229,7 @@ document.addEventListener("click", (e) => {
   
 
 window.location.href =
-"student-profile.html";
+"student-profile";
 
 
 

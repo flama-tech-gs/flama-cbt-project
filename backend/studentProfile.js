@@ -22,11 +22,11 @@
   const tagline = document.querySelector(".brand p");
   const topStudentName = document.getElementById("topStudentName");
   const topStudentClass = document.getElementById("topStudentClass");
+  const topStudentImage = document.querySelector(".user-info img");
   const profileImage = document.querySelector(".profile-left img");
   const subjectsGrid = document.getElementById("subjectsGrid");
 
   const designedLogoSrc = logo?.getAttribute("src") || "";
-  const designedProfileSrc = profileImage?.getAttribute("src") || "";
 
   const fields = {
     studentName: document.getElementById("studentName"),
@@ -153,17 +153,20 @@
       phoneLabel.textContent = "Phone Number:";
     }
 
-    if (profileImage && student.avatar) {
-      profileImage.onerror = () => {
-        profileImage.onerror = null;
-        if (designedProfileSrc) profileImage.src = designedProfileSrc;
+    [topStudentImage, profileImage].filter(Boolean).forEach((image) => {
+      image.hidden = !student.avatar;
+      if (!student.avatar) {
+        image.removeAttribute("src");
+        return;
+      }
+      image.onerror = () => {
+        image.onerror = null;
+        image.hidden = true;
+        image.removeAttribute("src");
       };
-
-      profileImage.src = student.avatar;
-      profileImage.alt = student.name
-        ? `${student.name} profile`
-        : "Student profile";
-    }
+      image.src = student.avatar;
+      image.alt = student.name ? `${student.name} profile` : "Student profile";
+    });
   }
 
   function renderSubjects(subjects) {

@@ -10,7 +10,7 @@ form.addEventListener("submit", function (e) {
 });
 
 document.querySelector(".btn-success").addEventListener("click", () => {
-  window.location.href = "../students/students.html";
+  window.location.href = "../students/students";
 });
 
 document.querySelector(".btn-primary").addEventListener("click", () => {

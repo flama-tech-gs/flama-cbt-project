@@ -4,127 +4,7 @@ DATA
 ==========================================
 */
 
-const teacherData = [
-  {
-    department: "Science Department",
-    teachers: 3,
-    open: true,
-
-    records: [
-      {
-        name: "Mrs. Adebayo Folake",
-        staffId: "TCH/2025/014",
-        subjects: "Biology, Basic Science & Tech",
-        active: true,
-      },
-
-      {
-        name: "Mr. Chukwu Emeka",
-        staffId: "TCH/2025/021",
-        subjects: "Mathematics, Further Maths",
-        active: true,
-      },
-
-      {
-        name: "Mrs. Yusuf Halima",
-        staffId: "TCH/2025/009",
-        subjects: "Chemistry, Physics",
-        active: false,
-      },
-
-      {
-        name: "Mr. Ibrahim Tunde",
-        staffId: "TCH/2025/013",
-        subjects: "English Language, Literature",
-        active: true,
-      },
-
-      {
-        name: "Ms. Okoro Nneka",
-        staffId: "TCH/2025/017",
-        subjects: "History, Government",
-        active: true,
-      },
-
-      {
-        name: "Mr. Adeyemi Sola",
-        staffId: "TCH/2025/022",
-        subjects: "Physical Education, Health Science",
-        active: false,
-      },
-
-      {
-        name: "Mrs. Nwosu Chika",
-        staffId: "TCH/2025/016",
-        subjects: "Creative Arts, Music",
-        active: true,
-      },
-
-      {
-        name: "Mr. Johnstone Clive",
-        staffId: "TCH/2025/015",
-        subjects: "Computer Science, ICT",
-        active: true,
-      },
-    ],
-  },
-
-  {
-    department: "Arts Department",
-    teachers: 12,
-    open: false,
-    records: [],
-  },
-
-  {
-    department: "Languages Department",
-    teachers: 9,
-    open: false,
-    records: [],
-  },
-
-  {
-    department: "Social Science Department",
-    teachers: 8,
-    open: false,
-    records: [],
-  },
-
-  {
-    department: "Vocational & Technical",
-    teachers: 6,
-    open: false,
-    records: [],
-  },
-
-  {
-    department: "Mathematics Department",
-    teachers: 10,
-    open: false,
-    records: [],
-  },
-
-  {
-    department: "Science Department",
-    teachers: 11,
-    open: false,
-    records: [],
-  },
-
-  {
-    department: "Physical Education Department",
-    teachers: 5,
-    open: false,
-    records: [],
-  },
-
-  {
-    department: "Music Department",
-    teachers: 7,
-    open: false,
-    records: [],
-  },
-];
+const teacherData = [];
 
 /*
 ==========================================
@@ -285,17 +165,8 @@ ADD TEACHER
 ==========================================
 */
 
-document.getElementById("addTeacherBtn").addEventListener("click", () => {
-  /*
-
-Later
-
-window.location.href =
-"add-teacher.html";
-
-*/
-
-  alert("Add Teacher");
+document.getElementById("addTeacherBtn")?.addEventListener("click", () => {
+  window.location.href = "./add-teacher";
 });
 
 /*

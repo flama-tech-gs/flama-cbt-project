@@ -268,7 +268,7 @@ function initEmailVerification() {
                 "success"
             );
 
-            window.location.href = "./register-step3.html";
+            window.location.href = "./register-step3";
         } catch (error) {
 
             showMessage(typeof getApiErrorMessage === "function"

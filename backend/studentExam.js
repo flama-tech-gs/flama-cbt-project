@@ -17,7 +17,6 @@
   const attemptStorageKey = `flamaExamAttempt:${examId}`;
   const answersStorageKey = `flamaExamAnswers:${examId}`;
   const questionStorageKey = `flamaExamQuestion:${examId}`;
-  const defaultAvatar = "../assets/icons/avatar.png";
   const defaultLogo = "../assets/icons/logo.png";
 
   const elements = {
@@ -176,13 +175,17 @@
     elements.studentClass.textContent = student.className || "Class not assigned";
     elements.studentRole.textContent = student.role || "Student";
 
-    if (student.avatar) {
-      elements.studentAvatar.onerror = () => {
-        elements.studentAvatar.onerror = null;
-        elements.studentAvatar.src = defaultAvatar;
-      };
-      elements.studentAvatar.src = student.avatar;
+    elements.studentAvatar.hidden = !student.avatar;
+    if (!student.avatar) {
+      elements.studentAvatar.removeAttribute("src");
+      return;
     }
+    elements.studentAvatar.onerror = () => {
+      elements.studentAvatar.onerror = null;
+      elements.studentAvatar.hidden = true;
+      elements.studentAvatar.removeAttribute("src");
+    };
+    elements.studentAvatar.src = student.avatar;
   }
 
   function findSubjectName(examRecord, subjects) {
@@ -539,7 +542,7 @@
   }
 
   function goToDashboard() {
-    window.location.assign("./onboarding.html");
+    window.location.assign("./onboarding");
   }
 
   elements.previous.addEventListener("click", () => showQuestion(currentQuestion - 1));
@@ -553,7 +556,7 @@
 
   async function initialize() {
     if (!token) {
-      window.location.replace("../index.html");
+      window.location.replace("../index");
       return;
     }
     if (!examId) {
@@ -622,7 +625,7 @@
       if (error.status === 401) {
         sessionStorage.removeItem("tenantAccessToken");
         sessionStorage.removeItem("studentAccessToken");
-        window.location.replace("../index.html");
+        window.location.replace("../index");
         return;
       }
       showPageError(error.message || "Could not load this exam.");

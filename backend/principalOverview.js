@@ -148,7 +148,7 @@ function renderQuestions(questions) {
         const reviewLink = document.createElement("a");
         reviewLink.textContent = "Review";
         reviewLink.href =
-            `./submitted-questions/submitted-questions.html?questionId=${encodeURIComponent(question.id)}`;
+            `./submitted-questions/submitted-questions?questionId=${encodeURIComponent(question.id)}`;
         actionCell.appendChild(reviewLink);
     }
 }
@@ -157,7 +157,7 @@ async function loadOverview() {
     const token = sessionStorage.getItem(PRINCIPAL_TOKEN_KEY);
 
     if (!token) {
-        window.location.assign("./index.html");
+        window.location.assign("./index");
         return;
     }
 
@@ -179,7 +179,7 @@ async function loadOverview() {
                 sessionStorage.removeItem("principalAccessToken");
                 sessionStorage.removeItem("principalRefreshToken");
                 sessionStorage.removeItem("principalAccount");
-                window.location.assign("./index.html");
+                window.location.assign("./index");
                 return;
             }
 

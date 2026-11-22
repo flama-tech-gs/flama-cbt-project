@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <td>
             <div class="school-actions">
               <a
-                href="./school-details.html?id=${id}"
+                href="./school-details?id=${id}"
                 class="school-view-btn"
               >View</a>
             </div>

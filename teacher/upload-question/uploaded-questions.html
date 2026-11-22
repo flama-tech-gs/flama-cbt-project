@@ -5,7 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Teacher Dashboard</title>
+    <title>Uploaded Questions | Teacher Portal</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
@@ -52,32 +52,32 @@
           <!-- Navigation -->
 
           <nav>
-            <a href="../overview.html" class="nav-link">
+            <a href="../overview" class="nav-link">
               <i data-lucide="layout-dashboard"></i>
 
               <span>Overview</span>
             </a>
 
-            <a href="../classes.html" class="nav-link">
+            <a href="../classes" class="nav-link">
               <i data-lucide="users"></i>
 
               <span>Classes & Students</span>
             </a>
 
-            <a href="./upload.html" class="nav-link">
+            <a href="./upload" class="nav-link">
               <i data-lucide="upload"></i>
 
               <span>Upload Questions</span>
             </a>
 
-            <a href="./uploaded-questions.html" class="nav-link active">
+            <a href="./uploaded-questions" class="nav-link active">
               <i data-lucide="files"></i>
 
               <span>Uploaded Questions</span>
             </a>
 
             <a
-              href="../submitted-question/submitted-questions.html"
+              href="../submitted-question/submitted-questions"
               class="nav-link"
             >
               <i data-lucide="clipboard-check"></i>
@@ -86,35 +86,35 @@
             </a>
 
             <a
-              href="../notifications/notifications.html"
+              href="../notifications/notifications"
               class="nav-link notification-link"
             >
               <i data-lucide="bell"></i>
 
               <span>Notifications</span>
 
-              <span class="badge"> 2 </span>
+              <span class="badge" hidden></span>
             </a>
 
-            <a href="../student-scores/student-scores.html" class="nav-link">
+            <a href="../student-scores/student-scores" class="nav-link">
               <i data-lucide="bar-chart-3"></i>
 
               <span>Student Scores</span>
             </a>
 
-            <a href="../theory/theory.html" class="nav-link">
+            <a href="../theory/theory" class="nav-link">
               <i data-lucide="book-open"></i>
 
               <span>Theory</span>
             </a>
 
-            <a href="../recorded-theory/recorded-theory.html" class="nav-link">
+            <a href="../recorded-theory/recorded-theory" class="nav-link">
               <i data-lucide="file-text"></i>
 
               <span>Recorded Theory</span>
             </a>
 
-            <a href="../profile/profile.html" class="nav-link">
+            <a href="../profile/profile" class="nav-link">
               <i data-lucide="user-circle"></i>
 
               <span>Profile</span>
@@ -152,18 +152,18 @@
             <div class="topbar-title">
               <h1>Uploaded Questions</h1>
               <p>
-                Track past, current and pending exam questions for each class.
+                Track exams awaiting approval, active exams, and past exams.
               </p>
             </div>
           </div>
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="../assets/image.png" alt="Teacher" />
+              <img alt="Teacher profile" />
 
               <div>
-                <h3>Mrs. Adebayo Folake</h3>
-                <p>Biology Teacher</p>
+                <h3>Teacher</h3>
+                <p>Teacher</p>
               </div>
             </div>
           </div>
@@ -175,7 +175,7 @@
 ========================================== -->
 
           <section class="page-heading">
-            <h2>JSS 3B — Biology</h2>
+            <h2>Loading exams…</h2>
           </section>
 
           <!-- ==========================================
@@ -200,7 +200,7 @@
 
           <section class="exam-section">
             <button class="accordion-btn active" data-target="pendingTable">
-              <span> ⏳ Pending Approval </span>
+              <span> ⏳ Exams Pending Approval </span>
 
               <i data-lucide="chevron-up"></i>
             </button>
@@ -210,10 +210,12 @@
                 <table>
                   <thead>
                     <tr>
+                      <th>Exam</th>
+                      <th>Class</th>
                       <th>Subject</th>
                       <th>Term</th>
                       <th>Session</th>
-                      <th>Date Uploaded</th>
+                      <th>Date Created</th>
                       <th>Questions</th>
                       <th>Status</th>
                     </tr>
@@ -231,7 +233,7 @@
 
           <section class="exam-section">
             <button class="accordion-btn" data-target="activeTable">
-              <span> ✅ Current / Active Exams </span>
+              <span> ✅ Active Exams </span>
 
               <i data-lucide="chevron-down"></i>
             </button>
@@ -241,10 +243,12 @@
                 <table>
                   <thead>
                     <tr>
+                      <th>Exam</th>
+                      <th>Class</th>
                       <th>Subject</th>
                       <th>Term</th>
                       <th>Session</th>
-                      <th>Date Uploaded</th>
+                      <th>Date Created</th>
                       <th>Questions</th>
                       <th>Status</th>
                     </tr>
@@ -272,10 +276,12 @@
                 <table>
                   <thead>
                     <tr>
+                      <th>Exam</th>
+                      <th>Class</th>
                       <th>Subject</th>
                       <th>Term</th>
                       <th>Session</th>
-                      <th>Date Uploaded</th>
+                      <th>Date Created</th>
                       <th>Questions</th>
                       <th>Status</th>
                     </tr>
@@ -293,12 +299,13 @@
     <!-- <script src="./js/builder.js"></script>
     <script src="./js/state.js"></script>
     <script src="./js/submit.js"></script> -->
-    <script src="./js/uploaded-questions.js"></script>
+    <!-- backend/teacherUploadedQuestion.js loads HOD-scoped exam data. -->
     <script src="../../backend/teacherUploadedQuestion.js"></script>
 
     <script>
       lucide.createIcons();
     </script>
     <script src="../js/sidebar-nav.js"></script>
+    <script src="../../backend/teacherFeedback.js"></script>
   </body>
 </html>

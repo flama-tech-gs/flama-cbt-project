@@ -54,8 +54,13 @@ function formatDate(value) {
 function setImage(id, url) {
     const image = document.getElementById(id);
 
-    if (image && url) {
+    if (!image) return;
+    if (url) {
         image.src = url;
+        image.hidden = false;
+    } else {
+        image.removeAttribute("src");
+        image.hidden = true;
     }
 }
 
@@ -210,7 +215,7 @@ async function loadPrincipalProfile() {
     const token = sessionStorage.getItem(TOKEN_KEY);
 
     if (!token) {
-        window.location.assign("./index.html");
+        window.location.assign("./index");
         return;
     }
 
@@ -232,7 +237,7 @@ async function loadPrincipalProfile() {
                 sessionStorage.removeItem(TOKEN_KEY);
                 sessionStorage.removeItem("principalRefreshToken");
                 sessionStorage.removeItem("principalAccount");
-                window.location.assign("./index.html");
+                window.location.assign("./index");
                 return;
             }
 

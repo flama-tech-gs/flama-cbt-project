@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const TOKEN_KEY = "flamaAccessToken";
     const DASHBOARD_ENDPOINT = "/owner/dashboard";
-    const LOGIN_URL = "../auth/login.html";
+    const LOGIN_URL = "../auth/login";
 
     const byId = (id) => document.getElementById(id);
 
@@ -44,6 +44,41 @@ document.addEventListener("DOMContentLoaded", () => {
             return null;
         }
     }
+
+    async function copyText(value) {
+        if (navigator.clipboard?.writeText && window.isSecureContext) {
+            await navigator.clipboard.writeText(value);
+            return;
+        }
+        const field = document.createElement("textarea");
+        field.value = value;
+        field.setAttribute("readonly", "");
+        field.style.position = "fixed";
+        field.style.opacity = "0";
+        document.body.appendChild(field);
+        field.select();
+        const copied = document.execCommand("copy");
+        field.remove();
+        if (!copied) throw new Error("Clipboard access is unavailable");
+    }
+
+    document.addEventListener("click", async (event) => {
+        const button = event.target.closest("[data-copy-target]");
+        if (!button) return;
+        const target = byId(button.dataset.copyTarget);
+        const value = target?.textContent.trim();
+        if (!value || value === "Not available") return;
+        try {
+            await copyText(value);
+            const original = button.innerHTML;
+            button.innerHTML = '<i data-lucide="check"></i> Copied';
+            window.lucide?.createIcons();
+            window.setTimeout(() => { button.innerHTML = original; window.lucide?.createIcons(); }, 1600);
+        } catch (error) {
+            console.error("Could not copy portal URL:", error);
+            window.alert("Could not copy this URL. Please select and copy it manually.");
+        }
+    });
 
     function getHost(url, subdomain) {
         const currentHost = window.location.hostname.toLowerCase();
@@ -158,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const openSchoolPortal = byId("openSchoolPortal");
         const principalUrl = normalizeUrl(
             customSchoolHost
-                ? `https://${customSchoolHost}/principal/index.html`
+                ? `https://${customSchoolHost}/principal/index`
                 : urls?.principal
         );
         if (openSchoolPortal) {
@@ -178,13 +213,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const portalItems = [
             {
                 url: customSchoolHost
-                    ? `https://${customSchoolHost}/student/index.html`
+                    ? `https://${customSchoolHost}/student/index`
                     : urls?.student,
                 label: "Student Portal",
             },
             {
                 url: customSchoolHost
-                    ? `https://${customSchoolHost}/teacher/index.html`
+                    ? `https://${customSchoolHost}/teacher/index`
                     : urls?.staff,
                 label: "Staff Portal",
             },

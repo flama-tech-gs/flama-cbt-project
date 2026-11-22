@@ -257,7 +257,7 @@
     studentsTable.innerHTML = students
       .map((student, index) => {
         const profileUrl = new URL(
-          "./student-profile.html",
+          "./student-profile",
           window.location.href
         );
         profileUrl.searchParams.set("studentId", student.id);
@@ -304,7 +304,7 @@
 
   async function loadClasses() {
     if (!token) {
-      window.location.assign("./login.html");
+      window.location.assign("/teacher/index");
       return;
     }
 
@@ -387,7 +387,7 @@
     sessionStorage.removeItem("teacherRefreshToken");
     sessionStorage.removeItem("tenantAccessToken");
     sessionStorage.removeItem("teacherUser");
-    window.location.assign("./login.html");
+    window.location.assign("/teacher/index");
   });
 
   loadClasses();

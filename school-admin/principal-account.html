@@ -49,19 +49,19 @@
         </button>
 
         <nav class="top-navigation" id="schoolNavigation">
-          <a href="./index.html" class="nav-link"> Overview </a>
+          <a href="./index" class="nav-link"> Overview </a>
 
-          <a href="./account-settings.html" class="nav-link">
+          <a href="./account-settings" class="nav-link">
             Account Settings
           </a>
 
-          <a href="./subscription.html" class="nav-link"> Subscription </a>
+          <a href="./subscription" class="nav-link"> Subscription </a>
 
-          <a href="./principal-account.html" class="nav-link active">
+          <a href="./principal-account" class="nav-link active">
             Principal Account
           </a>
 
-          <a href="./support.html" class="nav-link"> Support </a>
+          <a href="./support" class="nav-link"> Support </a>
         </nav>
       </div>
 
@@ -112,6 +112,7 @@
       <!-- ===================================== -->
 
       <section class="settings-card principal-profile">
+        <div class="owner-toast-region" id="ownerToastRegion" aria-live="polite" aria-atomic="true"></div>
         <div class="principal-profile__header">
           <div class="principal-profile__left">
             <!-- Avatar -->
@@ -206,6 +207,16 @@
             <p id="principalJoined">—</p>
           </div>
         </div>
+        <form id="editPrincipalForm" class="edit-principal-form" hidden>
+          <div class="form-grid">
+            <div class="form-group"><label for="editPrincipalTitle">Title</label><select id="editPrincipalTitle" name="title" required><option>Mr</option><option>Mrs</option><option>Miss</option><option>Dr</option><option>Chief</option></select></div>
+            <div class="form-group"><label for="editPrincipalFirstName">First name</label><input id="editPrincipalFirstName" name="firstName" required></div>
+            <div class="form-group"><label for="editPrincipalLastName">Last name</label><input id="editPrincipalLastName" name="lastName" required></div>
+            <div class="form-group"><label for="editPrincipalPhone">Phone</label><input id="editPrincipalPhone" name="phone" type="tel"></div>
+            <div class="form-group"><label for="editPrincipalEmail">Login email</label><input id="editPrincipalEmail" name="email" type="email" required></div>
+          </div>
+          <div class="form-actions"><button type="submit" class="btn btn-primary">Save Profile</button><button type="button" class="btn btn-outline" id="cancelEditProfileBtn">Cancel</button></div>
+        </form>
       </section>
 
       <!-- ===================================== -->
@@ -475,6 +486,16 @@
         </div>
       </section>
     </main>
+
+    <dialog class="deactivate-dialog" id="deactivatePrincipalDialog" aria-labelledby="deactivateDialogTitle" aria-describedby="deactivateDialogDescription">
+      <div class="deactivate-dialog__icon" aria-hidden="true"><i data-lucide="user-x"></i></div>
+      <h2 id="deactivateDialogTitle">Deactivate principal?</h2>
+      <p id="deactivateDialogDescription">The principal will lose access to the school portal. You can create a new principal account afterward.</p>
+      <div class="deactivate-dialog__actions">
+        <button class="btn btn-outline" type="button" id="cancelDeactivatePrincipal">Cancel</button>
+        <button class="btn btn-danger" type="button" id="confirmDeactivatePrincipal">Deactivate Principal</button>
+      </div>
+    </dialog>
 
     <script>
       lucide.createIcons();

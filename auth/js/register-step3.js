@@ -55,7 +55,7 @@ function initBackButton() {
   if (!backBtn) return;
 
   backBtn.addEventListener("click", () => {
-    window.location.href = "register-step2.html";
+    window.location.href = "register-step2";
   });
 }
 
@@ -99,6 +99,6 @@ function initStep3Form() {
     // STEP 4 (Payment)
     // ==================================
 
-    window.location.href = "register-step4.html";
+    window.location.href = "register-step4";
   });
 }

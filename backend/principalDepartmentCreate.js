@@ -9,9 +9,7 @@
     const token = sessionStorage.getItem("principalAccessToken");
 
     const form = document.querySelector(".department-form");
-    const nameInput = form?.querySelector(
-        '.form-grid input[type="text"]'
-    );
+    const nameInput = document.getElementById("departmentName");
     const headSelect = form?.querySelector(
         ".form-grid select"
     );
@@ -282,7 +280,7 @@
     function showSuccessModal(result) {
         if (!successModal) {
             alert("Department created successfully.");
-            window.location.href = "./departments.html";
+            window.location.href = "./departments";
             return;
         }
 
@@ -290,9 +288,11 @@
         const message = successModal.querySelector(".success-modal p");
 
         if (message) {
-            message.textContent =
-                `${department.name || nameInput.value.trim()} has been created ` +
-                `with ${selectedTeacherIds.size} teacher(s) assigned.`;
+            const name = department.name || nameInput.value.trim();
+            const count = selectedTeacherIds.size;
+            message.textContent = count
+                ? `${name} has been created with ${count} teacher${count === 1 ? "" : "s"} assigned.`
+                : `${name} has been created. You can assign teachers and a department head later.`;
         }
 
         successModal.classList.add("show");
@@ -312,22 +312,14 @@
         const description =
             descriptionInput?.value.trim() || "";
         const teacherIds = [...selectedTeacherIds];
-        const headTeacherId = headSelect?.value || "";
+        const selectedHeadTeacherId = headSelect?.value || "";
+        const headTeacherId = selectedTeacherIds.has(selectedHeadTeacherId)
+            ? selectedHeadTeacherId
+            : null;
 
         if (!name) {
             alert("Enter a department name.");
             nameInput?.focus();
-            return;
-        }
-
-        if (!teacherIds.length) {
-            alert("Select at least one teacher.");
-            return;
-        }
-
-        if (!headTeacherId) {
-            alert("Select a head of department.");
-            headSelect?.focus();
             return;
         }
 
@@ -440,7 +432,7 @@
         (event) => {
             event.preventDefault();
             event.stopImmediatePropagation();
-            window.location.href = "./departments.html";
+            window.location.href = "./departments";
         },
         true
     );
@@ -448,7 +440,7 @@
     viewDepartmentsButton?.addEventListener(
         "click",
         () => {
-            window.location.href = "./departments.html";
+            window.location.href = "./departments";
         },
         true
     );

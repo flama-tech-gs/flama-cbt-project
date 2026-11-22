@@ -31,6 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
   logoutButton?.addEventListener("click", () => {
     localStorage.removeItem("schoolRegistration");
     sessionStorage.clear();
-    window.location.href = "../auth/login.html";
+    window.location.href = "../auth/login";
   });
 });

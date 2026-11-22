@@ -302,7 +302,7 @@ document.getElementById("submittedQuestions").textContent = progress.total;
 successModal.classList.remove("hidden");
 
 document.getElementById("backToSubmitted").addEventListener("click", () => {
-  window.location.href = "../submitted-questions/submitted-questions.html";
+  window.location.href = "../submitted-questions/submitted-questions";
 });
 
 document.getElementById("closeSuccess").addEventListener("click", () => {

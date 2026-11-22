@@ -23,7 +23,8 @@
 
     <link rel="stylesheet" href="./css/create.css" />
       <script src="../../backend/portalAccessGuard.js"></script>
-</head>
+  <script src="../js/notifications.js"></script>
+  </head>
 
   <body>
     <div class="dashboard">
@@ -46,68 +47,68 @@
           <!-- Navigation -->
 
           <nav>
-            <a href="../overview.html" class="nav-link">
+            <a href="../overview" class="nav-link">
               <i data-lucide="layout-dashboard"></i>
 
               <span>Overview</span>
             </a>
 
-            <a href="../data-analysis.html" class="nav-link">
+            <a href="../data-analysis" class="nav-link">
               <i data-lucide="database"></i>
 
               <span>Data Analysis</span>
             </a>
 
-            <a href="../exam-control/exam-control.html" class="nav-link">
+            <a href="../exam-control/exam-control" class="nav-link">
               <i data-lucide="book-check"></i>
 
               <span>Exam Control</span>
             </a>
 
-            <a href="../student-scores.html" class="nav-link">
+            <a href="../student-scores" class="nav-link">
               <i data-lucide="podium"></i>
 
               <span>Student Scores</span>
             </a>
 
-            <a href="../student-reports/student-reports.html" class="nav-link">
+            <a href="../student-reports/student-reports" class="nav-link">
               <i data-lucide="clipboard-check"></i>
 
               <span>Student Reports</span>
             </a>
 
-            <a href="../theory.html" class="nav-link">
+            <a href="../theory" class="nav-link">
               <i data-lucide="book-check"></i>
 
               <span>Theory</span>
             </a>
 
-            <a href="../broadcasts/broadcasts.html" class="nav-link">
+            <a href="../broadcasts/broadcasts" class="nav-link">
               <i data-lucide="megaphone"></i>
 
               <span>Broadcasts</span>
             </a>
 
-            <a href="../students/students.html" class="nav-link">
+            <a href="../students/students" class="nav-link">
               <i data-lucide="person-standing"></i>
 
               <span>Students</span>
             </a>
 
-            <a href="../teachers/teachers.html" class="nav-link">
+            <a href="../teachers/teachers" class="nav-link">
               <i data-lucide="graduation-cap"></i>
 
               <span>Teachers</span>
             </a>
 
-            <a href="./departments.html" class="nav-link active">
+            <a href="./departments" class="nav-link active">
               <i data-lucide="building-2"></i>
 
               <span>Departments</span>
             </a>
 
             <a
-              href="../submitted-questions/submitted-questions.html"
+              href="../submitted-questions/submitted-questions"
               class="nav-link"
             >
               <i data-lucide="file-text"></i>
@@ -115,7 +116,7 @@
               <span>Submitted Questions</span>
             </a>
 
-            <a href="../profile.html" class="nav-link">
+            <a href="../profile" class="nav-link">
               <i data-lucide="circle-user-round"></i>
 
               <span>Profile</span>
@@ -154,7 +155,7 @@
 
           <div class="principal-profile">
             <div class="principal-avatar">
-              <img src="../assets/image.png" alt="Principal" />
+              <img alt="Principal" />
 
               <span class="online-dot"></span>
             </div>
@@ -173,7 +174,7 @@
     ========================================== -->
 
           <div class="back-wrapper">
-            <a href="./departments.html" class="back-btn">
+            <a href="./departments" class="back-btn">
               <i data-lucide="arrow-left"></i>
             </a>
 
@@ -191,7 +192,7 @@
               <div class="form-group">
                 <label> Department Name </label>
 
-                <input type="text" placeholder="e.g Vocational & Technical" />
+                <input id="departmentName" name="name" type="text" placeholder="e.g Vocational & Technical" />
               </div>
 
               <div class="form-group">
@@ -199,13 +200,8 @@
 
                 <div class="select-wrapper">
                   <select>
-                    <option selected disabled>Select a teacher</option>
+                    <option value="" selected>Select a teacher (optional)</option>
 
-                    <option>Mr. Bamidele Ayo</option>
-
-                    <option>Mrs. Nwankwo Chika</option>
-
-                    <option>Dr. Chukwu Emeka</option>
                   </select>
 
                   <i data-lucide="chevron-down"></i>
@@ -241,24 +237,9 @@
             </div>
 
             <div class="selected-wrapper">
-              <p>Selected (2)</p>
+              <p>Selected (0)</p>
 
               <div class="selected-list">
-                <span class="teacher-chip">
-                  Mr. Bamidele Ayo
-
-                  <button type="button">
-                    <i data-lucide="x"></i>
-                  </button>
-                </span>
-
-                <span class="teacher-chip">
-                  Mrs. Nwankwo Chika
-
-                  <button type="button">
-                    <i data-lucide="x"></i>
-                  </button>
-                </span>
               </div>
             </div>
 
@@ -283,61 +264,7 @@
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <td>
-                      <input checked type="checkbox" />
-                    </td>
-
-                    <td>Mr. Bamidele Ayo</td>
-
-                    <td>Unassigned</td>
-
-                    <td>Computer Studies</td>
-
-                    <td class="status-success">Will be added</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <input checked type="checkbox" />
-                    </td>
-
-                    <td>Mrs. Nwankwo Chika</td>
-
-                    <td>Unassigned</td>
-
-                    <td>Civic Education</td>
-
-                    <td class="status-success">Will be added</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <input type="checkbox" />
-                    </td>
-
-                    <td>Mr. Okoro Victor</td>
-
-                    <td>Physical Education Dept.</td>
-
-                    <td>Physical Education</td>
-
-                    <td>-</td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <input type="checkbox" />
-                    </td>
-
-                    <td>Mrs. Eze Chinyere</td>
-
-                    <td>Unassigned</td>
-
-                    <td>Home Economics</td>
-
-                    <td>-</td>
-                  </tr>
+                  <!-- Teacher rows are loaded from the principal API. -->
                 </tbody>
               </table>
             </div>
@@ -377,9 +304,7 @@ DEPARTMENT SUCCESS MODAL
         <h2>Department Created Successfully!</h2>
 
         <p>
-          "<strong>Sciences Department</strong>" has been created with
-          <strong>2 teachers</strong>
-          assigned. You can edit it anytime from Departments.
+          Your department has been created. You can add teachers or assign a head at any time.
         </p>
 
         <div class="modal-actions">

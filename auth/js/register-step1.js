@@ -80,7 +80,7 @@ function initFormValidation() {
     localStorage.setItem("schoolRegistration", JSON.stringify(data));
 
     // Redirect
-    window.location.href = "register-step2.html";
+    window.location.href = "register-step2";
   });
 }
 

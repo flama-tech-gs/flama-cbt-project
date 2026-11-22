@@ -157,7 +157,7 @@ function initPaymentForm() {
                 callback(response){
 
                     window.location.href =
-                        "registration-success.html";
+                        "registration-success";
 
                 },
 
@@ -173,7 +173,7 @@ function initPaymentForm() {
     // Demo
 
     setTimeout(() => {
-      window.location.href = "registration-success.html";
+      window.location.href = "registration-success";
     }, 2000);
      */
   });

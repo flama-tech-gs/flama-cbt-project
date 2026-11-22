@@ -11,6 +11,7 @@
     ).get("teacherId");
 
     const token = sessionStorage.getItem("principalAccessToken");
+    let currentTeacher = {};
 
     const fallbackImage = "../assets/teacher.png";
 
@@ -332,7 +333,8 @@
             );
 
             updateBranding(data);
-            updateTeacherDetails(data.teacher || {});
+            currentTeacher = data.teacher || {};
+            updateTeacherDetails(currentTeacher);
             updateSummary(data.summary || {});
             renderClasses(data.classes || []);
             setAccountButtonState(data.teacher?.status);
@@ -346,111 +348,119 @@
     document
         .getElementById("backButton")
         ?.addEventListener("click", () => {
-            window.location.href = "./teachers.html";
+            window.location.href = "./teachers";
         });
 
-    const accountButtons = document.querySelectorAll(
-        ".account-management button"
-    );
+    const actionDialog = document.getElementById("teacherActionDialog");
+    const successDialog = document.getElementById("teacherActionSuccessDialog");
+    const actionError = document.getElementById("teacherActionError");
+    const passwordField = document.getElementById("teacherPasswordField");
+    const passwordInput = document.getElementById("newTeacherPassword");
+    const confirmButton = document.getElementById("confirmTeacherAction");
+    let pendingAction = "";
+    let copyStaffId = "";
 
-    accountButtons[0]?.addEventListener("click", async () => {
-        if (
-            !confirm(
-                "Reset this teacher's password? The current password will stop working."
-            )
-        ) {
-            return;
+    function openAction(action) {
+        pendingAction = action;
+        actionError.hidden = true;
+        actionError.textContent = "";
+        passwordInput.value = "";
+        passwordField.hidden = action !== "password";
+        confirmButton.textContent = action === "password" ? "Update Password" : "Yes, continue";
+        const name = currentTeacher.fullName || [currentTeacher.title, currentTeacher.firstName, currentTeacher.otherNames, currentTeacher.lastName].filter(Boolean).join(" ") || "this teacher";
+        const email = currentTeacher.email ? ` (${currentTeacher.email})` : "";
+        if (action === "reset") {
+            document.getElementById("teacherActionTitle").textContent = "Change teacher staff ID?";
+            document.getElementById("teacherActionDescription").textContent = `Generate a new staff ID for ${name}${email}. The current ID will stop working.`;
+        } else if (action === "password") {
+            document.getElementById("teacherActionTitle").textContent = "Change teacher password?";
+            document.getElementById("teacherActionDescription").textContent = `Enter a new password for ${name}${email}.`;
+        } else {
+            const paused = action === "pause";
+            document.getElementById("teacherActionTitle").textContent = paused ? "Pause teacher account?" : "Reactivate teacher account?";
+            document.getElementById("teacherActionDescription").textContent = `${paused ? "Pause" : "Reactivate"} ${name}${email}?`;
         }
+        actionDialog.showModal();
+        if (action === "password") passwordInput.focus();
+    }
 
+    document.querySelector("#teacher-profile-reset-id")?.addEventListener("click", () => openAction("reset"));
+    document.querySelector("#teacher-profile-change-password")?.addEventListener("click", () => openAction("password"));
+    document.querySelector("#teacher-profile-pause")?.addEventListener("click", () => openAction(document.querySelector("#teacher-profile-pause").dataset.action || "pause"));
+    document.getElementById("cancelTeacherAction")?.addEventListener("click", () => actionDialog.close());
+    document.getElementById("closeTeacherActionSuccess")?.addEventListener("click", () => successDialog.close());
+    document.getElementById("copyTeacherActionValue")?.addEventListener("click", async () => {
         try {
-            const data = await apiRequest(
-                `${API_BASE}/principal/teachers/${encodeURIComponent(
-                    teacherId
-                )}/password/reset`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({}),
-                }
-            );
+            await navigator.clipboard.writeText(copyStaffId);
+            document.getElementById("copyTeacherActionValue").textContent = "Copied";
+        } catch {
+            actionError.hidden = false;
+            actionError.textContent = "Could not copy automatically. Copy the staff ID from the details above.";
+        }
+    });
 
-            if (!data.temporaryPassword) {
-                throw new Error(
-                    "The server did not return a temporary password."
-                );
+    confirmButton?.addEventListener("click", async () => {
+        if (!pendingAction) return;
+        const action = pendingAction;
+        const endpoint = `${API_BASE}/principal/teachers/${encodeURIComponent(teacherId)}`;
+        confirmButton.disabled = true;
+        confirmButton.textContent = "Updating…";
+        actionError.hidden = true;
+        try {
+            let title;
+            let message;
+            let details = [["Teacher", currentTeacher.fullName || [currentTeacher.firstName, currentTeacher.lastName].filter(Boolean).join(" ")], ["Email", currentTeacher.email || "—"]];
+            copyStaffId = "";
+            if (action === "reset") {
+                const result = await apiRequest(`${endpoint}/employee-id/reset`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({}) });
+                const updated = result.teacher || result;
+                if (!updated.employeeId) throw new Error("The server did not return the new staff ID.");
+                details.push(["Previous staff ID", updated.previousEmployeeId || currentTeacher.employeeId || "—"], ["New staff ID", updated.employeeId]);
+                copyStaffId = updated.employeeId;
+                currentTeacher.employeeId = updated.employeeId;
+                setProfileRow("staff id", updated.employeeId);
+                title = "Staff ID changed";
+                message = "The teacher can now use the new staff ID.";
+            } else if (action === "password") {
+                const password = passwordInput.value;
+                if (password.length < 6 || password.length > 128) throw new Error("Password must be between 6 and 128 characters.");
+                await apiRequest(`${endpoint}/password`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password }) });
+                title = "Password changed";
+                message = "The teacher password was updated successfully.";
+            } else {
+                const paused = action === "pause";
+                await apiRequest(`${endpoint}/status`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: paused ? "SUSPENDED" : "ACTIVE" }) });
+                currentTeacher.status = paused ? "SUSPENDED" : "ACTIVE";
+                setStatus(currentTeacher.status);
+                setAccountButtonState(currentTeacher.status);
+                title = paused ? "Account paused" : "Account reactivated";
+                message = `${currentTeacher.fullName || "The teacher"}’s account was ${paused ? "paused" : "reactivated"} successfully.`;
             }
-
-            prompt(
-                "Copy this temporary password now. It will not be shown again:",
-                data.temporaryPassword
-            );
+            pendingAction = "";
+            actionDialog.close();
+            document.getElementById("teacherActionSuccessTitle").textContent = title;
+            document.getElementById("teacherActionSuccessMessage").textContent = message;
+            const resultDetails = document.getElementById("teacherActionResultDetails");
+            resultDetails.replaceChildren();
+            details.forEach(([label, value]) => {
+                const row = document.createElement("div");
+                const term = document.createElement("dt");
+                const description = document.createElement("dd");
+                term.textContent = label;
+                description.textContent = value || "—";
+                row.append(term, description);
+                resultDetails.append(row);
+            });
+            const copyButton = document.getElementById("copyTeacherActionValue");
+            copyButton.hidden = !copyStaffId;
+            copyButton.textContent = "Copy staff ID";
+            successDialog.showModal();
         } catch (error) {
-            alert(error.message || "Could not reset the password.");
-        }
-    });
-
-    accountButtons[1]?.addEventListener("click", async () => {
-        const password = prompt(
-            "Enter the new password (at least 6 characters):"
-        );
-
-        if (password === null) return;
-
-        if (password.length < 6) {
-            alert("Password must be at least 6 characters.");
-            return;
-        }
-
-        try {
-            await apiRequest(
-                `${API_BASE}/principal/teachers/${encodeURIComponent(
-                    teacherId
-                )}/password`,
-                {
-                    method: "PATCH",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ password }),
-                }
-            );
-
-            alert("Teacher password changed.");
-        } catch (error) {
-            alert(error.message || "Could not change the password.");
-        }
-    });
-
-    const pauseButton = document.querySelector(
-        ".account-management .btn-outline-danger"
-    );
-
-    pauseButton?.addEventListener("click", async () => {
-        const action = pauseButton.dataset.action || "pause";
-        const status = action === "pause" ? "SUSPENDED" : "ACTIVE";
-        const verb = action === "pause" ? "Pause" : "Reactivate";
-
-        if (!confirm(`${verb} this teacher's account?`)) return;
-
-        try {
-            await apiRequest(
-                `${API_BASE}/principal/teachers/${encodeURIComponent(
-                    teacherId
-                )}/status`,
-                {
-                    method: "PATCH",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ status }),
-                }
-            );
-
-            location.reload();
-        } catch (error) {
-            alert(error.message || "Could not update the account status.");
+            actionError.hidden = false;
+            actionError.textContent = error.message || "The action failed.";
+        } finally {
+            confirmButton.disabled = false;
+            confirmButton.textContent = action === "password" ? "Update Password" : "Yes, continue";
         }
     });
 

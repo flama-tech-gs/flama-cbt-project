@@ -23,7 +23,8 @@
 
     <link rel="stylesheet" href="./css/teachers.css" />
       <script src="../../backend/portalAccessGuard.js"></script>
-</head>
+  <script src="../js/notifications.js"></script>
+  </head>
 
   <body>
     <div class="dashboard">
@@ -46,68 +47,68 @@
           <!-- Navigation -->
 
           <nav>
-            <a href="../overview.html" class="nav-link">
+            <a href="../overview" class="nav-link">
               <i data-lucide="layout-dashboard"></i>
 
               <span>Overview</span>
             </a>
 
-            <a href="../data-analysis.html" class="nav-link">
+            <a href="../data-analysis" class="nav-link">
               <i data-lucide="database"></i>
 
               <span>Data Analysis</span>
             </a>
 
-            <a href="../exam-control/exam-control.html" class="nav-link">
+            <a href="../exam-control/exam-control" class="nav-link">
               <i data-lucide="book-check"></i>
 
               <span>Exam Control</span>
             </a>
 
-            <a href="../student-scores.html" class="nav-link">
+            <a href="../student-scores" class="nav-link">
               <i data-lucide="podium"></i>
 
               <span>Student Scores</span>
             </a>
 
-            <a href="../student-reports/student-reports.html" class="nav-link">
+            <a href="../student-reports/student-reports" class="nav-link">
               <i data-lucide="clipboard-check"></i>
 
               <span>Student Reports</span>
             </a>
 
-            <a href="../theory.html" class="nav-link">
+            <a href="../theory" class="nav-link">
               <i data-lucide="book-check"></i>
 
               <span>Theory</span>
             </a>
 
-            <a href="../broadcasts/broadcasts.html" class="nav-link">
+            <a href="../broadcasts/broadcasts" class="nav-link">
               <i data-lucide="megaphone"></i>
 
               <span>Broadcasts</span>
             </a>
 
-            <a href="../students/students.html" class="nav-link">
+            <a href="../students/students" class="nav-link">
               <i data-lucide="person-standing"></i>
 
               <span>Students</span>
             </a>
 
-            <a href="./teachers.html" class="nav-link active">
+            <a href="./teachers" class="nav-link active">
               <i data-lucide="graduation-cap"></i>
 
               <span>Teachers</span>
             </a>
 
-            <a href="../departments/departments.html" class="nav-link">
+            <a href="../departments/departments" class="nav-link">
               <i data-lucide="building-2"></i>
 
               <span>Departments</span>
             </a>
 
             <a
-              href="../submitted-questions/submitted-questions.html"
+              href="../submitted-questions/submitted-questions"
               class="nav-link"
             >
               <i data-lucide="file-text"></i>
@@ -115,7 +116,7 @@
               <span>Submitted Questions</span>
             </a>
 
-            <a href="../profile.html" class="nav-link">
+            <a href="../profile" class="nav-link">
               <i data-lucide="circle-user-round"></i>
 
               <span>Profile</span>
@@ -167,7 +168,7 @@ TOPBAR
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="../assets/image.png" alt="Principal" />
+              <img alt="Principal" />
 
               <div>
                 <h3>Dr. Bankole Okonjo</h3>
@@ -209,8 +210,40 @@ DEPARTMENT ACCORDIONS
       </main>
     </div>
 
-    <script src="./js/teachers.js"></script>
+    <dialog class="teacher-action-dialog" id="teacherActionDialog" aria-labelledby="teacherActionTitle">
+      <div class="teacher-action-dialog__content">
+        <div class="teacher-action-dialog__header">
+          <span class="teacher-action-dialog__icon" aria-hidden="true" data-lucide="user-round-cog"></span>
+          <div><h2 id="teacherActionTitle">Update teacher account</h2><p id="teacherActionDescription"></p></div>
+        </div>
+        <label class="teacher-password-field" id="teacherPasswordField" hidden>
+          <span>New password</span>
+          <input id="newTeacherPassword" type="password" minlength="6" maxlength="128" autocomplete="new-password" placeholder="Enter a new password">
+        </label>
+        <p class="teacher-action-error" id="teacherActionError" role="alert" hidden></p>
+        <div class="teacher-action-dialog__actions">
+          <button class="teacher-dialog-button" id="cancelTeacherAction" type="button">Cancel</button>
+          <button class="teacher-dialog-button teacher-dialog-button--primary" id="confirmTeacherAction" type="button">Yes, continue</button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="teacher-action-dialog" id="teacherActionSuccessDialog" aria-labelledby="teacherActionSuccessTitle">
+      <div class="teacher-action-dialog__content">
+        <div class="teacher-action-dialog__header">
+          <span class="teacher-action-dialog__icon teacher-action-dialog__icon--success" aria-hidden="true" data-lucide="circle-check"></span>
+          <div><h2 id="teacherActionSuccessTitle">Update complete</h2><p id="teacherActionSuccessMessage"></p></div>
+        </div>
+        <dl class="teacher-action-result" id="teacherActionResultDetails"></dl>
+        <div class="teacher-action-dialog__actions">
+          <button class="teacher-dialog-button" id="closeTeacherActionSuccess" type="button">Close</button>
+          <button class="teacher-dialog-button teacher-dialog-button--primary" id="copyTeacherActionValue" type="button" hidden>Copy staff ID</button>
+        </div>
+      </div>
+    </dialog>
+
     <script src="../../backend/principalTeacher.js"></script>
+    <script src="../js/sidebar-nav.js"></script>
 
     <script>
       lucide.createIcons();

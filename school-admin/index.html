@@ -48,19 +48,19 @@
         </button>
 
         <nav class="top-navigation" id="schoolNavigation">
-          <a href="./index.html" class="nav-link active"> Overview </a>
+          <a href="./index" class="nav-link active"> Overview </a>
 
-          <a href="./account-settings.html" class="nav-link">
+          <a href="./account-settings" class="nav-link">
             Account Settings
           </a>
 
-          <a href="./subscription.html" class="nav-link"> Subscription </a>
+          <a href="./subscription" class="nav-link"> Subscription </a>
 
-          <a href="./principal-account.html" class="nav-link">
+          <a href="./principal-account" class="nav-link">
             Principal Account
           </a>
 
-          <a href="./support.html" class="nav-link"> Support </a>
+          <a href="./support" class="nav-link"> Support </a>
         </nav>
       </div>
 
@@ -111,11 +111,16 @@
           </p>
         </div>
 
-        <a id="openSchoolPortal" href="#" class="btn btn-primary">
-          <i data-lucide="arrow-up-right"></i>
-
-          Open School Portal
-        </a>
+        <div class="dashboard-academic-actions">
+          <a href="./sessions" class="btn btn-outline">Create Session</a>
+          <a href="./terms" class="btn btn-outline">Create Term</a>
+          <a href="./classes" class="btn btn-outline">Create Class</a>
+          <a href="./subjects" class="btn btn-outline">Create Subject</a>
+          <a id="openSchoolPortal" href="#" class="btn btn-primary">
+            <i data-lucide="arrow-up-right"></i>
+            Open School Portal
+          </a>
+        </div>
       </section>
 
       <!-- ===================== -->
@@ -265,7 +270,7 @@
             <div class="logo-panel__left">
               <div class="logo-preview" id="school-logo-preview"></div>
 
-              <div id=""school-image3></div>
+              <div id="school-image3"></div>
                 <h4>School Logo</h4>
 
                 <p>PNG • 44KB • Uploaded Jun 2026</p>
@@ -367,7 +372,7 @@
                   </a>
                 </div>
 
-                <button class="btn btn-primary btn-sm">
+                <button class="btn btn-primary btn-sm copy-btn" type="button" data-copy-target="student-portal-url">
                   <i data-lucide="copy"></i>
 
                   Copy
@@ -382,7 +387,7 @@
                   </a>
                 </div>
 
-                <button class="btn btn-primary btn-sm">
+                <button class="btn btn-primary btn-sm copy-btn" type="button" data-copy-target="staff-portal-url">
                   <i data-lucide="copy"></i>
 
                   Copy
@@ -397,7 +402,7 @@
                   </a>
                 </div>
 
-                <button class="btn btn-primary btn-sm">
+                <button class="btn btn-primary btn-sm copy-btn" type="button" data-copy-target="principal-portal-url">
                   <i data-lucide="copy"></i>
 
                   Copy
@@ -555,6 +560,12 @@
     <script>
       lucide.createIcons();
     </script>
+
+    <style>
+      .dashboard-academic-actions { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:10px; }
+      .dashboard-academic-actions .btn-outline { display:inline-flex; align-items:center; justify-content:center; padding:0 16px; border:1px solid #cbdacb; border-radius:10px; color:#2e7d32; background:#fff; text-decoration:none; font-weight:600; }
+      @media(max-width:760px) { .dashboard-academic-actions { width:100%; justify-content:flex-start; } .dashboard-academic-actions a { flex:1 1 140px; min-height:44px; } }
+    </style>
 
     <script src="../backend/api.js"></script>
     <script src="../backend/ownerDashboard.js"></script>

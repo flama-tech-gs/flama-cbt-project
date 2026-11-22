@@ -488,6 +488,21 @@
   color: var(--primary);
 }
 
+.form-actions .btn {
+  min-width: 190px;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.form-actions .btn-secondary {
+  border-color: var(--border);
+}
+
+.form-actions .btn:disabled {
+  cursor: wait;
+  opacity: .7;
+}
+
 /* container */
 .main-container {
   max-width: 1100px;

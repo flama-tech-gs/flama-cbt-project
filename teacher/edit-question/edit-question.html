@@ -60,26 +60,26 @@
           <!-- Navigation -->
 
           <nav>
-            <a href="../overview.html" class="nav-link">
+            <a href="../overview" class="nav-link">
               <i data-lucide="layout-dashboard"></i>
 
               <span>Overview</span>
             </a>
 
-            <a href="../classes.html" class="nav-link">
+            <a href="../classes" class="nav-link">
               <i data-lucide="users"></i>
 
               <span>Classes & Students</span>
             </a>
 
-            <a href="../upload-question/upload.html" class="nav-link">
+            <a href="../upload-question/upload" class="nav-link">
               <i data-lucide="upload"></i>
 
               <span>Upload Questions</span>
             </a>
 
             <a
-              href="../upload-question/uploaded-questions.html"
+              href="../upload-question/uploaded-questions"
               class="nav-link"
             >
               <i data-lucide="files"></i>
@@ -87,42 +87,42 @@
               <span>Uploaded Questions</span>
             </a>
 
-            <a href="../submitted-question/submitted-questions.html" class="nav-link active">
+            <a href="../submitted-question/submitted-questions" class="nav-link active">
               <i data-lucide="clipboard-check"></i>
 
               <span>Submitted Questions</span>
             </a>
 
             <a
-              href="../notifications/notifications.html"
+              href="../notifications/notifications"
               class="nav-link notification-link"
             >
               <i data-lucide="bell"></i>
 
               <span>Notifications</span>
 
-              <span class="badge"> 2 </span>
+              <span class="badge" hidden></span>
             </a>
 
-            <a href="../student-scores/student-scores.html" class="nav-link">
+            <a href="../student-scores/student-scores" class="nav-link">
               <i data-lucide="bar-chart-3"></i>
 
               <span>Student Scores</span>
             </a>
 
-            <a href="../theory/theory.html" class="nav-link">
+            <a href="../theory/theory" class="nav-link">
               <i data-lucide="book-open"></i>
 
               <span>Theory</span>
             </a>
 
-            <a href="../recorded-theory/recorded-theory.html" class="nav-link">
+            <a href="../recorded-theory/recorded-theory" class="nav-link">
               <i data-lucide="file-text"></i>
 
               <span>Recorded Theory</span>
             </a>
 
-            <a href="../profile/profile.html" class="nav-link">
+            <a href="../profile/profile" class="nav-link">
               <i data-lucide="user-circle"></i>
 
               <span>Profile</span>
@@ -164,12 +164,12 @@ TOPBAR
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="../assets/image.png" alt="Teacher" />
+              <img alt="Teacher profile" />
 
               <div>
-                <h3>Mrs. Adebayo Folake</h3>
+                <h3>Teacher</h3>
 
-                <p>Biology Teacher</p>
+                <p>Teacher</p>
               </div>
             </div>
           </div>
@@ -180,10 +180,10 @@ TOPBAR
 BACK BUTTON
 ========================================== -->
 
-          <a href="../question-bank/question-bank.html" class="back-btn">
+          <a href="../submitted-question/submitted-questions" class="back-btn">
             <i data-lucide="arrow-left"></i>
 
-            Back to Question Bank
+            Back to Submitted Questions
           </a>
 
           <!-- ==========================================
@@ -194,31 +194,31 @@ SUMMARY
             <div class="summary-item">
               <span>Subject</span>
 
-              <strong>Biology</strong>
+              <strong>—</strong>
             </div>
 
             <div class="summary-item">
               <span>Class</span>
 
-              <strong>JSS 3B</strong>
+              <strong>—</strong>
             </div>
 
             <div class="summary-item">
               <span>Term</span>
 
-              <strong>2nd Term</strong>
+              <strong>—</strong>
             </div>
 
             <div class="summary-item">
               <span>Question</span>
 
-              <strong id="questionCounter"> 1 of 50 </strong>
+              <strong id="questionCounter">—</strong>
             </div>
 
             <div class="summary-item">
               <span>Exam Status</span>
 
-              <span class="badge pending"> Pending Approval </span>
+              <span class="badge">—</span>
             </div>
           </section>
 
@@ -227,7 +227,7 @@ QUESTION
 ========================================== -->
 
           <section class="question-builder">
-            <h2>Question <span id="questionNumber">1</span></h2>
+            <h2>Question <span id="questionNumber">—</span></h2>
 
             <div class="question-field">
               <label>Question Text</label>
@@ -381,7 +381,7 @@ SUBMIT BAR
         <a
           id="backToSubmittedQuestions"
           class="approval-success-primary"
-          href="../submitted-question/submitted-questions.html"
+          href="../submitted-question/submitted-questions"
         >
           Back to Submitted Questions
         </a>
@@ -389,12 +389,13 @@ SUBMIT BAR
       </section>
     </div>
 
-    <script src="./js/edit-question.js"></script>
+    <!-- Demo question editor disabled; backend/teacherEditQuestion.js supplies live data and actions. -->
     <script src="../../backend/teacherEditQuestion.js"></script>
 
     <script>
       lucide.createIcons();
     </script>
     <script src="../js/sidebar-nav.js"></script>
+    <script src="../../backend/teacherFeedback.js"></script>
   </body>
 </html>

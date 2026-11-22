@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ? "localhost"
             : (window.FLAMA_SCHOOL_DOMAIN || "creativesbee.site");
         const port = isLocal && window.location.port ? `:${window.location.port}` : "";
-        const url = new URL("/auth/login.html", `${isLocal ? "http" : "https"}://${value}.${domain}${port}`);
+        const url = new URL("/auth/login", `${isLocal ? "http" : "https"}://${value}.${domain}${port}`);
         return url.toString();
     }
 
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (preview) {
             preview.textContent =
                 portalUrl(value) ||
-                "https://your-school.creativesbee.site/auth/login.html";
+                "https://your-school.creativesbee.site/auth/login";
         }
     }
 
@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
             saveRegistration("portalActivated", true);
 
 
-            window.location.href = "./portal-activated.html";
+            window.location.href = "./portal-activated";
         } catch (error) {
 
             showStatus(typeof getApiErrorMessage === "function"

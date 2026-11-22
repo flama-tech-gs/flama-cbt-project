@@ -24,7 +24,8 @@
 
     <link rel="stylesheet" href="./css/add-teacher.css" />
       <script src="../../backend/portalAccessGuard.js"></script>
-</head>
+  <script src="../js/notifications.js"></script>
+  </head>
 
   <body>
     <div class="dashboard">
@@ -47,68 +48,68 @@
           <!-- Navigation -->
 
           <nav>
-            <a href="../overview.html" class="nav-link">
+            <a href="../overview" class="nav-link">
               <i data-lucide="layout-dashboard"></i>
 
               <span>Overview</span>
             </a>
 
-            <a href="../data-analysis.html" class="nav-link">
+            <a href="../data-analysis" class="nav-link">
               <i data-lucide="database"></i>
 
               <span>Data Analysis</span>
             </a>
 
-            <a href="../exam-control/exam-control.html" class="nav-link">
+            <a href="../exam-control/exam-control" class="nav-link">
               <i data-lucide="book-check"></i>
 
               <span>Exam Control</span>
             </a>
 
-            <a href="../student-scores.html" class="nav-link">
+            <a href="../student-scores" class="nav-link">
               <i data-lucide="podium"></i>
 
               <span>Student Scores</span>
             </a>
 
-            <a href="../student-reports/student-reports.html" class="nav-link">
+            <a href="../student-reports/student-reports" class="nav-link">
               <i data-lucide="clipboard-check"></i>
 
               <span>Student Reports</span>
             </a>
 
-            <a href="../theory.html" class="nav-link">
+            <a href="../theory" class="nav-link">
               <i data-lucide="book-check"></i>
 
               <span>Theory</span>
             </a>
 
-            <a href="../broadcasts/broadcasts.html" class="nav-link">
+            <a href="../broadcasts/broadcasts" class="nav-link">
               <i data-lucide="megaphone"></i>
 
               <span>Broadcasts</span>
             </a>
 
-            <a href="../students/students.html" class="nav-link">
+            <a href="../students/students" class="nav-link">
               <i data-lucide="person-standing"></i>
 
               <span>Students</span>
             </a>
 
-            <a href="./teachers.html" class="nav-link active">
+            <a href="./teachers" class="nav-link active">
               <i data-lucide="graduation-cap"></i>
 
               <span>Teachers</span>
             </a>
 
-            <a href="../departments/departments.html" class="nav-link">
+            <a href="../departments/departments" class="nav-link">
               <i data-lucide="building-2"></i>
 
               <span>Departments</span>
             </a>
 
             <a
-              href="../submitted-questions/submitted-questions.html"
+              href="../submitted-questions/submitted-questions"
               class="nav-link"
             >
               <i data-lucide="file-text"></i>
@@ -116,7 +117,7 @@
               <span>Submitted Questions</span>
             </a>
 
-            <a href="../profile.html" class="nav-link">
+            <a href="../profile" class="nav-link">
               <i data-lucide="circle-user-round"></i>
 
               <span>Profile</span>
@@ -164,7 +165,7 @@
 
             <div class="topbar-right">
               <div class="teacher-profile">
-                <img src="../assets/image.png" alt="Principal" />
+                <img alt="Principal" />
 
                 <div>
                   <h3>Dr. Bankole Okonjo</h3>
@@ -181,7 +182,7 @@
     =========================================== -->
 
             <div class="back-navigation">
-              <a href="teachers.html" class="back-button">
+              <a href="teachers" class="back-button">
                 <i data-lucide="arrow-left"></i>
               </a>
 
@@ -244,7 +245,7 @@
                   <div class="form-group">
                     <label>Other Names</label>
 
-                    <input type="text" placeholder="e.g Mojisola" />
+                    <input id="otherNames" type="text" placeholder="e.g Mojisola" />
                   </div>
                 </div>
 
@@ -308,18 +309,6 @@
 
                     <select id="department">
                       <option value="">Select department</option>
-
-                      <option>Science Department</option>
-
-                      <option>Mathematics Department</option>
-
-                      <option>Languages Department</option>
-
-                      <option>Arts Department</option>
-
-                      <option>Commercial Department</option>
-
-                      <option>Vocational Department</option>
                     </select>
                   </div>
                 </div>
@@ -434,11 +423,11 @@
               <!-- ACTIONS -->
 
               <div class="form-actions">
-                <button type="submit" class="primary-btn">
+                <button type="submit" class="btn btn-primary">
                   Create Teacher Account
                 </button>
 
-                <button type="reset" class="secondary-btn">Cancel</button>
+                <button type="button" class="btn btn-secondary" id="cancelTeacherCreation">Cancel</button>
               </div>
             </form>
           </div>

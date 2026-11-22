@@ -14,7 +14,7 @@ const notifications = [
       'Dr. Bankole Okonjo: "Question 12 has two correct options — please review and resubmit."',
     time: "Today, 2:14 PM",
     action: "Edit Question",
-    url: "../edit-question/edit-question.html?question=12",
+    url: "../edit-question/edit-question?question=12",
     unread: true,
   },
 
@@ -26,7 +26,7 @@ const notifications = [
       "Dr. Bankole Okonjo approved your submission. It's now ready to be scheduled or pushed live.",
     time: "Today, 10:32 AM",
     action: "View Exam",
-    url: "../question-bank/question-bank.html",
+    url: "../question-bank/question-bank",
     unread: true,
   },
 
@@ -37,7 +37,7 @@ const notifications = [
     message: "Dr. Bankole Okonjo approved your submission of 35 questions.",
     time: "Yesterday, 4:50 PM",
     action: "View Exam",
-    url: "../question-bank/question-bank.html",
+    url: "../question-bank/question-bank",
     unread: false,
   },
 
@@ -48,7 +48,7 @@ const notifications = [
     message: "Dr. Bankole Okonjo approved your submission of 40 questions.",
     time: "Jun 14, 2026",
     action: "View Exam",
-    url: "../question-bank/question-bank.html",
+    url: "../question-bank/question-bank",
     unread: false,
   },
 ];

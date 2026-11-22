@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const TOKEN_KEY = "flamaAccessToken";
   const REFRESH_TOKEN_KEY = "flamaRefreshToken";
-  const DASHBOARD_URL = "../school-admin/index.html";
+  const DASHBOARD_URL = "../school-admin/index";
 
   if (!loginForm) {
     return;
@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formAlert.hidden = false;
     formAlert.classList.remove("success", "error");
     formAlert.classList.add(type);
+    formAlert.classList.add("show");
   }
 
   function clearAlert() {
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formAlert.textContent = "";
     formAlert.hidden = true;
     formAlert.classList.remove("success", "error");
+    formAlert.classList.remove("show");
   }
 
   function setLoading(isLoading) {
@@ -276,9 +278,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         localStorage.setItem("schoolRegistration", JSON.stringify(registration));
 
-        const nextStep = resumeData.nextStep === "register-step3.html" &&
+        const nextStep = resumeData.nextStep === "register-step3" &&
           keepSavedPlan && (registration.selectedPlan || registration.plan)
-          ? "register-step4.html"
+          ? "register-step4"
           : resumeData.nextStep;
         window.location.assign(`./${nextStep}`);
         return;
@@ -320,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (isUnverified) {
         const verifyUrl = new URL(
-          "./verify-email.html",
+          "./verify-email",
           window.location.href
         );
 
@@ -330,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       showAlert(error?.status === 401
-        ? "Email or password is incorrect. Please try again."
+        ? "Invalid login details"
         : typeof getApiErrorMessage === "function"
           ? getApiErrorMessage(error, "Email or password is incorrect. Please try again.")
           : "Email or password is incorrect. Please try again.");

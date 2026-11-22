@@ -32,7 +32,7 @@ function getToken() {
     const token = sessionStorage.getItem(TOKEN_KEY);
 
     if (!token) {
-        window.location.replace("../index.html");
+        window.location.replace("../index");
         throw new Error("Your login session has expired. Please log in again.");
     }
 
@@ -524,7 +524,7 @@ function handleIntegrationClick(event) {
 
         if (action === "schedule") {
             window.location.assign(
-                `./schedule-exam.html?examId=${encodeURIComponent(examId)}`
+                `./schedule-exam?examId=${encodeURIComponent(examId)}`
             );
         }
 

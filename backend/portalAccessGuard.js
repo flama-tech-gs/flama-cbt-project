@@ -7,32 +7,32 @@
     student: {
       tokenKeys: ["studentAccessToken", "tenantAccessToken"],
       tokenType: "student",
-      login: "/student/index.html",
+      login: "/student/index",
       check: "/student-dashboard/profile",
     },
     teacher: {
       tokenKeys: ["teacherAccessToken", "tenantAccessToken"],
       tokenType: "teacher",
-      login: "/teacher/index.html",
+      login: "/teacher/index",
       check: "/teacher-dashboard/profile",
     },
     principal: {
       tokenKeys: ["principalAccessToken", "tenantAccessToken"],
       tokenType: "principal",
-      login: "/principal/index.html",
+      login: "/principal/index",
       check: "/principal/profile",
     },
     "school-admin": {
       tokenKeys: ["flamaAccessToken"],
       tokenType: "tenant",
       requiredRole: "SCHOOL_OWNER",
-      login: "/auth/login.html",
+      login: "/auth/login",
       check: "/owner/dashboard",
     },
     "platform-admin": {
       tokenKeys: ["adminAccessToken", "flamaAccessToken", "accessToken"],
       tokenType: "admin",
-      login: "/platform-admin/admin-login.html",
+      login: "/platform-admin/admin-login",
       check: "/admin/auth/me",
     },
   }[portal];

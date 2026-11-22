@@ -42,7 +42,7 @@ function scheduleGetToken() {
     const token = sessionStorage.getItem(SCHEDULE_TOKEN_KEY);
 
     if (!token) {
-        window.location.replace("../index.html");
+        window.location.replace("../index");
         throw new Error("Your login session has expired. Please log in again.");
     }
 
@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document
         .getElementById("cancelSchedule")
         ?.addEventListener("click", () => {
-            window.location.assign("./exam-control.html");
+            window.location.assign("./exam-control");
         });
 
     try {

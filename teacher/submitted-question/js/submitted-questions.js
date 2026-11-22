@@ -173,6 +173,6 @@ Edit
 
 document.querySelectorAll(".edit-btn").forEach((button) => {
   button.addEventListener("click", () => {
-    window.location.href = "../edit-question/edit-question.html?question=1";
+    window.location.href = "../edit-question/edit-question?question=1";
   });
 });

@@ -107,7 +107,7 @@ function initializeDropdown() {
   logoutButton?.addEventListener("click", () => {
     localStorage.removeItem("schoolRegistration");
     sessionStorage.clear();
-    window.location.href = "../auth/login.html";
+    window.location.href = "../auth/login";
   });
 }
 
@@ -197,5 +197,5 @@ function showNotification(message) {
 const aboutBtn = document.getElementById("aboutBtn");
 
 aboutBtn.addEventListener("click", () => {
-  window.location.href = "./edit-school-details.html";
+  window.location.href = "./edit-school-details";
 });

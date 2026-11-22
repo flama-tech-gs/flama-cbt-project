@@ -113,6 +113,10 @@
 .exam-form-message { color: #58665d; font-size: 13px; min-height: 20px; padding-top: 12px; }
 .exam-form-message[data-type="error"], .exam-form-error { color: #b42318; }
 .exam-form-message[data-type="success"] { color: #1f7837; }
+.exam-toast-region { display: grid; gap: 10px; position: fixed; right: 20px; top: 20px; width: min(390px, calc(100vw - 40px)); z-index: 12000; }
+.exam-toast { animation: examToastIn .2s ease-out; background: #fff; border: 1px solid #c7e3ca; border-left: 4px solid #25813b; border-radius: 10px; box-shadow: 0 12px 32px rgb(22 56 26 / 15%); color: #264b2a; font-size: 14px; font-weight: 600; line-height: 1.45; padding: 15px 17px; }
+.exam-toast.is-error { border-color: #ffd0cc; border-left-color: #c0392b; color: #9c241c; }
+@keyframes examToastIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
 .exam-form-actions { border-top: 1px solid #e9eee9; display: flex; gap: 10px; justify-content: flex-end; margin-top: 8px; padding-top: 16px; }
 body.exam-modal-open { overflow: hidden; }
 

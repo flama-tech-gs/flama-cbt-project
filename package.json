@@ -1,0 +1,9 @@
+{
+  "name": "flama-cbt-frontend",
+  "private": true,
+  "scripts": { "build": "node scripts/build.mjs" },
+  "dependencies": {
+    "esbuild": "^0.25.0",
+    "html-minifier-terser": "^7.2.0"
+  }
+}

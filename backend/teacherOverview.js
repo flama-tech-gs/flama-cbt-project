@@ -225,7 +225,7 @@
             <td>
               <a
                 class="table-action"
-                href="./classes.html?${query.toString()}"
+                href="./classes?${query.toString()}"
               >View</a>
             </td>
           </tr>
@@ -236,7 +236,7 @@
 
   async function loadOverview() {
     if (!token) {
-      window.location.assign("./login.html");
+      window.location.assign("/teacher/index");
       return;
     }
 
@@ -293,7 +293,7 @@
     sessionStorage.removeItem("teacherRefreshToken");
     sessionStorage.removeItem("tenantAccessToken");
     sessionStorage.removeItem("teacherUser");
-    window.location.assign("./login.html");
+    window.location.assign("/teacher/index");
   });
 
   loadOverview();

@@ -2,16 +2,16 @@
   "use strict";
 
   const mobileOrTablet = window.matchMedia("(max-width: 1024px)");
-  const redirectToLogin = () => {
-    window.location.replace(new URL("../index.html", window.location.href).href);
+  const returnToExamList = () => {
+    window.location.replace(new URL("/student/pages/exam-start?device=unsupported", window.location.origin).href);
   };
 
   if (mobileOrTablet.matches) {
-    redirectToLogin();
+    returnToExamList();
     return;
   }
 
   mobileOrTablet.addEventListener("change", (event) => {
-    if (event.matches) redirectToLogin();
+    if (event.matches) returnToExamList();
   });
 })();

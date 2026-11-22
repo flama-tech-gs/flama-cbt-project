@@ -427,7 +427,7 @@
     });
 
     cancelButton?.addEventListener("click", () => {
-        window.location.href = "./departments.html";
+        window.location.href = "./departments";
     });
 
     deleteButton?.addEventListener("click", () => {

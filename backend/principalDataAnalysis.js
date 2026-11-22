@@ -106,9 +106,15 @@ function renderBranding(school, principal) {
     setText("principalName", principal?.name, "Principal");
 
     const principalImage = document.getElementById("principalImage");
-    if (principalImage && principal?.image) {
-        principalImage.src = principal.image;
-        principalImage.alt = principal.name || "Principal";
+    if (principalImage) {
+        if (principal?.image || principal?.profileImage) {
+            principalImage.src = principal.image || principal.profileImage;
+            principalImage.alt = principal.name || "Principal";
+            principalImage.hidden = false;
+        } else {
+            principalImage.removeAttribute("src");
+            principalImage.hidden = true;
+        }
     }
 }
 
@@ -256,7 +262,7 @@ async function loadAnalysis({ populateFilters = false } = {}) {
     const token = sessionStorage.getItem(TOKEN_KEY);
 
     if (!token) {
-        window.location.replace("./index.html");
+        window.location.replace("./index");
         return;
     }
 
@@ -312,7 +318,7 @@ async function loadAnalysis({ populateFilters = false } = {}) {
             sessionStorage.removeItem(TOKEN_KEY);
             sessionStorage.removeItem("principalRefreshToken");
             sessionStorage.removeItem("principalAccount");
-            window.location.replace("./index.html");
+            window.location.replace("./index");
             return;
         }
 

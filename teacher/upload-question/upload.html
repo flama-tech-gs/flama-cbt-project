@@ -51,32 +51,32 @@
           <!-- Navigation -->
 
           <nav>
-            <a href="../overview.html" class="nav-link">
+            <a href="../overview" class="nav-link">
               <i data-lucide="layout-dashboard"></i>
 
               <span>Overview</span>
             </a>
 
-            <a href="../classes.html" class="nav-link">
+            <a href="../classes" class="nav-link">
               <i data-lucide="users"></i>
 
               <span>Classes & Students</span>
             </a>
 
-            <a href="./upload.html" class="nav-link active">
+            <a href="./upload" class="nav-link active">
               <i data-lucide="upload"></i>
 
               <span>Upload Questions</span>
             </a>
 
-            <a href="./uploaded-questions.html" class="nav-link">
+            <a href="./uploaded-questions" class="nav-link">
               <i data-lucide="files"></i>
 
               <span>Uploaded Questions</span>
             </a>
 
             <a
-              href="../submitted-question/submitted-questions.html"
+              href="../submitted-question/submitted-questions"
               class="nav-link"
             >
               <i data-lucide="clipboard-check"></i>
@@ -85,35 +85,35 @@
             </a>
 
             <a
-              href="../notifications/notifications.html"
+              href="../notifications/notifications"
               class="nav-link notification-link"
             >
               <i data-lucide="bell"></i>
 
               <span>Notifications</span>
 
-              <span class="badge"> 2 </span>
+              <span class="badge" hidden></span>
             </a>
 
-            <a href="../student-scores/student-scores.html" class="nav-link">
+            <a href="../student-scores/student-scores" class="nav-link">
               <i data-lucide="bar-chart-3"></i>
 
               <span>Student Scores</span>
             </a>
 
-            <a href="../theory/theory.html" class="nav-link">
+            <a href="../theory/theory" class="nav-link">
               <i data-lucide="book-open"></i>
 
               <span>Theory</span>
             </a>
 
-            <a href="../recorded-theory/recorded-theory.html" class="nav-link">
+            <a href="../recorded-theory/recorded-theory" class="nav-link">
               <i data-lucide="file-text"></i>
 
               <span>Recorded Theory</span>
             </a>
 
-            <a href="../profile/profile.html" class="nav-link">
+            <a href="../profile/profile" class="nav-link">
               <i data-lucide="user-circle"></i>
 
               <span>Profile</span>
@@ -156,12 +156,12 @@
 
           <div class="topbar-right">
             <div class="teacher-profile">
-              <img src="../assets/image.png" alt="Teacher" />
+              <img alt="Teacher profile" />
 
               <div>
-                <h3>Mrs. Adebayo Folake</h3>
+                <h3>Teacher</h3>
 
-                <p>Biology Teacher</p>
+                <p>Teacher</p>
               </div>
             </div>
           </div>
@@ -207,7 +207,7 @@
                   <input
                     id="sessionInput"
                     type="text"
-                    placeholder="2025/2026"
+                  placeholder="Select an academic session"
                   />
                 </div>
 
@@ -466,5 +466,6 @@
       lucide.createIcons();
     </script>
     <script src="../js/sidebar-nav.js"></script>
+    <script src="../../backend/teacherFeedback.js"></script>
   </body>
 </html>

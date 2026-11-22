@@ -176,3 +176,9 @@ flama-cbt-platform/
 └── README.md
 
 ```
+
+### Production build
+
+The frontend is a multi-page static site. Run `npm install` and then `npm run build` to create a production copy in `dist/`. The build minifies HTML and JavaScript and combines compatible classic scripts used by each page into bundles while preserving the existing page paths. Source pages remain unchanged.
+
+For the Render static site, use `npm install && npm run build` as the build command and `dist` as the publish directory.
